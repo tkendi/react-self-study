@@ -1,0 +1,45 @@
+@import 'utils.scss';
+
+.SassComponent {
+  display: flex;
+  background: $oc-gray-2;
+
+  @include media('<768px') {
+      background: $oc-gray-9;
+  }
+
+  &.red {
+    background: $red;
+    @include square(1);
+  }
+
+  &.orange {
+    background: $orange;
+    @include square(2);
+  }
+
+  &.yellow {
+    background: $yellow;
+    @include square(3);
+  }
+
+  &.blue {
+    background: $blue;
+    @include square(4);
+  }
+
+  &.indigo {
+    background: $indigo;
+    @include square(5);
+  }
+
+  &.violet {
+    background: $violet;
+    @include square(6);
+  }
+
+  &:hover {
+    //.box에 마우스를 올렸을 때
+    background: black;
+  }
+}

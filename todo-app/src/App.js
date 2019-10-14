@@ -15,6 +15,18 @@ function createBulkTodos() {
   return array;
 }
 
+function todoReducer(todos, action) {
+  swtich (action.type) {
+    case 'INSERT':  //새로추가
+      //{type: 'INSERT', todo: {id: 1, text: 'todo', checked: false}}
+      return todos.concat(action.todo);
+    case 'REMOVE' ://제거
+      //{type: 'REMOVE', id: 1}
+      return todos.filter(todo => todo.id !== action.id);
+
+  }
+}
+
 const App = () => {
   const [todos, setTodos] = useState(createBulkTodos);
 

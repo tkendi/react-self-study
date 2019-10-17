@@ -866,9 +866,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var divToggle = document.querySelector(".toggle");
 var counter = document.querySelector("h1");
-var btnIncrease = document.querySelector("#id");
-var btnDecrease = document.querySelector("#derease");
-var store = (0, _redux.createStore)(reducer);
+var btnIncrease = document.querySelector("#increase");
+var btnDecrease = document.querySelector("#decrease");
 var TOGGLE_SWITCH = "TOGGLE_SWITCH";
 var INCREASE = "INCREASE";
 var DECREASE = "DECREASE";
@@ -886,7 +885,7 @@ var increase = function increase(difference) {
   };
 };
 
-var decrase = function decrase() {
+var decrease = function decrease() {
   return {
     type: DECREASE
   };
@@ -905,7 +904,7 @@ function reducer() {
   switch (action.type) {
     case TOGGLE_SWITCH:
       return _objectSpread({}, state, {
-        //불변성 유지  ... => spread 연산자
+        //불변성 유지
         toggle: !state.toggle
       });
 
@@ -916,7 +915,7 @@ function reducer() {
 
     case DECREASE:
       return _objectSpread({}, state, {
-        coutner: state.counter - 1
+        counter: state.counter - 1
       });
 
     default:
@@ -924,14 +923,16 @@ function reducer() {
   }
 }
 
+var store = (0, _redux.createStore)(reducer);
+
 var render = function render() {
-  var state = store.getState(); //현재 상태를 불러옴
+  var state = store.getState(); //현재 상태를 불러옵니다
   //토글 처리
 
   if (state.toggle) {
     divToggle.classList.add('active');
   } else {
-    divToggle.classList.remove('active');
+    divToggle.classList.remove('action');
   } //카운터 처리
 
 
@@ -939,14 +940,14 @@ var render = function render() {
 };
 
 render();
-store.subscribe(render);
+store.subscribe(render());
 
 divToggle.onClick = function () {
   store.dispatch(toggleSwitch());
 };
 
 btnIncrease.onClick = function () {
-  store.dispatch(increase(1));
+  store.dispatch(increase());
 };
 
 btnDecrease.onClick = function () {
@@ -980,7 +981,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51074" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51441" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

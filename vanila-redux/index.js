@@ -1,10 +1,9 @@
-import {createStore} from 'redux';
+import { createStore } from "redux";
 
 const divToggle = document.querySelector(".toggle");
 const counter = document.querySelector("h1");
-const btnIncrease = document.querySelector("#id");
-const btnDecrease = document.querySelector("#derease");
-const store = createStore(reducer);
+const btnIncrease = document.querySelector("#increase");
+const btnDecrease = document.querySelector("#decrease");
 
 const TOGGLE_SWITCH = "TOGGLE_SWITCH";
 const INCREASE = "INCREASE";
@@ -12,7 +11,7 @@ const DECREASE = "DECREASE";
 
 const toggleSwitch = () => ({ type: TOGGLE_SWITCH });
 const increase = difference => ({ type: INCREASE, difference });
-const decrase = () => ({ type: DECREASE });
+const decrease = () => ({ type: DECREASE });
 
 const initialState = {
   toggle: false,
@@ -20,13 +19,12 @@ const initialState = {
 };
 
 //state가 undefined일 때는 initialState를 기본값으로 사용
-
 function reducer(state = initialState, action) {
   //action.type에 따라 다른 작업을 처리함
   switch (action.type) {
     case TOGGLE_SWITCH:
       return {
-        ...state, //불변성 유지  ... => spread 연산자
+        ...state, //불변성 유지
         toggle: !state.toggle
       };
     case INCREASE:
@@ -37,20 +35,22 @@ function reducer(state = initialState, action) {
     case DECREASE:
       return {
         ...state,
-        coutner: state.counter - 1
+        counter: state.counter - 1
       };
     default:
       return state;
   }
 }
 
+const store = createStore(reducer);
+
 const render = () => {
-    const state = store.getState();    //현재 상태를 불러옴
+    const state = store.getState();     //현재 상태를 불러옵니다
     //토글 처리
-    if(state.toggle) {
+    if (state.toggle) {
         divToggle.classList.add('active');
-    } else {
-        divToggle.classList.remove('active');
+    }else {
+        divToggle.classList.remove('action');  
     }
 
     //카운터 처리
@@ -58,14 +58,14 @@ const render = () => {
 };
 
 render();
-store.subscribe(render);
+store.subscribe(render());
 
 divToggle.onClick = () => {
     store.dispatch(toggleSwitch());
 };
 
 btnIncrease.onClick = () => {
-    store.dispatch(increase(1));
+    store.dispatch(increase());
 };
 
 btnDecrease.onClick = () => {

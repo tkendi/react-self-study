@@ -5,20 +5,6 @@ const counter = document.querySelector("h1");
 const btnIncrease = document.querySelector("#id");
 const btnDecrease = document.querySelector("#derease");
 const store = createStore(reducer);
-const render = () => {
-    const state = store.getState();    //현재 상태를 불러옴
-    //토글 처리
-    if(state.toggle) {
-        divToggle.classList.add('active');
-    } else {
-        divToggle.classList.remove('active');
-    }
-
-    //카운터 처리
-    counter.innerText = state.counter;
-};
-
-render();
 
 const TOGGLE_SWITCH = "TOGGLE_SWITCH";
 const INCREASE = "INCREASE";
@@ -57,3 +43,31 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+
+const render = () => {
+    const state = store.getState();    //현재 상태를 불러옴
+    //토글 처리
+    if(state.toggle) {
+        divToggle.classList.add('active');
+    } else {
+        divToggle.classList.remove('active');
+    }
+
+    //카운터 처리
+    counter.innerText = state.counter;
+};
+
+render();
+store.subscribe(render);
+
+divToggle.onClick = () => {
+    store.dispatch(toggleSwitch());
+};
+
+btnIncrease.onClick = () => {
+    store.dispatch(increase(1));
+};
+
+btnDecrease.onClick = () => {
+    store.dispatch(decrease());
+};

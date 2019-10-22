@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {increaseAsync, decreaseAsync} from '../moduels/counter';
 import Counter from './Counter';
 
-const CounterContainer = ({number, increase, decrease}) => {
+const CounterContainer = ({number, increaseAsync, decreaseAsync}) => {
     return (
         <Counter 
             number = {number} 

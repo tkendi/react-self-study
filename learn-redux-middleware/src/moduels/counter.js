@@ -3,8 +3,8 @@ import { delay, put, takeEvery, takeLatest } from "redux-saga/effects";
 
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
-const increaseAsync = 'counter/INCREASE_ASYNC';
-const decreaseAsync = 'counter/DECREASE_ASYNC';
+const INCREASE_ASYNC = 'counter/INCREASE_ASYNC';
+const DECREASE_ASYNC = 'counter/DECREASE_ASYNC';
 
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
@@ -29,7 +29,7 @@ export function* counterSaga() {
     yield takeEvery(INCREASE_ASYNC, increaseSaga);
     //takeLastest는 기존에 진행 중인 작업을 취소하고 가장 마지막으로
     //실행 되었던 작업 수행
-    yield takeLastest(DECREASE_ASYNC, decreaseSaga);
+    yield takeLatest(DECREASE_ASYNC, decreaseSaga);
 }
 
 const initialState = 0; 

@@ -1,13 +1,30 @@
-import React from 'react';
+import React, {useState, Suspense} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import loadable from '@loadable/component';   //서버 사이드 렌더링 할 때 권장한다.
+
+const SplitMe = loadable(() => import('./SplitMe'), {
+  fallback: <div>loading...</div>
+});
 
 function App () {
+  const [visible, setVisible] = useState(false);
+  const onClick = () => {
+    setVisible(true);
+  };
+
+  const onMouseOver = () => {
+    SplitMe.preload();
+  };
+
   return (
     <div className = "App">
       <header className = "App-header">
         <img src = {logo} className = "App-logo" alt = "logo" />
-        <p>Hello React</p>
+        <p onClick = {onClick} onMouseOver = {onMouseOver}>Hello React</p>
+        <Suspense fallback = {<div>loading...</div>}>
+          {visible && <SplitMe />}
+        </Suspense>
       </header>
     </div>
   );

@@ -34,7 +34,7 @@ export function* counterSaga() {
     yield takeLatest(DECREASE_ASYNC, decreaseSaga);
 }
 
-const initialState = 0; 
+const initialState = 0;
 
 const counter = handleActions (
     {

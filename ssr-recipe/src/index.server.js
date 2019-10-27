@@ -1,8 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 
 const html = ReactDOMServer.renderToString(
-    <div>Hello Server Side Rendering</div>
+    <div>
+        Hello Server Side Rendering
+    </div>
 );
 
 console.log(html);

@@ -1,23 +1,12 @@
 {
-  "name": "learn-redux-middleware",
+  "name": "splitting-sample",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-redux": "^7.1.1",
-    "react-scripts": "3.2.0",
-    "redux": "^4.0.4",
-    "redux-actions": "^2.6.5",
-<<<<<<< HEAD
-    "redux-logger": "^3.0.6",
-=======
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6",
-    "redux-saga": "^1.1.1",
->>>>>>> 3dd7a1be6e4285c5b174b04dff6aadd9803d322c
-    "redux-thunk": "^2.3.0"
+    "@loadable/component": "^5.10.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -37,14 +37,16 @@ module.exports = {
                                 'babel-preset-react-app/webpack-overrides'
                             ),
                             plugins: [
-                                require.resolve('babel-plugin-named-asset-import'),
-                                {
-                                    loaderMap: {
-                                        svg: {
-                                            ReactComponent: '@svgr/webpack?-svgo![path]'
+                                [
+                                    require.resolve('babel-plugin-named-asset-import'),
+                                    {
+                                        loaderMap: {
+                                            svg: {
+                                                ReactComponent: '@svgr/webpack?-svgo![path]'
+                                            }
                                         }
                                     }
-                                }
+                                ]
                             ],
                             cacheDirectory: true,
                             cacheCompression: false,

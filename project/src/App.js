@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import TOC from './components/TOC';
 import Content from './components/Content';
 import Subject from './components/Subject';
@@ -8,7 +7,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode: 'welcome',
       Subject: { title: 'WEB', sub: 'World Wide Web!' },
+      welcome: { title: 'Welcome', desc: 'Hello React' },
       contents: [
         { id: 1, title: 'HTML', desc: 'HTML is for information ' },
         { id: 2, title: 'CSS', desc: 'CSS is for design' },
@@ -18,14 +19,31 @@ class App extends Component {
   }
 
   render() {
+    console.log('App render');
+
+    var _title, _desc = null;
+
+    if (this.state.mode === 'welcome') {
+      _title = this.state.welcome.title;
+      _desc = this.state.welcome.desc;
+    } else if(this.state.mode === 'read') {
+      _title = this.state.contents[0].title;
+      _desc = this.state.contents[0].desc;
+    }
     return (
       <div className="App">
-        <Subject
-          title={this.state.Subject.title}
-          sub={this.state.Subject.sub}>
-        </Subject>
+        <header>
+          <h1><a href = "/" onClick = {function(e){
+            console.log(e);
+            e.preventDefault();     //rendering 안하게 함
+            this.setState({
+              mode: 'welcome'
+            });
+          }.bind(this)}>{this.state.Subject.title}</a></h1>
+          {this.state.Subject.sub}
+        </header>
         <TOC data={this.state.contents}></TOC>
-        <Content title="HTML" sub="HTML is HyperText MarkUp Language"></Content>
+        <Content title={_title} sub={_desc}></Content>
       </div>
     );
   }

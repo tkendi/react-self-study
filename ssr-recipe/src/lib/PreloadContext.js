@@ -2,11 +2,12 @@ import {createContext, useContext} from 'react';
 
 //클라이언트 환경: null
 //서버 환경: {done: false, promises: []}
-const PreloaderContext = createContext(null);
+const PreloadContext = createContext(null);
+export default PreloadContext;
 
 //resolve는 함수타입
 export const Preloader = ({resolve}) => {
-    const preloaderContext = useContext(PreloaderContext);
+    const preloaderContext = useContext(PreloadContext);
     if(!preloaderContext) return null;  //context 값이 유효하지 않다면 아무것도 하지않음
     if(preloaderContext.done)   return null;    //이미 작업이 끝났다면 아무것도 하지 않음
 
@@ -16,3 +17,11 @@ export const Preloader = ({resolve}) => {
     preloaderContext.promises.push(Promise.resolve(resolve()));
     return null;
 };
+
+//Hook 형태로 사용할 수 있는 함수
+export const usePreloader = resolve => {
+    const PreloadContext = useContext(PreloadContext);
+    if(!preloadContext) return null;
+    if(preloadContext.done) return null;
+    preloadContext.promises.push(Promise.resolve(resolve()));
+}

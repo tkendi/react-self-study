@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './modules';
-import PreloadContext from './lib/PreloadContext';
+import PreloadContext from './lib/PreloadContext'
 
 //asset-mainfest.json에서 파일 경로조회
 const manifest = JSON.parse(
@@ -21,7 +21,7 @@ const chunks = Object.keys(manifest.files)
     .map(key => `<script src = "${manifest[key]}></script>`)    //스크립트 태그로 변환
     .join('');  //합침
 
-function createPage(root) {
+function createPage(root, stateScript) {
     return `<!DOCType html>
     <html lang = "en">
     <head>
@@ -40,6 +40,7 @@ function createPage(root) {
         <div id = "root">
             ${root}
         </div>
+        ${stateScript}
         <script src = "${manifest['runtime-main.js']}"></script>
             ${chunks}
         <script src = "${manifest['main.js']}"></script>
@@ -58,13 +59,13 @@ const serverRender = (req, res, next) => {
     const context = {};
     const store = createStore(rootReducer, applyMiddleware(thunk));
 
-    const PreloadContext = {
+    const preloadContext = {
         done: false,
         promises: []
     };
 
     const jsx = (
-        <PreloadContext.Provider value={PreloadContext}>
+        <PreloadContext.Provider value={preloadContext}>
             <Provider store={store} >
                 <StaticRouter location={req.url} context={context}>
                     <App />
@@ -73,15 +74,19 @@ const serverRender = (req, res, next) => {
         </PreloadContext.Provider>
     );
 
-    ReactDOMServer.renderToStaticMarkup(jsx);   //renderToStaticMarkup으로 한번 렌더링 한다.
-    try {
-        await Promise.all(PreloadContext.promises); //모든 프로미스를 기다린다
-    } catch (e) {
-        return res.status(500);
-    }
-    PreloadContext.done = true;
-    const root = ReactDOMServer.renderToString(jsx);    //렌더링을 하고
-    res.send(createPage(root));         //결과물 응답       
+    const root = ReactDOMServer.renderToStaticMarkup(jsx);   //renderToStaticMarkup으로 한번 렌더링 한다.
+    //JSON을 문자열로 변환하고 악성 스크립트가 실행되는 것을 방지하기 위해 <를 치환 처리
+    //https://redux.js.org/recipes/server-rendering#security-considerations
+    const stateString = JSON.stringify(store.getState()).replace(/</g, '\\u003c');
+    const stateScript = `<script>__PRELOADED_STATE__  = ${stateString}</script>`;    //리덕스 초기 상태를 스크립트로 주입한다.
+    // try {
+    //     await Promise.all(preloadContext.promises); //모든 프로미스를 기다린다
+    // } catch (e) {
+    //     return res.status(500);
+    // }
+    // preloadContext.done = true;
+    // const root = ReactDOMServer.renderToString(jsx);    //렌더링을 하고
+    res.send(createPage(root, stateScript));        //결과물 응답       
 };
 
 const serve = express.static(path.resolve('./build'), {

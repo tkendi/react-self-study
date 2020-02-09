@@ -1,37 +1,6 @@
-require('dotenv').config();
+/* eslint-disable no-global-assign */
+//이 파일에서만 no-global-assign ESLint 옵션을 비활성화 합니다.
+// eslint-disable-next-line no-global-assign
 
-const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser');
-
-const mongoose = require('mongoose');
-const api = require('./api');
-
-const {
-    PORT : port = 4000, //값이 존재하지 않는다면 4000을 기본 값으로 사용
-    MONGO_URI : mongoURI
-} = process.env;
-
-mongoose.Promise = global.Promise;  //Node의 Promise를 사용하도록 설정
-mongoose.connect(mongoURI).then(() => {
-    console.log('connected to mongodb');
-}).catch((e) => {
-    console.log(e);
-})
-
-const app = new Koa();
-
-const router = new Router();
-
-//라우터 설정
-router.use('/api', api.routes());   //api 라우트 적용
-
-//라우트 적용 전에 bodyParser 적용
-app.use(bodyParser());
-
-//app 인스턴스에 라우터 적용
-app.use(router.routes()).use(router.allowedMethods());
-
-app.listen(port, () => {
-    console.log("listening to port ", port);
-});
+require = require('esm')(module /*, options */);
+module.exports = require('./main');

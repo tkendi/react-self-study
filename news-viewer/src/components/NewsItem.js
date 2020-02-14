@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const NewsItemsBlock = styled.div `
+const NewsItemBlock = styled.div`
     display: flex;
     .thumbnail {
         margin-right: 1rem;
@@ -12,35 +12,33 @@ const NewsItemsBlock = styled.div `
             object-fit: cover;
         }
     }
-
-    .conetents {
+    .contents {
         h2 {
             margin: 0;
-            a { 
+            a {
                 color: black;
             }
         }
-
-        p{
+        p {
             margin: 0;
             line-height: 1.5;
+            margin-top: 0.5rem;
             white-space: normal;
         }
     }
-
     & + & {
         margin-top: 3rem;
     }
 `;
 
 const NewsItem = ({article}) => {
-    const { title, description, url, urlTolmage } = article;
+    const { title, description, url, urlToImage } = article;
     return (
-        <NewsItemsBlock>
-            {urlTolmage && (
+        <NewsItemBlock>
+            {urlToImage && (
                 <div className = "thumbnail">
                     <a href = {url} target = "_blank" rel = "noopener noreferrer">
-                        <img src = {urlTolmage} alt = "thumbnail" />
+                        <img src = {urlToImage} alt = "thumbnail" />
                     </a>
                 </div>
             )}
@@ -52,8 +50,8 @@ const NewsItem = ({article}) => {
                 </h2>
                 <p>{description}</p>
             </div>
-        </NewsItemsBlock>
-    );
-};
+        </NewsItemBlock>
+    )
+}
 
 export default NewsItem;

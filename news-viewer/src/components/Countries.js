@@ -31,8 +31,7 @@ const countries = [
 
 const CountriesBlock = styled.div`
   display: flex;
-  padding: 1rem;
-  width: 768px;
+  padding: 1rem 1rem 1rem 24rem;
   margin: 0 auto;
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -52,7 +51,7 @@ const Country = styled(NavLink)`
     color: #495057;
   }
 
-  &:active {
+  &.active {
       font-weight: 600;
       border-bottom: 2px solid #22b8cf;
       color: #22b8cf;
@@ -67,7 +66,7 @@ const Country = styled(NavLink)`
   }
 `;
 
-const Countries = ({onSelect, country}) => {
+const Countries = () => {
   return (
     <CountriesBlock>
       {countries.map(c => (
@@ -75,7 +74,7 @@ const Countries = ({onSelect, country}) => {
             key={c.name}
             activeClassName = "active"
             exact = {c.name === 'original'}
-            to = {c.name === 'original' ? '/' : `/${c.name}`}
+            to = {c.name === 'original' ? '' : `/${c.name}`}
         >
             {c.text}
         </Country>

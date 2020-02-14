@@ -55,7 +55,7 @@ const Category = styled(NavLink)`
         color: #495057;
     }
 
-    &:active {
+    &.active {
         font-weight: 600;
         border-bottom: 2px solid #22b8cf;
         color: #22b8cf;
@@ -69,7 +69,7 @@ const Category = styled(NavLink)`
     }
 `;
 
-const Categories = ({ onSelect, category }) => {
+const Categories = () => {
     return (
         <CategoriesBlock>
             {categories.map(c => (
@@ -77,7 +77,7 @@ const Categories = ({ onSelect, category }) => {
                     key = {c.name}
                     activeClassName = "active"
                     exact = {c.name === 'all'}
-                    to = {c.name === 'all' ? '/' : `/${c.name}`}
+                    to = {c.name === 'all' ? '' : `/${c.name}`}
                 >
                     {c.text}
                 </Category>

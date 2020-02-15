@@ -74,7 +74,7 @@ const Countries = () => {
             key={c.name}
             activeClassName = "active"
             exact = {c.name === 'original'}
-            to = {c.name === 'original' ? '' : `/${c.name}`}
+            to = {c.name === 'original' ? '/kr' : `/${c.name}`}
         >
             {c.text}
         </Country>

@@ -6,7 +6,8 @@ import Main from './components/Main';
 const App = () => {
   return (
     <>
-      <Route path = {['/:category?', '/:country?']} component = {NewsPage} /></>
+      <Route path = {[ '/:country?', '/:category?' ]} component = {NewsPage} />
+    </>
   );
 };
 

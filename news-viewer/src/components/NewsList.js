@@ -17,11 +17,12 @@ const NewsListBlock = styled.div`
   }
 `;
 
-const NewsList = ({ country }) => {
+const NewsList = ({ country, category }) => {
   const [loading, response, error] = usePromise(() => {
     const query = country === 'original' ? '' : `country=${country}`;
+    const param = category === 'all' ? '' : `&category=${category}`;
     return axios.get(
-      `https://newsapi.org/v2/top-headlines?${query}&apiKey=4343d5ea9d6d45e59b8b5cebd36ea2c0`,
+      `https://newsapi.org/v2/top-headlines?${query}${param}&apiKey=4343d5ea9d6d45e59b8b5cebd36ea2c0`,
     );
   }, [country]);
 

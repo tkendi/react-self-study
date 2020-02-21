@@ -1,3 +1,3 @@
 USE management;
 
-SELECT * FROM CUSTOMER
+SELECT * FROM customer;

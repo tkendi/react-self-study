@@ -24,7 +24,7 @@ const NewsList = ({ country, category }) => {
     return axios.get(
       `https://newsapi.org/v2/top-headlines?${query}${param}&apiKey=4343d5ea9d6d45e59b8b5cebd36ea2c0`,
     );
-  }, [country]);
+  }, [country], [category]);
 
   //대기 중일 때
   if (loading) {

@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import axios from 'axios';
 import usePromise from '../lib/usePromise';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { withStyles } from '@material-ui/core/styles';
+import { tsConstructorType } from '../../../../Users/cha94/AppData/Local/Microsoft/TypeScript/3.7/node_modules/@babel/types/lib/index';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -16,6 +19,16 @@ const NewsListBlock = styled.div`
     padding-right: 1rem;
   }
 `;
+
+const styles = theme => ({
+  root: {
+    display: 'flex',
+    minWidth: 1080
+  },
+  progress : {
+    margin: theme.spacing.unit * 2
+  }
+});
 
 const NewsList = ({ country, category }) => {
   const [loading, response, error] = usePromise(() => {
@@ -33,12 +46,12 @@ const NewsList = ({ country, category }) => {
 
   //아직 articles 값이 설정되지 않았을 때
   if (!response) {
-    return null;
+    return <NewsListBlock>article 값이 설정되지 않았습니다</NewsListBlock>;
   }
 
   //아직 response 값이 설정되지 않았을 때
   if (!response) {
-    return null;
+    return <NewsListBlock>response 값이 설정되지 않았습니다</NewsListBlock>;
   }
 
   //에러가 발생

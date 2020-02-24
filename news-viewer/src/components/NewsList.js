@@ -1,11 +1,11 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NewsItem from './NewsItem';
 import axios from 'axios';
 import usePromise from '../lib/usePromise';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { withStyles } from '@material-ui/core/styles';
-import { tsConstructorType } from '../../../../Users/cha94/AppData/Local/Microsoft/TypeScript/3.7/node_modules/@babel/types/lib/index';
+import CircularDeterminate from '../public/CircularDeterminate';
+import TableCell from '@material-ui/core/TableCell';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -20,33 +20,28 @@ const NewsListBlock = styled.div`
   }
 `;
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    minWidth: 1080
-  },
-  progress : {
-    margin: theme.spacing.unit * 2
-  }
-});
-
 const NewsList = ({ country, category }) => {
-  const [loading, response, error] = usePromise(() => {
-    const query = country === 'original' ? '' : `country=${country}`;
-    const param = category === 'all' ? '' : `&category=${category}`;
-    return axios.get(
-      `https://newsapi.org/v2/top-headlines?${query}${param}&apiKey=4343d5ea9d6d45e59b8b5cebd36ea2c0`,
-    );
-  }, [country], [category]);
+  const [loading, response, error] = usePromise(
+    () => {
+      const query = country === 'original' ? '' : `country=${country}`;
+      const param = category === 'all' ? '' : `&category=${category}`;
+      return axios.get(
+        `https://newsapi.org/v2/top-headlines?${query}${param}&apiKey=4343d5ea9d6d45e59b8b5cebd36ea2c0`,
+      );
+    },
+    [country],
+    [category],
+  );
 
   //대기 중일 때
   if (loading) {
-    return <NewsListBlock>대기중...</NewsListBlock>;
-  }
-
-  //아직 articles 값이 설정되지 않았을 때
-  if (!response) {
-    return <NewsListBlock>article 값이 설정되지 않았습니다</NewsListBlock>;
+    return (
+      <NewsListBlock>
+        <TableCell align="center" colspan="6">
+          <CircularDeterminate />
+        </TableCell>
+      </NewsListBlock>
+    );
   }
 
   //아직 response 값이 설정되지 않았을 때
@@ -56,7 +51,11 @@ const NewsList = ({ country, category }) => {
 
   //에러가 발생
   if (error) {
-    return <NewsListBlock>에러발생</NewsListBlock>;
+    return (
+      <NewsListBlock>
+        에러발생
+      </NewsListBlock>
+    )      
   }
 
   //response값이 유효할 때

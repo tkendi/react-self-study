@@ -6,6 +6,7 @@ import axios from 'axios';
 import usePromise from '../lib/usePromise';
 import CircularDeterminate from '../public/CircularDeterminate';
 import TableCell from '@material-ui/core/TableCell';
+import Error from '../public/Error';
 
 const NewsListBlock = styled.div`
   box-sizing: border-box;
@@ -53,7 +54,7 @@ const NewsList = ({ country, category }) => {
   if (error) {
     return (
       <NewsListBlock>
-        에러발생
+        <Error />
       </NewsListBlock>
     )      
   }

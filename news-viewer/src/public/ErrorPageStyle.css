@@ -1,10 +1,3 @@
-*{
-	padding:0px;
-	margin:0px;
-}
-body{
-		background:black;
-	}
 .st0{font-family:'FootlightMTLight';}
 .st1{font-size:83.0285px;}
 .st2{fill:gray;}
@@ -81,11 +74,6 @@ path#XMLID_11_ ,path#XMLID_2_ {
   50%{r:10; opacity: 0.2 ;}
   75%{r:15;opacity:0.1;}
  	100% {r:20;opacity:0;}
-}
-
-a {
-  text-decoration: none;
-  text-decoration-color: white;
 }
 
 

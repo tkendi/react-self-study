@@ -18,7 +18,7 @@ const NewsListBlock = styled.div`
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
+  }     
 `;
 
 const NewsList = ({ country, category }) => {
@@ -53,9 +53,7 @@ const NewsList = ({ country, category }) => {
   //에러가 발생
   if (error) {
     return (
-      <NewsListBlock>
-        <Error />
-      </NewsListBlock>
+      <Error /> 
     )      
   }
 

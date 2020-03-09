@@ -1,30 +1,14 @@
 import React, { Component } from "react";
+import logo from "./logo.svg";
 import "./App.css";
+import Corona from './components/Corona';
 
 class App extends Component {
-  state = { users: [] };
-
-  componentDidMount() {
-    fetch("/users")
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
   render() {
     return (
       <div className="App">
-        <ul>
-          {this.state.users.map(user => (
-            <li key={user.id}>
-              {" "}
-              <h1>{user.title}</h1>
-              <p>{user.Confirm}</p>
-              <p>{user.Disassociate}</p>
-              <p>{user.Dead}</p>
-              <p>{user.Inspection}</p>
-            </li>
-          ))}
-        </ul>
+        <Corona />
+        <City />
       </div>
     );
   }

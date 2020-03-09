@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
-  state = { users: [] }
+  state = { users: [] };
 
-  componentDidMount(){
-    fetch('/users')
-    .then(res => res.json())
-    .then(users => this.setState({ users }));
+  componentDidMount() {
+    fetch("/users")
+      .then(res => res.json())
+      .then(users => this.setState({ users }));
   }
 
   render() {
     return (
       <div className="App">
-        <h1>Users</h1>
         <ul>
-          {this.state.users.map(user =>
-            <li key={user.id}> {user.username} </li>
-          )}
+          {this.state.users.map(user => (
+            <li key={user.id}>
+              {" "}
+              <h1>{user.title}</h1>
+              <p>{user.Confirm}</p>
+              <p>{user.Disassociate}</p>
+              <p>{user.Dead}</p>
+              <p>{user.Inspection}</p>
+            </li>
+          ))}
         </ul>
       </div>
     );

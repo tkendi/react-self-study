@@ -1,26 +1,37 @@
 import React, { Component } from "react";
 
 class Corona extends Component {
-  state = { users: [] };
+  state = { datas: [] };
 
   componentDidMount() {
-    fetch("/Domestic")
+    fetch("/City")
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(datas => this.setState({ datas }));
   }
 
   render() {
     return (
       <div>
-        <h1>국내 현황</h1>
         <ul>
-          {this.state.users.map(user => (
-            <li key={user.id}>
-              <p>{user.title}</p>
-              <p>{user.Confirm}</p>
-              <p>{user.Disassociate}</p>
-              <p>{user.Dead}</p>
-              <p>{user.Inspection}</p>
+          {this.state.datas.map(data => (
+            <li key={data.id}>
+              <h1>{data.Standard_Time}</h1>
+              <p>{data.Seoul_num}</p>
+              <p>{data.Seoul_Dead_num}</p>
+              <p>{data.Busan_num}</p>
+              <p>{data.Busan_Dead_num}</p>
+              <p>{data.Daegu_num}</p>
+              <p>{data.Daegu_Dead_num}</p>
+              <p>{data.Incheon_num}</p>
+              <p>{data.Incheon_Dead_num}</p>
+              <p>{data.Gwangju_num}</p>
+              <p>{data.Gwangju_Dead_num}</p>
+              <p>{data.Daejeon_num}</p>
+              <p>{data.Daejeon_Dead_num}</p>
+              <p>{data.Ulsan_num}</p>
+              <p>{data.Ulsan_Dead_num}</p>
+              <p>{data.Sejong_num}</p>
+              <p>{data.Sejong_Dead_num}</p>
             </li>
           ))}
         </ul>

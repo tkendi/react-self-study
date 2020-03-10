@@ -17,14 +17,14 @@ router.get("/", function(req, res, next) {
     $ = cheerio.load(body);
 
     //<tr> parsing
-    let $colArr = $(".bvc_txt div table.num tbody");
+    let $colArr = $(".container div div.content div table.num tbody tr");
 
     console.log($colArr.html());
 
     //기준시 파싱
-    let $textArr = $(".bvc_txt")
+    let $textArr = $("div div.content div")
       .children()
-      .eq(1);
+      .eq(4);s
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);

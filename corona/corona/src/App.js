@@ -6,8 +6,7 @@ import Domestic from './components/Domestic';
 import { Link, Route } from 'react-router-dom';
 import Index_Button from './public/Index_Button';
 import Index_SideBar from './public/Index_SideBar';
-import './public/css/Index_AppBar.css';
-import Index_AppBar from './public/Index_SideBar';
+import Index_AppBar from './public/Index_AppBar';
 
 class App extends Component {
   render() {

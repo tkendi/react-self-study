@@ -15,7 +15,7 @@ class Corona extends Component {
         <ul>
           {this.state.datas.map(data => (
             <li key={data.id}>
-              <h1>{data.Standard_Time}</h1>
+              <h1>코로나바이러스감염증-19 국내 발생현황 {data.Standard_Time}</h1>
               <p>{data.Seoul_num}</p>
               <p>{data.Seoul_Dead_num}</p>
               <p>{data.Busan_num}</p>

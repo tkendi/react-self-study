@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Corona extends Component {
+class Domestic extends Component {
   state = { users: [] };
 
   componentDidMount() {
@@ -12,16 +12,15 @@ class Corona extends Component {
   render() {
     return (
       <div>
-        <h1>국내 현황</h1>
         <ul>
           {this.state.users.map(user => (
-            <li key={user.id}>
+            <div key={user.id}>
               <p>{user.title}</p>
               <p>{user.Confirm}</p>
               <p>{user.Disassociate}</p>
               <p>{user.Dead}</p>
               <p>{user.Inspection}</p>
-            </li>
+            </div>
           ))}
         </ul>
       </div>
@@ -29,4 +28,4 @@ class Corona extends Component {
   }
 }
 
-export default Corona;
+export default Domestic;

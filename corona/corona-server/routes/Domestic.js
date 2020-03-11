@@ -24,7 +24,7 @@ router.get("/", function(req, res, next) {
     //기준시 파싱
     let $textArr = $("div div.content div")
       .children()
-      .eq(4);s
+      .eq(4);
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);
@@ -81,8 +81,8 @@ router.get("/", function(req, res, next) {
         title: $Standard_Time,
         Confirm: $Confirm_patient_num,
         Disassociate: $Disassociate_patient_num,
-        Dead: $Dead_num,
-        Inspection: $Inspection_progress_num
+        Quaranines: $Dead_num,
+        Dead: $Inspection_progress_num
       }
     ]);
 

@@ -15,7 +15,7 @@ const styles = {
     },
 };
 
-class Index_Button extends Component {
+class Index_SideBar extends Component {
     render() {
         const {classes} = this.props;
         return (
@@ -28,4 +28,4 @@ class Index_Button extends Component {
 
 
 
-export default withStyles(styles) (Index_Button);
+export default withStyles(styles) (Index_SideBar);

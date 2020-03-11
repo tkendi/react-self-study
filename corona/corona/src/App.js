@@ -15,7 +15,6 @@ class App extends Component {
           <Index_AppBar />
           <Index_SideBar className="Index_AppBar" />
           <div id="page-wrap">
-            <h1>Corona</h1>
             <h2>실시간 코로나 현황 보고</h2>
           </div>
         </div>

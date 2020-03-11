@@ -12,7 +12,7 @@ class Index_AppBar extends Component {
       <div className = "root">
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="h6" className="title">
+            <Typography variant="h4" className="title">
               Corona
               <Clock format={'HH:mm'} ticking = {true} timezone = {'Asia/Seoul'} className = "time_zone" />
             </Typography>

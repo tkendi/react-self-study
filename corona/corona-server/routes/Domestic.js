@@ -3,10 +3,20 @@ var router = express.Router();
 
 const request = require("request");
 const cheerio = require("cheerio");
-
 const v = require("voca");
 
 const regex = /[^0-9]/g;
+
+const admin = require('firebase-admin');
+
+const serviceAccount = require('../nCov-19.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://ncov-19-d22a5.firebaseio.com"
+});
+
+const db = admin.database();
+const ref = db.ref("/");
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
@@ -85,6 +95,17 @@ router.get("/", function(req, res, next) {
         Dead: $Inspection_progress_num
       }
     ]);
+
+    const usersRef = ref.child("corona");
+    usersRef.set({
+      Domestic: {
+        title: $Standard_Time,
+        Confirm: $Confirm_patient_num,
+        Disassociate: $Disassociate_patient_num,
+        Dead: $Dead_num,
+        Inspection: $Inspection_progress_num
+      }
+    });   
 
     // const json = {
     //     Title: $Standard_Time,

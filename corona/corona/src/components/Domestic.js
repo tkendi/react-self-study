@@ -15,7 +15,7 @@ class Domestic extends Component {
         <ul>
           {this.state.users.map(user => (
             <div key={user.id}>
-              <p>{user.title}</p>
+              <h1>{user.title}</h1>
               <p>{user.Confirm}</p>
               <p>{user.Disassociate}</p>
               <p>{user.Dead}</p>

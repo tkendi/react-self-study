@@ -5,6 +5,11 @@ const v = require("voca");
 const request = require("request");
 const cheerio = require("cheerio");
 
+const admin = require("firebase-admin");
+
+const db = admin.database();
+const ref = db.ref("/");
+
 const regex = /[^0-9]/g;
 
 router.get("/", function(req, res, body) {
@@ -227,7 +232,7 @@ router.get("/", function(req, res, body) {
     //Sejong_Parsing
     let $Sejong = $num38.text();
     $Sejong = v.replaceAll($Sejong, "\t", "");
-    $Sejong = v.replaceAll($Sejong,"\r\n", "");
+    $Sejong = v.replaceAll($Sejong, "\r\n", "");
     $Sejong = v.trim($Sejong);
     $Sejong_num = $Sejong.replace(regex, "");
 
@@ -241,7 +246,7 @@ router.get("/", function(req, res, body) {
     $Sejong_Dead = v.replaceAll($Sejong_Dead, "\t", "");
     $Sejong_Dead = v.replaceAll($Sejong_Dead, "\r\n", "");
     $Sejong_Dead = v.trim($Sejong_Dead);
-    $Sejong_Dead_num = $Sejong_Dead.replace(regex, ""); 
+    $Sejong_Dead_num = $Sejong_Dead.replace(regex, "");
 
     let $Standard_Time = $TextArr.text();
     $Standard_Time = v.replaceAll($Standard_Time, "\t", "");
@@ -266,36 +271,70 @@ router.get("/", function(req, res, body) {
     // console.log($Sejong_num);
     // console.log($Sejong_Dead_num);
 
-
     res.json([
       {
-      Standard_Time: $Standard_Time,
-      Seoul_num: $Seoul_num,
-      Seoul_Increase_num: $Seoul_Increase_num,
-      Seoul_Dead_num: $Seoul_Dead_num,
-      Busan_num: $Busan_num,
-      Busan_Increase_num: $Busan_Increase_num,
-      Busan_Dead_num: $Busan_Dead_num,
-      Daegu_num: $Daegu_num,
-      Daegu_Increase_num: $Daegu_Increase_num,
-      Daegu_Dead_num: $Daegu_Dead_num,
-      Incheon_num: $Incheon_num,
-      Incheon_Increase_num: $Incheon_Increase_num,
-      Incheon_Dead_num: $Incheon_Dead_num,
-      Gwangju_num: $Gwangju_num,
-      Gwangju_Increase_num: $Gwangju_Increase_num,
-      Gwangju_Dead_num: $Gwangju_Dead_num,
-      Daejeon_num: $Daejeon_num,
-      Daejeon_Increase_num: $Daejeon_Increase_num,
-      Daejeon_Dead_num: $Daejeon_Dead_num,
-      Ulsan_num: $Ulsan_num,
-      Ulsan_Increase_num: $Ulsan_Increase_num,
-      Ulsan_Dead_num: $Ulsan_Dead_num,
-      Sejong_num: $Sejong_num,
-      Sejong_Increase_num: $Sejong_Increase_num,
-      Sejong_Dead_num: $Sejong_Dead_num
+        Standard_Time: $Standard_Time,
+        Seoul_num: $Seoul_num,
+        Seoul_Increase_num: $Seoul_Increase_num,
+        Seoul_Dead_num: $Seoul_Dead_num,
+        Busan_num: $Busan_num,
+        Busan_Increase_num: $Busan_Increase_num,
+        Busan_Dead_num: $Busan_Dead_num,
+        Daegu_num: $Daegu_num,
+        Daegu_Increase_num: $Daegu_Increase_num,
+        Daegu_Dead_num: $Daegu_Dead_num,
+        Incheon_num: $Incheon_num,
+        Incheon_Increase_num: $Incheon_Increase_num,
+        Incheon_Dead_num: $Incheon_Dead_num,
+        Gwangju_num: $Gwangju_num,
+        Gwangju_Increase_num: $Gwangju_Increase_num,
+        Gwangju_Dead_num: $Gwangju_Dead_num,
+        Daejeon_num: $Daejeon_num,
+        Daejeon_Increase_num: $Daejeon_Increase_num,
+        Daejeon_Dead_num: $Daejeon_Dead_num,
+        Ulsan_num: $Ulsan_num,
+        Ulsan_Increase_num: $Ulsan_Increase_num,
+        Ulsan_Dead_num: $Ulsan_Dead_num,
+        Sejong_num: $Sejong_num,
+        Sejong_Increase_num: $Sejong_Increase_num,
+        Sejong_Dead_num: $Sejong_Dead_num
+      }
+    ]);
+
+    const statusRef = ref.child("city");
+    try {
+      statusRef.set({
+        City: {
+          Standard_Time: $Standard_Time,
+          Seoul_num: $Seoul_num,
+          Seoul_Increase_num: $Seoul_Increase_num,
+          Seoul_Dead_num: $Seoul_Dead_num,
+          Busan_num: $Busan_num,
+          Busan_Increase_num: $Busan_Increase_num,
+          Busan_Dead_num: $Busan_Dead_num,
+          Daegu_num: $Daegu_num,
+          Daegu_Increase_num: $Daegu_Increase_num,
+          Daegu_Dead_num: $Daegu_Dead_num,
+          Incheon_num: $Incheon_num,
+          Incheon_Increase_num: $Incheon_Increase_num,
+          Incheon_Dead_num: $Incheon_Dead_num,
+          Gwangju_num: $Gwangju_num,
+          Gwangju_Increase_num: $Gwangju_Increase_num,
+          Gwangju_Dead_num: $Gwangju_Dead_num,
+          Daejeon_num: $Daejeon_num,
+          Daejeon_Increase_num: $Daejeon_Increase_num,
+          Daejeon_Dead_num: $Daejeon_Dead_num,
+          Ulsan_num: $Ulsan_num,
+          Ulsan_Increase_num: $Ulsan_Increase_num,
+          Ulsan_Dead_num: $Ulsan_Dead_num,
+          Sejong_num: $Sejong_num,
+          Sejong_Increase_num: $Sejong_Increase_num,
+          Sejong_Dead_num: $Sejong_Dead_num
+        }
+      });
+    } catch (e) {
+      console.log(e);
     }
-  ]);
   });
 });
 

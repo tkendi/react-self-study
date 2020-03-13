@@ -34,7 +34,7 @@ router.get("/", function(req, res, next) {
     //기준시 파싱
     let $textArr = $("div div.content div")
       .children()
-      .eq(4);
+      .eq(3);
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);
@@ -96,8 +96,9 @@ router.get("/", function(req, res, next) {
       }
     ]);
 
-    const usersRef = ref.child("corona");
-    usersRef.set({
+    const korea = ref.child("corona");
+    try {
+    korea.set({
       Domestic: {
         title: $Standard_Time,
         Confirm: $Confirm_patient_num,
@@ -105,7 +106,10 @@ router.get("/", function(req, res, next) {
         Dead: $Dead_num,
         Inspection: $Inspection_progress_num
       }
-    });   
+    });  
+  }catch(e) {
+    console.log(e);
+  } 
 
     // const json = {
     //     Title: $Standard_Time,

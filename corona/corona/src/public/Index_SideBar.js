@@ -1,37 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import './css/Index_SideBar.css';
 
 class Index_AppBar extends Component {
-    render() {
-        return (
-            <Menu>
-                <a className = "menu-item" href = "/">
-                    Home
-                </a>
+  render() {
+    return (
+      <Menu>
+          <NavLink className="menu-item" to="/">
+            Home
+          </NavLink>
 
-                <a className = "menu-item" href = "/">
-                    Laravel
-                </a>
+          <NavLink className="menu-item"  to="/City">
+            Status City
+          </NavLink>
 
-                <a className = "menu-item" href = "/">
-                    Angular
-                </a>
-
-                <a className = "menu-item" href = "/">
-                    Vue
-                </a>
-
-                <a className = "menu-item" href = "/">
-                    React
-                </a>
-
-                <a className = "menu-item" href = "/">
-                    Node
-                </a>
-            </Menu>
-        )
-    }
+          <NavLink className="menu-item" to="/Domestic"> 
+            Status Domestic
+          </NavLink>
+      </Menu>
+    );
+  }
 }
 
 export default Index_AppBar;

@@ -34,7 +34,7 @@ router.get("/", function(req, res, next) {
     //기준시 파싱
     let $textArr = $("div div.content div")
       .children()
-      .eq(4);
+      .eq(3);
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);

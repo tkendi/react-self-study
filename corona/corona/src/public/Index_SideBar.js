@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
+import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import './css/Index_SideBar.css';
-import City from '../components/City'
 
 class Index_AppBar extends Component {
   render() {
     return (
       <Menu>
-          <a className="menu-item" href = "../components/City.js">
+          <NavLink className="menu-item" to="/">
             Home
-          </a>
+          </NavLink>
 
-          <a className="menu-item" href="/">
-            Laravel
-          </a>
+          <NavLink className="menu-item"  to="/City">
+            Status City
+          </NavLink>
 
-          <a className="menu-item" href="/">
-            Angular
-          </a>
+          <NavLink className="menu-item" to="/Domestic"> 
+            Status Domestic
+          </NavLink>
       </Menu>
     );
   }

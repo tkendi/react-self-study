@@ -34,7 +34,7 @@ router.get("/", function(req, res, next) {
     //기준시 파싱
     let $textArr = $("div div.content div")
       .children()
-      .eq(3);
+      .eq(2);
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);
@@ -107,6 +107,7 @@ router.get("/", function(req, res, next) {
         Inspection: $Inspection_progress_num
       }
     });  
+    console.log("Input firebase database");
   }catch(e) {
     console.log(e);
   } 

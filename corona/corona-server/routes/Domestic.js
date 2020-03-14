@@ -106,13 +106,8 @@ router.get("/", function(req, res, next) {
         Quaranines: $Dead_num,
         Dead: $Inspection_progress_num
       }
-<<<<<<< HEAD
     });
     console.log("Input firebase database");  
-=======
-    });  
-    console.log("Input firebase database");
->>>>>>> 390b15140fdab85a6989afa9e5a5df3269864e29
   }catch(e) {
     console.log(e);
   } 

@@ -16,6 +16,10 @@ class Domestic extends Component {
           {this.state.users.map(user => (
             <div key={user.id}>
               <h1>{user.title}</h1>
+              <div>
+                <h1>확진환자</h1>
+                <img class="icon" src
+              </div>
               <p>{user.Confirm}</p>
               <p>{user.Disassociate}</p>
               <p>{user.Quaranines}</p>

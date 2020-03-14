@@ -18,8 +18,8 @@ class Domestic extends Component {
               <h1>{user.title}</h1>
               <p>{user.Confirm}</p>
               <p>{user.Disassociate}</p>
+              <p>{user.Quaranines}</p>
               <p>{user.Dead}</p>
-              <p>{user.Inspection}</p>
             </div>
           ))}
         </ul>

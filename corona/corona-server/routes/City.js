@@ -332,6 +332,7 @@ router.get("/", function(req, res, body) {
           Sejong_Dead_num: $Sejong_Dead_num
         }
       });
+      console.log("Input firebase database")
     } catch (e) {
       console.log(e);
     }

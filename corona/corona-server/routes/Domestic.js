@@ -103,10 +103,11 @@ router.get("/", function(req, res, next) {
         title: $Standard_Time,
         Confirm: $Confirm_patient_num,
         Disassociate: $Disassociate_patient_num,
-        Dead: $Dead_num,
-        Inspection: $Inspection_progress_num
+        Quaranines: $Dead_num,
+        Dead: $Inspection_progress_num
       }
-    });  
+    });
+    console.log("Input firebase database");  
   }catch(e) {
     console.log(e);
   } 

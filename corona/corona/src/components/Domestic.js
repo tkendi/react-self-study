@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import minus from ''
 
 class Domestic extends Component {
   state = { users: [] };
@@ -19,7 +20,7 @@ class Domestic extends Component {
               <div>
                 <div>
                 <h1>확진환자</h1>
-                <img class="icon" src="../img/plus.png" />
+                <img class="icon" src="../public/img/plus" />
                 </div>
                 <p>
                 {user.Confirm}명

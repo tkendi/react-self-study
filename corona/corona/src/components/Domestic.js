@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import minus from ''
+import '../public/css/Domestic.css'
 
 class Domestic extends Component {
   state = { users: [] };
@@ -15,14 +15,14 @@ class Domestic extends Component {
 
         <ul>
           {this.state.users.map(user => (
-            <div key={user.id}>
+            <div key={user.id} class = "accordion">
               <h1>{user.title}</h1>
-              <div>
-                <div>
+              <div class = "accordion-item">
+                <div class = "item-header">
                 <h1>확진환자</h1>
-                <img class="icon" src="../public/img/plus" />
+                <img class="icon" src="../public/img/plus"/>
                 </div>
-                <p>
+                <p class = "text">
                 {user.Confirm}명
                 </p>
               </div>

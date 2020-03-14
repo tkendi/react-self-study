@@ -11,16 +11,20 @@ class Domestic extends Component {
 
   render() {
     return (
-      <div>
+
         <ul>
           {this.state.users.map(user => (
             <div key={user.id}>
               <h1>{user.title}</h1>
               <div>
+                <div>
                 <h1>확진환자</h1>
-                <img class="icon" src
+                <img class="icon" src="../img/plus.png" />
+                </div>
+                <p>
+                {user.Confirm}명
+                </p>
               </div>
-              <p>{user.Confirm}</p>
               <p>{user.Disassociate}</p>
               <p>{user.Quaranines}</p>
               <p>{user.Dead}</p>

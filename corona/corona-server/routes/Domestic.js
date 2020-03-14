@@ -34,7 +34,7 @@ router.get("/", function(req, res, next) {
     //기준시 파싱
     let $textArr = $("div div.content div")
       .children()
-      .eq(3);
+      .eq(2);
 
     //확진환자 파싱
     let $num1 = $colArr.children().eq(0);
@@ -106,8 +106,13 @@ router.get("/", function(req, res, next) {
         Quaranines: $Dead_num,
         Dead: $Inspection_progress_num
       }
+<<<<<<< HEAD
     });
     console.log("Input firebase database");  
+=======
+    });  
+    console.log("Input firebase database");
+>>>>>>> 390b15140fdab85a6989afa9e5a5df3269864e29
   }catch(e) {
     console.log(e);
   } 

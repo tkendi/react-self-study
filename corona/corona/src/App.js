@@ -13,7 +13,6 @@ class App extends Component {
       <>
         <div className="App">
           <Index_AppBar />
-          <Index_SideBar />
           <current_situation_char />
           <Route path="/" component={Home} exact={true} />
           <Route path="/City" component={City} />

@@ -1,8 +1,8 @@
-html,
+/* html,
 body {
   margin: 0;
   border: 0;
-}
+} */
 
 #page-wrap {
   text-align: center;
@@ -54,6 +54,7 @@ body {
 
 .bm-item-list {
   color: #b8b7ad;
+  text-align: center;
 }
 
 .bm-overlay {

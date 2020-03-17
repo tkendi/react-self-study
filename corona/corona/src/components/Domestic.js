@@ -13,7 +13,6 @@ class Domestic extends Component {
   render() {
     return (
       <div class="body">
-        <ul>
           {this.state.users.map(user => (
             <div key={user.id} className="accordion">
               <h1>{user.title}</h1>
@@ -46,7 +45,6 @@ class Domestic extends Component {
               </div>
             </div>
           ))}
-        </ul>
       </div>
     );
   }

@@ -1,100 +1,124 @@
-let postId = 1; //id의 값 초기화
+import Post from '../../models/post';
+import mongoose from 'mongoose';
+import Joi from 'joi';
 
-//posts 배열 초기화
-const posts = [
-    {
-        id: 1,
-        title: '제목',
-        body: '내용',
-    },
-];
+const { ObjectId } = mongoose.Types;
 
-//포스터 작성
-export const write = ctx => {
-    //REST API의 Request Body는 ctx.request.body에서 조회 할 수 있다
-    const {title, body} = ctx.request.body;
-    postId += 1;    //기존 id를 1씩 더한다
-    const post = {id: postId, title, body};
-    posts.push(post);
-    ctx.body = post;
-};
-
-//포스터 목록 조회
-export const list = ctx => {
-    ctx.body = posts;
-};
-
-
-//특정 포스터 조회
-export const read = ctx => {
-    const {id} = ctx.params;
-    //주어진 id 값으로 포스트를 찾는다
-    const post = posts.find(p => p.id.toString() === id);
-    //포스트가 없을 때
-    if (!post) {
-        ctx.status = 404;
-        ctx.body = {
-            message: '포스트가 존재하지 않습니다'
-        };
+export const checkObjectId = (ctx, next) => {
+    const { id } = ctx.params;
+    if(!ObjectId.isValid(id)) {
+        ctx.status = 400;
         return;
     }
-    ctx.body = post;
-};
+    return next();
+}
 
-//특정 포스터 제거
-export const remove = ctx => {
-    const {id} = ctx.params;
-    const index = posts.findIndex(p => p.id.toString() === id);
-    if(index === -1) {
-        ctx.status = 404;
-        ctx.body = {
-            message: '포스터는 존재하지 않습니다'
-        };
+export const  write = async ctx => {
+    const schema = Joi.object().keys({
+        //객체가 다음의 필드를 가지고 있는지 검증
+        title: Joi.string().required(), //required()가 있으면 필 수 항목
+        body: Joi.string().required(),
+        tags: Joi.array()
+            .items(Joi.string())
+            .required(),    //문자열로 이루어진 배열
+    });
+
+    //검증하고 나서 실패인 경우 에러처리
+    const result = Joi.validate(ctx.request.body, schema);
+    if(result.error) {
+        ctx.status = 400;
+        ctx.body = result.error;
         return;
     }
-    //index번째 아이템 제거 한다.
-    posts.splice(index, 1);
-    ctx.status = 204;   //No content
-};
 
-//포스터 수정
-export const replace = ctx => {
-    const {id} = ctx.params;
-    //해당 id를 가진 post가 몇 번째인지 확인합니다
-    const index = posts.findIndex(p => p.id.toString() === id);
-    //포스트가 없으면 오류를 반환
-    if(index == -1) {
-        ctx.status = 404;
-        ctx.body = {
-            message: '포스트가 존재하지 않습니다'
-        };
+    const { title, body, tags } = ctx.params;
+    const post = new Post({
+        title,
+        body,
+        tags,
+    });
+    try {
+        await post.save();
+        ctx.body = post;
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+}
+
+export const list = async ctx => {
+    const page = parseInt(ctx.query.page || '1', 10);
+
+    if(page < 1) {
+        ctx.status = 400;
         return;
     }
-    //id를 제외하고 기존 정보를 전부 삭제하고, 객체를 새로 만든다
-    posts[index] = {
-        id,
-        ...ctx.request.body,
-    };
-    ctx.body = posts[index];
-};
 
-//포스트 수정
-export const update = ctx => {
-    const {id} = ctx.params;
-    //해당 id를 가진 post가 몇번째인지 확인
-    const index = posts.findIndex(p => p.id.toString() === id);
-    //포스트 id가 없으면 오류를 반환
-    if(index == -1) {
-        ctx.status = 404;
-        ctx.body = {
-            message: '포스트가 존재하지 않습니다'
-        };
+    try{
+        const posts = await Post.find().sort({_id: -1}).limit(10).skip((page - 1) * 10).lean().exec();
+        const postCount = await Post.countDocuments().exec();
+        ctx.set('Last-Page', Math.ceil(postCount / 10));
+        ctx.body = posts
+        .map(post => ({
+            ...post,
+            body: post.body.length < 200 ? post.body : `${post.body.slice(0, 200)}...`,
+        }));
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+}
+
+export const read = async ctx => {
+    const { id } = ctx.params;
+    try{
+        const post = await Post.findById(id).exec();
+        if(!post) {
+            ctx.status = 404;
+            return;
+        }
+        ctx.body = post;
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+}
+
+export const remove = async ctx => {
+    const { id } = ctx.params;
+    try{
+        await Post.findByIdAndRemove(id).exec();
+        ctx.status = 204;
+    } catch(e) {
+        ctx.throw(500, e);
+    }
+}
+
+export const update = async ctx => {
+    const { id } = ctx.params;
+
+    //write에서 사용한 schema와 비슷한데, required가 없다
+    const schema = Joi.object().keys({
+        title: Joi.string(),
+        body: Joi.string(),
+        tags: Joi.array().items(Joi.string()),
+    });
+
+    //검증하고 나서 실패인 경우 에러 처리
+    const result = Joi.validate(ctx.request.body, schema);
+    if(result.error) {
+        ctx.status = 400;
+        ctx.body = result.error;
         return;
     }
-    //기존 정보를 덮어 쓴다
-    posts[index] = {
-        ...posts[index],
-        ...ctx.request.body,
-    };
-    ctx.body = posts[index];
+    
+    try {
+        const post = await Post.findByIdAndUpdate(id, ctx.request.body, {
+            new: true   //false일 때는 업데이트 전의 값을 반환
+        }).exec();
+        if(!post) {
+            ctx.status = 404;
+            return;
+        } 
+        ctx.body = post;
+    } catch(e) {
+        ctx.throw(500, e);
+    }
 }

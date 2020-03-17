@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import '../public/css/Domestic.css';
-import jQuery from 'jquery';
-window.$ = window.jQuery = jQuery;
 
 class Domestic extends Component {
   state = { users: [] };
@@ -14,37 +12,38 @@ class Domestic extends Component {
 
   render() {
     return (
-      <div>
+      <div class="body">
         <ul>
           {this.state.users.map(user => (
-            <div key={user.id} class="accordion">
+            <div key={user.id} className="accordion">
               <h1>{user.title}</h1>
-              <div class="accordion-item">
-                <div class="item-header">
-                  <h1 class = "title">확진환자</h1>
-                  <img class = "icon" src = "../public/img/plus.png"></img>
+              <div className="accordion-item">
+                <div className="item-header">
+                  <h1 className="domestic_title">확진환자</h1>
                 </div>
-                <p class="text">{user.Confirm}명</p>
+                <p className="text">{user.Confirm}명</p>
               </div>
 
-              <div class="accordion-item">
-                <div class="item-header">
+              <div className="accordion-item">
+                <div className="item-header">
+                  <h1 className="domestic_title">격리해제 환자</h1>
                 </div>
-                <p class="text">{user.Disassociate}명</p>
-              </div>
-              
-              <div class="accordion-item">
-                <div class="item-header">
-                </div>
-                <p class="text">{user.Quaranines}명</p>
+                <p className="text">{user.Disassociate}명</p>
               </div>
 
-              <div class="accordion-item">
-                <div class="item-header">
+              <div className="accordion-item">
+                <div className="item-header">
+                  <h1 className="domestic_title">격리환자</h1>
                 </div>
-                <p class="text">{user.Dead}먕</p>
+                <p className="text">{user.Quaranines}명</p>
               </div>
-              
+
+              <div className="accordion-item">
+                <div className="item-header">
+                  <h1 className="domestic_title">사망자</h1>
+                </div>
+                <p className="text">{user.Dead}명</p>
+              </div>
             </div>
           ))}
         </ul>

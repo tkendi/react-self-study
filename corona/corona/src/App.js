@@ -11,13 +11,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className="App">
-          <Index_AppBar />
-          <current_situation_char />
-          <Route path="/" component={Home} exact={true} />
-          <Route path="/City" component={City} />
-          <Route path="/Domestic" component={Domestic} />
-        </div>
+        <Index_AppBar />
+        <current_situation_char />
+        <Route path="/" component={Home} exact={true} />
+        <Route path="/City" component={City} />
+        <Route path="/Domestic" component={Domestic} />
       </>
     );
   }

@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import Domestic from './Domestic';
+import City from './City';
+import Svg_SouthMap from '../public/Svg_SouthMap';
 
 class Home extends Component {
     render() {
         return (
             <div>
-                <h1>실시간 코로나 현황</h1>
+                <Domestic />
             </div>
         )
     }

@@ -1,11 +1,23 @@
-import React, { Component } from "react";
-import '../public/css/City.css'
+import React, { Component } from 'react';
+import '../public/css/City.css';
+import SouthKorea from '@svg-maps/south-korea';
+import { SVGMap } from 'react-svg-map';
 
 class Corona extends Component {
+  constructor(props) {
+    super(props);
+
+    this.customSouth = {
+      ...SouthKorea,
+      label: 'Custom map label',
+      location: SouthKorea.locations.map(location => {}),
+    };
+  }
+
   state = { datas: [] };
 
   componentDidMount() {
-    fetch("/City")
+    fetch('/City')
       .then(res => res.json())
       .then(datas => this.setState({ datas }));
   }
@@ -15,9 +27,8 @@ class Corona extends Component {
       <div>
         <ul>
           {this.state.datas.map(data => (
-            <li key={data.id}>
-              <h1>코로나바이러스감염증-19 국내 발생현황 {data.Standard_Time}</h1>
-              <p>{data.Seoul_num}</p>
+              <li key={data.id}>
+                <p>{data.Seoul_num}</p>
               <p>{data.Seoul_Increase_num}</p>
               <p>{data.Seoul_Dead_num}</p>
               <p>{data.Busan_num}</p>
@@ -41,7 +52,7 @@ class Corona extends Component {
               <p>{data.Sejong_num}</p>
               <p>{data.Sejong_Increase_num}</p>
               <p>{data.Sejong_Dead_num}</p>
-            </li>
+              </li>
           ))}
         </ul>
       </div>

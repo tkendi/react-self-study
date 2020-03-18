@@ -7,11 +7,11 @@ class Corona extends Component {
   constructor(props) {
     super(props);
 
-    this.customSouth = {
-      ...SouthKorea,
-      label: 'Custom map label',
-      location: SouthKorea.locations.map(location => {}),
-    };
+    // this.customSouth = {
+    //   ...SouthKorea,
+    //   label: 'Custom map label',
+    //   location: SouthKorea.locations.map(location => {}),
+    // };
   }
 
   state = { datas: [] };

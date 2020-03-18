@@ -18,6 +18,10 @@ class Index_AppBar extends Component {
           <NavLink className="menu-item" to="/Domestic"> 
             Status Domestic
           </NavLink>
+
+          <NavLink className="menu-item" to="/Domestic"> 
+            Status World
+          </NavLink>
       </Menu>
     );
   }

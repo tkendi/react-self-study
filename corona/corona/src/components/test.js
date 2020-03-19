@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import { palette, spacing } from '@material-ui/system';
+import { withStyles } from '@material-ui/core/styles';
+import test_domestic from './test_domestic';
 import {
-  NoSsr,
-  Box,
   TableRow,
   TableCell,
   TableHead,
   Table,
-  TableBody
+  TableBody,
+  Paper,
 } from '@material-ui/core';
 
 const styles = theme => ({
@@ -35,10 +36,10 @@ class Domestic extends Component {
     const { classes } = this.props;
     return (
       <div>
-        {this.state.users.map(user => (
-          <Table>
+        <Paper className={classes.root}>
+          <Table className={classes.table}>
             <TableHead>
-              <TableRow key={user.id}>
+              <TableRow>
                 <TableCell>확진환자</TableCell>
                 <TableCell>격리해제 환자</TableCell>
                 <TableCell>격리환자</TableCell>
@@ -46,19 +47,23 @@ class Domestic extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
-                <TableCell>{user.Confirm}</TableCell>
-                <TableCell>{user.Disassociate}</TableCell>
-                <TableCell>{user.Quaranines}</TableCell>
-                <TableCell>{user.Dead}</TableCell>
-              </TableRow>
+              {this.state.users.map(data => {
+                return (
+                  <test_domestic
+                    key={data.id}
+                    Confirm={data.Confirm}
+                    Disassociate={data.Disassociate}
+                    Quaranines={data.Quaranines}
+                    Dead={data.Dead}
+                  />
+                );
+              })}
             </TableBody>
           </Table>
-        ))}
-        <div ref={el => (this.el = el)} />
+        </Paper>
       </div>
     );
   }
 }
 
-export default Domestic;
+export default withStyles(styles)(Domestic);

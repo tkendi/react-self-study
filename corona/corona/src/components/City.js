@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import '../public/css/City.css';
-import SouthKorea from '@svg-maps/south-korea';
-import { SVGMap } from 'react-svg-map';
 
 class Corona extends Component {
   constructor(props) {

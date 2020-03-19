@@ -5,7 +5,9 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
+    "react-router-dom": "^5.1.2",
     "request": "^2.88.2",
+    "styled-components": "^5.0.1",
     "voca": "^1.4.0"
   }
 }

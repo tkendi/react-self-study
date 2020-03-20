@@ -1,69 +1,39 @@
-import React, { Component, Fragment } from 'react';
-import styled from 'styled-components';
-import { palette, spacing } from '@material-ui/system';
-import { withStyles } from '@material-ui/core/styles';
-import test_domestic from './test_domestic';
-import {
-  TableRow,
-  TableCell,
-  TableHead,
-  Table,
-  TableBody,
-  Paper,
-} from '@material-ui/core';
+import React, {Component} from 'react';
+import City from './City';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableBody from '@material-ui/core/TableBody';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 1080,
-  },
-});
-
-class Domestic extends Component {
-  state = { users: [] };
+class test extends Component {
+  state = { datas: [] };
 
   componentDidMount() {
-    fetch('/Domestic')
+    fetch('/City')
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(datas => this.setState({ datas }));
   }
 
   render() {
-    const { classes } = this.props;
     return (
       <div>
-        <Paper className={classes.root}>
-          <Table className={classes.table}>
-            <TableHead>
-              <TableRow>
-                <TableCell>확진환자</TableCell>
-                <TableCell>격리해제 환자</TableCell>
-                <TableCell>격리환자</TableCell>
-                <TableCell>사망자</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.state.users.map(data => {
-                return (
-                  <test_domestic
-                    key={data.id}
-                    Confirm={data.Confirm}
-                    Disassociate={data.Disassociate}
-                    Quaranines={data.Quaranines}
-                    Dead={data.Dead}
-                  />
-                );
-              })}
-            </TableBody>
-          </Table>
-        </Paper>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>도시</TableCell>
+              <TableCell>확진자</TableCell>
+              <TableCell>증가환자</TableCell>
+              <TableCell>사망자</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {this.state.datas.map(data => {
+              return <City Seoul_num = {data.Seoul_num} Seoul_increase = {data.Seoul_Increase} Seoul_dead = {data.Seoul_Dead} Busan_num = {data.Busan_num} Busan_increase = {data.Busan.Increase} Busan_dead = {data.Busan_Dead} Daegu_num = {data.Daegu_num} Daegu_increase = {data.Daegu_Increase} Daegu_dead = {Daegu_Dead} Incheon_num = {data.Incheon_num} Incheon_increase = {data.Incheon_Increase} Incheon_dead = {data.Incheon_Dead} Gwangju_num = {data.Gwangju_num} Gwangju_increase = {data.Gwangju_Increase} Gwangju_dead = {data.Gwangju_Dead} Daejeon_num = {data.Daejeon_num} Daejeon_increase = {data.Daejeon_Increase} Daejeon_dead = {data.Daejeon_Dead} Ulsan_num = {data.Ulsan_num} Ulsan_increase = {data.Ulsan_Increase} Ulsan_dead = {data.Ulsan_Dead} Sejong_num = {data.Sejong_num} Sejong_increase = {data.Sejong_Increase} Sejong_dead = {data.Sejong_Dead} />
+            })}
+          </TableBody>
+        </Table>
       </div>
-    );
+    )
   }
 }
-
-export default withStyles(styles)(Domestic);

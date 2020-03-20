@@ -1,7 +1,13 @@
 import React from 'react';
+import AuthTemplate from '../components/auth/AuthTemplate';
+import Loginform from '../containers/auth/LoginForm';
 
 const LoginPage = () => {
-    return <div>로그인</div>
+  return (
+    <AuthTemplate>
+      <Loginform />
+    </AuthTemplate>
+  );
 };
 
 export default LoginPage;

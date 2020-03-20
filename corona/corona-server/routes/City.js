@@ -273,6 +273,64 @@ router.get("/", function(req, res, body) {
 
     res.json([
       {
+        id: 2,
+        // Standard_Time: $Standard_Time,
+        // Seoul: [
+        //   {
+        //     Seoul_num: $Seoul_num,
+        //     Seoul_Increase_num: $Seoul_Increase_num,
+        //     Seoul_Dead_num: $Seoul_Dead_num
+        //   }
+        // ],
+        // Busan: [
+        //   {
+        //     Busan_num: $Busan_num,
+        //     Busan_Increase_num: $Busan_Increase_num,
+        //     Busan_Dead_num: $Busan_Dead_num
+        //   }
+        // ],
+        // Daegu: [
+        //   {
+        //     Daegu_num: $Daegu_num,
+        //     Daegu_Increase_num: $Daegu_Increase_num,
+        //     Daegu_Dead_num: $Daegu_Dead_num
+        //   }
+        // ],
+        // Incheon: [
+        //   {
+        //     Incheon_num: $Incheon_num,
+        //     Incheon_Increase_num: $Incheon_Increase_num,
+        //     Incheon_Dead_num: $Incheon_Dead_num
+        //   }
+        // ],
+        // Gwangju: [
+        //   {
+        //     Gwangju_num: $Gwangju_num,
+        //     Gwangju_Increase_num: $Gwangju_Increase_num,
+        //     Gwangju_Dead_num: $Gwangju_Dead_num
+        //   }
+        // ],
+        // Daejeon: [
+        //   {
+        //     Daejeon_num: $Daejeon_num,
+        //     Daejeon_Increase_num: $Daejeon_Increase_num,
+        //     Daejeon_Dead_num: $Daejeon_Dead_num
+        //   }
+        // ],
+        // Ulsan: [
+        //   {
+        //     Ulsan_num: $Ulsan_num,
+        //     Ulsan_Increase_num: $Ulsan_Increase_num,
+        //     Ulsan_Dead_num: $Ulsan_Dead_num
+        //   }
+        // ],
+        // Sejong: [
+        //   {
+        //     Sejong_num: $Sejong_num,
+        //     Sejong_Increase_num: $Sejong_Increase_num,
+        //     Sejong_Dead_num: $Sejong_Dead_num
+        //   }
+        // ]
         Standard_Time: $Standard_Time,
         Seoul_num: $Seoul_num,
         Seoul_Increase_num: $Seoul_Increase_num,
@@ -332,7 +390,7 @@ router.get("/", function(req, res, body) {
           Sejong_Dead_num: $Sejong_Dead_num
         }
       });
-      console.log("Input firebase database")
+      console.log("Input firebase database");
     } catch (e) {
       console.log(e);
     }

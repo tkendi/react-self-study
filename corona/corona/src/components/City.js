@@ -10,34 +10,51 @@ import Paper from '@material-ui/core/Paper';
 
 class City extends Component {
 
+  state = {users: []};
+
+  componentDidMount() {
+    fetch('/City')
+      .then(res => res.json())
+      .then(users => this.setState({users}));
+  }
+
   render() {
     return (
-      <TableRow>
-        <TableCell>{this.props.Seoul_num}</TableCell>
-        <TableCell>{this.props.Seoul_increase}</TableCell>
-        <TableCell>{this.props.Seoul_dead}</TableCell>
-        <TableCell>{this.props.Busan_num}</TableCell>
-        <TableCell>{this.props.Busan_increase}</TableCell>
-        <TableCell>{this.props.Busan_dead}</TableCell>
-        <TableCell>{this.props.Daegu_num}</TableCell>
-        <TableCell>{this.props.Daegu_increase}</TableCell>
-        <TableCell>{this.props.Daegu_dead}</TableCell>
-        <TableCell>{this.props.Incheon_num}</TableCell>
-        <TableCell>{this.props.Incheon_increase}</TableCell>
-        <TableCell>{this.props.Incheon_dead}</TableCell>
-        <TableCell>{this.props.Gwangju_num}</TableCell>
-        <TableCell>{this.props.Gwangju_increase}</TableCell>
-        <TableCell>{this.props.Gwangju_dead}</TableCell>
-        <TableCell>{this.props.Daejeon_num}</TableCell>
-        <TableCell>{this.props.Daejeon_increase}</TableCell>
-        <TableCell>{this.props.Daejeon_dead}</TableCell>
-        <TableCell>{this.props.Ulsan_num}</TableCell>
-        <TableCell>{this.props.Ulsan_increase}</TableCell>
-        <TableCell>{this.props.Ulsan_dead}</TableCell>
-        <TableCell>{this.props.Sejong_num}</TableCell>
-        <TableCell>{this.props.Sejong_increase}</TableCell>
-        <TableCell>{this.props.Sejong_dead}</TableCell>
-      </TableRow>
+      <div>
+        {this.state.users.map(data=> {
+          <li key={data.id}>
+            <p>{data.Seoul_num}</p>
+          </li>
+        })}
+      </div>
+
+
+      // <TableRow>
+      //   <TableCell>{this.props.Seoul_num}</TableCell>
+      //   <TableCell>{this.props.Seoul_increase}</TableCell>
+      //   <TableCell>{this.props.Seoul_dead}</TableCell>
+      //   <TableCell>{this.props.Busan_num}</TableCell>
+      //   <TableCell>{this.props.Busan_increase}</TableCell>
+      //   <TableCell>{this.props.Busan_dead}</TableCell>
+      //   <TableCell>{this.props.Daegu_num}</TableCell>
+      //   <TableCell>{this.props.Daegu_increase}</TableCell>
+      //   <TableCell>{this.props.Daegu_dead}</TableCell>
+      //   <TableCell>{this.props.Incheon_num}</TableCell>
+      //   <TableCell>{this.props.Incheon_increase}</TableCell>
+      //   <TableCell>{this.props.Incheon_dead}</TableCell>
+      //   <TableCell>{this.props.Gwangju_num}</TableCell>
+      //   <TableCell>{this.props.Gwangju_increase}</TableCell>
+      //   <TableCell>{this.props.Gwangju_dead}</TableCell>
+      //   <TableCell>{this.props.Daejeon_num}</TableCell>
+      //   <TableCell>{this.props.Daejeon_increase}</TableCell>
+      //   <TableCell>{this.props.Daejeon_dead}</TableCell>
+      //   <TableCell>{this.props.Ulsan_num}</TableCell>
+      //   <TableCell>{this.props.Ulsan_increase}</TableCell>
+      //   <TableCell>{this.props.Ulsan_dead}</TableCell>
+      //   <TableCell>{this.props.Sejong_num}</TableCell>
+      //   <TableCell>{this.props.Sejong_increase}</TableCell>
+      //   <TableCell>{this.props.Sejong_dead}</TableCell>
+      // </TableRow>
     );
   }
 }

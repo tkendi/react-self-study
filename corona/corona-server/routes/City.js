@@ -273,7 +273,6 @@ router.get("/", function(req, res, body) {
 
     res.json([
       {
-        id: 2,
         // Standard_Time: $Standard_Time,
         // Seoul: [
         //   {

@@ -10,22 +10,22 @@ import Paper from '@material-ui/core/Paper';
 
 class City extends Component {
 
-  state = {users: []};
+  state = { datas: [] };
 
   componentDidMount() {
     fetch('/City')
       .then(res => res.json())
-      .then(users => this.setState({users}));
+      .then(datas => this.setState({ datas }));
   }
 
   render() {
     return (
       <div>
-        {this.state.users.map(data=> {
-          <li key={data.id}>
-            <p>{data.Seoul_num}</p>
-          </li>
-        })}
+        {this.state.datas.map(data => (
+          <div>
+            {data.Standard_Time}
+          </div>
+        ))}
       </div>
 
 

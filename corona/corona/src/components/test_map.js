@@ -9,7 +9,7 @@ const Kakao = withJs(
 
 function test_map() {
   return (
-    <div>
+    <div style="width:100% height:100vh;">
       <Kakao options={{ lng: 11.3456, lat: 123.45678, level: 4 }} />
     </div>
   )

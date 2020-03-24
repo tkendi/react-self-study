@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import MapContext, { KaKaoMap, withJs, withKakaoMap, KakaoMap } from 'react-kakaomap-api';
 
-class test_map extends Component {
-    componentDidMount() {
-        let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-        let options = { //지도를 생성할 때 필요한 기본 옵션
-            center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-            level: 3 //지도의 레벨(확대, 축소 정도)
-        };
+const Kakao = withJs(
+  `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
+    process.env.REACT_APP_KAKAO_API_KEY
+  }&libraries=services,clusterer,drawing&autoload=false`
+)(withKakaoMap(KakaoMap));
 
-        let map = new kakao.maps.Map(container, options);
-    }
-
-  render() {
-    return <div id="map" style="width:500px; height:400px;"></div>;
-  }
+function test_map() {
+  return (
+    <div>
+      <Kakao options={{ lng: 11.3456, lat: 123.45678, level: 4 }} />
+    </div>
+  )
 }
-
 
 export default test_map;

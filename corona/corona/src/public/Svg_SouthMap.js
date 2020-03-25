@@ -11,6 +11,6 @@ class svg extends Component {
   render() {
     return <CheckboxSVGMap map={SouthKorea} />;
   }
-}
+} 
 
 export default svg;

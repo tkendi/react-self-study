@@ -19,14 +19,14 @@ router.get("/", function(req, res, body) {
   request(url, function(error, response, body) {
     $ = cheerio.load(body);
     $colArr = $(".content div.livemap_sub_outer div.livemap_sub div.maplist");
-    $colArr2 = $colArr.children().eq(2);
-    $colArr3 = $colArr.children().eq(3);
-    $ColArr4 = $colArr.children().eq(4);
-    $ColArr5 = $colArr.children().eq(5);
-    $ColArr6 = $colArr.children().eq(6);
-    $ColArr7 = $colArr.children().eq(7);
-    $ColArr8 = $colArr.children().eq(8);
-    $ColArr9 = $colArr.children().eq(9);
+    $colArr2 = $colArr.children().eq(0);
+    $colArr3 = $colArr.children().eq(1);
+    $ColArr4 = $colArr.children().eq(2);
+    $ColArr5 = $colArr.children().eq(3);
+    $ColArr6 = $colArr.children().eq(4);
+    $ColArr7 = $colArr.children().eq(5);
+    $ColArr8 = $colArr.children().eq(6);
+    $ColArr9 = $colArr.children().eq(7);
 
     // console.log($colArr2.html());
 
@@ -274,30 +274,62 @@ router.get("/", function(req, res, body) {
     res.json([
       {
         Standard_Time: $Standard_Time,
-        Seoul_num: $Seoul_num,
-        Seoul_Increase_num: $Seoul_Increase_num,
-        Seoul_Dead_num: $Seoul_Dead_num,
-        Busan_num: $Busan_num,
-        Busan_Increase_num: $Busan_Increase_num,
-        Busan_Dead_num: $Busan_Dead_num,
-        Daegu_num: $Daegu_num,
-        Daegu_Increase_num: $Daegu_Increase_num,
-        Daegu_Dead_num: $Daegu_Dead_num,
-        Incheon_num: $Incheon_num,
-        Incheon_Increase_num: $Incheon_Increase_num,
-        Incheon_Dead_num: $Incheon_Dead_num,
-        Gwangju_num: $Gwangju_num,
-        Gwangju_Increase_num: $Gwangju_Increase_num,
-        Gwangju_Dead_num: $Gwangju_Dead_num,
-        Daejeon_num: $Daejeon_num,
-        Daejeon_Increase_num: $Daejeon_Increase_num,
-        Daejeon_Dead_num: $Daejeon_Dead_num,
-        Ulsan_num: $Ulsan_num,
-        Ulsan_Increase_num: $Ulsan_Increase_num,
-        Ulsan_Dead_num: $Ulsan_Dead_num,
-        Sejong_num: $Sejong_num,
-        Sejong_Increase_num: $Sejong_Increase_num,
-        Sejong_Dead_num: $Sejong_Dead_num
+        Seoul: [
+          {
+            Seoul_num: $Seoul_num,
+            Seoul_Increase_num: $Seoul_Increase_num,
+            Seoul_Dead_num: $Seoul_Dead_num
+          }
+        ],
+        Busan: [
+          {
+            Busan_num: $Busan_num,
+            Busan_Increase_num: $Busan_Increase_num,
+            Busan_Dead_num: $Busan_Dead_num
+          }
+        ],
+        Daegu: [
+          {
+            Daegu_num: $Daegu_num,
+            Daegu_Increase_num: $Daegu_Increase_num,
+            Daegu_Dead_num: $Daegu_Dead_num
+          }
+        ],
+        Incheon: [
+          {
+            Incheon_num: $Incheon_num,
+            Incheon_Increase_num: $Incheon_Increase_num,
+            Incheon_Dead_num: $Incheon_Dead_num
+          }
+        ],
+        Gwangju: [
+          {
+            Gwangju_num: $Gwangju_num,
+            Gwangju_Increase_num: $Gwangju_Increase_num,
+            Gwangju_Dead_num: $Gwangju_Dead_num
+          }
+        ],
+        Daejeon: [
+          {
+            Daejeon_num: $Daejeon_num,
+            Daejeon_Increase_num: $Daejeon_Increase_num,
+            Daejeon_Dead_num: $Daejeon_Dead_num
+          }
+        ],
+        Ulsan: [
+          {
+            Ulsan_num: $Ulsan_num,
+            Ulsan_Increase_num: $Ulsan_Increase_num,
+            Ulsan_Dead_num: $Ulsan_Dead_num
+          }
+        ],
+        Sejong: [
+          {
+            Sejong_num: $Sejong_num,
+            Sejong_Increase_num: $Sejong_Increase_num,
+            Sejong_Dead_num: $Sejong_Dead_num
+          }
+        ]
       }
     ]);
 
@@ -332,7 +364,7 @@ router.get("/", function(req, res, body) {
           Sejong_Dead_num: $Sejong_Dead_num
         }
       });
-      console.log("Input firebase database")
+      console.log("Input firebase database");
     } catch (e) {
       console.log(e);
     }

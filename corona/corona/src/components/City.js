@@ -23,9 +23,10 @@ class City extends Component {
         {this.state.datas.map(data => (
           <div>
             <h1>{data.Standard_Time}</h1>
-            <p>{data.Seoul_num}</p>
-            <p>{data.Seoul_Increase_num}</p>
-            <p>{data.Seoul_Dead_num}</p>
+            <p>{data.Seoul.Seoul_num}</p>
+            <p>{data.Seoul.Seoul_Increase_num}</p>
+            {/* <p>{data.Seoul.Seoul_Increase_num}</p>
+            <p>{data.Seoul.Seoul_Dead_num}</p>
             <p>{data.Busan_num}</p>
             <p>{data.Busan_Increase_num}</p>
             <p>{data.Busan_Dead_num}</p>
@@ -46,7 +47,7 @@ class City extends Component {
             <p>{data.Ulsan_Dead_num}</p>
             <p>{data.Sejong_num}</p>
             <p>{data.Sejong_Increase_num}</p>
-            <p>{data.Sejong_Dead_num}</p>
+            <p>{data.Sejong_Dead_num}</p> */}
           </div>
         ))}
       </div>

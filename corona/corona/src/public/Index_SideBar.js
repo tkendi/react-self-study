@@ -19,7 +19,7 @@ class Index_AppBar extends Component {
             Status Domestic
           </NavLink>
 
-          <NavLink className="menu-item" to="/Domestic"> 
+          <NavLink className="menu-item" to="/test_map"> 
             Status World
           </NavLink>
       </Menu>

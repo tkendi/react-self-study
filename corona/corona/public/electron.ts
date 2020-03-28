@@ -20,7 +20,8 @@ function createWindow() {
       // Node 환경처럼 사용하려면 (Node에서 제공되는 빌트인 패키지 사용 포함)
       // true 해야 합니다.
       nodeIntegration: true
-    }
+    },
+    frame: false
   });
 
   // 3. and load the index.html of the app.

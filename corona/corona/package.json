@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "electron-is-dev": "^1.1.0",
+    "grunt-download-electron": "^2.1.4",
     "jquery": "^3.4.1",
     "react": "^16.13.0",
     "react-burger-menu": "^2.6.13",

@@ -13,35 +13,35 @@ class Domestic extends Component {
   render() {
     return (
       <div class="body">
-          {this.state.users.map(user => (
-            <div key={user.id} className="accordion">
-              <h1>{user.title}</h1>
+          {this.state.users.map(data => (
+            <div key={data.id} className="accordion">
+              <h1>{data.title}</h1>
               <div className="accordion-item">
                 <div className="item-header">
                   <h1 className="domestic_title">확진환자</h1>
                 </div>
-                <p className="text">{user.Confirm}명</p>
+                <p>{data.Confirm}명</p>
               </div>
 
               <div className="accordion-item">
                 <div className="item-header">
                   <h1 className="domestic_title">격리해제 환자</h1>
                 </div>
-                <p className="text">{user.Disassociate}명</p>
+                <p>{data.Disassociate}명</p>
               </div>
 
               <div className="accordion-item">
                 <div className="item-header">
                   <h1 className="domestic_title">격리환자</h1>
                 </div>
-                <p className="text">{user.Quaranines}명</p>
+                <p>{data.Quaranines}명</p>
               </div>
 
               <div className="accordion-item">
                 <div className="item-header">
                   <h1 className="domestic_title">사망자</h1>
                 </div>
-                <p className="text">{user.Dead}명</p>
+                <p>{data.Dead}명</p>
               </div>
             </div>
           ))}

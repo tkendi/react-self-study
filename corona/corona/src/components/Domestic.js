@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import '../public/css/Domestic.css';
 
 class Domestic extends Component {
-  state = { users: [] };
+  state = { 
+    City: [], 
+    NationWide: []
+  };
 
   componentDidMount() {
     fetch('/Domestic')
       .then(res => res.json())
-      .then(users => this.setState({ users }));
+      .then(City => this.setState({ City }));
   }
 
   render() {
     return (
       <div class="body">
-          {this.state.users.map(data => (
+          {this.state.City.map(data => (
             <div key={data.id} className="accordion">
               <h1>{data.title}</h1>
               <div className="accordion-item">

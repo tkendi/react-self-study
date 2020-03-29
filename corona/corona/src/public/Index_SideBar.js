@@ -20,7 +20,7 @@ class Index_AppBar extends Component {
           </NavLink>
 
           <NavLink className="menu-item" to="/test_map"> 
-            Status World
+            testing map
           </NavLink>
       </Menu>
     );

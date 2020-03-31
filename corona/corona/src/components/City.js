@@ -19,13 +19,13 @@ class City extends Component {
               코로나바이러스감염증-19 도시 발생현황 ({data.Standard_Time})
             </h1>
             <div className="accordion-item">
-              <div className="accordion-item">
+              {/* <div className="accordion-item">
                 <div className="item-header">
                   <h1 className="city_title">NationWide</h1>
                 </div>
                 <p>확진환자: {data.NationWide.NationWide_num}</p>
                 <p>전일대비증가:{data.NationWide.NationWide_Increase_num}</p>
-              </div>
+              </div> */}
 
               <div className="item-header">
                 <h1 className="city_title">Seoul</h1>

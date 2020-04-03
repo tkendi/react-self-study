@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../public/css/Domestic.css';
+import test_template from './test/test_template';
 
 class City extends Component {
   state = { datas: [] };
@@ -18,17 +19,16 @@ class City extends Component {
             <h1>
               코로나바이러스감염증-19 도시 발생현황 ({data.Standard_Time})
             </h1>
-            <div className="accordion-item">
-              {/* <div className="accordion-item">
-                <div className="item-header">
-                  <h1 className="city_title">NationWide</h1>
-                </div>
-                <p>확진환자: {data.NationWide.NationWide_num}</p>
-                <p>전일대비증가:{data.NationWide.NationWide_Increase_num}</p>
-              </div> */}
+            {/* <test_template
+              key={data.Seoul.Seoul_num}
+              patient={data.Seoul.Seoul_num}
+              increase={data.Seoul.Seoul_Increase_num}
+              dead={data.Seoul.Seoul_Dead_num}
+            /> */}
 
-              <div className="item-header">
-                <h1 className="city_title">Seoul</h1>
+            <div className = "accordion-item">
+              <div className = "item-header">
+                <h1 className = "city_title">Seoul</h1>
               </div>
               <p>확진환자:{data.Seoul.Seoul_num}</p>
               <p>전일대비증가:{data.Seoul.Seoul_Increase_num}</p>

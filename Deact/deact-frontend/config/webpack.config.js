@@ -25,6 +25,17 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
+// bundleTracker를 import 해 줍니다.
+const BundleTracker = require('webpack-bundle-tracker');
+// publicPath와 publicUrl을 다음과 같이 변경해줍니다.
+const publicPath = 'http://localhost:3000/';
+const publicUrl = 'http://localhost:3000/';
+
+// 기존의 publicPath를 다음과 같이 바꿔줍니다.
+const publicPath = "/static/bundles/";
+// 기존의 cssFilename을 다음과 같이 변경해줍니다. (앞의 static/ 을 없애줍니다.)
+const cssFilename = 'css/[name].[contenthash:8].css';
+
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -153,6 +164,11 @@ module.exports = function(webpackEnv) {
       isEnvDevelopment &&
         require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
+
+      require.resolve("./polyfills"),
+      require.resolve("webpack-dev-server/client") + "?http://localhost:3000",
+      require.resolve("webpack/hot/dev-server"),
+      require.resolve("react-dev-utils/webpackHotDevClient"),
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
@@ -165,15 +181,11 @@ module.exports = function(webpackEnv) {
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
-      filename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].js'
-        : isEnvDevelopment && 'static/js/bundle.js',
+      filename: "js/[name].[chunkhash:8].js",
       // TODO: remove this when upgrading to webpack 5
       futureEmitAssets: true,
       // There are also additional JS chunk files if you use code splitting.
-      chunkFilename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
+      chunkFilename: "js/[name].[chunkhash:8].chunk.js",
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
@@ -309,6 +321,7 @@ module.exports = function(webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        new BundleTracker({path: paths.statsRoot, filename: 'webpack-stats.dev.json'}),
       ],
     },
     resolveLoader: {
@@ -355,8 +368,8 @@ module.exports = function(webpackEnv) {
               test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
               loader: require.resolve('url-loader'),
               options: {
-                limit: imageInlineSizeLimit,
-                name: 'static/media/[name].[hash:8].[ext]',
+                limit: 1000,
+                name: 'media/[name].[hash:8].[ext]',
               },
             },
             // Process application JS with Babel.
@@ -498,7 +511,7 @@ module.exports = function(webpackEnv) {
               // by webpacks internal loaders.
               exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
               options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'media/[name].[hash:8].[ext]',
               },
             },
             // ** STOP ** Are you adding a new loader?
@@ -508,6 +521,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
@@ -534,6 +548,12 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+
+      new BundleTracker({
+        path: paths.statsRoot,
+        filename: "webpack-stats.prod.json"
+      })	
+
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358

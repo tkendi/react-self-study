@@ -65,6 +65,19 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrlOrPath,
+  statsRoot: resolveApp('../deact-backend/deact'),
+  appBuild: resolveApp("../deact-backend/deact/assets/bundles"),
+  appPublic: resolveApp("public"),
+  appHtml: resolveApp("public/index.html"),
+  appIndexJs: resolveApp("src/index.js"),
+  appPackageJson: resolveApp("package.json"),
+  appSrc: resolveApp("src"),
+  yarnLockFile: resolveApp("yarn.lock"),
+  testsSetup: resolveApp("src/setupTests.js"),
+  appNodeModules: resolveApp("node_modules"),
+  publicUrl: getPublicUrl(resolveApp("package.json")),
+  servedPath: getServedPath(resolveApp("package.json")),
+  statsRoot: resolveApp("../deact-backend/deact")
 };
 
 

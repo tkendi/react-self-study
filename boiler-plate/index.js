@@ -28,7 +28,7 @@ app.post('/register', (req, res, next) => {
     return res.status(200).json({
       success: true
     })
-  } )
+  })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))

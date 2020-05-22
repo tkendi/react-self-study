@@ -1,6 +1,6 @@
 const koa = require('koa');
 const Router = require('koa-router')
-cosnt bodyParser = require('koa-bodyparser')
+const bodyParser = require('koa-bodyparser')
 
 const api = require('./api')
 

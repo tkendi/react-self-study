@@ -8,7 +8,7 @@ class SideBar extends React.Component {
         return(
             <Menu>
                 <NavLink to = "/">
-                    게시판
+                    Notice Board
                 </NavLink>
                 <NavLink to = "/">
                     Streaming

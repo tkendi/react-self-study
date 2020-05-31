@@ -9,13 +9,13 @@
     "esm": "^3.2.25",
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^8.0.8",
-    "mongoose": "^5.9.15"
+    "koa-router": "^9.0.1",
+    "mongoose": "^5.9.16"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "nodemon": "^2.0.4"
   },
   "scripts": {

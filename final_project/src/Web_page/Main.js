@@ -1,12 +1,10 @@
 import React from 'react';
-import SideBar from './public_comp/SideBar';
+import Comp_Index from '../public_comp/index';
 
 class Main extends React.Component {
     render() {
         return (
-            <div>
-                <SideBar />
-            </div>
+            <Comp_Index />
         )
     }
 }

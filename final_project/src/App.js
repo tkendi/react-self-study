@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import SideBar from './SideBar.js'
-import Components from './public_comp'
+import React from 'react';
+import Main from './Web_page/Main'
+
 function App() {
   return (
     <div>
-      <Components />
+      <Main />
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import palette from '../styles/js/palette'
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -14,7 +14,7 @@ const StyledButton = styled.div`
 
     background: ${palette.gray[8]};
     &:hover {
-        background: ${palette.gray[6]}
+        background: ${palette.gray[7]};
     }
 `;
 

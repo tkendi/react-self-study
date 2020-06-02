@@ -1,9 +1,13 @@
 import React from 'react';
 import SideBar from './SideBar'
+import Button from './Button'
 
 function index() {
     return(
-        <SideBar />
+        <div>
+            <SideBar />
+            <Button> button </Button>
+        </div>
     )
 }
 

@@ -4,7 +4,9 @@ import Comp_Index from '../public_comp/index';
 class Main extends React.Component {
     render() {
         return (
-            <Comp_Index />
+            <div>
+                <Comp_Index />
+            </div>
         )
     }
 }

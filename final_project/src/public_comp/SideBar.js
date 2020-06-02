@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink, BrowserRouter as Router} from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu';
-import './SideBar.scss'
+import '../styles/css/SideBar.scss'
 
 class SideBar extends React.Component {
     render() {

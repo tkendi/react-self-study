@@ -1,11 +1,10 @@
 import React from 'react';
 import SideBar from './SideBar'
-class index extends React.Component {
-    render() {
-        return(
-            <SideBar />
-        )
-    }
+
+function index() {
+    return(
+        <SideBar />
+    )
 }
 
 export default index

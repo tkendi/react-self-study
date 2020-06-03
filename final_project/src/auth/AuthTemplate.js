@@ -6,15 +6,44 @@ import Button from '../public_comp/Button';
 import Box from '@material-ui/core';
 
 const AuthTemplateBlock = styled.div`
-
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: ${palette.gray[2]};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
-const AuthTemplate = () => {
-    return(
-        <AuthTemplateBlock>
-            
-        </AuthTemplateBlock>
-    )
-}
+const WhiteBox = styled.div`
+    .logo-area {
+        display: block;
+        padding-bottom: 2rem;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    box-shadow: 0 0 8px rgba(0, 0, 0, .255);
+    padding: 2rem;
+    width: 360px;
+    background: white;
+    border-radius: 2px;
+`
+
+const AuthTemplate = ({ children }) => {
+  return (
+      <AuthTemplateBlock>
+          <WhiteBox>
+              <div className = "logo-area">
+                  <Link to = "/">Title</Link>
+              </div>
+              {children}
+          </WhiteBox>
+      </AuthTemplateBlock>
+  )
+};
 
 export default AuthTemplate;

@@ -1,11 +1,14 @@
 import React from 'react';
-import Main from './Web_page/Main'
+import LoginPage from './Web_page/Login'
+import RegisterPage from './Web_page/Register'
+import {Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <Main />
-    </div>
+    <>
+      <Route component = {LoginPage} path = './Web_page/Login' />
+      <Route component = {RegisterPage} path = './Web_page/Register' />
+    </>
   )
 }
 

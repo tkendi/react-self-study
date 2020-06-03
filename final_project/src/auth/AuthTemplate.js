@@ -5,15 +5,16 @@ import palette from '../styles/js/palette';
 import Button from '../public_comp/Button';
 import Box from '@material-ui/core';
 
-function AuthTemplate({ children }) {
-  return (
-    <div>
-      {children}
-      <Box component="span" m={1}>
-        <Button />
-      </Box>
-    </div>
-  );
+const AuthTemplateBlock = styled.div`
+
+`;
+
+const AuthTemplate = () => {
+    return(
+        <AuthTemplateBlock>
+            
+        </AuthTemplateBlock>
+    )
 }
 
 export default AuthTemplate;

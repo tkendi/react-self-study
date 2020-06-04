@@ -6,7 +6,7 @@ class Register extends React.Component {
   render() {
     return (
       <AuthTemplate>
-        <AuthForm />
+        <AuthForm type = "register"/>
       </AuthTemplate>
     );
   }

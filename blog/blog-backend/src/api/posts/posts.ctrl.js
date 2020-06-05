@@ -1,6 +1,6 @@
 import Post from '../../models/post'
 import mongoose from 'mongoose'
-import Joi from Joi;
+import Joi from 'Joi';
 
 const { ObjectId } = mongoose.Types;
 

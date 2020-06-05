@@ -35,9 +35,12 @@ export const register = async ctx => {
         await user.save()
 
         //응답할 데이터에서 hashedPassword 필드 제거
-        const data = user.toJSON();
-        delete data.hashedPassword;
         ctx.body = user.serialize();
+        const token = user.generateToken()
+        ctx.cookies.set('access_token', token, {
+            maxAge: 1000 * 60 * 60 * 24 * 7,
+            httpOnly: true
+        })
     } catch(e) {
         ctx.throw(500, e)
     }
@@ -63,11 +66,17 @@ export const login = async ctx => {
 
         const valid = await user.checkPassword(password)
         //잘못된 비밀번호
-        if(!valied) {
-            ctx.status =z 401;
+        if(!valid) {
+            ctx.status = 401;
             return
         }
         ctx.body = user.serialize()
+
+        const token = user.generateToken();
+        ctx.cookies.set('access_token', token, {
+            maxAge: 1000 * 60 * 60 * 24 * 7,
+            httpOnly: true
+        })
     } catch(e) {
         ctx.throw(500, e)
     }

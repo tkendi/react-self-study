@@ -40,9 +40,15 @@ const Footer = styled.div`
   }
 `;
 
+const textMap = {
+  login: '로그인',
+  register: '회원가입'
+};
+
 class AuthForm extends React.Component {
-  const text = {this.props.type}
   render() {
+    const text = textMap[this.props.type]
+    const type= this.props.type
     return (
       <AuthFormBlock>
         <h3>로그인</h3>
@@ -58,10 +64,22 @@ class AuthForm extends React.Component {
             placeholder="비밀번호"
             type="password"
           />
-          <Button variant="contained">로그인</Button>
+          {type === 'register' && (
+            <StyledInput
+              autoComplete = "new-password"
+              name = "passwordConfirm"
+              placeholder = "비밀번호 확인"
+              type = "password"
+            />
+          )}
+          <Button variant="contained">{text}</Button>
         </form>
         <Footer>
-          <Link to = "/register">회원가입</Link>
+          {type === 'login' ? (
+            <Link to = '/register'>회원가입</Link>
+          ) : (
+            <Link to = '/login'>로그인</Link>
+          )}
         </Footer>
       </AuthFormBlock>
     );

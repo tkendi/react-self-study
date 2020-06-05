@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 function App() {
   return (
     <>
-      <Route component={LoginPage} path="/login" exact="true" />
+      <Route component={LoginPage} path="/login" exact = "/"/>
       <Route component={RegisterPage} path="/register" />
     </>
   );

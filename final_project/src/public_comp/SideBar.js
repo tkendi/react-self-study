@@ -1,24 +1,16 @@
-import React from 'react'
-import {NavLink, BrowserRouter as Router} from 'react-router-dom'
+import React from 'react';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import '../styles/css/SideBar.scss'
+import '../styles/css/SideBar.scss';
 
-class SideBar extends React.Component {
-    render() {
-        return(
-            <Menu>
-                <NavLink to = "/">
-                    Notice Board
-                </NavLink>
-                <NavLink to = "/">
-                    Streaming
-                </NavLink>
-                <NavLink to = "/">
-                    Chatting
-                </NavLink>
-            </Menu>
-        )
-    }
+function SideBar() {
+  return (
+    <Menu>
+      <Link to="/NoticeBoard">Notice Board</Link>
+      <Link to="/Streaming">Streaming</Link>
+      <Link to="/" exact={true}>Chatting</Link>
+    </Menu>
+  );
 }
 
-export default SideBar
+export default SideBar;

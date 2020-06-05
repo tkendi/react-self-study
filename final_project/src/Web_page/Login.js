@@ -5,7 +5,7 @@ import AuthTemplate from '../auth/AuthTemplate';
 class Login extends React.Component {
   render() {
     return (
-      <AuthTemplate>
+      <AuthTemplate type = "login">
         <AuthForm type = "login" />
       </AuthTemplate>
     );

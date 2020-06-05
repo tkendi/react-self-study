@@ -80,7 +80,7 @@ class AuthForm extends React.Component {
           ) : (
             <Link to = '/login'>로그인</Link>
           )}
-        </Footer>
+        </Footer> 
       </AuthFormBlock>
     );
   }

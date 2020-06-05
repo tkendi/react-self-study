@@ -43,10 +43,10 @@ const WhiteBox = styled.div`
   border-radius: 2px;
 `;
 
-const AuthTemplate = ({ children }) => {
+const AuthTemplate = ({children, type}) => {
   return (
     <AuthTemplateBlock>
-      <Title>title</Title>
+        <Title>{type}</Title>
       <WhiteBox>
         <div className="logo-area"></div>
         {children}

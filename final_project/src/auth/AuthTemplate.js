@@ -24,7 +24,7 @@ const Title = styled.div`
   padding-bottom: 5px;
   text-align: center;
   h1 {
-    padding-bottom: 20px;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -43,10 +43,9 @@ const WhiteBox = styled.div`
   border-radius: 2px;
 `;
 
-const AuthTemplate = ({children, type}) => {
+const AuthTemplate = ({ children, type }) => {
   return (
     <AuthTemplateBlock>
-        <Title>{type}</Title>
       <WhiteBox>
         <div className="logo-area"></div>
         {children}

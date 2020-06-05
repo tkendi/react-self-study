@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/js/palette';
-import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import '../styles/css/AuthForm.scss'
 
 const AuthFormBlock = styled.div`
   h3 {
-    margin: 0;
-    color: ${palette.gray[8]};
+    text-align: center;
+    margin: 1px;
+    color: ${palette.gray[9]};
     margin-bottom: 1rem;
   }
 `;
@@ -42,16 +44,16 @@ const Footer = styled.div`
 
 const textMap = {
   login: '로그인',
-  register: '회원가입'
+  register: '회원가입',
 };
 
 class AuthForm extends React.Component {
   render() {
-    const text = textMap[this.props.type]
-    const type= this.props.type
+    const text = textMap[this.props.type];
+    const type = this.props.type;
     return (
       <AuthFormBlock>
-        <h3>로그인</h3>
+        <h3>{text}</h3>
         <form>
           <StyledInput
             autoComplete="username"
@@ -64,23 +66,29 @@ class AuthForm extends React.Component {
             placeholder="비밀번호"
             type="password"
           />
+          {/* <input type = "text" name = "" placeholder = "아이디" />
+          <input type = "password" name = "" placeholder = "비밀번호" /> */}
           {type === 'register' && (
             <StyledInput
-              autoComplete = "new-password"
-              name = "passwordConfirm"
-              placeholder = "비밀번호 확인"
-              type = "password"
+              autoComplete="new-password"
+              name="passwordConfirm"
+              placeholder="비밀번호 확인"
+              type="password"
             />
           )}
-          <Button variant="contained">{text}</Button>
+          <div className = "submit_btn">
+            <Button type="submit" disableElevation>
+              {text}
+            </Button>
+          </div>
+          <Footer>
+            {type === 'login' ? (
+              <Link to="/register">회원가입</Link>
+            ) : (
+              <Link to="/login">로그인</Link>
+            )}
+          </Footer>
         </form>
-        <Footer>
-          {type === 'login' ? (
-            <Link to = '/register'>회원가입</Link>
-          ) : (
-            <Link to = '/login'>로그인</Link>
-          )}
-        </Footer> 
       </AuthFormBlock>
     );
   }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import palette from '../styles/js/palette';
 import Button from '../public_comp/Button';
 import Box from '@material-ui/core';
+import SideBar from '../public_comp/SideBar';
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -45,12 +46,15 @@ const WhiteBox = styled.div`
 
 const AuthTemplate = ({ children, type }) => {
   return (
-    <AuthTemplateBlock>
-      <WhiteBox>
-        <div className="logo-area"></div>
-        {children}
-      </WhiteBox>
-    </AuthTemplateBlock>
+    <div>
+      <SideBar />
+      <AuthTemplateBlock>
+        <WhiteBox>
+          <div className="logo-area"></div>
+          {children}
+        </WhiteBox>
+      </AuthTemplateBlock>
+    </div>
   );
 };
 

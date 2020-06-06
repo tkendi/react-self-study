@@ -1,0 +1,7 @@
+const checkLoggedIn = (ctx, next) => {
+  if (!ctx.status.user) {
+    ctx.status = 401;
+    return;
+  }
+  return next();
+};

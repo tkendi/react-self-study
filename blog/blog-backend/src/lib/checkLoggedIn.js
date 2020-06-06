@@ -5,3 +5,5 @@ const checkLoggedIn = (ctx, next) => {
   }
   return next();
 };
+
+export default checkLoggedIn;

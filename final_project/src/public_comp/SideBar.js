@@ -6,8 +6,8 @@ import '../styles/css/SideBar.scss';
 function SideBar() {
   return (
     <Menu>
-      <Link to="/NoticeBoard">Notice Board</Link>
-      <Link to="/Streaming">Streaming</Link>
+      <Link to="/NoticeBoard">Notic Board</Link>
+      <Link to="/Streaming">Streamng</Link>
       <Link to="/" exact={true}>Chatting</Link>
     </Menu>
   );

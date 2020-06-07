@@ -11,11 +11,11 @@ function App() {
   return (
     <>
       <SideBar />
-      <Route component={LoginPage} path="/login" />
+      {/* <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component = {StreamingPage} path = "/Streaming" />
       <Route component = {NoticeBoardPage} path = "/NoticeBoard"/>
-      <Route component={MainPage} path = "/" />
+      <Route component={MainPage} path = "/" /> */}
     </>
   );
 }

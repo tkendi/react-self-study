@@ -28,6 +28,10 @@ const Main = styled.main`
   margin-left: ${(props) => (props.expanded ? 240 : 64)}px;
 `;
 
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    // necessary for content to be below ap sp bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -96,10 +100,10 @@ function SideBar() {
         <Divider />
         <List>
           {['Home', 'Streaming', 'Login', 'SignUp'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItemLink button key={text}  >
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
-            </ListItem>
+            </ListItemLink>
           ))}
         </List>
         {/* <Divider />

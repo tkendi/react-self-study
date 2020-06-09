@@ -4,18 +4,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from './SideBar';
-import {createMuiTheme} from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      light: ''
-    }
-  }
-})
+    primary: purple,
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +39,9 @@ const Appbar = () => {
           <Typography variant="h6" className={classes.title}>
             Animals Life
           </Typography>
-          <Button color="inherit" href = "/login">Login</Button>
+          <Button color="inherit" href="/login">
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

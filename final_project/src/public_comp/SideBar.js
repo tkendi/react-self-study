@@ -99,7 +99,7 @@ function SideBar() {
         </div>
         <Divider />
         <List>
-          {['Home', 'Streaming', 'Login', 'SignUp'].map((text, index) => (
+          {['Home', 'Streaming', 'Notice Board', 'Login', 'SignUp'].map((text, index) => (
             <ListItemLink button key={text} to = {''} >
               <ListItemText primary={text} />
             </ListItemLink>

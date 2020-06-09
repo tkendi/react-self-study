@@ -100,8 +100,7 @@ function SideBar() {
         <Divider />
         <List>
           {['Home', 'Streaming', 'Login', 'SignUp'].map((text, index) => (
-            <ListItemLink button key={text}  >
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemLink button key={text} to = {''} >
               <ListItemText primary={text} />
             </ListItemLink>
           ))}

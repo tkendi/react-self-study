@@ -6,16 +6,17 @@ import StreamingPage from './Web_page/Streaming'
 import NoticeBoardPage from './Web_page/NoticeBoard'
 import { Route } from 'react-router-dom';
 import SideBar from './public_comp/SideBar'
+import Appbar from './public_comp/Appbar'
 
 function App() {
   return (
     <>
-      <SideBar />
-      {/* <Route component={LoginPage} path="/login" />
+      <Appbar />
+      <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component = {StreamingPage} path = "/Streaming" />
       <Route component = {NoticeBoardPage} path = "/NoticeBoard"/>
-      <Route component={MainPage} path = "/" /> */}
+      <Route component={MainPage} path = "/" />
     </>
   );
 }

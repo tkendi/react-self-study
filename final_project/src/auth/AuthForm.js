@@ -54,7 +54,7 @@ class AuthForm extends React.Component {
     return (
       <AuthFormBlock>
         <h3>{text}</h3>
-        <form method="post">
+        <form method="post" action = "/">
           <StyledInput
             autoComplete="username"
             name="username"

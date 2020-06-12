@@ -5,20 +5,15 @@ import ensureArray from 'ensure-array';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import MenuIcon from '@material-ui/icons/Menu';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import IconButton from '@material-ui/core/IconButton';
+import { CssBaseline, IconButton, Drawer, ListItemIcon, List, ListItem, ListItemText, Divider, Link, Typography} from '@material-ui/core'
 import clsx from 'clsx';
+import { Route } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Drawer, ListItemIcon } from '@material-ui/core';
+import {MenuIcon} from '@material-ui/icons'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import Divider from '@material-ui/core/Divider';
 
 const Main = styled.main`
   position: relative;
@@ -31,6 +26,11 @@ const Main = styled.main`
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
+
+// const onClick = ({children, num}) => {
+//     console.log({children})
+//     console.log({num})
+// }
 
 const drawerWidth = 240;
 
@@ -94,16 +94,21 @@ function SideBar() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
+        <Typography variant="h6" gutterBottom>
+            Home
+        </Typography>
         <List>
-          {['Home', 'Streaming', 'Notice Board', 'Login', 'SignUp'].map((text, index) => (
-            <ListItemLink button key={text} href="/${text}" >
-              <ListItemText primary={text} />
-            </ListItemLink>
-          ))}
+            <ListItem button >
+                <Link href = "/" display="block" variant="h6"/>
+            </ListItem>
         </List>
         {/* <Divider />
         <List>

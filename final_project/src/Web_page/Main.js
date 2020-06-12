@@ -1,11 +1,18 @@
 import React from 'react';
 import SideBar from '../public_comp/SideBar';
+import {CssBaseline, Container, Header} from '@material-ui/core'
+
 
 class Main extends React.Component {
   render() {
     return (
       <>
-        <h3>Animals</h3>
+        <React.Fragment>
+          <CssBaseline />
+          <Container maxWidth = "lg">
+            
+          </Container>
+        </React.Fragment>
       </>
     );
   }

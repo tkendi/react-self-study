@@ -43,8 +43,8 @@ const Footer = styled.div`
 `;
 
 const textMap = {
-  login: '로그인',
-  register: '회원가입',
+  login: 'Login',
+  register: 'Sign up',
 };
 
 class AuthForm extends React.Component {

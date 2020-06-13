@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import palette from '../styles/js/palette';
-import Button from '../public_comp/Button';
-import Box from '@material-ui/core';
 import SideBar from '../public_comp/SideBar';
 
 const AuthTemplateBlock = styled.div`
@@ -19,15 +16,15 @@ const AuthTemplateBlock = styled.div`
   align-items: center;
 `;
 
-const Title = styled.div`
-  display: flex;
-  font-weight: bold;
-  padding-bottom: 5px;
-  text-align: center;
-  h1 {
-    padding-bottom: 5rem;
-  }
-`;
+// const Title = styled.div`
+//   display: flex;
+//   font-weight: bold;
+//   padding-bottom: 5px;
+//   text-align: center;
+//   h1 {
+//     padding-bottom: 5rem;
+//   }
+// `;
 
 const WhiteBox = styled.div`
   .logo-area {

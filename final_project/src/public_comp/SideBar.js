@@ -26,8 +26,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import LiveTvIcon from '@material-ui/icons/LiveTv';
-import MainPage from '../Web_page/Main'
-import {Link} from 'react-router-dom'
+import MainPage from '../Web_page/Main';
+import { Link } from 'react-router-dom';
 
 const sidebar_content = ['Home', 'side'];
 
@@ -65,15 +65,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Link_list = ({to, children}) => {
-  <Link to = {to}>
-    {children}
-  </Link>
-}
+// const Link_list = ({ to, children }) => {
+//   <Link to="/">
+//     <Typography>{children}</Typography>
+//   </Link>;
+// };
 
 function SideBar() {
   const [open, setOpen] = React.useState(false);
-  const classes = useStyles(); 
+  const classes = useStyles();
   const theme = useTheme();
 
   const handleDrawerOpen = () => {
@@ -115,7 +115,9 @@ function SideBar() {
           </IconButton>
         </div>
         <Divider />
-        <Link_list to = {'/'}>Home</Link_list>
+        <ListItemText>
+          Home
+        </ListItemText>
         {/* <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (

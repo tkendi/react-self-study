@@ -3,6 +3,7 @@ import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../styles/css/SideBar.scss';
 import { Typography } from '@material-ui/core';
+import "fontsource-roboto"
 
 class SideBar extends Component {
   render() {

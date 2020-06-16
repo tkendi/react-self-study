@@ -9,7 +9,7 @@ const Appbar = () => {
   return (
     <div className="root">
       <SideBar />
-      <AppBar position="static">
+      <AppBar position="static" color = "secondary">
         <Toolbar>
           <Typography variant="h4" className="title">
             Animals Life

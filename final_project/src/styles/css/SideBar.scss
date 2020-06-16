@@ -5,7 +5,6 @@ body {
 } */
 
 #page-wrap {
-  text-align: center;
   overflow: auto;
 }
 
@@ -22,8 +21,8 @@ body {
 }
 
 .bm-burger-button {
-  position: fixed;
-  width: 20px;
+  position: absolute;
+  width: 30px;
   height: 30px;
   left: 36px;
   top: 20px;

@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    border: 0;
+}
+
+.root {
+    flex-grow: 1;
+}
+
+.title {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.time_zone {
+    position: fixed;
+    right: 30px;
+}

@@ -6,12 +6,11 @@ import StreamingPage from './Web_page/Streaming'
 import NoticeBoardPage from './Web_page/NoticeBoard'
 import { Route } from 'react-router-dom';
 import Appbar from './public_comp/Appbar'
-import test_sidebar from './public_comp/test_sidebar'
 
 function App() {
   return (
     <>
-      <test_sidebar />
+      <Appbar />
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component = {StreamingPage} path = "/Streaming" />

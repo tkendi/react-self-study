@@ -8,7 +8,7 @@ import "fontsource-roboto"
 class SideBar extends Component {
   render() {
     return (
-      <Menu width={250}>
+      <Menu width={225}>
         <NavLink className="menu-item" to="/">
           <Typography variant = 'body2'>Home</Typography>
         </NavLink>

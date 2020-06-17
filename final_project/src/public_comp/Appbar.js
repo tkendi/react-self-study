@@ -7,9 +7,6 @@ import {Button} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 import '../styles/css/Appbar.scss'
 
-function login_click(){
-  <Link to = "/login" />
-}
 
 const Appbar = () => {
   return (
@@ -20,7 +17,7 @@ const Appbar = () => {
           <Typography variant="h4" className="title">
             Animals Life
           </Typography>
-          <Button color = "inherit" onClick={login_click}>Login</Button>
+          <Button color = "inherit" onClick={() => alert('Click')}>Login</Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -28,3 +25,6 @@ const Appbar = () => {
 };
 
 export default Appbar;
+
+
+

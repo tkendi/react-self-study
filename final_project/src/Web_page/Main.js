@@ -1,17 +1,22 @@
 import React from 'react';
-import {CssBaseline, Container } from '@material-ui/core'
-import Appbar from '../public_comp/Appbar'
+import { CssBaseline, Container, Typography } from '@material-ui/core';
+import Appbar from '../public_comp/Appbar';
 
-class Main extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Appbar />
-        
-      </React.Fragment>
-    );
-  }
-}
+const Main = () => {
+  return (
+    <div>
+      <CssBaseline />
+      <Typography
+        component="h1"
+        variant="h2"
+        align="center"
+        color="textPrimary"
+        gutterBottom
+      >
+        Aniamls Life
+      </Typography>
+    </div>
+  );
+};
 
 export default Main;

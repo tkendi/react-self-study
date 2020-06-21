@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, BrowserRouter as Router, Route } from 'react-router-dom';
+import { NavLink, BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import '../styles/css/SideBar.scss';
 import { Typography } from '@material-ui/core';
@@ -8,21 +8,21 @@ class SideBar extends Component {
   render() {
     return (
       <Menu width={225}>
-        <NavLink className="menu-item" to="/">
+        <Link className="menu-item" to="/main">
           <Typography variant = 'body2'>Home</Typography>
-        </NavLink>
+        </Link>
 
-        <NavLink className="menu-item" to="/City">
+        <Link className="menu-item" to="/NoticeBoard">
           <Typography variant = 'body2'>Home</Typography>
-        </NavLink>
+        </Link>
 
-        <NavLink className="menu-item" to="/Domestic">
+        <Link className="menu-item" to="/Streaming">
           <Typography variant = 'body2'>Home</Typography>
-        </NavLink>
+        </Link>
 
-        <NavLink className="menu-item" to="/test_map">
+        <Link className="menu-item" to="/login">
           <Typography variant = 'body2'>Home</Typography>
-        </NavLink>
+        </Link>
       </Menu>
     );
   }

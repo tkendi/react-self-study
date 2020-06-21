@@ -4,7 +4,7 @@ class Streaming extends React.Component {
   render() {
     return (
       <div>
-        <h3>Streaming</h3>
+        Streaming
       </div>
     );
   }

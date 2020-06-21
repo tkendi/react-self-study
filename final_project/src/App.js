@@ -10,7 +10,6 @@ import Appbar from './public_comp/Appbar'
 function App() {
   return (
     <>
-      <Appbar />
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component = {StreamingPage} path = "/Streaming" />

@@ -4,6 +4,7 @@ class NoticeBoard extends React.Component {
   render() {
     return (
       <div>
+        NoticeBoard
       </div>
     );
   }

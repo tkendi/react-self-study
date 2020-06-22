@@ -1,16 +1,12 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node ./index"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "koa": "^2.13.0",
-    "koa-router": "^9.0.1"
+    "koa": "^2.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.0"
   }
 }

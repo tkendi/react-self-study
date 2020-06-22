@@ -10,12 +10,11 @@ import Appbar from './public_comp/Appbar';
 function App() {
   return (
     <>
-      <Appbar />
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component={StreamingPage} path="/Streaming" />
       <Route component={NoticeBoardPage} path="/NoticeBoard" />
-      <Route component={MainPage} path="/main" />
+      <Route component={MainPage} path="/" exact = {true}/>
     </>
   );
 }

@@ -3,8 +3,9 @@ import { CssBaseline, Container, Typography } from '@material-ui/core';
 import Appbar from '../public_comp/Appbar';
 
 const Main = () => {
-  return (
+  return (  
     <div>
+      <Appbar />
       <CssBaseline />
       <Typography
         component="h1"

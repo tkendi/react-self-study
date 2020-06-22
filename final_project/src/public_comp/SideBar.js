@@ -8,7 +8,7 @@ class SideBar extends Component {
   render() {
     return (
       <Menu width={225}>
-        <Link className="menu-item" to="/main">
+        <Link className="menu-item" to="/">
           <Typography variant = 'body2'>Home</Typography>
         </Link>
 

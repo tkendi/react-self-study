@@ -1,10 +1,11 @@
-const Koa = require('koa')
+const Koa = require('koa');
 const app = new Koa();
-const PORT = process.env.PORT
 
-//response
+// response
 app.use(ctx => {
-    ctx.body = 'Hello Koa'
-})
+  ctx.body = 'Hello Koa';
+});
 
-app.listen(PORT)
+app.listen(3000, () => {
+    console.log('Connect')
+});

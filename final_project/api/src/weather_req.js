@@ -56,7 +56,16 @@ const weather_api = {
 
     axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst${process.env.serviceKey}&base_date=${today}&base_time=${base_time}&nx=55&ny=127&pageNo=1&numOfRows=7&dataType=json`)
     .then((res) => {
-        console.log(res.data.response.body.items.item)
+        const items = res.data.response.body.items.item;
+        for (const key in items) {
+          file_data[items[key].category] = items[key].obsrValue
+        }
     })
+    data.fetch_data = file_data
+    save(data)
+    return file_data
   },
 };
+
+
+module.exports = weather_api

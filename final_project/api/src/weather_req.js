@@ -16,7 +16,7 @@ const fs = require('fs');
 const weather_api = {
   fetch_data: async () => {
     //file save, load
-    const data = load();
+    const data = file_load();
     const file_data = {};
 
     //Date variable

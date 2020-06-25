@@ -1,17 +1,17 @@
 const axios = require('axios');
 const fs = require('fs');
 
-const file_load = () => {
-  try {
-    return JOSN.parse(fs.readFileSync('../data/data.json'));
-  } catch {
-    return {};
-  }
-};
+// const file_load = () => {
+//   try {
+//     return JOSN.parse(fs.readFileSync('../data/data.json'));
+//   } catch (e) {
+//     console.log({ e });
+//   }
+// };
 
-const file_save = (file_data) => {
-  fs.writeFileSync('../data/data.json', JSON.stringify(file_data));
-};
+// const file_save = (file_data) => {
+//   fs.writeFileSync('../data/data.json', JSON.stringify(file_data));
+// };
 
 const weather_api = {
   fetch_data: async () => {
@@ -19,7 +19,7 @@ const weather_api = {
     const data = load();
     const file_data = {};
 
-    //Date()
+    //Date variable
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
@@ -31,7 +31,7 @@ const weather_api = {
     if (minutes < 45) {
       hours = hours - 1;
       if (hours < 0) {
-        //오전 12시는 전날로 계산
+        //오전 12시Huk는 전날로 계산
         today.setDate(today.getDate() - 1);
         day = today.getDay();
         month = today.getMonth() + 1;
@@ -39,33 +39,40 @@ const weather_api = {
         hours = 23;
       }
     }
-    
+
     //숫자변환 => 9시 -> 0900으로 변경
-    if(hours < 10) {
-        hours = "0" + hours;
+    if (hours < 10) {
+      hours = '0' + hours;
     }
     if (month < 10) {
-        month = "0" + month;
+      month = '0' + month;
     }
-    if(day < 10) {
-        day = "0" + day;
+    if (day < 10) {
+      day = '0' + day;
     }
-    
-    today = year + "" + month + "" + day;
-    base_time = hours + "" + minutes + "00"
 
-    axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst${process.env.serviceKey}&base_date=${today}&base_time=${base_time}&nx=55&ny=127&pageNo=1&numOfRows=7&dataType=json`)
-    .then((res) => {
+    today = year + '' + month + '' + day;
+    base_time = hours + '' + minutes + '00';
+
+    console.log(today)
+    console.log(base_time)
+
+    axios
+      .get(
+        `http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst${process.env.serviceKey}&base_date=${today}&base_time=${base_time}&nx=55&ny=127&pageNo=1&numOfRows=7&dataType=json`
+      )
+      .then((res) => {
         const items = res.data.response.body.items.item;
         for (const key in items) {
-          file_data[items[key].category] = items[key].obsrValue
+          file_data[items[key].category] = items[key].obsrValue;
         }
-    })
-    data.fetch_data = file_data
-    save(data)
-    return file_data
+        console.log(items);
+      })
+      .catch((e) => console.log({ e }));
+    // data.fetch_data = file_data;
+    // save(data);
+    // return file_data;
   },
 };
 
-
-module.exports = weather_api
+module.exports = weather_api;

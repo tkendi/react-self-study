@@ -5,7 +5,6 @@ import MainPage from './Web_page/Main';
 import StreamingPage from './Web_page/Streaming';
 import NoticeBoardPage from './Web_page/NoticeBoard';
 import { Route } from 'react-router-dom';
-import Appbar from './public_comp/Appbar';
 
 function App() {
   return (

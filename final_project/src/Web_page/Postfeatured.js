@@ -1,6 +1,7 @@
 import React from 'react';
-import { Paper, Typography, Grid } from '@material-ui/core';
+import { Paper, Typography, Grid, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -8,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage: 'url(https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg)',
-    backgroundSize: 'cover',  
+    backgroundImage:
+      'url(https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg)',
+    backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
   },
@@ -32,24 +34,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Postfeatured = () => {
-
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <Paper className={classes.mainFeaturedPost}>
-        {<img style={{display: 'none'}} src = 'https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg' alt = 'Animals img' />}
-        <div className = {classes.overlay} />
-        <Grid container>
-          <Grid item md={6}>
-            <div className = {classes.mainFeaturedPostContent}>
-              <Typography component = "h1" variant = "h3" color = "inherit" gutterBottom>Weahter is</Typography>
-              <Typography variant = "h5" color = "inherit" paragraph>weahter</Typography>
-            </div>
-          </Grid>
+    <Paper className={classes.mainFeaturedPost} style = {{backgroundImage: 'https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg'}}>
+      {
+        <img
+          style={{ display: 'none' }}
+          src="https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg"
+          alt="Animals img"
+        />
+      }
+      <div className={classes.overlay} />
+      <Grid container>
+        <Grid item md={6}>
+          <div className={classes.mainFeaturedPostContent}>
+            <Typography
+              component="h1"
+              variant="h3"
+              color="inherit"
+              gutterBottom
+            >
+              Weahter is
+            </Typography>
+            <Typography variant="h5" color="inherit" paragraph>
+              weather
+            </Typography>
+            <Link variant = "subtitle1" href = '#'>
+              asdf
+            </Link>
+          </div>
         </Grid>
-      </Paper>
-    </React.Fragment>
+      </Grid>
+    </Paper>
   );
 };
 

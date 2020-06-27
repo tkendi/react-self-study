@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types'
 
-class test_sidebar extends Component {
-  render() {
-    return (
-        <div>
-            testing_section
-        </div>
-    );
-  }
+const TestingSection = () => {
+  <div>
+    TestingSection
+  </div>
 }
 
-export default test_sidebar;
+export default TestingSection
+

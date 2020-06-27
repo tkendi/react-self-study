@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Postfeatured = () => {
+const Postfeatured = ({temp, name, location}) => {
   const classes = useStyles();
 
   return (

@@ -1,7 +1,10 @@
 import React from 'react';
-import { Paper, Typography, Grid, Link } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
   mainFeaturedPost: {
@@ -9,8 +12,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundImage:
-      'url(https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg)',
+    backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -37,37 +39,32 @@ const Postfeatured = ({temp, name, location}) => {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.mainFeaturedPost} style = {{backgroundImage: 'https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg'}}>
-      {
-        <img
-          style={{ display: 'none' }}
-          src="https://www.gvi.co.uk/wp-content/uploads/sites/10/2016/08/21700981574_8177bcd6bb_o-limpopo-1024x512.jpg"
-          alt="Animals img"
-        />
-      }
+    <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: 'https://source.unsplash.com/random' }}>
+      {/* Increase the priority of the hero background image */}
+      {<img style={{ display: 'none' }} src='https://source.unsplash.com/random' alt='random_image' />}
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>
           <div className={classes.mainFeaturedPostContent}>
-            <Typography
-              component="h1"
-              variant="h3"
-              color="inherit"
-              gutterBottom
-            >
-              Weahter is
+            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+              Todays weather status is <Typography component = "h1" variant = "h3" color = "primary" gutterBottom>{name}</Typography>
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              weather
+              Todays weather tempature is
+              <Typography variant="h4" color = "secondary">{temp}º</Typography>
             </Typography>
-            <Link variant = "subtitle1" href = '#'>
-              asdf
+            <Link variant="subtitle1" href="#">
+              {location}
             </Link>
           </div>
         </Grid>
       </Grid>
     </Paper>
   );
+}
+
+Postfeatured.propTypes = {
+  post: PropTypes.object,
 };
 
-export default Postfeatured;
+export default Postfeatured

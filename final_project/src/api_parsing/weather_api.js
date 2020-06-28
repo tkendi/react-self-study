@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Postfeatured from '../Web_page/Postfeatured'
 import axios from 'axios';
 
+//file_save func create
+
 class weather_api extends Component {
   state = {
     temp: '',

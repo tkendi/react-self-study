@@ -37,8 +37,9 @@ const WhiteBox = styled.div`
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.255);
   padding: 2rem;
   width: 360px;
+  height: 600px;
   background: white;
-  border-radius: 2px;
+  border-radius: 30px;
 `;
 
 const AuthTemplate = ({ children }) => {

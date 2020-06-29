@@ -6,24 +6,28 @@ import Button from '@material-ui/core/Button';
 import '../styles/css/AuthForm.scss'
 
 const AuthFormBlock = styled.div`
+  padding-top: 10rem;
+  display: flex;
   h3 {
     text-align: center;
     margin: 1px;
     color: ${palette.gray[9]};
     margin-bottom: 1rem;
-  }
+  } 
 `;
 
 const StyledInput = styled.input`
+  margin: 0 auto;
   font-size: 1rem;
   border: none;
-  border-bottom: 1px solid ${palette.gray[5]}
+  border-bottom: 3px solid ${palette.gray[7]} 
   padding-bottom: 0.5rem;
+  padding-top: 3rem;
   outline: none;
   width: 100%;
   &:focus{
     color: $oc-teal-7;
-    border-bottom: 1px solid ${palette.gray[7]};
+    border-bottom: 3px solid ${palette.gray[7]};
   }
   & + & {
     margin-top: 1rem;
@@ -43,7 +47,7 @@ const Footer = styled.div`
 `;
 
 const textMap = {
-  login: 'Login',
+  login: 'Sign In to',
   register: 'Sign up',
 };
 
@@ -58,12 +62,12 @@ class AuthForm extends React.Component {
           <StyledInput
             autoComplete="username"
             name="username"
-            placeholder="아이디"
+            placeholder="Username"
           />
           <StyledInput
             autoComplete="new-password"
             name="password"
-            placeholder="비밀번호"
+            placeholder="Password"
             type="password"
           />
           {/* <input type = "text" name = "" placeholder = "아이디" />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Postfeatured from '../Web_page/Postfeatured'
+import Postfeatured from './Postfeatured'
 import axios from 'axios';
 
 // const file = (data) => {
@@ -34,7 +34,9 @@ class weather_api extends Component {
             appid: '4005857b222799490b299bd4b2ffd286'
           },
         },
-        (err) => console.log(err)
+        (err) => {
+          //default key create position lat="35.1600085" lon="126.851411"
+        }
       );
       getWeather
         .then((res) => {

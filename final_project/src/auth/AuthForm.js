@@ -26,13 +26,13 @@ const StyledInput = styled.input`
   border-bottom: 3px solid ${palette.gray[2]} 
   border-inline: center;
   padding-bottom: 0.3rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
   outline: none;
   width: 80%;
 
   &:focus{
     color: $oc-teal-7;
-    border-bottom: 3px solid yellow;
+    border-bottom: 4px solid yellow;
   }
 `;
 
@@ -40,7 +40,7 @@ const Footer = styled.div`
   margin-top: 2rem;
   a {
     color: ${palette.gray[6]};
-    text-decoration: underline;
+    text-decoration: none;
     & + hover {
       color: ${palette.gray[9]};
     }

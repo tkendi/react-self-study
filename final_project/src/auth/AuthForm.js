@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import palette from '../styles/js/palette';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { LockIcon, PersonOutlineIcon }from '@material-ui/icons';
 import '../styles/css/AuthForm.scss'
 
 const AuthFormBlock = styled.div`
-  padding-top: 10rem;
-  display: flex;
+  margin-top: 0.5rem;
+  padding-top: 8.5rem;
+  text-align: center;
   h3 {
     text-align: center;
     margin: 1px;
@@ -18,25 +20,24 @@ const AuthFormBlock = styled.div`
 
 const StyledInput = styled.input`
   margin: 0 auto;
+  margin-top: 0.5rem;
   font-size: 1rem;
   border: none;
-  border-bottom: 3px solid ${palette.gray[7]} 
-  padding-bottom: 0.5rem;
+  border-bottom: 3px solid ${palette.gray[2]} 
+  border-inline: center;
+  padding-bottom: 0.3rem;
   padding-top: 3rem;
   outline: none;
-  width: 100%;
+  width: 80%;
+
   &:focus{
     color: $oc-teal-7;
-    border-bottom: 3px solid ${palette.gray[7]};
-  }
-  & + & {
-    margin-top: 1rem;
+    border-bottom: 3px solid yellow;
   }
 `;
 
 const Footer = styled.div`
   margin-top: 2rem;
-  text-align: right;
   a {
     color: ${palette.gray[6]};
     text-decoration: underline;
@@ -47,7 +48,7 @@ const Footer = styled.div`
 `;
 
 const textMap = {
-  login: 'Sign In to',
+  login: 'Sign In to SoonDoll',
   register: 'Sign up',
 };
 
@@ -58,7 +59,7 @@ class AuthForm extends React.Component {
     return (
       <AuthFormBlock>
         <h3>{text}</h3>
-        <form method="post" action = "/">
+        <form method="post" action = "/" style = {{margin: '0 auto', widht: '240px'}}>
           <StyledInput
             autoComplete="username"
             name="username"
@@ -70,8 +71,6 @@ class AuthForm extends React.Component {
             placeholder="Password"
             type="password"
           />
-          {/* <input type = "text" name = "" placeholder = "아이디" />
-          <input type = "password" name = "" placeholder = "비밀번호" /> */}
           {type === 'register' && (
             <StyledInput
               autoComplete="new-password"
@@ -80,9 +79,9 @@ class AuthForm extends React.Component {
               type="password"
             />
           )}
-          <div className = "submit_btn">
-            <Button type="submit" disableElevation>
-              {text}
+          <div>
+            <Button type="submit" disableElevation >
+              {type}
             </Button>
           </div>
           <Footer>

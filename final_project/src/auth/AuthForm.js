@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import palette from '../styles/js/palette';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { LockIcon, PersonOutlineIcon }from '@material-ui/icons';
-import '../styles/css/AuthForm.scss'
+// import { LockIcon, PersonOutlineIcon }from '@material-ui/icons';
+import '../styles/css/AuthForm.scss';
 
 const AuthFormBlock = styled.div`
   margin-top: 0.5rem;
@@ -15,7 +15,7 @@ const AuthFormBlock = styled.div`
     margin: 1px;
     color: ${palette.gray[9]};
     margin-bottom: 1rem;
-  } 
+  }
 `;
 
 const StyledInput = styled.input`
@@ -23,13 +23,13 @@ const StyledInput = styled.input`
   margin-top: 0.5rem;
   font-size: 1rem;
   border: none;
-  border-bottom: 3px solid ${palette.gray[2]} 
+  border-bottom: solid 4px ${palette.gray[6]}
   border-inline: center;
   padding-bottom: 0.3rem;
   padding-top: 2rem;
   outline: none;
   width: 80%;
-
+  
   &:focus{
     color: $oc-teal-7;
     border-bottom: 4px solid yellow;
@@ -47,19 +47,43 @@ const Footer = styled.div`
   }
 `;
 
+const Signup = styled.div`
+  margin: 0 auto;
+  padding-top: 1.8rem;
+`
+
 const textMap = {
   login: 'Sign In to SoonDoll',
-  register: 'Sign up',
+  register: 'Create Account'
 };
 
 class AuthForm extends React.Component {
   render() {
-    const text = textMap[this.props.type];
     const type = this.props.type;
+    const type_text = type;
+    let prop_type = '';
+
+    // if (type === 'Get started') {
+    //   prop_type = 'login';
+    // } else if (type === 'SIGN UP') {
+    //   prop_type = 'register';
+    // }
+
+    {type === 'Get started' ? (
+      prop_type = 'login'
+    ): (
+      prop_type = 'register'
+    )}
+
+    const text = textMap[prop_type];
     return (
       <AuthFormBlock>
         <h3>{text}</h3>
-        <form method="post" action = "/" style = {{margin: '0 auto', widht: '240px'}}>
+        <form
+          method="post"
+          action="/"
+          style={{ margin: '0 auto', widht: '240px' }}
+        >
           <StyledInput
             autoComplete="username"
             name="username"
@@ -71,21 +95,19 @@ class AuthForm extends React.Component {
             placeholder="Password"
             type="password"
           />
-          {type === 'register' && (
+          {prop_type === 'register' && (
             <StyledInput
               autoComplete="new-password"
               name="passwordConfirm"
-              placeholder="비밀번호 확인"
+              placeholder="Confirm Password"
               type="password"
             />
           )}
-          <div>
-            <Button type="submit" disableElevation >
-              {type}
-            </Button>
-          </div>
+          <Signup>
+            <Button type="submit">{type_text}</Button>
+          </Signup>
           <Footer>
-            {type === 'login' ? (
+            {prop_type === 'login' ? (
               <Link to="/register">회원가입</Link>
             ) : (
               <Link to="/login">로그인</Link>

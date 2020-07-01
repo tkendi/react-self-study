@@ -6,7 +6,7 @@ class Login extends React.Component {
   render() {
     return (
       <AuthTemplate>
-        <AuthForm type = "login" />
+        <AuthForm type = "Get started" />
       </AuthTemplate>
     );
   }

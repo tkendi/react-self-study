@@ -36,6 +36,12 @@ class weather_api extends Component {
         },
         (err) => {
           //default key create position lat="35.1600085" lon="126.851411"
+          // params: {
+          //   lat: '35.1600085',
+          //   lon: '126.851411'
+          // },
+
+          console.log(err);
         }
       );
       getWeather

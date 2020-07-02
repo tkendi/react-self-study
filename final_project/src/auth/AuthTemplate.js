@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../styles/js/palette';
 import SideBar from '../public_comp/SideBar';
 
 const AuthTemplateBlock = styled.div`

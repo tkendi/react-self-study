@@ -1,12 +1,18 @@
 import React from 'react';
-import Appbar from '../public_comp/Appbar';
 import Weather from '../api_parsing';
 import { CssBaseline, Container } from '@material-ui/core';
+import Header from '../public_comp/Header'
+
+const sections = [
+  {title: 'Streaming', url: '#'},
+  {title: 'Board', url: '#'},
+  {title: 'My Page', url: '#'}
+]
 
 const Main = () => {
   return (
     <React.Fragment>
-      <Appbar />
+      <Header title="SoonDoll" sections = {sections} />
       <CssBaseline />
       <Container maxWidth="lg">
         <main>

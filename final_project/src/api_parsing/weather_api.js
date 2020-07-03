@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import Postfeatured from './Postfeatured'
 import axios from 'axios';
 
-// const file = (data) => {
-//   fs.writeFile('data/data.json', data, 'utf8', (err) => {
-//     if(err) {
-//       throw(err)
-//     }
-//     console.log('success')
-//   })
-// }
-
 class weather_api extends Component {
   state = {
     temp: '',
@@ -40,7 +31,7 @@ class weather_api extends Component {
           //   lat: '35.1600085',
           //   lon: '126.851411'
           // },
-                                                                                                                                                                                                                                                                       
+
           console.log(err);
         }
       );
@@ -55,10 +46,9 @@ class weather_api extends Component {
         .catch((err) => console.log(err));
     });
   }
+
   render() {
     const { temp, name, location } = this.state;
-    // const data = this.state;
-    // file(data);
     return <Postfeatured temp={temp} name={name} location={location} />;
   }
 }

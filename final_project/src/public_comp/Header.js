@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   toolbarLink: {
-    float: "right"
+    margin: '0 auto',
+    textAlign: 'left'
   },
   toolbarText: {
     paddingLeft: '1.5rem',
@@ -31,9 +32,11 @@ const Header = (props) => {
   const { title, sections } = props;
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
+    {/* 아랫쪽 메인 margin */}
+      <Toolbar>
         <Button size="small"> {title} </Button>
         <div className = {classes.toolbarLink}>
+          {/* float = "right" 오른쪽 정렬 처리 */}
           {sections.map((section) => (
             <Link
               color="inherit"

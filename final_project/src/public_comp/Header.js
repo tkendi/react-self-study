@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   toolbarLink: {
-    float: "right"
+    marginLeft: '80rem'
   },
   toolbarText: {
     paddingLeft: '1.5rem',

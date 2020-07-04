@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SideBar from '../public_comp/SideBar';
+import Header from '../public_comp/Header'
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -8,22 +8,12 @@ const AuthTemplateBlock = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-
-// const Title = styled.div`
-//   display: flex;
-//   font-weight: bold;
-//   padding-bottom: 5px;
-//   text-align: center;
-//   h1 {
-//     padding-bottom: 5rem;
-//   }
-// `;
 
 const WhiteBox = styled.div`
   .logo-area {
@@ -41,15 +31,18 @@ const WhiteBox = styled.div`
   border-radius: 30px;
 `;
 
+const sections = [
+  { title: 'Streaming', url: '#' },
+  { title: 'Board', url: '#' },
+  { title: 'My Page', url: '#' },
+];
+
 const AuthTemplate = ({ children }) => {
   return (
     <div>
-      <SideBar />
+      <Header />
       <AuthTemplateBlock>
-        <WhiteBox>
-          <div className="logo-area"></div>
-          {children}
-        </WhiteBox>
+        <WhiteBox>{children}</WhiteBox>
       </AuthTemplateBlock>
     </div>
   );

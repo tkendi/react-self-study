@@ -50,11 +50,11 @@ const Footer = styled.div`
 const Signup = styled.div`
   margin: 0 auto;
   padding-top: 1.8rem;
-`
+`;
 
 const textMap = {
   login: 'Sign In to SoonDoll',
-  register: 'Create Account'
+  register: 'Create Account',
 };
 
 class AuthForm extends React.Component {
@@ -62,18 +62,10 @@ class AuthForm extends React.Component {
     const type = this.props.type;
     const type_text = type;
     let prop_type = '';
-    
-    // if (type === 'Get started') {
-    //   prop_type = 'login';
-    // } else if (type === 'SIGN UP') {
-    //   prop_type = 'register';
-    // }
 
-    {type === 'Get started' ? (
-      prop_type = 'login'
-    ): (
-      prop_type = 'register'
-    )}
+    {
+      type === 'Get started' ? (prop_type = 'login') : (prop_type = 'register');
+    }
 
     const text = textMap[prop_type];
     return (

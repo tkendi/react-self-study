@@ -39,12 +39,12 @@ const sections = [
 
 const AuthTemplate = ({ children }) => {
   return (
-    <div>
-      <Header />
+    <React.Fragment>
+      <Header title = "SoonDoll" sections = {sections} />
       <AuthTemplateBlock>
         <WhiteBox>{children}</WhiteBox>
       </AuthTemplateBlock>
-    </div>
+    </React.Fragment>
   );
 };
 

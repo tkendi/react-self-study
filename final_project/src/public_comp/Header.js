@@ -17,53 +17,41 @@ const useStyles = makeStyles((theme) => ({
     overflowX: 'auto',
   },
   toolbarLink: {
-    margin: '0 auto',
+    margin: '0 auto'
   },
   toolbarText: {
     paddingLeft: '1.5rem',
-    paddingRight: '1.5rem',
-  },
+    paddingRight: '1.5rem'
+  }
 }));
 
-const sections = [
-  { title: 'Streaming', url: '#' },
-  { title: 'Board', url: '#' },
-  { title: 'My Page', url: '#' },
-];
-
-class Header extends React.Component {
-  render() {
-    const classes = useStyles();
-    return (
-      <React.Fragment>
-        {/* 아랫쪽 메인 margin */}
-        <Toolbar>
-          <Button size="small" href="/">
-            {' '}
-            SoonDoll{' '}
-          </Button>
-          <div className={classes.toolbarLink}>
-            {/* float = "right" 오른쪽 정렬 처리 */}
-            {sections.map((section) => (
-              <Link
-                color="inherit"
-                key={section.title}
-                variant="body2"
-                href={section.url}
-                className={classes.toolbarText}
-              >
-                {section.title}
-              </Link>
-            ))}
-          </div>
-          <Button size="small" href="/login">
-            Sign in
-          </Button>
-        </Toolbar>
-      </React.Fragment>
-    );
-  }
-}
+const Header = (props) => {
+  const classes = useStyles();
+  const {title, sections} = props
+  return (
+    <React.Fragment>
+    {/* 아랫쪽 메인 margin */}
+      <Toolbar>
+        <Button size="small" href = "/"> SoonDoll </Button>
+        <div className = {classes.toolbarLink}>
+          {/* float = "right" 오른쪽 정렬 처리 */}
+          {sections.map((section) => (
+            <Link
+              color="inherit"
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              className = {classes.toolbarText}
+            >
+              {section.title}
+            </Link>
+          ))}
+        </div>
+          <Button size="small" href = "/login">Sign in</Button>
+      </Toolbar>
+    </React.Fragment>
+  );
+};
 
 Header.propTypes = {
   sections: PropTypes.array,

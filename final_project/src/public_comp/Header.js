@@ -32,7 +32,7 @@ const Header = (props) => {
     <React.Fragment>
     {/* 아랫쪽 메인 margin */}
       <Toolbar>
-        <Button size="small" href = "/"> SoonDoll </Button>
+        <Button size="small" href = "/"> {title} </Button>
         <div className = {classes.toolbarLink}>
           {/* float = "right" 오른쪽 정렬 처리 */}
           {sections.map((section) => (

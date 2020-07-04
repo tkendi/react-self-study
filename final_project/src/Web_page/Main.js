@@ -1,14 +1,11 @@
 import React from 'react';
-import Weather from '../api_parsing';
 import { CssBaseline, Container, Button } from '@material-ui/core';
 import Header from '../public_comp/Header';
 import {
   createMuiTheme,
-  withStyles,
   makeStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
-import { green, yellow } from '@material-ui/core/colors';
 
 const sections = [
   { title: 'Streaming', url: '#' },
@@ -19,8 +16,19 @@ const sections = [
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ffeb3b'
-    }
+      main: '#ffeb3b',
+    },
+  },
+  MuiButton: {
+    text: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 3,
+      border: 0,
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
   },
 });
 
@@ -29,8 +37,6 @@ const useStyles = makeStyles((theme) => ({
     primary: theme.spacing(1),
   },
 }));
-
-const ColorButton = withStyles;
 
 const Main = () => {
   const classes = useStyles();
@@ -46,7 +52,6 @@ const Main = () => {
               variant="contained"
               color="primary"
               className={classes.margin}
-              size='large'
             >
               Sign Up
             </Button>

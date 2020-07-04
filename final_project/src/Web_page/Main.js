@@ -1,22 +1,56 @@
 import React from 'react';
 import Weather from '../api_parsing';
-import { CssBaseline, Container } from '@material-ui/core';
-import Header from '../public_comp/Header'
+import { CssBaseline, Container, Button } from '@material-ui/core';
+import Header from '../public_comp/Header';
+import {
+  createMuiTheme,
+  withStyles,
+  makeStyles,
+  ThemeProvider,
+} from '@material-ui/core/styles';
+import { green, yellow } from '@material-ui/core/colors';
 
 const sections = [
-  {title: 'Streaming', url: '#'},
-  {title: 'Board', url: '#'},
-  {title: 'My Page', url: '#'}
-]
+  { title: 'Streaming', url: '#' },
+  { title: 'Board', url: '#' },
+  { title: 'My Page', url: '#' },
+];
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ffeb3b'
+    }
+  },
+});
+
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    primary: theme.spacing(1),
+  },
+}));
+
+const ColorButton = withStyles;
 
 const Main = () => {
+  const classes = useStyles();
   return (
     <React.Fragment>
-      <Header title="SoonDoll" sections = {sections} />
+      <Header title="SoonDoll" sections={sections} />
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <Weather />
+          <Button>Sign In</Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.margin}
+              size='large'
+            >
+              Sign Up
+            </Button>
+          </ThemeProvider>
         </main>
       </Container>
     </React.Fragment>

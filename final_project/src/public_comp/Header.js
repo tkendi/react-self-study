@@ -9,9 +9,6 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
-  toolbarTitle: {
-    flex: 1,
-  },
   toolbarSecondary: {
     justifyContent: 'space-between',
     overflowX: 'auto',
@@ -31,7 +28,7 @@ const Header = (props) => {
   return (
     <React.Fragment>
     {/* 아랫쪽 메인 margin */}
-      <Toolbar>
+      <Toolbar className = {classes.toolbar}>
         <Button size="small" href = "/"> {title} </Button>
         <div className = {classes.toolbarLink}>
           {/* float = "right" 오른쪽 정렬 처리 */}

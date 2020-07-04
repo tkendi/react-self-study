@@ -61,10 +61,12 @@ class AuthForm extends React.Component {
   render() {
     const type = this.props.type;
     const type_text = type;
-    let prop_type = '';
+    let prop_type = ''
 
-    {
-      type === 'Get started' ? (prop_type = 'login') : (prop_type = 'register');
+    if(type === 'Get started') {
+      prop_type = 'login'
+    } else {
+      prop_type = 'register'
     }
 
     const text = textMap[prop_type];

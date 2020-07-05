@@ -1,5 +1,4 @@
 import React from 'react';
-import Weather from '../api_parsing';
 import { CssBaseline, Container, Button } from '@material-ui/core';
 import Header from '../public_comp/Header';
 import {
@@ -8,7 +7,6 @@ import {
   makeStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
-import { green, yellow } from '@material-ui/core/colors';
 
 const sections = [
   { title: 'Streaming', url: '#' },
@@ -29,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
     primary: theme.spacing(1),
   },
 }));
-
-const ColorButton = withStyles;
 
 const Main = () => {
   const classes = useStyles();

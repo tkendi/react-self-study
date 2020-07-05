@@ -1,58 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
+import '../styles/css/SideBar.scss';
+import { Typography } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
-  },
-  toolbarLink: {
-    margin: '0 auto'
-  },
-  toolbarText: {
-    paddingLeft: '1.5rem',
-    paddingRight: '1.5rem'
+class SideBar extends Component {
+  render() {
+    return (
+      <Menu width={225}>
+        <NavLink className="menu-item" to="/">
+          <Typography variant = 'body2'>Home</Typography>
+        </NavLink>
+
+        <NavLink className="menu-item" to="/NoticeBoard">
+          <Typography variant = 'body2'>Home</Typography>
+        </NavLink>
+
+        <NavLink className="menu-item" to="/Streaming">
+          <Typography variant = 'body2'>Home</Typography>
+        </NavLink>
+
+        <NavLink className="menu-item" to="/login">
+          <Typography variant = 'body2'>Home</Typography>
+        </NavLink>
+      </Menu>
+    );
   }
-}));
-
-const SideBar = (props) => {
-  const classes = useStyles();
-  const {title, sections} = props
-  return (
-    <React.Fragment>
-    {/* 아랫쪽 메인 margin */}
-      <Toolbar className = {classes.toolbar}>
-        <Button size="small" href = "/"> {title} </Button>
-        <div className = {classes.toolbarLink}>
-          {/* float = "right" 오른쪽 정렬 처리 */}
-          {sections.map((section) => (
-            <Link
-              color="inherit"
-              key={section.title}
-              variant="body2"
-              href={section.url}
-              className = {classes.toolbarText}
-            >
-              {section.title}
-            </Link>
-          ))}
-        </div>
-          <Button size="small" href = "/login">Sign in</Button>
-      </Toolbar>
-    </React.Fragment>
-  );
-};
-
-SideBar.propTypes = {
-  sections: PropTypes.array,
-  title: PropTypes.string,
-};
+}
 
 export default SideBar;

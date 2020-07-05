@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SideBar from '../public_comp/SideBar'
+import Header from '../public_comp/Header'
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -40,7 +40,7 @@ const sections = [
 const AuthTemplate = ({children}) => {
   return (
     <React.Fragment>
-      <SideBar title = "SoonDoll" sections = {sections} />
+      <Header title = "SoonDoll" sections = {sections} />
       <AuthTemplateBlock>
         <WhiteBox>{children}</WhiteBox>
       </AuthTemplateBlock>

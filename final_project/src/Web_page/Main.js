@@ -3,7 +3,6 @@ import { CssBaseline, Container, Button } from '@material-ui/core';
 import Header from '../public_comp/Header';
 import {
   createMuiTheme,
-  withStyles,
   makeStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';

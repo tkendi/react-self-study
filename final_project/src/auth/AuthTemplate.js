@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SideBar from '../public_comp/SideBar'
+import Header from '../public_comp/Header';
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -37,16 +37,18 @@ const sections = [
   { title: 'My Page', url: '#' },
 ];
 
-const AuthTemplate = ({children}) => {
-  return (
-    <React.Fragment>
-      <SideBar title = "SoonDoll" sections = {sections} />
-      <AuthTemplateBlock>
-        <WhiteBox>{children}</WhiteBox>
-      </AuthTemplateBlock>
-    </React.Fragment>
-  );
-};
+class AuthTemplate extends React.Component {
+  render() {
+    const children = this.props.children
+    return (
+      <React.Fragment>
+        <Header title="SoonDoll" sections={sections} />
+        <AuthTemplateBlock>
+          <WhiteBox>{children}</WhiteBox>
+        </AuthTemplateBlock>
+      </React.Fragment>
+    );
+  }
+}
 
 export default AuthTemplate;
-

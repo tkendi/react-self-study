@@ -6,7 +6,6 @@ import {
   makeStyles,
   ThemeProvider,
 } from '@material-ui/core/styles';
-import '../styles/css/Main.scss'
 
 const sections = [
   { title: 'Streaming', url: '#' },
@@ -33,7 +32,7 @@ const theme = createMuiTheme({
   },
   backImg: {
     backgroundImage: 'url(https://source.unsplash.com/random)'
-  }
+  },
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const Main = () => {
   const classes = useStyles();
   return (
-    <React.Fragment className={classes.backImg}>
+    <React.Fragment className={classes.backgroundImage}>
       <Header title="SoonDoll" sections={sections} />
       <CssBaseline />
       <Container maxWidth="lg">

@@ -31,7 +31,6 @@ const Header = (props) => {
       <Toolbar className = {classes.toolbar}>
         <Button size="small" href = "#"> {title} </Button>
         <div className = {classes.toolbarSecondary}>
-          {/* float = "right" 오른쪽 정렬 처리 */}
           {sections.map((section) => (
             <Link
               color="inherit"

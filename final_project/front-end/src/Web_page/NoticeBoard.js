@@ -2,11 +2,10 @@ import React from 'react';
 import Header from '../public_comp/Header'
 
 const sections = [
-  { title: 'Streaming', url: '#' },
-  { title: 'Board', url: '#' },
-  { title: 'My Page', url: '#' },
+  { title: 'Streaming', url: '/Streaming' },
+  { title: 'Board', url: '/NoticeBoard' },
+  { title: 'My Page', url: '/myPage' }
 ];
-
 class NoticeBoard extends React.Component {
   render() {
     return (

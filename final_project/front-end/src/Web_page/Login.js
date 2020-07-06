@@ -12,12 +12,12 @@ const sections = [
 class Login extends React.Component {
   render() {
     return (
-      <>
+      <div>
         <Header title="SoonDoll" sections={sections} />
         <AuthTemplate>
           <AuthForm type="Get started" />
         </AuthTemplate>
-      </>
+      </div>
     );
   }
 }

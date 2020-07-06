@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../public_comp/Header'
+import Header from '../public_comp/Header';
 
 const sections = [
   { title: 'Streaming', url: '/Streaming' },
@@ -7,15 +7,15 @@ const sections = [
   { title: 'My Page', url: '/myPage' }
 ];
 
-class Streaming extends React.Component {
+class myPage extends React.Component {
   render() {
     return (
       <div>
-        <Header title = "SoonDoll" sections = {sections} />
-        Streaming
+        <Header title="SoonDoll" sections={sections} />
+        myPage
       </div>
     );
   }
 }
 
-export default Streaming;
+export default myPage;

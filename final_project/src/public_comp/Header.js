@@ -30,7 +30,7 @@ const Header = (props) => {
     {/* 아랫쪽 메인 margin */}
       <Toolbar className = {classes.toolbar}>
         <Button size="small" href = "#"> {title} </Button>
-        <div className = {classes.toolbarSecondary}>
+        <div className = {classes.toolbarLink}>
           {sections.map((section) => (
             <Link
               color="inherit"

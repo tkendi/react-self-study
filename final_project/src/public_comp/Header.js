@@ -26,12 +26,10 @@ const Header = (props) => {
   const classes = useStyles();
   const {title, sections} = props
   return (
-    <React.Fragment>
-    {/* 아랫쪽 메인 margin */}
-      <Toolbar className = {classes.toolbar}>
+    <React.Fragment> 
+      <Toolbar className = {classes.toolbar} >
         <Button size="small" href = "/"> {title} </Button>
         <div className = {classes.toolbarLink}>
-          {/* float = "right" 오른쪽 정렬 처리 */}
           {sections.map((section) => (
             <Link
               color="inherit"

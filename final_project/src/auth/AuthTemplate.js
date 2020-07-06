@@ -52,3 +52,4 @@ class AuthTemplate extends React.Component {
 }
 
 export default AuthTemplate;
+

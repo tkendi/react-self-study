@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const Main = () => {
   const classes = useStyles();
   return (
-    <React.Fragment className={classes.backgroundImage}>
+    <React.Fragment className={classes.backImg}>
       <Header title="SoonDoll" sections={sections} />
       <CssBaseline />
       <Container maxWidth="lg">

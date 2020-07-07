@@ -4,10 +4,10 @@ import Header from '../public_comp/Header';
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
   right: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,12 +40,12 @@ class AuthTemplate extends React.Component {
   render() {
     const children = this.props.children;
     return (
-      <div>
+      <>
         <Header title="SoonDoll" sections={sections} />
         <AuthTemplateBlock>
           <WhiteBox>{children}</WhiteBox>
         </AuthTemplateBlock>
-      </div>
+      </>
     );
   }
 }

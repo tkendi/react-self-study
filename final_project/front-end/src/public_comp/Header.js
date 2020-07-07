@@ -5,32 +5,30 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
-    overflowX: 'auto'
+    overflowX: 'auto',
   },
   toolbarLink: {
-    margin: '0 auto'
-  },  
+    margin: '0 auto',
+  },
   toolbarText: {
     paddingLeft: '1.5rem',
-    paddingRight: '1.5rem'
-  }
+    paddingRight: '1.5rem',
+  },
 }));
 
 function handleClick(e) {
   e.preventDefault();
-  alert('login please')
-  console.log('Tlqkf')
+  alert('login please');
+  console.log('Tlqkf');
 }
 
-
-
-const Header = props => {
+const Header = (props) => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
   return (
@@ -44,14 +42,14 @@ const Header = props => {
         <div className={classes.toolbarLink}>
           {sections.map((section) => (
             <Link
-            color="inherit"
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarText}
-            onClick={handleClick}
+              color="inherit"
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              className={classes.toolbarText}
+              onClick={handleClick}
             >
-            {section.title}
+              {section.title}
             </Link>
           ))}
         </div>
@@ -67,9 +65,7 @@ const Header = props => {
 
 Header.propTypes = {
   sections: PropTypes.array,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 export default Header;
-
-

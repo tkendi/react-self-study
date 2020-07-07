@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarLink: {
     margin: '0 auto'
-  },
+  },  
   toolbarText: {
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem'

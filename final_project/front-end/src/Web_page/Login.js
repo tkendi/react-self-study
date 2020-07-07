@@ -24,4 +24,3 @@ class Login extends React.Component {
 
 export default Login;
 
-//https://has3ong.tistory.com/301?category=831354 => 카카오 챗봇

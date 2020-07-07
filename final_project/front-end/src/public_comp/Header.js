@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const Header = (props) => {
+function Header(props) {
   const classes = useStyles();
   const {title, sections} = props
   return (
-    <React.Fragment>
+    <>
     {/* 아랫쪽 메인 margin */}
       <Toolbar className = {classes.toolbar}>
-        <Button size="small" href = "#"> {title} </Button>
+        <Button size="small" href = "/"> {title} </Button>
         <div className = {classes.toolbarLink}>
           {sections.map((section) => (
             <Link
@@ -45,7 +45,7 @@ const Header = (props) => {
         </div>
           <Button size="small" href = "/login">Sign in</Button>
       </Toolbar>
-    </React.Fragment>
+    </>
   );
 };
 

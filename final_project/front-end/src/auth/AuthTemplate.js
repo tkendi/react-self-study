@@ -8,7 +8,6 @@ const AuthTemplateBlock = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,17 +38,16 @@ const sections = [
 
 class AuthTemplate extends React.Component {
   render() {
-    const children = this.props.children
+    const children = this.props.children;
     return (
-      <React.Fragment>
+      <>
         <Header title="SoonDoll" sections={sections} />
         <AuthTemplateBlock>
           <WhiteBox>{children}</WhiteBox>
         </AuthTemplateBlock>
-      </React.Fragment>
+      </>
     );
   }
 }
 
 export default AuthTemplate;
-

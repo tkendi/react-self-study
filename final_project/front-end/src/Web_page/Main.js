@@ -45,16 +45,17 @@ const Main = () => {
   const classes = useStyles();
   return (
     <React.Fragment className={classes.backImg}>
-      <Header title="SoonDoll" sections={sections} />
+      <Header title="SoonDoll" sections={sections} site_pos='main'/>
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <Button>Sign IN</Button>
+          <Button href = "/login">Sign IN</Button>
           <ThemeProvider theme={theme}>
             <Button
               variant="contained"
               color="primary"
               className={classes.margin}
+              href="/register"
             >
               Sign Up
             </Button>

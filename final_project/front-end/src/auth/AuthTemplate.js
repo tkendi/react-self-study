@@ -31,21 +31,21 @@ const WhiteBox = styled.div`
 `;
 
 const sections = [
-  { title: 'Streaming', url: '#' },
-  { title: 'Board', url: '#' },
-  { title: 'My Page', url: '#' },
+  { title: 'Streaming', url: '/Streaming' },
+  { title: 'Board', url: '/NoticeBoard' },
+  { title: 'My Page', url: '/myPage' }
 ];
 
 class AuthTemplate extends React.Component {
   render() {
     const children = this.props.children;
     return (
-      <React.Fragment>
+      <div>
         <Header title="SoonDoll" sections={sections} />
         <AuthTemplateBlock>
           <WhiteBox>{children}</WhiteBox>
         </AuthTemplateBlock>
-      </React.Fragment>
+      </div>
     );
   }
 }

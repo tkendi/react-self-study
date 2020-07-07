@@ -6,11 +6,12 @@ const sections = [
   { title: 'Board', url: '/NoticeBoard' },
   { title: 'My Page', url: '/myPage' }
 ];
+
 class NoticeBoard extends React.Component {
   render() {
     return (
       <div>
-        <Header title = "SoonDoll" sections = {sections} />
+        <Header title = "SoonDoll" sections = {sections} site_pos="streaming"/>
         NoticeBoard
       </div>
     );

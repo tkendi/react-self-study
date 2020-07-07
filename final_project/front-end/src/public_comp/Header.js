@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Header(props) {
   const classes = useStyles();
-  const {title, sections} = props
+  const {title, sections, site_pos} = props
   return (
     <>
     {/* 아랫쪽 메인 margin */}
@@ -43,7 +43,9 @@ function Header(props) {
             </Link>
           ))}
         </div>
-          <Button size="small" href = "/login">Sign in</Button>
+          {site_pos !== 'main' && (
+            <Button size="small" href = "/login">Sign in</Button>
+          )}
       </Toolbar>
     </>
   );

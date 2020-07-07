@@ -5,13 +5,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   toolbarLink: {
     margin: '0 auto'
@@ -22,30 +22,42 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function Header(props) {
+function handleClick(e) {
+  e.preventDefault();
+  alert('login please')
+  console.log('Tlqkf')
+}
+
+const Header = props => {
   const classes = useStyles();
-  const {title, sections, site_pos} = props
+  const { title, sections, site_pos } = props;
   return (
     <>
-    {/* 아랫쪽 메인 margin */}
-      <Toolbar className = {classes.toolbar}>
-        <Button size="small" href = "/"> {title} </Button>
-        <div className = {classes.toolbarLink}>
-          {sections.map((section) => (
+      {/* 아랫쪽 메인 margin */}
+      <Toolbar className={classes.toolbar}>
+        <Button size="small" href="/">
+          {' '}
+          {title}{' '}
+        </Button>
+        <div className={classes.toolbarLink}>
+          {sections.map(section => (
             <Link
               color="inherit"
               key={section.title}
               variant="body2"
               href={section.url}
-              className = {classes.toolbarText}
+              className={classes.toolbarText}
+              onClick={handleClick}
             >
               {section.title}
             </Link>
           ))}
         </div>
-          {site_pos !== 'main' && (
-            <Button size="small" href = "/login">Sign in</Button>
-          )}
+        {site_pos !== 'main' && (
+          <Button size="small" href="/login">
+            Sign in
+          </Button>
+        )}
       </Toolbar>
     </>
   );
@@ -53,7 +65,7 @@ function Header(props) {
 
 Header.propTypes = {
   sections: PropTypes.array,
-  title: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default Header;

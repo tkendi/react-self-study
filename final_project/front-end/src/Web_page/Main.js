@@ -8,9 +8,9 @@ import {
 } from '@material-ui/core/styles';
 
 const sections = [
-  { title: 'Streaming', url: '/Streaming' },
-  { title: 'Board', url: '/NoticeBoard' },
-  { title: 'My Page', url: '/myPage' },
+  { title: 'Streaming', url: '/' },
+  { title: 'Board', url: '/' },
+  { title: 'My Page', url: '/' },
 ];
 
 const theme = createMuiTheme({

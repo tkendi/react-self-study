@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarLink: {
     margin: '0 auto'
-  },
+  },  
   toolbarText: {
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem'
@@ -34,7 +34,7 @@ const Header = props => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
   return (
-    <>
+    <div>
       {/* 아랫쪽 메인 margin */}
       <Toolbar className={classes.toolbar}>
         <Button size="small" href="/">
@@ -61,7 +61,7 @@ const Header = props => {
           </Button>
         )}
       </Toolbar>
-    </>
+    </div>
   );
 };
 

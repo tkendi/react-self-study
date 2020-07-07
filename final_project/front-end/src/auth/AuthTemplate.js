@@ -40,12 +40,12 @@ class AuthTemplate extends React.Component {
   render() {
     const children = this.props.children;
     return (
-      <>
+      <React.Fragment>
         <Header title="SoonDoll" sections={sections} />
         <AuthTemplateBlock>
           <WhiteBox>{children}</WhiteBox>
         </AuthTemplateBlock>
-      </>
+      </React.Fragment>
     );
   }
 }

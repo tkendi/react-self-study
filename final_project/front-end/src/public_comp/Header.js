@@ -28,6 +28,8 @@ function handleClick(e) {
   console.log('Tlqkf')
 }
 
+
+
 const Header = props => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
@@ -40,16 +42,16 @@ const Header = props => {
           {title}{' '}
         </Button>
         <div className={classes.toolbarLink}>
-          {sections.map(section => (
+          {sections.map((section) => (
             <Link
-              color="inherit"
-              key={section.title}
-              variant="body2"
-              href={section.url}
-              className={classes.toolbarText}
-              onClick={handleClick}
+            color="inherit"
+            key={section.title}
+            variant="body2"
+            href={section.url}
+            className={classes.toolbarText}
+            onClick={handleClick}
             >
-              {section.title}
+            {section.title}
             </Link>
           ))}
         </div>
@@ -69,3 +71,5 @@ Header.propTypes = {
 };
 
 export default Header;
+
+

@@ -26,21 +26,20 @@ function handleClick(e) {
   console.log('Tlqkf');
 }
 
-const classes = useStyles();
-
-function section_data(sections) {
-  sections.map(section => {
-    <Link
-      color="inherit"
-      key={section.title}
-      variant="body2"
-      href={section.url}
-      className={classes.toolbarText}
-      onClick={handleClick}
-    >
-      {section.title}
-    </Link>;
-  });
+function typo_data(sections) {
+  {
+    sections.map(section => (
+      <Typography
+        color="inherit"
+        key={section.title}
+        variant="body2"
+        href={section.url}
+        onClick={handleClick}
+      >
+        {section.title}
+      </Typography>
+    ));
+  }
 }
 
 const Header = props => {
@@ -51,17 +50,26 @@ const Header = props => {
       {/* 아랫쪽 메인 margin */}
       <Toolbar className={classes.toolbar}>
         <Button size="small" href="/">
-          {' '}
-          {title}{' '}
+          {title}
         </Button>
         <div className={classes.toolbarLink}>
-          {site_pos !== 'login' && 'register' && <Typography>asdf</Typography>}
+          {site_pos === 'login' && typo_data(sections)}
+          {site_pos === 'register' && typo_data(sections)}
+
+          {sections.map(section => (
+            <Link
+              color="inherit"
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              className={classes.toolbarText}
+              onClick={handleClick}
+            >
+              {section.title}
+            </Link>
+          ))}
         </div>
-        {site_pos !== 'main' && (
-          <Button size="small" href="/login">
-            Sign in
-          </Button>
-        )}
+        {site_pos !== 'register' && <Button>Sign In</Button>}
       </Toolbar>
     </div>
   );

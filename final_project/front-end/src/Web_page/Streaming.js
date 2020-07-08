@@ -10,12 +10,12 @@ const sections = [
 class Streaming extends React.Component {
   render() {
     return (
-      <div>
+      <div> 
         <Header title = "SoonDoll" sections = {sections} />
         Streaming
       </div>
     );
-  }
+  }``
 }
 
 export default Streaming;

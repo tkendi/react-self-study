@@ -13,7 +13,7 @@ class Register extends React.Component {
   render() {
     return (
       <>
-        <Header title="SoonDoll" sections={sections} />
+        <Header title="SoonDoll" sections={sections} site_pos = "register" />
         <AuthTemplate>
           <AuthForm type="SIGN UP" />
         </AuthTemplate>

@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 function handleClick(e) {
   e.preventDefault();
   alert('login please');
-  console.log('Tlqkf');
+  console.log('click success');
 }
 
 function typo_data(sections) {

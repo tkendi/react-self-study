@@ -16,8 +16,19 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarText: {
     paddingLeft: '1.5rem',
-    paddingRight: '1.5rem',
+    paddingRight: '1.5rem'
   },
+  btn_style: {
+    borderRadius: '5rem',
+    paddingRight: '1.5rem',
+    paddingLeft: '1.5rem'
+  },
+  text_style: {
+    margin: '1rem'
+  },
+  section_text: {
+    margin: '0 auto'
+  }
 }));
 
 function handleClick(e) {
@@ -69,14 +80,28 @@ const Header = (props) => {
         </div>
         {site_pos === 'login' && (
           <>
-            <Typography>아직 회원이 아니신가요?</Typography>
-            <Button href="/register">SIGN UP</Button>
+            <Typography
+              variant = "body2"
+              component = "h3"
+              color = "primary"
+              className = {classes.text_style}
+            >
+              아직 회원이 아니신가요?
+            </Typography>
+            <Button 
+              href="/register"
+              variant = "outlined"
+              color = "primary"
+              className = {classes.btn_style}
+            >
+              SIGN UP
+            </Button>
           </>
         )}
         {site_pos === 'register' && (
           <>
             <Typography>이미 회원이신가요?</Typography>
-            <Button>SIGN IN</Button>
+            <Button href = "/login">SIGN IN</Button>
           </>
         )}
       </Toolbar>

@@ -31,6 +31,7 @@ function handleClick(e) {
 const Header = (props) => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
+  const sign;
   return (
     <div>
       {/* 아랫쪽 메인 margin */}
@@ -40,11 +41,18 @@ const Header = (props) => {
           {title}{' '}
         </Button>
         <div className={classes.toolbarLink}>
-          {site_pos !== 'login' && site_pos !== 'register' && (
-            (sections.map(section) {
-              
-            })
-          )}
+          {sections.map((section) => (
+            <Link
+            color="inherit"
+            key={section.title}
+            variant="body2"
+            href={section.url}
+            className={classes.toolbarText}
+            onClick={handleClick}
+            >
+            {section.title}
+            </Link>
+          ))}
         </div>
         {site_pos !== 'main' && (
           <Button size="small" href="/login">
@@ -64,13 +72,3 @@ Header.propTypes = {
 export default Header;
 
 
-<Link
-color="inherit"
-key={section.title}
-variant="body2"
-href={section.url}
-className={classes.toolbarText}
-onClick={handleClick}
->
-{section.title}
-</Link>

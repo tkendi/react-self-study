@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AuthTemplateBlock = styled.div`
+  margin: 0 auto;
   position: absolute;
   top: 0;
   bottom: 0;

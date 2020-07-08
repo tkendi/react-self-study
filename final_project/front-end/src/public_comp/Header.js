@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Toolbar, Link } from '@material-ui/core';
+import '../styles/css/Header.scss'
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -44,6 +45,7 @@ function typo_data(sections) {
       key={section.title}
       variant="body2"
       href={section.url}
+      className = {text_style}
       onClick={handleClick}
     >
       {section.title}

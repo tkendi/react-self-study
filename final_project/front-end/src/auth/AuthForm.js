@@ -74,8 +74,7 @@ class AuthForm extends React.Component {
       <AuthFormBlock>
         <h3>{text}</h3>
         <form
-          method="post"
-          action="/"
+          method=""
           style={{ margin: '0 auto', widht: '240px' }}
         >
           <StyledInput

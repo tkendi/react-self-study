@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../public_comp/Header';
 
 const AuthTemplateBlock = styled.div`
   position: absolute;
@@ -22,7 +21,7 @@ const WhiteBox = styled.div`
     font-weight: bold;
     letter-spacing: 2px;
   }
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.255);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   padding-bottom: 2rem;
   width: 360px;
   height: 550px;
@@ -30,18 +29,11 @@ const WhiteBox = styled.div`
   border-radius: 30px;
 `;
 
-const sections = [
-  { title: 'Streaming', url: '/Streaming' },
-  { title: 'Board', url: '/NoticeBoard' },
-  { title: 'My Page', url: '/myPage' }
-];
-
 class AuthTemplate extends React.Component {
   render() {
     const children = this.props.children;
     return (
       <>
-        <Header title="SoonDoll" sections={sections} />
         <AuthTemplateBlock>
           <WhiteBox>{children}</WhiteBox>
         </AuthTemplateBlock>

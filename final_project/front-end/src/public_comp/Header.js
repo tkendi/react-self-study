@@ -69,7 +69,18 @@ const Header = props => {
             </Link>
           ))}
         </div>
-        {site_pos !== 'register' && <Button>Sign In</Button>}
+        {site_pos === 'login' && (
+          <>
+            <Typography>아직 회원이 아니신가요?</Typography>
+            <Button href="/register">SIGN UP</Button>
+          </>
+        )}
+        {site_pos === 'register' && (
+          <>
+            <Typography>이미 회원이신가요?</Typography>
+            <Button>SIGN IN</Button>
+          </>
+        )}
       </Toolbar>
     </div>
   );
@@ -77,7 +88,8 @@ const Header = props => {
 
 Header.propTypes = {
   sections: PropTypes.array,
-  title: PropTypes.string
+  title: PropTypes.string,
+  site_pos: PropTypes.string
 };
 
 export default Header;

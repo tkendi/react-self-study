@@ -15,7 +15,7 @@ class Streaming extends React.Component {
         Streaming
       </div>
     );
-  }``
+  }
 }
 
 export default Streaming;

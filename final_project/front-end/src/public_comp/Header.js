@@ -1,19 +1,19 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Toolbar, Link } from '@material-ui/core';
-import '../styles/css/Header.scss'
+import '../styles/css/Header.scss';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   toolbarLink: {
-    margin: '0 auto',
+    margin: '0 auto'
   },
   toolbarText: {
     paddingLeft: '1.5rem',
@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   text_style: {
     margin: '1rem'
-  },
-  section_text: {
-    margin: '0 auto'
   }
 }));
 
@@ -39,13 +36,13 @@ function handleClick(e) {
 }
 
 function typo_data(sections) {
-  sections.map((section) => (
+  sections.map(section => (
     <Typography
       color="inherit"
       key={section.title}
       variant="body2"
       href={section.url}
-      className = {text_style}
+      className="section_text"
       onClick={handleClick}
     >
       {section.title}
@@ -53,7 +50,7 @@ function typo_data(sections) {
   ));
 }
 
-const Header = (props) => {
+const Header = props => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
   return (
@@ -64,10 +61,7 @@ const Header = (props) => {
           {title}
         </Button>
         <div className={classes.toolbarLink}>
-          {site_pos === 'login' && typo_data(sections)}
-          {site_pos === 'register' && typo_data(sections)}
-
-          {sections.map((section) => (
+          {sections.map(section => (
             <Link
               color="inherit"
               key={section.title}
@@ -79,22 +73,25 @@ const Header = (props) => {
               {section.title}
             </Link>
           ))}
+
+          {site_pos === 'login' && typo_data(sections)}
+          {site_pos === 'register' && typo_data(sections)}
         </div>
         {site_pos === 'login' && (
           <>
             <Typography
-              variant = "body2"
-              component = "h3"
-              color = "primary"
-              className = {classes.text_style}
+              variant="body2"
+              component="h3"
+              color="primary"
+              className={classes.text_style}
             >
               아직 회원이 아니신가요?
             </Typography>
-            <Button 
+            <Button
               href="/register"
-              variant = "outlined"
-              color = "primary"
-              className = {classes.btn_style}
+              variant="outlined"
+              color="primary"
+              className={classes.btn_style}
             >
               SIGN UP
             </Button>
@@ -102,8 +99,22 @@ const Header = (props) => {
         )}
         {site_pos === 'register' && (
           <>
-            <Typography>이미 회원이신가요?</Typography>
-            <Button href = "/login">SIGN IN</Button>
+            <Typography
+              variant="body2"
+              component="h3"
+              color="primary"
+              className={classes.text_style}
+            >
+              이미 회원이신가요?
+            </Typography>
+            <Button
+              href="/login"
+              variant="outlined"
+              color="primary"
+              className={classes.btn_style}
+            >
+              SIGN IN
+            </Button>
           </>
         )}
       </Toolbar>
@@ -114,7 +125,7 @@ const Header = (props) => {
 Header.propTypes = {
   sections: PropTypes.array,
   title: PropTypes.string,
-  site_pos: PropTypes.string,
+  site_pos: PropTypes.string
 };
 
 export default Header;

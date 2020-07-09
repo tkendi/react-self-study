@@ -11,7 +11,7 @@ class Streaming extends React.Component {
   render() {
     return (
       <div> 
-        <Header title = "SoonDoll" sections = {sections} />
+        <Header title = "SoonDoll" sections = {sections} site_pos = 'Streaming' />
         Streaming
       </div>
     );

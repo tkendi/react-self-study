@@ -42,43 +42,49 @@ function typo_data(sections) {
   ));
 }
 
-function login_text(title) {
-title === 'SIGN UP' && (
-    <Typography
-      variant="body2"
-      component="h3"
-      color="primary"
-      className="text_style"
-    >
-      아직 회원이 아니신가요?
-    </Typography>
-    <Button
-      href="/register"
-      variant="outlined"
-      color="primary"
-      className="btn_style"
-    >
-      SIGN UP
-    </Button>
-  ): (
-    <Typography
-      variant = "body2"
-      component = "h3"
-      color = "primary"
-      className = "text_style"
-    >
-      이미 회원이신가요?
-    </Typography>
-    <Button
-      href = "/login"
-      variant = "outlined"
-      color = "primary"
-      className = "btn_style"
-    >
-      SIGN IN
-    </Button>
-  )
+const login_text = (props) => {
+  const title = props
+  {title === 'SIGN UP' && (
+    <>
+      <Typography
+        variant = "body2"
+        component = "h3"
+        color = "primary"
+        className = "text_style"
+        >
+          아직 회원이 아니신가요?
+        </Typography>
+        <Button
+          href = "/register"
+          variant = "outlined"
+          color = "primary"
+          className = "btn_style"
+        >
+          {title}
+        </Button>
+    </>
+  ) (
+    <>
+      <Typography
+        variant = "body2"
+        component = "h3"
+        color = "primary"
+        className = "text_style"
+      >
+        아미 회원이신가요?
+      </Typography>
+      <Button
+        href = "/login"
+        variant = "outlined"
+        color = "primary"
+        className = "btn_style"
+      >
+        {title}
+      </Button>
+    </>
+  )}
 }
+
 
 const Header = props => {
   const classes = useStyles();
@@ -105,7 +111,7 @@ const Header = props => {
           ))}
         </div>
         {site_pos === 'login' && (typo_data(sections), login_text('SIGN UP'))}
-        {site_pos === 'register' && (typo_data(sections), register_text('SIGN IN'))}
+        {site_pos === 'register' && (typo_data(sections), login_text('SIGN IN'))}
       </Toolbar>
     </div>
   );

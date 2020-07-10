@@ -18,14 +18,6 @@ const useStyles = makeStyles(theme => ({
   toolbarText: {
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem'
-  },
-  btn_style: {
-    borderRadius: '5rem',
-    paddingRight: '1.5rem',
-    paddingLeft: '1.5rem'
-  },
-  text_style: {
-    margin: '1rem'
   }
 }));
 
@@ -48,6 +40,44 @@ function typo_data(sections) {
       {section.title}
     </Typography>
   ));
+}
+
+function login_text(title) {
+title === 'SIGN UP' && (
+    <Typography
+      variant="body2"
+      component="h3"
+      color="primary"
+      className="text_style"
+    >
+      아직 회원이 아니신가요?
+    </Typography>
+    <Button
+      href="/register"
+      variant="outlined"
+      color="primary"
+      className="btn_style"
+    >
+      SIGN UP
+    </Button>
+  ): (
+    <Typography
+      variant = "body2"
+      component = "h3"
+      color = "primary"
+      className = "text_style"
+    >
+      이미 회원이신가요?
+    </Typography>
+    <Button
+      href = "/login"
+      variant = "outlined"
+      color = "primary"
+      className = "btn_style"
+    >
+      SIGN IN
+    </Button>
+  )
 }
 
 const Header = props => {
@@ -73,50 +103,9 @@ const Header = props => {
               {section.title}
             </Link>
           ))}
-
-          {site_pos === 'login' && typo_data(sections)}
-          {site_pos === 'register' && typo_data(sections)}
         </div>
-        {site_pos === 'login' && (
-          <>
-            <Typography
-              variant="body2"
-              component="h3"
-              color="primary"
-              className={classes.text_style}
-            >
-              아직 회원이 아니신가요?
-            </Typography>
-            <Button
-              href="/register"
-              variant="outlined"
-              color="primary"
-              className={classes.btn_style}
-            >
-              SIGN UP
-            </Button>
-          </>
-        )}
-        {site_pos === 'register' && (
-          <>
-            <Typography
-              variant="body2"
-              component="h3"
-              color="primary"
-              className={classes.text_style}
-            >
-              이미 회원이신가요?
-            </Typography>
-            <Button
-              href="/login"
-              variant="outlined"
-              color="primary"
-              className={classes.btn_style}
-            >
-              SIGN IN
-            </Button>
-          </>
-        )}
+        {site_pos === 'login' && (typo_data(sections), login_text('SIGN UP'))}
+        {site_pos === 'register' && (typo_data(sections), register_text('SIGN IN'))}
       </Toolbar>
     </div>
   );

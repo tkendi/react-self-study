@@ -98,7 +98,7 @@ const Header = props => {
           </>
         )}
         {site_pos === 'register' && (
-          <>
+          <>  
             <Typography
               variant="body2"
               component="h3"

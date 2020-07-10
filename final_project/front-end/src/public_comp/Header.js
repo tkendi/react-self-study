@@ -4,29 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Toolbar, Link } from '@material-ui/core';
 import '../styles/css/Header.scss';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
-    overflowX: 'auto'
+    overflowX: 'auto',
   },
   toolbarLink: {
-    margin: '0 auto'
+    margin: '0 auto',
   },
   toolbarText: {
     paddingLeft: '1.5rem',
-    paddingRight: '1.5rem'
-  },
-  btn_style: {
-    borderRadius: '5rem',
     paddingRight: '1.5rem',
-    paddingLeft: '1.5rem'
   },
-  text_style: {
-    margin: '1rem'
-  }
 }));
 
 function handleClick(e) {
@@ -36,7 +28,7 @@ function handleClick(e) {
 }
 
 function typo_data(sections) {
-  sections.map(section => (
+  sections.map((section) => (
     <Typography
       color="inherit"
       key={section.title}
@@ -50,7 +42,51 @@ function typo_data(sections) {
   ));
 }
 
-const Header = props => {
+const login_text = (props) => {
+  const title = props;
+  {
+    title === 'SIGN UP' &&
+      (<>
+        <Typography
+          variant="body2"
+          component="h3"
+          color="primary"
+          className="text_style"
+        >
+          아직 회원이 아니신가요?
+        </Typography>
+        <Button
+          href="/register"
+          variant="outlined"
+          color="primary"
+          className="btn_style"
+        >
+          {title}
+        </Button>
+      </>)(
+        <>
+          <Typography
+            variant="body2"
+            component="h3"
+            color="primary"
+            className="text_style"
+          >
+            아미 회원이신가요?
+          </Typography>
+          <Button
+            href="/login"
+            variant="outlined"
+            color="primary"
+            className="btn_style"
+          >
+            {title}
+          </Button>
+        </>
+      );
+  }
+};
+
+const Header = (props) => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
   return (
@@ -61,7 +97,7 @@ const Header = props => {
           {title}
         </Button>
         <div className={classes.toolbarLink}>
-          {sections.map(section => (
+          {sections.map((section) => (
             <Link
               color="inherit"
               key={section.title}
@@ -73,50 +109,10 @@ const Header = props => {
               {section.title}
             </Link>
           ))}
-
-          {site_pos === 'login' && typo_data(sections)}
-          {site_pos === 'register' && typo_data(sections)}
         </div>
-        {site_pos === 'login' && (
-          <>
-            <Typography
-              variant="body2"
-              component="h3"
-              color="primary"
-              className={classes.text_style}
-            >
-              아직 회원이 아니신가요?
-            </Typography>
-            <Button
-              href="/register"
-              variant="outlined"
-              color="primary"
-              className={classes.btn_style}
-            >
-              SIGN UP
-            </Button>
-          </>
-        )}
-        {site_pos === 'register' && (
-          <>  
-            <Typography
-              variant="body2"
-              component="h3"
-              color="primary"
-              className={classes.text_style}
-            >
-              이미 회원이신가요?
-            </Typography>
-            <Button
-              href="/login"
-              variant="outlined"
-              color="primary"
-              className={classes.btn_style}
-            >
-              SIGN IN
-            </Button>
-          </>
-        )}
+        {site_pos === 'login' && (typo_data(sections), login_text('SIGN UP'))}
+        {site_pos === 'register' &&
+          (typo_data(sections), login_text('SIGN IN'))}
       </Toolbar>
     </div>
   );
@@ -125,7 +121,7 @@ const Header = props => {
 Header.propTypes = {
   sections: PropTypes.array,
   title: PropTypes.string,
-  site_pos: PropTypes.string
+  site_pos: PropTypes.string,
 };
 
 export default Header;

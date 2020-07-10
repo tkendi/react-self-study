@@ -4,21 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Toolbar, Link } from '@material-ui/core';
 import '../styles/css/Header.scss';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
-    overflowX: 'auto',
+    overflowX: 'auto'
   },
   toolbarLink: {
-    margin: '0 auto',
+    margin: '0 auto'
   },
   toolbarText: {
     paddingLeft: '1.5rem',
-    paddingRight: '1.5rem',
-  },
+    paddingRight: '1.5rem'
+  }
 }));
 
 function handleClick(e) {
@@ -28,7 +28,7 @@ function handleClick(e) {
 }
 
 function typo_data(sections) {
-  sections.map((section) => (
+  sections.map(section => (
     <Typography
       color="inherit"
       key={section.title}
@@ -42,7 +42,7 @@ function typo_data(sections) {
   ));
 }
 
-const login_text = (props) => {
+const login_text = props => {
   const title = props;
   {
     title === 'SIGN UP' &&
@@ -86,7 +86,7 @@ const login_text = (props) => {
   }
 };
 
-const Header = (props) => {
+const Header = props => {
   const classes = useStyles();
   const { title, sections, site_pos } = props;
   return (
@@ -97,7 +97,7 @@ const Header = (props) => {
           {title}
         </Button>
         <div className={classes.toolbarLink}>
-          {sections.map((section) => (
+          {sections.map(section => (
             <Link
               color="inherit"
               key={section.title}
@@ -121,7 +121,7 @@ const Header = (props) => {
 Header.propTypes = {
   sections: PropTypes.array,
   title: PropTypes.string,
-  site_pos: PropTypes.string,
+  site_pos: PropTypes.string
 };
 
 export default Header;

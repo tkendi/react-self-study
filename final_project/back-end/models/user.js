@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 const UserSchema = new Schema({
     username: String,
-    hashedPassword: Strin,
+    hashedPassword: String,
 });
 
 UserSchema.methods.setPassword = async function(password) {
@@ -16,8 +16,14 @@ UserSchema.methods.checkPassword = async function(password) {
     return result;
 }
 
-UserSchema.static.findByUsername = function(username) {
+UserSchema.statics.findByUsername = function(username) {
     return this.findOne({username})
+}
+
+UserSchema.methods.serialize = function() {
+    const data = this.toJSON();
+    delete data.hashedPassword;
+    return data
 }
 
 const User = mongoose.model('User', UserSchema)

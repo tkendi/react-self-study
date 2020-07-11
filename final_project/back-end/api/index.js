@@ -5,4 +5,4 @@ const api = new Router();
 
 api.use('/posts', posts.routes())
 
-module.export = api;
+module.exports = api;

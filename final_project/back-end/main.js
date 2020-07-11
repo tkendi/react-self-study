@@ -1,8 +1,13 @@
 require('dotenv').config();
-const Koa = require('koa');
-const Router = require('koa-router');
-const bodyParser = require('koa-bodyparser');
-const mongoose = require('mongoose');
+import Koa from 'koa'
+import Router from 'koa-router'
+import bodyParser from 'koa-bodyparser'
+import mongoose from 'mongoose'
+
+import api from './api'
+
+const app = new Koa();
+const router = new Router();
 
 //비구조화 할당 process.env 내부의 값에 대한 래퍼런스
 const { PORT, MONGO_URI } = process.env;
@@ -16,10 +21,6 @@ mongoose
     console.error(e);
   });
 
-const app = new Koa();
-const router = new Router();
-
-const api = require('./api');
 
 //라우터 설정
 router.use('/api', api.routes());

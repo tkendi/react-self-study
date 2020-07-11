@@ -12,6 +12,10 @@
     "koa-router": "^9.1.0",
     "mongoose": "^5.9.23"
   },
+  "scripts": {
+    "start": "node -r esm src",
+    "start:dev": "nodemon --watch src/ -r esm src/index.js"
+  },
   "devDependencies": {
     "eslint": "^7.4.0"
   }

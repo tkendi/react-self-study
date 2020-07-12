@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import palette from '../styles/js/palette';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-// import { LockIcon, PersonOutlineIcon }from '@material-ui/icons';
 import '../styles/css/AuthForm.scss';
 
 const AuthFormBlock = styled.div`

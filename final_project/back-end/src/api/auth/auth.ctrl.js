@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import User from '../models/user';
+import User from '../../models/user';
 
 export const register = async (ctx) => {
   const schema = Joi.object().keys({
@@ -79,6 +79,17 @@ export const login = async (ctx) => {
   }
 };
 
-export const check = async (ctx) => {};
+export const check = async (ctx) => {
+  const {user} = ctx.state
+  if(!user) {
+    ctx.status = 401;
+    return;
+  }
 
-export const logout = async (ctx) => {};
+  ctx.body = user;
+};
+
+export const logout = async (ctx) => {
+  ctx.cookies.set('access_token')
+  ctx.status = 204;
+};

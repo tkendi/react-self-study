@@ -33,7 +33,7 @@ const LoginForm = () => {
 
   return (
     <AuthForm
-      type="login"
+      type="Get started"
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}

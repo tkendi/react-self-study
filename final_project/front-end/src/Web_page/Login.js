@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthForm from '../auth/AuthForm';
+import LoginForm from '../auth/LoginForm'
 import AuthTemplate from '../auth/AuthTemplate';
 import Header from '../public_comp/Header'
 
@@ -15,7 +15,7 @@ class Login extends React.Component {
       <div>
         <Header title = "SoonDoll" sections = {sections} site_pos = "login" />
         <AuthTemplate>
-          <AuthForm type="Get started" />
+          <LoginForm />
         </AuthTemplate>
       </div>
     );

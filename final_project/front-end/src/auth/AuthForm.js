@@ -59,7 +59,7 @@ const textMap = {
 
 class AuthForm extends React.Component {
   render() {
-    const type = this.props.type;
+    const {type, form, onChange, onSubmit} = this.props.type;
     const type_text = type;
     let prop_type = ''
 
@@ -74,19 +74,23 @@ class AuthForm extends React.Component {
       <AuthFormBlock>
         <h3>{text}</h3>
         <form
-          method=""
+          onSubmit = {onSubmit}
           style={{ margin: '0 auto', widht: '240px' }}
         >
           <StyledInput
             autoComplete="username"
             name="username"
             placeholder="Username"
+            onChange = {onChange}
+            value = {form.username}
           />
           <StyledInput
             autoComplete="new-password"
             name="password"
             placeholder="Password"
             type="password"
+            onChange = {onChange}
+            value = {form.password}
           />
           {prop_type === 'register' && (
             <StyledInput
@@ -94,6 +98,8 @@ class AuthForm extends React.Component {
               name="passwordConfirm"
               placeholder="Confirm Password"
               type="password"
+              onChange = {onChange}
+              value = {form.passwordConfirm}
             />
           )}
           <Signup>

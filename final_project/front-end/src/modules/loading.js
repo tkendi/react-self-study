@@ -1,4 +1,4 @@
-import { createAction, handleAction } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 import { initializeForm } from './auth';
 
 const START_LOADING = 'loading/START_LOADING';
@@ -14,7 +14,9 @@ export const finishLoading = createAction(
   (requestType) => requestType
 );
 
-const initialState = {};
+const initialState = {
+
+};
 
 const loading = handleActions(
   {
@@ -27,7 +29,7 @@ const loading = handleActions(
       [action.payload]: false,
     }),
   },
-  initializeState
+  initialState
 );
 
 export default loading;

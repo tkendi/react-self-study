@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import auth, { authSaga } from './auth'
-import {all} from 'redux-saga'
+import {all} from 'redux-saga/effects'
 import loading from './loading'
 import user, {userSaga} from './user'
 

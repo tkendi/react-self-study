@@ -2,4 +2,4 @@ import axios from 'axios'
 
 const client = axios.create();
 
-export default client;s
+export default client;

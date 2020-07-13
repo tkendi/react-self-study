@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-reudx';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initializeForm, register } from '../modules/auth';
 import Authform from './AuthForm';
 import {check} from '../modules/user'

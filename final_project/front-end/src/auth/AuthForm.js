@@ -17,6 +17,13 @@ const AuthFormBlock = styled.div`
   }
 `;
 
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`
+
 const StyledInput = styled.input`
   margin: 0 auto;
   margin-top: 0.5rem;
@@ -58,7 +65,7 @@ const textMap = {
 
 class AuthForm extends React.Component {
   render() {
-    const {type, form, onChange, onSubmit} = this.props.type;
+    const {type, form, onChange, onSubmit, error} = this.props.type;
     const type_text = type;
     let prop_type = ''
 
@@ -101,6 +108,7 @@ class AuthForm extends React.Component {
               value = {form.passwordConfirm}
             />
           )}
+          {error && <ErrorMessage>{error}</ErrorMessage>}
           <Signup>
             <Button type="submit">{type_text}</Button>
           </Signup>

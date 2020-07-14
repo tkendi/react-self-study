@@ -1,0 +1,17 @@
+{
+  "name": "svr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src",
+    "start:dev": "pm2 start src/index.js --watch --no-daemon"
+  },
+  "dependencies": {
+    "koa": "^2.13.0",
+    "koa-router": "^9.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0"
+  }
+}

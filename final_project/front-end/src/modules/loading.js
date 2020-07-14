@@ -1,5 +1,4 @@
 import { createAction, handleActions } from 'redux-actions';
-import { initializeForm } from './auth';
 
 const START_LOADING = 'loading/START_LOADING';
 const FINISH_LOADING = 'loading/FINISH_LOADING';

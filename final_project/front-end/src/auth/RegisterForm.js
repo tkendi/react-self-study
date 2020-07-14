@@ -21,7 +21,7 @@ const RegisterForm = ({history}) => {
     const { value, name } = e.target;
     dispatchEvent(
       changeField({
-        form: 'register',
+        form: 'register',  
         key: name,
         value,
       })
@@ -85,6 +85,7 @@ const RegisterForm = ({history}) => {
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}
+      error={error}
     />
   );
 };

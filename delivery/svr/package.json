@@ -8,6 +8,7 @@
     "start:dev": "pm2 start src/index.js --watch --no-daemon"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "koa": "^2.13.0",
     "koa-router": "^9.1.0"
   },

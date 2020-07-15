@@ -1,6 +1,8 @@
 require("dotenv").config();
 const Koa = require("koa");
 const Router = require("koa-router");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const app = new Koa();
 const router = new Router();
@@ -22,21 +24,26 @@ router.get("/delivery", (ctx, next) => {
     const deliver_url = URL + number.toString();
     console.log(deliver_url);
 
-    const axios = require("axios");
-    const cheerio = require("cheerio");
-    getHTML(deliver_url).then(res => {
-      let processing_pos = [];
-      const $ = cheerio.load(html.data);
-      const bodyList = $("div.wrap-bwTable").children("div.common-hrTable-1 table tbody");
-    
+    getHTML(deliver_url)
+      .then(res => {
+        let processing_pos = [];
+        const $ = cheerio.load(res.data);
+        const bodyList = $("div.wrap-bwTable").children(
+          "div.common-hrTable-1 table tbody"
+        );
+
+        console.log($.load);
+
         bodyList.each(function(i, elem) {
-            processing_pos[i] = {
-                pos: $(this).find("tbody td span").text()
-            }
-        })
+          processing_pos[i] = {
+            pos: $(this)
+              .find("tbody td span")
+              .text()
+          };
+        });
         return processing_pos;
-    })
-    .then(res => console.log(res))
+      })
+      .then(res => console.log(res));
   } else {
     console.log("failure");
   }

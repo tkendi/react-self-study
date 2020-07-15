@@ -1,15 +1,23 @@
+require('dotenv').config();
 const Koa = require('koa');
 const Router = require('koa-router');
+
 
 const app = new Koa();
 const router = new Router();
 
+// const exma_num = 632234576584;
 
+const {URL} = process.env
 
 router.get('/delivery', (ctx, next) => {
     const {number} = ctx.query;
-    //number유무에 따라 출력결과가 다르다
-    if(length(number.toString()) > )
+    if((number.toString()).length >= 11 || (number.toString()).length >= 12) {
+        const deliver_url = (URL + (number.toString()))
+        console.log(deliver_url)
+    } else {
+        console.log('failure')
+    }
     console.log(number)
 })
 

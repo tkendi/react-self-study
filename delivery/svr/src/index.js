@@ -1,28 +1,59 @@
-require('dotenv').config();
-const Koa = require('koa');
-const Router = require('koa-router');
+require("dotenv").config();
+const Koa = require("koa");
+const Router = require("koa-router");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const app = new Koa();
 const router = new Router();
 
 // const exma_num = 632234576584;
 
-const {URL} = process.env
+const { URL } = process.env;
 
-router.get('/delivery', (ctx, next) => {
-    const {number} = ctx.query;
-    if((number.toString()).length >= 11 || (number.toString()).length >= 12) {
-        const deliver_url = (URL + (number.toString()))
-        console.log(deliver_url)
-    } else {
-        console.log('failure')
-    }
-    console.log(number)
-})
+async function getHTML() {
+  try {
+    return await axios.get("https://www.cjlogistics.com/ko/tool/parcel/newTracking?gnbInvcNo=632234576584");
+  } catch (error) {
+    console.error(error);
+  }
+}
+router.get("/delivery", (ctx, next) => {
+  const { number } = ctx.query;
+  if (number.toString().length >= 11 || number.toString().length >= 12) {
+    const deliver_url = URL + number.toString();
+    console.log(deliver_url);
 
-app.use(router.routes())
-app.use(router.allowedMethods())
+    getHTML()
+      .then(res => {
+          console.log(res)
+        let processing_pos = [];
+        const $ = cheerio.load(res.data);
+        const bodyList = $("div.wrap-bwTable").children(
+          "div.common-hrTable-1 table tbody"
+        );
+
+        console.log($);
+
+        bodyList.each(function(i, elem) {
+          processing_pos[i] = {
+            pos: $(this)
+              .find("tbody td span")
+              .text()
+          };
+        });
+        return processing_pos;
+      })
+      .then(res => console.log(res));
+  } else {
+    console.log("failure");
+  }
+  console.log(number);
+});
+
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 app.listen(4000, () => {
-    console.log('Koa server is listening to port 4000')
-})
+  console.log("Koa server is listening to port 4000");
+});

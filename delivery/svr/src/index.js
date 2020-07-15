@@ -11,9 +11,9 @@ const router = new Router();
 
 const { URL } = process.env;
 
-async function getHTML(deliver_url) {
+async function getHTML() {
   try {
-    return await axios.get(deliver_url);
+    return await axios.get("https://www.cjlogistics.com/ko/tool/parcel/newTracking?gnbInvcNo=632234576584");
   } catch (error) {
     console.error(error);
   }
@@ -24,15 +24,16 @@ router.get("/delivery", (ctx, next) => {
     const deliver_url = URL + number.toString();
     console.log(deliver_url);
 
-    getHTML(deliver_url)
+    getHTML()
       .then(res => {
+          console.log(res)
         let processing_pos = [];
         const $ = cheerio.load(res.data);
         const bodyList = $("div.wrap-bwTable").children(
           "div.common-hrTable-1 table tbody"
         );
 
-        console.log($.load);
+        console.log($);
 
         bodyList.each(function(i, elem) {
           processing_pos[i] = {

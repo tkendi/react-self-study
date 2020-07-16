@@ -1,7 +1,7 @@
 require("dotenv").config();
 const Koa = require("koa");
 const Router = require("koa-router");
-const axios = require("axios");
+const axios = require("axios")
 const cheerio = require("cheerio");
 
 const app = new Koa();
@@ -12,10 +12,10 @@ const router = new Router();
 const { URL } = process.env;
 
 async function getHTML(deliver_url) {
-  try {
-    return await axios.get(deliver_url);
-  } catch (error) {
-    console.error(error);
+  try{
+    return await axios.get(deliver_url)
+  } catch(e) {
+    console.error(e)
   }
 }
 router.get("/delivery", (ctx, next) => {
@@ -44,7 +44,9 @@ router.get("/delivery", (ctx, next) => {
         });
         return processing_pos;
       })
-      .then(res => console.log(res));
+      .then(res => {
+        ctx.body = res
+      });
   } else {
     console.log("failure");
   }

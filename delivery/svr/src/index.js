@@ -26,7 +26,7 @@ router.get("/delivery", (ctx, next) => {
 
     getHTML(deliver_url)
       .then(res => {
-          console.log(res)
+          console.log(res.data)
         let processing_pos = [];
         const $ = cheerio.load(res.data);
         const bodyList = $("div.wrap-bwTable").children(

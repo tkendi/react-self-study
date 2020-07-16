@@ -95,7 +95,6 @@ class AuthForm extends React.Component {
             placeholder="Password"
             type="password"
             onChange = {onChange}
-            value = {form.password}
           />
           {prop_type === 'register' && (
             <StyledInput
@@ -104,7 +103,6 @@ class AuthForm extends React.Component {
               placeholder="Confirm Password"
               type="password"
               onChange = {onChange}
-              value = {form.passwordConfirm}
             />
           )}
           {error && <ErrorMessage>{error}</ErrorMessage>}

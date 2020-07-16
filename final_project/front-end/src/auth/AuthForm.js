@@ -88,7 +88,6 @@ class AuthForm extends React.Component {
             name="username"
             placeholder="Username"
             onChange = {onChange}
-            value = {form.username}
           />
           <StyledInput
             autoComplete="new-password"

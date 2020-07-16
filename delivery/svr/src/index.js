@@ -11,20 +11,20 @@ const router = new Router();
 
 const { URL } = process.env;
 
-async function getHTML() {
+async function getHTML(deliver_url) {
   try {
-    return await axios.get("https://www.cjlogistics.com/ko/tool/parcel/newTracking?gnbInvcNo=632234576584");
+    return await axios.get(deliver_url);
   } catch (error) {
     console.error(error);
   }
 }
 router.get("/delivery", (ctx, next) => {
   const { number } = ctx.query;
-  if (number.toString().length >= 11 || number.toString().length >= 12) {
+  if (String(number).length >= 11 || String(number).length >= 12) {
     const deliver_url = URL + number.toString();
     console.log(deliver_url);
 
-    getHTML()
+    getHTML(deliver_url)
       .then(res => {
           console.log(res)
         let processing_pos = [];

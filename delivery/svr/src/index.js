@@ -28,7 +28,7 @@ router.get("/delivery", (ctx, next) => {
       .then(res => {
           console.log(res.data)
         let processing_pos = [];
-        const $ = cheerio.load(res.data);
+        const $ = cheerio.load(res);
         const bodyList = $("div.wrap-bwTable").children(
           "div.common-hrTable-1 table tbody"
         );
@@ -44,9 +44,7 @@ router.get("/delivery", (ctx, next) => {
         });
         return processing_pos;
       })
-      .then(res => {
-        ctx.body = res
-      });
+      .then(res => console.log(res));
   } else {
     console.log("failure");
   }

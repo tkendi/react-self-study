@@ -86,7 +86,7 @@ const Header = (props) => {
               color="primary"
               className={styles.btn_style}
             >
-              {title}
+              SIGN UP
             </Button>
           </>
         )}
@@ -107,7 +107,7 @@ const Header = (props) => {
               color="primary"
               className={styles.btn_style}
             >
-              {title}
+              SIGN IN
             </Button>
           </>
         )}

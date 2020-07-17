@@ -9,7 +9,7 @@ const router = new Router();
 
 // const exma_num = 632234576584;
 
-const { URL } = process.env;
+const { URL, PORT } = process.env;
 
 async function getHTML(deliver_url) {
   try{
@@ -56,6 +56,6 @@ router.get("/delivery", (ctx, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
   console.log("Koa server is listening to port 4000");
 });

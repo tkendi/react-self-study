@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Button, Toolbar, Link } from '@material-ui/core';
-import '../styles/css/Header.scss';
+import styles from '../styles/css/Header.scss';
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -76,7 +76,7 @@ const Header = (props) => {
               variant="body2"
               component="h3"
               color="primary"
-              className="text_style"
+              className={styles.text_style}
             >
               아직 회원이 아니신가요?
             </Typography>
@@ -84,7 +84,7 @@ const Header = (props) => {
               href="/register"
               variant="outlined"
               color="primary"
-              className="btn_style"
+              className={styles.btn_style}
             >
               {title}
             </Button>
@@ -97,7 +97,7 @@ const Header = (props) => {
               variant="body2"
               component="h3"
               color="primary"
-              className="text_style"
+              className={styles.text_style}
             >
               아미 회원이신가요?
             </Typography>
@@ -105,7 +105,7 @@ const Header = (props) => {
               href="/login"
               variant="outlined"
               color="primary"
-              className="btn_style"
+              className={styles.btn_style}
             >
               {title}
             </Button>

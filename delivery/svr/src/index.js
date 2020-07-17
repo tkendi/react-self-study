@@ -3,6 +3,7 @@ const Koa = require("koa");
 const Router = require("koa-router");
 const axios = require("axios")
 const cheerio = require("cheerio");
+const bodyParser = require('koa-bodyparser')
 
 const app = new Koa();
 const router = new Router();
@@ -26,9 +27,9 @@ router.get("/delivery", (ctx, next) => {
 
     getHTML(deliver_url)
       .then(res => {
-          console.log(res.data)
         let processing_pos = [];
-        const $ = cheerio.load(res);
+        const $ = cheerio.load(res.data);
+        console.log($);
         const bodyList = $("div.wrap-bwTable").children(
           "div.common-hrTable-1 table tbody"
         );
@@ -53,6 +54,7 @@ router.get("/delivery", (ctx, next) => {
 
 app.use(router.routes());
 app.use(router.allowedMethods());
+app.use(bodyParser())
 
 app.listen(PORT, () => {
   console.log("Koa server is listening to port 4000");

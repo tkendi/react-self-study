@@ -77,7 +77,7 @@ const RegisterForm = ({history}) => {
     if(user) {
       history.push('/')
     }
-  }, [user])
+  }, [history, user])
 
   return (
     <Authform

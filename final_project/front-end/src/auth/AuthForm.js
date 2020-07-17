@@ -65,7 +65,7 @@ const textMap = {
 
 class AuthForm extends React.Component {
   render() {
-    const {type, form, onChange, onSubmit, error} = this.props.type;
+    const {type, form, onChange, onSubmit, error} = this.props;
     const type_text = type;
     let prop_type = ''
 

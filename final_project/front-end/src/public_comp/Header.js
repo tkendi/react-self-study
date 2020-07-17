@@ -99,7 +99,7 @@ const Header = (props) => {
               color="primary"
               className={styles.text_style}
             >
-              아미 회원이신가요?
+              이미 회원이신가요?
             </Typography>
             <Button
               href="/login"

@@ -2,6 +2,7 @@ import React from "react";
 import { Cards, Chart, CountryPicker } from "./components";
 import styles from "./App.module.css";
 import { fetchData } from "./api/world";
+import {koreaData} from "./api/korea";
 
 import coronaImage from './images/image.png';
 
@@ -9,12 +10,16 @@ class App extends React.Component {
   state = {
     data: {},
     country: '',
+    koreaData: {},
   };
 
   async componentDidMount() {
     const fetchedData = await fetchData();
 
     this.setState({ data: fetchedData });
+
+    const koreaData = await koreaData();
+    this.setState({koreaData: koreaData})
   } 
 
   handleCountryChange = async(country) => {

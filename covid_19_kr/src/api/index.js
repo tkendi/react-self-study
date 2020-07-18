@@ -9,11 +9,14 @@ const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey
 export const fetchData = async() => {
     try {
         const data = await axios.get(url)
-        .then(function (res) {
-            console.log(res)
-        })
+        const items = data.data.response.body.items
+        const {city, daily_confirmed} = {}
 
-        return data;
+        for (const keys in items) {
+            city[items[keys].title] = items[keys].gubun
+            console.log(city)
+        }
+        return items
     } catch(e) {
         console.log(e)
     }

@@ -39,7 +39,8 @@ export const numbers = async() => {
         for (const keys in items) {
             numbers[items[keys].gubun] = items[keys].incDec
         }
-        return numbers
+        console.log(numbers)
+        return Array.from(numbers)
     } catch(e) {
         console.log(e)
     }

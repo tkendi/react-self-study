@@ -16,8 +16,8 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Number numbers = {this.state.data} />
         <City handleCityChange={this.handleCityChange} />
+        <Number numbers = {this.state.data} />
       </React.Fragment>
     );
   }

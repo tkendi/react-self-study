@@ -11,10 +11,10 @@ class number extends Component {
     this.setState({
       numbers: numberData,
     });
+    console.log(numberData)
   }
   render() {
-    const numbersData = Array.from(this.state.numbers);
-    console.log(numbersData)
+    const numbersData = Array.from(this.state.numbers)
     return (
       <React.Fragment>
         <h1>hello</h1>

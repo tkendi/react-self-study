@@ -1,9 +1,10 @@
 const checkLoggedIn = (ctx, next) => {
-  if (!ctx.status.user) {
-    ctx.status = 401;
-    return;
-  }
-  return next();
-};
+    if(!ctx.state.user) {
+        ctx.status = 401;
+        return 
+    }
 
-export default checkLoggedIn;
+    return next()
+}
+
+export default checkLoggedIn

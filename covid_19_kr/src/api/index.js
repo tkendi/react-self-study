@@ -16,15 +16,12 @@ export const cityPicker = async() => {
     try {
         const data = await axios.get(url)
         const items = data.data.response.body.items.item
-        const city = {}
-        const number = {}
+        const city = []
 
-        date.startDt = data.data.response.body.items.item[18].stdDay
-        date.endDt = date.startDt
 
         for (const keys in items) {
             city[keys] = items[keys].gubun
-            number[items[keys].gubun] = items[keys].incDec
+
         }
 
         return city

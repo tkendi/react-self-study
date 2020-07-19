@@ -11,10 +11,10 @@ const PostSchema = new Schema({
     default: Date.now, //현재 날짜를 기본값으로 지정
   },
   user: {
-    id: mongoose.Types.ObjectId,
-    username: String,
-  },
+    _id: mongoose.Types.ObjectId,
+    username: String
+  }
 });
 
-const Post = mongoose.model('Post', PostSchema);
-export default Post;
+const Post = mongoose.model('Post', PostSchema)
+export default Post

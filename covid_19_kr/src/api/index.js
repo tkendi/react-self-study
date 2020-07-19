@@ -24,8 +24,24 @@ export const cityPicker = async() => {
             numbers[items[keys].gubun] = items[keys].incDec
         }
 
-        return Array.from(city), numbers
+        return Array.from(city)
     } catch(e) {
         console.log(e)
     }
 }   
+
+export const numbers = async() => {
+    try {
+        const data = await axios.get(url);
+        const items = data.data.response.body.items.item
+        const numbers = []
+
+        for (const keys in items) {
+            numbers[keys] = items[keys].incDec
+        }
+
+        return numbers
+    } catch(e) {
+        console.log(e)
+    }
+}

@@ -16,12 +16,17 @@ class city extends React.Component {
   }
   render() {
     const data = Array.from(this.state.data);
+    
     return (
       <React.Fragment>
         <h1>Hello</h1>
         <FormControl>
-          <NativeSelect>
-              {data.map((city, i) => <option key = {i} value = {city}>{city}</option>)}
+          <NativeSelect onChange = {(e) => this.props.handleCityChange(e.target.value)}>
+            {data.map((city, i) => (
+              <option key={i} value={city}>
+                {city}
+              </option>
+            ))}
           </NativeSelect>
         </FormControl>
       </React.Fragment>

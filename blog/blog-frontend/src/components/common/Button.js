@@ -12,9 +12,9 @@ const StyledButton = styled.button`
     outline: none;
     cursor: pointer;
 
-    background: ${palette.gray[8]}
+    background: ${palette.gray[8]};
     &:hover {
-        background: ${palette.gray[6]}
+        background: ${palette.gray[6]};
     }
 `;
 

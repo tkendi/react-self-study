@@ -1,14 +1,25 @@
 import React from "react";
-import { fetchData } from "./api";
+import { cityPicker } from "./api";
+import City from './components/city'
 
 class App extends React.Component {
+  state = {
+    data: {}
+  }
   async componentDidMount() {
-    const fetchedData = await fetchData();
-    console.log(fetchedData)
+    const cityData = await cityPicker();
+    this.setState({
+      data: cityData
+    })
+
+    console.log(this.state.data)
   }
 
   render() {
-    return <h1>testing</h1>;
+    const {data} = this.state
+    return(
+      <City data = {data} />
+    )
   }
 }
 

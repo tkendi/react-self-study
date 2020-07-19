@@ -12,22 +12,22 @@ if (hours < 7) {
 
 const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`
 
-export const fetchData = async() => {
+export const cityPicker = async() => {
     try {
         const data = await axios.get(url)
         const items = data.data.response.body.items.item
         const city = {}
+        const number = {}
 
-        city.startDt = data.data.response.body.items.item[18].stdDay
-        city.endDt = city.startDt
+        date.startDt = data.data.response.body.items.item[18].stdDay
+        date.endDt = date.startDt
 
         for (const keys in items) {
-            city[items[keys].gubun] = items[keys].incDec
+            city[keys] = items[keys].gubun
+            number[items[keys].gubun] = items[keys].incDec
         }
 
-        console.log(city)
-
-        return items
+        return city
     } catch(e) {
         console.log(e)
     }

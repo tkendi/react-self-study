@@ -11,8 +11,6 @@ class city extends React.Component {
     this.setState({
       data: cityData,
     });
-
-    console.log(cityData);
   }
   render() {
     const data = Array.from(this.state.data);

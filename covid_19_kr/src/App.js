@@ -1,6 +1,6 @@
 import React from "react";
 import City from "./components/city";
-import Number from './components/number'
+//import Number from './components/number'
 
 class App extends React.Component {
   state = {
@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <City handleCityChange={this.handleCityChange} />
-        <Number numbers = {this.state.data} />
+        {/* <Number numbers = {this.state.data} /> */}
       </React.Fragment>
     );
   }

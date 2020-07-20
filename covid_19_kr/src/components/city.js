@@ -8,9 +8,14 @@ class city extends React.Component {
   };
   async componentDidMount() {
     const cityData = await cityPicker();
+
+    console.log(cityData)
+
     this.setState({
       data: cityData,
     });
+
+    console.log(this.state.data)
   }
   render() {
     const data = Array.from(this.state.data);

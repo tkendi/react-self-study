@@ -9,7 +9,7 @@ class city extends React.Component {
   async componentDidMount() {
     const cityData = await cityPicker();
 
-    console.log(cityData)
+    console.log(cityData);
 
     this.setState({
       data: cityData,
@@ -17,14 +17,16 @@ class city extends React.Component {
   }
   render() {
     const data = Array.from(this.state.data);
-    
+
     return (
       <React.Fragment>
         <h1>COVID-19</h1>
         <FormControl>
-          <NativeSelect onChange = {(e) => this.props.handleCityChange(e.target.value)}>
+          <NativeSelect
+            onChange={(e) => this.props.handleCityChange(e.target.value)}
+          >
             {data.map((city, i) => (
-              <option key={i} value={city} cmp = {i}>
+              <option key={i} value={i} cmp={city}>
                 {city}
               </option>
             ))}

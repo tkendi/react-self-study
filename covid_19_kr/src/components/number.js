@@ -3,8 +3,8 @@ import { numbers } from "../api";
 
 class number extends Component {
   state = {
-    data: {},
-    numbers: {},
+    data: 0,
+    numbers: [],
   };
   async componentDidMount() {
     const numberData = await numbers();
@@ -15,14 +15,13 @@ class number extends Component {
   }
   render() {
     const numbersData = this.state.numbers;
+    const number = this.props.;
+    this.setState({
+      data: number
+    })
     return (
       <React.Fragment>
         <h1>hello</h1>
-        {numbersData.map((numbers, i) => (
-          <>
-            <p>{numbers}</p>
-          </>
-        ))}
       </React.Fragment>
     );
   }

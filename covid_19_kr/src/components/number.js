@@ -30,7 +30,9 @@ class number extends Component {
         <h1>확진자</h1>
         <p>{city.data}</p>
         {numberData.map((numbers, i) => (
-          <showConfirm i = {i} numbers = {numbers} city = {city} />
+          {city.data === i && (
+            <p>{numbers}</p>
+          )}
         ))}
       </React.Fragment>
     );

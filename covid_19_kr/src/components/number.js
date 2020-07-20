@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
 
+function showConfirm({i, numbers, city}) {
+  return(
+    <React.Fragment>
+      {i} {numbers} {city}
+    </React.Fragment>
+  )
+}
+
 class number extends Component {
   state = {
     data: [],
@@ -12,25 +20,21 @@ class number extends Component {
     });
     console.log(numberData);
   }
+
   render() {
     const numberData = this.state.data;
-    let confirm_num = (this.props.numbers)
+    let city = (this.props.city)
+    console.log(city)
     return (
       <React.Fragment>
-        <h1>hello</h1>
-        <p>{confirm_num}</p>
+        <h1>확진자</h1>
+        <p>{city.data}</p>
         {numberData.map((numbers, i) => (
-          <p key={i} value={numbers}>
-            {numbers}
-          </p>
+          <showConfirm i = {i} numbers = {numbers} city = {city} />
         ))}
       </React.Fragment>
     );
   }
 }
-
-number.defaultProps = {
-  numbers: 0,
-};
 
 export default number;

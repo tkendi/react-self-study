@@ -14,7 +14,7 @@ class number extends Component {
     console.log(numberData);
   }
   render() {
-    const numbersData = Array.from(this.state.numbers);
+    const numbersData = this.state.numbers;
     return (
       <React.Fragment>
         <h1>hello</h1>

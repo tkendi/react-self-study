@@ -16,7 +16,7 @@ export const cityPicker = async() => {
     try {
         const data = await axios.get(url)
         const items = data.data.response.body.items.item
-        const city = {}
+        const city = []
 
         console.log(data)
 
@@ -24,7 +24,7 @@ export const cityPicker = async() => {
             city[keys] = items[keys].gubun
         }
 
-        return city
+        return Array.from(city)
     } catch(e) {
         console.log(e)
     }
@@ -39,7 +39,7 @@ export const numbers = async() => {
         for (const keys in items) {
             numbers[items[keys].gubun] = items[keys].incDec
         }
-        return numbers
+        return Object.from(numbers)
     } catch(e) {
         console.log(e)
     }

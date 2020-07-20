@@ -14,8 +14,6 @@ class city extends React.Component {
     this.setState({
       data: cityData,
     });
-
-    console.log(this.state.data)
   }
   render() {
     const data = Array.from(this.state.data);
@@ -26,7 +24,7 @@ class city extends React.Component {
         <FormControl>
           <NativeSelect onChange = {(e) => this.props.handleCityChange(e.target.value)}>
             {data.map((city, i) => (
-              <option key={i} value={city}>
+              <option key={i} value={city} cmp = {i}>
                 {city}
               </option>
             ))}

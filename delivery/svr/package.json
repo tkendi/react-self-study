@@ -8,12 +8,15 @@
     "start:dev": "pm2 start src/index.js --watch --no-daemon"
   },
   "dependencies": {
+    "alert": "^5.0.1",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^9.1.0"
+    "koa-router": "^9.1.0",
+    "pm2": "^4.4.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eslint": "^7.4.0"

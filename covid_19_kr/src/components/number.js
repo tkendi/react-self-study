@@ -1,39 +1,36 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
 
-function showConfirm({i, numbers, city}) {
-  return(
-    <React.Fragment>
-      {i} {numbers} {city}
-    </React.Fragment>
-  )
-}
-
 class number extends Component {
-  state = {
-    data: [],
-  };
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+
   async componentDidMount() {
-    const numberData = await numbers();
+    const confirm = await numbers(this.props.city)
     this.setState({
-      data: numberData,
-    });
-    console.log(numberData);
+      data: confirm
+    })
+    console.log(confirm)
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
+    if(prevProps.city !== this.props.city) {
+      this.setState({
+        
+      })
+    }
   }
 
   render() {
-    const numberData = this.state.data;
-    let city = (this.props.city)
-    console.log(city)
     return (
       <React.Fragment>
         <h1>확진자</h1>
-        <p>{city.data}</p>
-        {numberData.map((numbers, i) => (
-          {city.data === i && (
-            <p>{numbers}</p>
-          )}
-        ))}
+        
       </React.Fragment>
     );
   }

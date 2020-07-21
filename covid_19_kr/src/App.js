@@ -14,11 +14,10 @@ class App extends React.Component {
     });
   };
   render() {
-    const city = this.state;
     return (
       <React.Fragment>
         <City handleCityChange={this.handleCityChange} />
-        <Number city = {city} />
+        <Number city = {this.state.data} />
       </React.Fragment>
     );
   }

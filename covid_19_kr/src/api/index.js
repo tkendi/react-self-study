@@ -34,10 +34,10 @@ export const numbers = async(city) => {
     try {
         const data = await axios.get(url);
         const items = data.data.response.body.items.item
-        const numbers = []
+        let numbers = 0
 
         for (const keys in items) {
-            numbers[keys] = items[city].incDec
+            numbers = items[city].incDec
         }
         return numbers
     } catch(e) {

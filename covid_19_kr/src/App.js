@@ -13,6 +13,7 @@ class App extends React.Component {
       data: city,
     });
   };
+
   render() {
     return (
       <React.Fragment>

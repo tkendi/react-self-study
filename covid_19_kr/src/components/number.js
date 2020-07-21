@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
 import {Typography} from "@material-ui/core";
+import numberStyle from '../styles/number.scss'
 
 class number extends Component {
   constructor(props) {

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
-import {Typography, Grid, CardContent, Card} from "@material-ui/core";
+import { Typography, Grid, CardContent, Card } from "@material-ui/core";
+import cx from 'classnames'
+
+import styles from '../styles/number.module.css'
 
 class number extends Component {
   constructor(props) {
@@ -12,8 +15,8 @@ class number extends Component {
 
   async componentDidMount() {
     const confirm = await numbers(this.props.city);
-    if(!confirm) {
-      return "Loading...."
+    if (!confirm) {
+      return "Loading....";
     }
     this.setState({
       data: confirm,
@@ -33,9 +36,15 @@ class number extends Component {
 
   render() {
     return (
-      <div className>
-        <Typography variant = "h2" component = "h3" color = "textSecondary" >확진자</Typography>
-        <Typography color = "primary" variant = "body2" component = "h3" align = "left" noWrap>{this.state.data}</Typography>
+      <div>
+        <Grid container spacing={3} justify="center">
+          <Grid item component={Card} xs={12} md={9} className = {cx(styles.card, styles.confirm)} >
+            <CardContent>
+              <Typography gutterBottom>전일대비 증가 수</Typography>
+              <Typography>{this.state.data}</Typography>
+            </CardContent>
+          </Grid>
+        </Grid>
       </div>
     );
   }

@@ -20,7 +20,6 @@ class city extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>COVID-19</h1>
         <FormControl>
           <NativeSelect
             onChange={(e) => this.props.handleCityChange(e.target.value)}

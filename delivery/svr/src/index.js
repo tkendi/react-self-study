@@ -2,7 +2,6 @@ require("dotenv").config();
 const Koa = require("koa");
 const Router = require("koa-router");
 const bodyParser = require('koa-bodyparser')
-const request = require('request')
 const cheerio = require("cheerio");
 const axios = require("axios")
 
@@ -13,40 +12,16 @@ const router = new Router();
 
 const { URL, PORT } = process.env;
 
-async function getHTML(deliver_url) {
-  try{
-    return await axios.get(deliver_url)
-  } catch(e) {
-    console.error(e)
-  }
-}
 router.get("/delivery", (ctx, next) => {
   const { number } = ctx.query;
   if (String(number).length >= 11 || String(number).length >= 12) {
-    const deliver_url = URL + number.toString();
-    console.log(deliver_url);
-
-    getHTML(deliver_url)
-      .then(res => {
-        let processing_pos = [];
-        const $ = cheerio.load(res.data);
-        console.log(res);
-        const bodyList = $("div.wrap-bwTable").children(
-          "div.common-hrTable-1 table tbody"
-        );
-
-        console.log($);
-
-        bodyList.each(function(i, elem) {
-          processing_pos[i] = {
-            pos: $(this)
-              .find("tbody td span")
-              .text()
-          };
-        });
-        return processing_pos;
-      })
-      .then(res => console.log(res));
+    axios.get(`${URL}/${number}`)
+    .then(function(res) {
+      console.log(res.data.progresses)
+      for(const keys in res.data.progresses) {
+        
+      }
+    })
   } else {
     console.log("failure");
   }

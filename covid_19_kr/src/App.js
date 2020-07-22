@@ -18,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.form}>
+        <h1>COVID-19</h1>
         <Number city={this.state.data} />
         <City handleCityChange={this.handleCityChange} />
       </div>

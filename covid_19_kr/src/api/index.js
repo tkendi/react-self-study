@@ -45,9 +45,12 @@ export const numbers = async (city) => {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
     let numbers;
+    let date
 
     numbers = items[city].incDec;
-    return numbers;
+    date = items[city].createDt
+
+    return {numbers, date};
   } catch (e) {
     console.log(e);
   }

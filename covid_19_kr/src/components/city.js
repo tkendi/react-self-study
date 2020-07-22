@@ -4,7 +4,7 @@ import { FormControl, NativeSelect } from "@material-ui/core";
 
 class city extends React.Component {
   state = {
-    data: {},
+    data: [],
   };
   async componentDidMount() {
     const cityData = await cityPicker();
@@ -16,8 +16,7 @@ class city extends React.Component {
     });
   }
   render() {
-    const data = Array.from(this.state.data);
-
+    const data = Array.from(this.state.data)
     return (
       <React.Fragment>
         <FormControl>

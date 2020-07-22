@@ -5,7 +5,7 @@ const hours = date.getHours();
 let startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${("0" + (date.getDate())).slice(-2)}`
 let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${("0" + (date.getDate())).slice(-2)}`
 
-if (hours < 7) {
+if (hours < 10) {
     startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${("0" + (date.getDate() - 1)).slice(-2)}`
     endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${("0" + (date.getDate() - 1)).slice(-2)}`
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
 import {Typography} from "@material-ui/core";
-import '../styles/number.scss'
 
 class number extends Component {
   constructor(props) {
@@ -13,7 +12,9 @@ class number extends Component {
 
   async componentDidMount() {
     const confirm = await numbers(this.props.city);
-    //로딩처리d
+    if(!confirm) {
+      return "Loading...."
+    }
     this.setState({
       data: confirm,
     });
@@ -32,7 +33,7 @@ class number extends Component {
 
   render() {
     return (
-      <div className = "form">
+      <div className>
         <Typography className = "titleText">확진자</Typography>
         <Typography color = "primary" variant = "body2" component = "h3" align = "left" noWrap>{this.state.data}</Typography>
       </div>

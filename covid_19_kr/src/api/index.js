@@ -44,7 +44,7 @@ export const numbers = async (city) => {
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    let numbers = 0;
+    let numbers;
 
     numbers = items[city].incDec;
     return numbers;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { numbers } from "../api";
-import {Typography} from "@material-ui/core";
+import {Typography, Grid, CardContent, Card} from "@material-ui/core";
 
 class number extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class number extends Component {
   render() {
     return (
       <div className>
-        <Typography className = "titleText">확진자</Typography>
+        <Typography variant = "h2" component = "h3" color = "textSecondary" >확진자</Typography>
         <Typography color = "primary" variant = "body2" component = "h3" align = "left" noWrap>{this.state.data}</Typography>
       </div>
     );

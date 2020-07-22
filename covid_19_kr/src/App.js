@@ -1,7 +1,7 @@
 import React from "react";
 import City from "./components/city";
-import Number from './components/number'
-import styles from './styles/App.module.css'
+import Number from "./components/number";
+import styles from "./styles/App.module.css";
 
 class App extends React.Component {
   state = {
@@ -17,9 +17,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className = {styles.form}>
+      <div className={styles.form}>
+        <Number city={this.state.data} />
         <City handleCityChange={this.handleCityChange} />
-        <Number city = {this.state.data} />
       </div>
     );
   }

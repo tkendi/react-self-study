@@ -50,6 +50,8 @@ export const numbers = async (city) => {
     numbers = items[city].incDec;
     date = items[city].createDt
 
+    console.log(numbers)
+
     return {numbers, date};
   } catch (e) {
     console.log(e);

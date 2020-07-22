@@ -17,11 +17,19 @@ router.get("/delivery", (ctx, next) => {
   if (String(number).length >= 11 || String(number).length >= 12) {
     axios.get(`${URL}/${number}`)
     .then(function(res) {
+      const progresses = res.data.progresses
+      let number = {}
+      let time = {}
+      let description = {}
+
       console.log(res.data.progresses)
-      for(const keys in res.data.progresses) {
-        
+      for(const keys in progresses) {
+        console.log(progresses[keys].time)
+        console.log(progresses[keys].location)
+        console.log(progresses[keys].description)
       }
     })
+    console.log( time, location, description )
   } else {
     console.log("failure");
   }

@@ -2,9 +2,11 @@ require("dotenv").config();
 const Koa = require("koa");
 const Router = require('koa-router')
 const axios = require("axios");
+const cors = require('@koa/cors')
 
 const app = new Koa();
 const router = new Router();
+
 
 // const exma_num = 632234576584;
 
@@ -16,7 +18,7 @@ router.get("/delivery", (ctx, next) => {
   const time = {};
   const location = {};
   const description = {};
-
+  
   if (String(number).length >= 11 || String(number).length >= 12) {
     axios.get(`${URL}/${number}`).then(function (res) {
       const progresses = res.data.progresses;
@@ -37,7 +39,7 @@ router.get("/delivery", (ctx, next) => {
   console.log(number);
 });
 
-app.use(router.routes()).use(router.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods()).use(cors());
 
 app.listen(PORT, () => {
   console.log("Koa server is listening to port 4000");

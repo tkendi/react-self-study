@@ -45,15 +45,25 @@ export const numbers = async (city) => {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
     let numbers = ''
-    let date = ''
 
     numbers = items[city].incDec;
-    date = items[city].createDt
-    date = date.slice(0, 11)
-    console.log(date)
 
     return numbers;
   } catch (e) {
     console.log(e);
   }
 };
+
+export const creatDate = async (city) => {
+  try {
+    const data = await axios.get(url)
+    const items = data.data.response.body.items.item;
+    let date = ''
+
+    date = items[city].createDt.slice(0, 11)
+    console.log(date)
+    return date
+  } catch(e) {
+    console.log(e)
+  }
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { numbers } from "../api";
+import { numbers, dateCreate } from "../api";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
 
@@ -10,19 +10,21 @@ class number extends Component {
     super(props);
     this.state = {
       data: 0,
-      date: "",
+      date: ''
     };
   }
 
   async componentDidMount() {
     const confirm = await numbers(this.props.city);
+    const createDt = await dateCreate(this.props.city);
     if (!confirm) {
       return "Loading....";
     }
     this.setState({
       data: confirm,
+      date: createDt,
     });
-    console.log(confirm);
+    console.log(confirm, createDt);
   }
 
   async componentDidUpdate(prevProps, prevState) {
@@ -31,8 +33,14 @@ class number extends Component {
       this.setState({
         data: confirm,
       });
-      console.log(this.state);
     }
+    if (prevProps.date !== this.props.date) {
+      const createDt = await dateCreate(this.props.city);
+      this.setState({
+        date: createDt,
+      });
+    }
+    console.log(this.state);
   }
 
   render() {
@@ -42,8 +50,8 @@ class number extends Component {
           <Grid
             item
             component={Card}
-            xs={'auto'}
-            md={'auto'}
+            xs={"auto"}
+            md={"auto"}
             className={cx(styles.card, styles.confirm)}
           >
             <CardContent>
@@ -52,7 +60,7 @@ class number extends Component {
               </Typography>
               <Typography>{this.state.data}</Typography>
               <Typography color="textSecondary">{this.state.date}</Typography>
-              <Typography variant = "body2">
+              <Typography variant="body2">
                 Number of increasing patients
               </Typography>
             </CardContent>

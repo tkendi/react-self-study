@@ -44,7 +44,7 @@ export const numbers = async (city) => {
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    let numbers = ''
+    let numbers = 0
 
     numbers = items[city].incDec;
 
@@ -54,7 +54,7 @@ export const numbers = async (city) => {
   }
 };
 
-export const creatDate = async (city) => {
+export const dateCreate = async (city) => {
   try {
     const data = await axios.get(url)
     const items = data.data.response.body.items.item;

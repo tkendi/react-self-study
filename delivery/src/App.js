@@ -2,12 +2,17 @@ import React from "react";
 
 class App extends React.Component {
   componentDidMount() {
-    fetch(`http://localhost:4000/?number=632234576584`)
-    .then((res) => console.log(res));
-    
+    fetch("http://localhost:4000/api")
+      .then((res) => res.json())
+      .then((data) => this.setState({ username: data.username }));
   }
   render() {
-    return <div>App</div>;
+      const username = this.state;
+    return (
+      <div>
+        <header>{username ? `Hello ${username}` : "Hello World"}</header>
+      </div>
+    );
   }
 }
 

@@ -10,7 +10,7 @@ class number extends Component {
     super(props);
     this.state = {
       data: 0,
-      date: ''
+      date: "",
     };
   }
 

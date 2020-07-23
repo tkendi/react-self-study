@@ -58,10 +58,11 @@ export const dateCreate = async (city) => {
   try {
     const data = await axios.get(url)
     const items = data.data.response.body.items.item;
+    console.log(items)
     let date = ''
 
-    date = items[city].createDt.slice(0, 11)
-    console.log(date)
+    date = items[city].createDt
+
     return date
   } catch(e) {
     console.log(e)

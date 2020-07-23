@@ -1,10 +1,10 @@
 import React from "react";
+import axios from 'axios'
 
 class App extends React.Component {
-  componentDidMount() {
-    fetch("http://localhost:4000/api")
-      .then((res) => res.json())
-      .then((data) => this.setState({ username: data.username }));
+    async  componentDidMount() {
+        const test = await axios('http://localhost:4000/delivery?number=632234576584')
+        console.log(test)
   }
   render() {
       const username = this.state;

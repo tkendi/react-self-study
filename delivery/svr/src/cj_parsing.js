@@ -1,7 +1,8 @@
 const axios = require('axios')
-const cheerio = require('cheerio')
 
-axios.get(`${URL}/${number}`)
+const cj_parsing = {
+    live: async () => {
+        await axios.get(`${URL}/${number}`)
     .then(function(res) {
       const progresses = res.data.progresses
 
@@ -21,3 +22,6 @@ axios.get(`${URL}/${number}`)
       }
       return ({time, location, description})
     })
+    }   
+}
+

@@ -1,17 +1,23 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 
-async function getHTML(deliver_url) {
-    try {
-        return await axios.get(deliver_url)
-    } catch(error) {
-        console.error(error)
-    }
-}
+axios.get(`${URL}/${number}`)
+    .then(function(res) {
+      const progresses = res.data.progresses
 
-getHTML()
-    .then(res => {
-        let processing_pos = []
-        const $ = cheerio.load(html.data)
-        const bodyList = $("div.wrap-bwTable").children("div.common-hrTable-1")
+      const time = {}
+      const location = {}
+      const description = {}
+
+      console.log(res.data.progresses)
+      for(const keys in progresses) {
+        time[keys] = progresses[keys].time
+        location[keys] = progresses[keys].location
+        description[keys] = progresses[keys].description
+
+        console.log(progresses[keys].time)
+        console.log(progresses[keys].location)
+        console.log(progresses[keys].description)
+      }
+      return ({time, location, description})
     })

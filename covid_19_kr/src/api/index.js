@@ -44,15 +44,15 @@ export const numbers = async (city) => {
   try {
     const data = await axios.get(url);
     const items = data.data.response.body.items.item;
-    let numbers;
-    let date
+    let numbers = ''
+    let date = ''
 
     numbers = items[city].incDec;
     date = items[city].createDt
+    date = date.slice(0, 11)
+    console.log(date)
 
-    console.log(numbers)
-
-    return {numbers, date};
+    return numbers;
   } catch (e) {
     console.log(e);
   }

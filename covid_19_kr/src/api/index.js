@@ -18,7 +18,7 @@ if (hours < 9) {
     "0" +
     (date.getDate() - 1)
   ).slice(-2)}`;
-}
+} 
 
 const url = `/openapi/service/rest/Covid19/getCovid19SidoInfStateJson?serviceKey=${process.env.REACT_APP_serviceKey}&pageNo=1&numOfRows=10&startCreateDt=${startDt}&endCreateDt=${endDt}&_type=json`;
 

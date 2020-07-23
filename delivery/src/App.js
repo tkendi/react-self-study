@@ -1,11 +1,11 @@
 import React from "react";
-import axios from 'axios'
+import {cjParsing} from './lib/index'
 
 class App extends React.Component {
-    async  componentDidMount() {
-        const test = await axios('http://localhost:4000/delivery?number=632234576584')
-        console.log(test)
-  }
+    async componentDidMount() {
+        const data = await cjParsing();
+        console.log(data)
+    }
   render() {
       const username = this.state;
     return (

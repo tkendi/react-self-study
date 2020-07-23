@@ -12,7 +12,11 @@ const router = new Router();
 
 const { URL, PORT } = process.env;
 
-router.get("/delivery", (ctx, next) => {
+app.use(router.routes())
+app.use(router.allowedMethods())
+app.use(cors());
+
+app.use((ctx, next) => {
   const { number } = ctx.query;
 
   const time = {};
@@ -38,8 +42,6 @@ router.get("/delivery", (ctx, next) => {
   }
   console.log(number);
 });
-
-app.use(router.routes()).use(router.allowedMethods()).use(cors());
 
 app.listen(PORT, () => {
   console.log("Koa server is listening to port 4000");

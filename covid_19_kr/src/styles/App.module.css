@@ -5,3 +5,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
+h1 {
+    font-family: sans-serif;
+}

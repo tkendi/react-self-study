@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { cjDataParsing } from "../lib/api/index";
 
 class cjParsing extends React.Component {
@@ -12,7 +12,7 @@ class cjParsing extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await cjDataParsing();
+    const data = await cjDataParsing(632234576584);
     this.setState({
       time: data.time,
       location: data.location,

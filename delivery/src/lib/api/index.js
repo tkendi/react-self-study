@@ -2,9 +2,9 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_URL;
 
-export const cjDataParsing = async () => {
+export const cjDataParsing = async (number) => {
   try {
-    const data = await axios.get(`${url}/632234576584`);
+    const data = await axios.get(`${url}/${number}`);
     console.log(data);
     const parsing = {
       time: [],

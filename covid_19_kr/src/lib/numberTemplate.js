@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const numTemplateBlock = styled.div`
+const TemplateBlock = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
@@ -24,9 +24,9 @@ const WhiteBox = styled.div`
 
 const numberTemplate = ({ children }) => {
   return (
-    <numTemplateBlock>
+    <TemplateBlock>
       <WhiteBox>{children}</WhiteBox>
-    </numTemplateBlock>
+    </TemplateBlock>
   );
 };
 

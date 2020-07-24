@@ -1,5 +1,6 @@
 import React from "react";
 import { cjDataParsing } from "../lib/api/index";
+import { Typography } from "@material-ui/core";
 
 class cjParsing extends React.Component {
   constructor(props) {
@@ -23,15 +24,21 @@ class cjParsing extends React.Component {
     const { time, location, description } = this.state;
     return (
       <div>
-        {time.map((time, i) => {
-          return <p>{time}</p>;
-        })}
-        {location.map((location, i) => {
-          return <p>{location}</p>;
-        })}
-        {description.map((description, i) => {
-          return <p>{description}</p>;
-        })}
+        <Typography>
+          {time.map((time, i) => {
+            return <p>{time}</p>;
+          })}
+        </Typography>
+        <Typography>
+          {location.map((location, i) => {
+            return <p>{location}</p>;
+          })}
+        </Typography>
+        <Typography>
+          {description.map((description, i) => {
+            return <p>{description}</p>;
+          })}
+        </Typography>
       </div>
     );
   }

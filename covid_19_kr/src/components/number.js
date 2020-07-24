@@ -30,14 +30,10 @@ class number extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.city !== this.props.city) {
       const confirm = await numbers(this.props.city);
+      const createDt = await dateCreate(this.props.city)
       this.setState({
         data: confirm,
-      });
-    }
-    if (prevProps.date !== this.props.date) {
-      const createDt = await dateCreate(this.props.city);
-      this.setState({
-        date: createDt,
+        date: createDt
       });
     }
     console.log(this.state);

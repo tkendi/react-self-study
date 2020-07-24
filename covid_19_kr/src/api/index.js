@@ -9,7 +9,7 @@ let endDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
   "0" + date.getDate()
 ).slice(-2)}`;
 
-if (hours < 9) {
+if (hours < 12) {
   startDt = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(-2)}${(
     "0" +
     (date.getDate() - 1)
@@ -58,10 +58,10 @@ export const dateCreate = async (city) => {
   try {
     const data = await axios.get(url)
     const items = data.data.response.body.items.item;
-    console.log(items)
-    let date = ''
+    let date = '';
 
-    date = items[city].createDt
+    date = items[city].createDt.slice(0, 11)
+    console.log(date)
 
     return date
   } catch(e) {

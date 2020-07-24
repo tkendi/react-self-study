@@ -23,23 +23,23 @@ class cjParsing extends React.Component {
   render() {
     const { time, location, description } = this.state;
     return (
-      <div>
-        <Typography>
+      <React.Fragment>
+        <div>
           {time.map((time, i) => {
-            return <p>{time}</p>;
+            return <Typography>{time}</Typography>;
           })}
-        </Typography>
-        <Typography>
+        </div>
+        <div>
           {location.map((location, i) => {
-            return <p>{location}</p>;
+            return <Typography>{location}</Typography>;
           })}
-        </Typography>
-        <Typography>
+        </div>
+        <div>
           {description.map((description, i) => {
-            return <p>{description}</p>;
+            return <Typography>{description}</Typography>;
           })}
-        </Typography>
-      </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

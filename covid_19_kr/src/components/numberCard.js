@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { numbers, dateCreate } from "../api";
 import { Typography, Grid, CardContent, Card } from "@material-ui/core";
 import cx from "classnames";
-import numTemplate from '../lib/numberTemplate'
 import styles from "../styles/number.module.css";
 
 class numberCard extends Component {
@@ -30,10 +29,10 @@ class numberCard extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.city !== this.props.city) {
       const confirm = await numbers(this.props.city);
-      const createDt = await dateCreate(this.props.city)
+      const createDt = await dateCreate(this.props.city);
       this.setState({
         data: confirm,
-        date: createDt
+        date: createDt,
       });
     }
     console.log(this.state);
@@ -41,7 +40,6 @@ class numberCard extends Component {
 
   render() {
     return (
-      <numTemplate>
       <div>
         <Grid container spacing={3} justify="center">
           <Grid
@@ -64,7 +62,6 @@ class numberCard extends Component {
           </Grid>
         </Grid>
       </div>
-      </numTemplate>
     );
   }
 }

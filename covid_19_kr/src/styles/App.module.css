@@ -8,4 +8,9 @@
 
 h1 {
     font-family: sans-serif;
+    color: white
+}
+
+body {
+    background-color: black;
 }

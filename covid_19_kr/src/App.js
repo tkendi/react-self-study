@@ -1,6 +1,6 @@
 import React from "react";
 import City from "./components/city";
-import Number from "./components/number";
+import Number from "./components/numberCard";
 import styles from "./styles/App.module.css";
 
 class App extends React.Component {
@@ -19,8 +19,8 @@ class App extends React.Component {
     return (
       <div className={styles.form}>
         <h1>COVID-19</h1>
-        <Number city={this.state.data} />
         <City handleCityChange={this.handleCityChange} />
+        <Number city={this.state.data} />
       </div>
     );
   }

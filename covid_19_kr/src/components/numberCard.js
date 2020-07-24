@@ -5,7 +5,7 @@ import cx from "classnames";
 
 import styles from "../styles/number.module.css";
 
-class number extends Component {
+class numberCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,4 +67,4 @@ class number extends Component {
   }
 }
 
-export default number;
+export default numberCard;

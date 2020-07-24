@@ -2,10 +2,12 @@ import React from "react";
 import { cityPicker } from "../api";
 import {
   FormControl,
+  NativeSelect,
   InputLabel,
   Select,
   MenuItem,
 } from "@material-ui/core";
+import styles from '../styles/city.modules.css'
 
 class city extends React.Component {
   state = {
@@ -23,7 +25,7 @@ class city extends React.Component {
   render() {
     const data = Array.from(this.state.data);
     return (
-      <React.Fragment>
+      <div className={styles.picker}>
         <FormControl>
           <InputLabel id="city-select-label">Region</InputLabel>
           <Select
@@ -41,7 +43,7 @@ class city extends React.Component {
             })}
           </Select>
         </FormControl>
-      </React.Fragment>
+      </div>
     );
   }
 }

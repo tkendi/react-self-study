@@ -27,32 +27,38 @@ class cjParsing extends React.Component {
     const { time, location, description } = this.state;
     return (
       <div className={styles.form}>
-        <div className={styles.timeForm}>
-          <Typography>시간</Typography>
+        <div className = {styles.timeForm}>
+          <Typography>
+            시간
+          </Typography>
           {time.map((time, i) => {
             return (
               <React.Fragment>
-                <Typography align="left">{time}</Typography>
+                <Typography>{time}</Typography>
               </React.Fragment>
             );
           })}
         </div>
-        <div className={styles.locationForm}>
-          <Typography>장소</Typography>
+        <div className = {styles.locationForm}>
+          <Typography display = "block" gutterBottom align = "center">
+            장소
+          </Typography>
           {location.map((location, i) => {
             return (
               <React.Fragment>
-                <Typography align="center">{location}</Typography>
+                <Typography>{location}</Typography>
               </React.Fragment>
             );
           })}
         </div>
         <div>
-          <Typography>상태</Typography>
+          <Typography display="block" gutterBottom align="right">
+            상태
+          </Typography>
           {description.map((description, i) => {
             return (
               <React.Fragment>
-                <Typography align="right">{description}</Typography>
+                <Typography>{description}</Typography>
               </React.Fragment>
             );
           })}

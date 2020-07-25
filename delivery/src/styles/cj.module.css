@@ -1,7 +1,16 @@
+.form {
+    display: flex;
+    align-items: center;
+}
+
 .timeForm {
-    
+    float: left;
 }
 
 .locationForm {
-    padding-right: 2%;
+    margin: auto;
+}
+
+.descriptionForm {
+    float: right;
 }

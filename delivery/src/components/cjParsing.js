@@ -45,16 +45,24 @@ class cjParsing extends React.Component {
             <TableHead>
               <TableRow className={styles.tableRow}>
                 <TableCell>
-                  <Typography align="center">상품단계</Typography>
+                  <Typography align="center" variant="subtitle1" component="h3">
+                    상품단계
+                  </Typography>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography align="center">처리일시</Typography>
+                  <Typography align="center" variant="subtitle1" component="h3">
+                    처리일시
+                  </Typography>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography align="center">상품상태</Typography>
+                  <Typography align="center" variant="subtitle1" component="h3">
+                    상품상태
+                  </Typography>
                 </TableCell>
                 <TableCell align="right">
-                  <Typography align="center">상품위치</Typography>
+                  <Typography align="center" variant="subtitle1" component="h3">
+                    상품위치
+                  </Typography>
                 </TableCell>
               </TableRow>
             </TableHead>

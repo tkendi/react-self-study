@@ -35,31 +35,45 @@ class cjParsing extends React.Component {
   render() {
     const { time, location, description } = this.state;
     return (
-      <TableContainer component={Paper}>
-        <Table size="small" aria-label="delivery-info">
-          <TableHead>
-            <TableRow>
-              <TableCell><Typography>상품단계</Typography></TableCell>
-              <TableCell align="right"><Typography>처리일시</Typography></TableCell>
-              <TableCell align="right"><Typography>상품상태</Typography></TableCell>
-              <TableCell align="right"><Typography>상품위치</Typography></TableCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {time.map((time, i) => (
-              <TableRow key={i}>
-                <TableCell component="th" scopre="row">
-                  {this.state.state}
+      <div className={styles.form}>
+        <TableContainer>
+          <Table
+            className={styles.table}
+            size="small"
+            aria-label="delivery-info"
+          >
+            <TableHead>
+              <TableRow className={styles.tableRow}>
+                <TableCell>
+                  <Typography align="center">상품단계</Typography>
                 </TableCell>
-                <TableCell align="right">{time}</TableCell>
-                <TableCell align="right">{description[i]}</TableCell>
-                <TableCell align="right">{location[i]}</TableCell>
+                <TableCell align="right">
+                  <Typography align="center">처리일시</Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Typography align="center">상품상태</Typography>
+                </TableCell>
+                <TableCell align="right">
+                  <Typography align="center">상품위치</Typography>
+                </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+
+            <TableBody>
+              {time.map((time, i) => (
+                <TableRow key={i}>
+                  <TableCell component="th" scopre="row">
+                    {this.state.state}
+                  </TableCell>
+                  <TableCell align="left">{time}</TableCell>
+                  <TableCell align="left">{description[i]}</TableCell>
+                  <TableCell align="left">{location[i]}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     );
   }
 }

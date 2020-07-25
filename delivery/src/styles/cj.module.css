@@ -1,44 +1,18 @@
 .form {
+    margin:  0 auto;
+    padding-top: 5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 1080px;
+    height: 355px;
 }
 
-.timeForm {
-    float: left;
+.table {
+    min-width: 660px;
+    border-top: 10px solid #6E698F
 }
 
-.locationForm {
-    margin: 0 auto;
+.tableRow{
+    background-color: rgba(190, 192, 194, 0.25);
 }
-
-.descriptionForm {
-    float: right;
-}
-
-
-/* <div className={styles.form}>
-<Typography align="left">시간</Typography>
-<Typography align="center">장소</Typography>
-<Typography align="right">상태</Typography>
-<div className={styles.timeForm}>
-  {time.map((time) => {
-    return (
-      <React.Fragment>
-        <Typography>{time}</Typography>
-      </React.Fragment>
-    );
-  })}
-</div>
-<div className={styles.locationForm}>
-  {location.map((location) => {
-    return (
-      <React.Fragment>
-        <Typography>{location}</Typography>
-      </React.Fragment>
-    );
-  })}
-</div>
-<div className={styles.descriptionForm}>
-  <Typography>{this.state.state}</Typography>
-</div>
-</div> */

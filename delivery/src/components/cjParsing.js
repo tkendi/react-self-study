@@ -11,15 +11,17 @@ class cjParsing extends React.Component {
     state: "",
   };
 
-  async componentDidMount() {
-    const data = await cjDataParsing(this.props.number);
-    this.setState({
-      time: data.time,
-      location: data.location,
-      description: data.description,
-      state: data.state,
-    });
-    console.log(this.state);
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevProps.number !== this.props.number) {
+      const data = await cjDataParsing(this.props.number);
+      this.setState({
+        time: data.time,
+        location: data.location,
+        description: data.description,
+        state: data.state,
+      });
+      console.log(this.state);
+    }
   }
   render() {
     const { time, location, description } = this.state;

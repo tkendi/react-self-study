@@ -1,12 +1,5 @@
-.form {
-    display: flex;
-    flex-direction: initial;
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
-
 .timeForm {
-    padding-right: 2%;
+    
 }
 
 .locationForm {

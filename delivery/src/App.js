@@ -1,6 +1,7 @@
 import React from "react";
 import CjDeliver from "./components/cjParsing";
 import Input from "./components/numInput";
+import styles from "./styles/App.module.css";
 
 class App extends React.Component {
   state = {
@@ -16,10 +17,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Input handleNumberChange={this.handleNumber} />
-        <CjDeliver number = {this.state.number} />
-      </div>
+      <React.Fragment>
+        <div className={styles.form}>
+          <Input handleNumberChange={this.handleNumber} />
+        </div>
+        <div>
+          <CjDeliver number={this.state.number} />
+        </div>
+      </React.Fragment>
     );
   }
 }

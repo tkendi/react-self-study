@@ -8,9 +8,37 @@
 }
 
 .locationForm {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .descriptionForm {
     float: right;
 }
+
+
+/* <div className={styles.form}>
+<Typography align="left">시간</Typography>
+<Typography align="center">장소</Typography>
+<Typography align="right">상태</Typography>
+<div className={styles.timeForm}>
+  {time.map((time) => {
+    return (
+      <React.Fragment>
+        <Typography>{time}</Typography>
+      </React.Fragment>
+    );
+  })}
+</div>
+<div className={styles.locationForm}>
+  {location.map((location) => {
+    return (
+      <React.Fragment>
+        <Typography>{location}</Typography>
+      </React.Fragment>
+    );
+  })}
+</div>
+<div className={styles.descriptionForm}>
+  <Typography>{this.state.state}</Typography>
+</div>
+</div> */

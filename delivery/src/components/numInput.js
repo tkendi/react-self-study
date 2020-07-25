@@ -16,11 +16,11 @@ class numInput extends React.Component {
   };
 
   render() {
-    const { appChange, appClick } = this;
+    const { appChange } = this;
     return (
       <form noValidate autoComplete="off">
         <TextField id="deliver-num" label="운송장 번호" onChange={appChange} />
-        <Button color="primary" onClick = {this.props.handleNumberChange(this.state.number)}>
+        <Button color="primary" onClick = {() => this.props.handleNumberChange(this.state.number)}>
           조회
         </Button>
       </form>

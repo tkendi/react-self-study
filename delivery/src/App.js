@@ -18,6 +18,7 @@ class App extends React.Component {
     return (
       <div>
         <Input handleNumberChange={this.handleNumber} />
+        <CjDeliver number = {this.state.number} />
       </div>
     );
   }

@@ -27,10 +27,8 @@ class cjParsing extends React.Component {
     const { time, location, description } = this.state;
     return (
       <div className={styles.form}>
-        <div className = {styles.timeForm}>
-          <Typography>
-            시간
-          </Typography>
+        <div className={styles.timeForm}>
+          <Typography>시간</Typography>
           {time.map((time, i) => {
             return (
               <React.Fragment>
@@ -39,10 +37,8 @@ class cjParsing extends React.Component {
             );
           })}
         </div>
-        <div className = {styles.locationForm}>
-          <Typography display = "block" gutterBottom align = "center">
-            장소
-          </Typography>
+        <div className={styles.locationForm}>
+          <Typography align = "center">장소</Typography>
           {location.map((location, i) => {
             return (
               <React.Fragment>
@@ -51,10 +47,8 @@ class cjParsing extends React.Component {
             );
           })}
         </div>
-        <div>
-          <Typography display="block" gutterBottom align="right">
-            상태
-          </Typography>
+        <div className={styles.descriptionForm}>
+          <Typography align="right">상태</Typography>
           {description.map((description, i) => {
             return (
               <React.Fragment>

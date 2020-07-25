@@ -10,6 +10,7 @@ export const cjDataParsing = async (number) => {
       time: [],
       location: [],
       description: [],
+      state: ""
     };
 
     const progress = data.data.progresses;
@@ -19,6 +20,7 @@ export const cjDataParsing = async (number) => {
       parsing.location[keys] = progress[keys].location.name
       parsing.description[keys] = progress[keys].description
     }
+    parsing.state = data.data.state.text
 
     return parsing
   } catch (e) {

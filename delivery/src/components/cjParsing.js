@@ -1,7 +1,7 @@
 import React from "react";
 import { cjDataParsing } from "../lib/api/index";
 import { Typography } from "@material-ui/core";
-import styles from "../styles/cj.modules.css";
+import styles from "../styles/cj.module.css";
 
 class cjParsing extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class cjParsing extends React.Component {
       time: [],
       location: [],
       description: [],
+      state: "",
     };
   }
 
@@ -19,28 +20,45 @@ class cjParsing extends React.Component {
       time: data.time,
       location: data.location,
       description: data.description,
+      state: data.state,
     });
+    console.log(this.state);
   }
   render() {
     const { time, location, description } = this.state;
     return (
-      <React.Fragment>
+      <div className={styles.form}>
         <div className={styles.timeForm}>
+          <Typography>시간</Typography>
           {time.map((time, i) => {
-            return <Typography>{time}</Typography>;
+            return (
+              <React.Fragment>
+                <Typography align="left">{time}</Typography>
+              </React.Fragment>
+            );
           })}
         </div>
         <div className={styles.locationForm}>
+          <Typography>장소</Typography>
           {location.map((location, i) => {
-            return <Typography>{location}</Typography>;
+            return (
+              <React.Fragment>
+                <Typography align="center">{location}</Typography>
+              </React.Fragment>
+            );
           })}
         </div>
-        <div className={styles.descriptionForm}>
+        <div>
+          <Typography>상태</Typography>
           {description.map((description, i) => {
-            return <Typography>{description}</Typography>;
+            return (
+              <React.Fragment>
+                <Typography align="right">{description}</Typography>
+              </React.Fragment>
+            );
           })}
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -4,18 +4,15 @@ import { Typography } from "@material-ui/core";
 import styles from "../styles/cj.module.css";
 
 class cjParsing extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: [],
-      location: [],
-      description: [],
-      state: "",
-    };
-  }
+  state = {
+    time: [],
+    location: [],
+    description: [],
+    state: "",
+  };
 
   async componentDidMount() {
-    const data = await cjDataParsing(632234576584);
+    const data = await cjDataParsing(this.props.number);
     this.setState({
       time: data.time,
       location: data.location,

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button, Grid, StylesProvider } from "@material-ui/core";
+import { TextField, Button, Grid } from "@material-ui/core";
 import styles from "../styles/numInput.module.css";
 
 class numInput extends React.Component {

@@ -7,7 +7,6 @@ import {
   TableHead,
   TableCell,
   TableBody,
-  Paper,
   TableRow,
 } from "@material-ui/core";
 import styles from "../styles/cj.module.css";

@@ -27,7 +27,6 @@ class numInput extends React.Component {
           />
           <Button
             color="primary"
-            noWrap
             onClick={() => this.props.handleNumberChange(this.state.number)}
           >
             조회

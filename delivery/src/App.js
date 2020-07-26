@@ -19,9 +19,11 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Typography variant="h4" component="h3" align = "center">
-          CJ 택배 조회
-        </Typography>
+        <div className={styles.head}>
+          <Typography variant="h4" component="h2" align="center" noWrap gutterBottom>
+            CJ 택배 조회
+          </Typography>
+        </div>
         <div className={styles.form}>
           <Input handleNumberChange={this.handleNumber} />
         </div>

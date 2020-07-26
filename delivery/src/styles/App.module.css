@@ -4,12 +4,18 @@
     align-items: center;
     padding-top: 2.25rem;
     padding-bottom: 1rem;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .head {
     padding-top: 3rem;
     color: #4D4545;
     font-weight: bold;
+}
+
+.showInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 

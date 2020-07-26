@@ -2,7 +2,7 @@ import React from "react";
 import CjDeliver from "./components/cjParsing";
 import Input from "./components/numInput";
 import styles from "./styles/App.module.css";
-import { Typography } from "@material-ui/core";
+import { Typography, AppBar, Toolbar, Paper, Grid } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -20,16 +20,30 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className={styles.head}>
-          <Typography variant="h4" component="h2" align="center" noWrap gutterBottom>
-            CJ 택배 조회
-          </Typography>
+          <AppBar>
+            <Toolbar>
+              <Typography
+                variant="h4"
+                component="h2"
+                align="center"
+                noWrap
+                gutterBottom
+              >
+                CJ 택배 조회
+              </Typography>
+            </Toolbar>
+          </AppBar>
         </div>
         <div className={styles.form}>
           <Input handleNumberChange={this.handleNumber} />
         </div>
-        <div>
-          <CjDeliver number={this.state.number} />
-        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Paper>
+              <CjDeliver number={this.state.number} />
+            </Paper>
+          </Grid>
+        </Grid>
       </React.Fragment>
     );
   }

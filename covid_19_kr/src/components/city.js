@@ -2,7 +2,6 @@ import React from "react";
 import { cityPicker } from "../api";
 import {
   FormControl,
-  NativeSelect,
   InputLabel,
   Select,
   MenuItem,

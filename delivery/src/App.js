@@ -37,13 +37,7 @@ class App extends React.Component {
         <div className={styles.form}>
           <Input handleNumberChange={this.handleNumber} />
         </div>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper>
-              <CjDeliver number={this.state.number} />
-            </Paper>
-          </Grid>
-        </Grid>
+        <CjDeliver number={this.state.number} />
       </React.Fragment>
     );
   }

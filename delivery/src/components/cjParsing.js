@@ -23,6 +23,9 @@ class cjParsing extends React.Component {
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.number !== this.props.number) {
       const data = await cjDataParsing(this.props.number);
+      if(!data) {
+        return '잘못된 접근입니다'
+      }
       this.setState({
         time: data.time,
         location: data.location,

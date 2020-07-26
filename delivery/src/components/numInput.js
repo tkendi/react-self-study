@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField, Button, Grid, StylesProvider } from "@material-ui/core";
+import styles from "../styles/numInput.module.css";
 
 class numInput extends React.Component {
   constructor(props) {
@@ -17,8 +18,8 @@ class numInput extends React.Component {
   render() {
     const { appChange } = this;
     return (
-      <div>
-        <Grid container direction = "row" justify = "center" alignItems = "center">
+      <div className={styles.form}>
+        <Grid container direction="row" justify="center" alignItems="center">
           <TextField
             id="deliver-num"
             label="운송장 번호"

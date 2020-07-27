@@ -7,10 +7,22 @@
     align-items: center;
 }
 
-h1 {
+.title {
     font-family: sans-serif;
+    flex-grow: 1;
+    align-self: flex-end;
+    padding-top: 3rem;
 }
 
 .root {
     flex-grow: 1;
+}
+
+.toolBar {
+    min-height: 128;
+    align-items: flex-start;
+}
+
+.menuButton {
+    margin-right: 2rem;
 }

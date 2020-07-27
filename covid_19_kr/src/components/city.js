@@ -31,11 +31,11 @@ class city extends React.Component {
             labelId="city-select-label"
             id="city-select"
             value={this.state.city}
-            onChange={(e) => this.props.handleCityChange(e.target.value)}
+            onChange={(e) => this.props.handleNumberChange(e.target.value, e.target.city)}
           >
             {data.map((city, i) => {
               return (
-                <MenuItem value={i} key={i}>
+                <MenuItem value={i} key={i} city = {city}>
                   {city}
                 </MenuItem>
               );

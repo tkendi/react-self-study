@@ -31,11 +31,9 @@ class App extends React.Component {
               >
                 CJ 택배 조회
               </Typography>
+              <Input handleNumberChange={this.handleNumber} />
             </Toolbar>
           </AppBar>
-        </div>
-        <div className={styles.form}>
-          <Input handleNumberChange={this.handleNumber} />
         </div>
         <CjDeliver number={this.state.number} />
       </React.Fragment>

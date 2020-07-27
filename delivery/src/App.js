@@ -2,7 +2,7 @@ import React from "react";
 import CjDeliver from "./components/cjParsing";
 import Input from "./components/numInput";
 import styles from "./styles/App.module.css";
-import { Typography, AppBar, Toolbar, Paper, Grid } from "@material-ui/core";
+import { Typography, AppBar, Toolbar } from "@material-ui/core";
 
 class App extends React.Component {
   state = {

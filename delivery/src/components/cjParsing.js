@@ -10,7 +10,6 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles";
 import styles from "../styles/cj.module.css";
 
 class cjParsing extends React.Component {
@@ -45,7 +44,6 @@ class cjParsing extends React.Component {
             className={styles.table}
             size="small"
             aria-label="delivery-info"
-            className = {styles.table}
           >
             <TableHead>
               <TableRow className={styles.tableRow}>

@@ -20,14 +20,14 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className={styles.head}>
-          <AppBar>
-            <Toolbar>
+          <AppBar position="static">
+            <Toolbar className={styles.toolBar}>
               <Typography
                 variant="h4"
                 component="h2"
-                align="center"
                 noWrap
                 gutterBottom
+                className={styles.title}
               >
                 CJ 택배 조회
               </Typography>

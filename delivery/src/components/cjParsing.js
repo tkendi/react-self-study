@@ -41,7 +41,7 @@ class cjParsing extends React.Component {
         <TableContainer>
           <Table
             className={styles.table}
-            size="small"
+            size = "small"
             aria-label="delivery-info"
           >
             <TableHead>

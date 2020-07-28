@@ -43,6 +43,7 @@ class cjParsing extends React.Component {
           <Table
             size="small"
             aria-label="delivery-info"
+            padding='default'
           >
             <TableHead>
               <TableRow>

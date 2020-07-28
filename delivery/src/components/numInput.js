@@ -26,7 +26,8 @@ class numInput extends React.Component {
             onChange={appChange}
           />
           <Button
-            color="primary"
+            className={styles.button}
+            color="inherit"
             onClick={() => this.props.handleNumberChange(this.state.number)}
           >
             조회

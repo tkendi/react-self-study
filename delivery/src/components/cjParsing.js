@@ -41,12 +41,11 @@ class cjParsing extends React.Component {
       <Paper className = {styles.form}>
         <TableContainer>
           <Table
-            className={styles.table}
             size="small"
             aria-label="delivery-info"
           >
             <TableHead>
-              <TableRow className={styles.tableRow}>
+              <TableRow>
                 <TableCell>
                   <Typography variant="subtitle1" component="h3">
                     상품단계

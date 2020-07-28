@@ -19,7 +19,7 @@ class numInput extends React.Component {
     const { appChange } = this;
     return (
       <div className={styles.form}>
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid>
           <TextField
             id="deliver-num"
             label="운송장 번호"

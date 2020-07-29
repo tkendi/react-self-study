@@ -20,7 +20,7 @@ class city extends React.Component {
     const data = Array.from(this.state.data);
     return (
       <div className={styles.picker}>
-        <FormControl>
+        <FormControl style = {formControl}>
           <InputLabel id="city-select-label">Region</InputLabel>
           <Select
             labelId="city-select-label"

@@ -1,4 +1,9 @@
 .picker {
-    padding-bottom: 2rem;
-    padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+}
+
+.formControl {
+  width: 30%;
+  margin-bottom: 30px !important;
 }

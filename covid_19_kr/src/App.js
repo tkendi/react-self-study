@@ -15,7 +15,6 @@ class App extends React.Component {
     console.log(city);
     this.setState({
       data: city,
-      city: number
     });
   };
 
@@ -38,7 +37,7 @@ class App extends React.Component {
                 국내 코로나 바이러스 시도별 상황
               </Typography>
               <Typography>
-                현재{this.state.city}상황
+                현재상황
               </Typography>
             </Toolbar>
           </AppBar>

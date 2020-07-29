@@ -11,7 +11,12 @@ class App extends React.Component {
   componentDidMount() {
     fetch('http://localhost:4000/api')
     .then(res => res.json)
-    .then(data => this.setState({username: data.username}))
+    .then(data => {
+      console.log(data)
+      this.setState({
+        username: data.username
+      })
+    })
   }
 
   render() {

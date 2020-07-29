@@ -8,6 +8,7 @@
     "start:dev": "pm2 start ./server.js --watch --no-daemon"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "pm2": "^4.4.0"
   }

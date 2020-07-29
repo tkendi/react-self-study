@@ -11,7 +11,6 @@ const base_Time = `${("0" + date.getHours()).slice(-2)}00`
 
 router.get('/', async (req, res) => {
     const data = await axios.get(`${URL}&serviceKey=${process.env.serviceKey}&numOfRows=10&pageNo=1&dataType=json&base_date=${base_Date}&base_time=${base_Time}&nx=37&ny=127`)
-    
     fs.writeFileSync('../data/data.json', data)
 })
 

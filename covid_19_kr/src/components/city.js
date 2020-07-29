@@ -1,7 +1,7 @@
 import React from "react";
 import { cityPicker } from "../api";
-import { FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
-import styles from "../styles/city.modules.css";
+import { FormControl, InputLabel, NativeSelect, MenuItem } from "@material-ui/core";
+import styles from "../styles/city.module.css";
 
 class city extends React.Component {
   state = {
@@ -19,10 +19,11 @@ class city extends React.Component {
   render() {
     const data = Array.from(this.state.data);
     return (
-      <div className={styles.picker}>
-        <FormControl style = {formControl}>
+      <div>
+        <FormControl className={styles.formControl}>
           <InputLabel id="city-select-label">Region</InputLabel>
-          <Select
+          <NativeSelect
+            defaultValue=""
             labelId="city-select-label"
             id="city-select"
             value={this.state.city}
@@ -37,7 +38,7 @@ class city extends React.Component {
                 </MenuItem>
               );
             })}
-          </Select>
+          </NativeSelect>
         </FormControl>
       </div>
     );

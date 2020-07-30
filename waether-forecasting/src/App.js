@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data/data.json";
+import data from './data/data.json'
 
 class App extends React.Component {
   constructor() {
@@ -9,18 +9,18 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      weatherData: data
-    });
-
-    console.log(this.state)
-  }
-
   render() {
+    const list = Array.from(data).map((data, i) =>{
+      return (
+        <li key = {i}>
+          {data}
+        </li>
+      )
+    } )
     return (
       <div>
         <header>App</header>
+        {list}
       </div>
     );
   }

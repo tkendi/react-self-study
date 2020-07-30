@@ -9,7 +9,7 @@ const url = process.env.URL;
 const date = new Date();
 
 const saveFile = (info) => {
-    fs.writeFileSync('../data/data.json', JSON.stringify(info))
+    fs.writeFileSync('../src/data/data.json', JSON.stringify(info))
 }
 
 date.setMinutes(date.getMinutes() - 40);

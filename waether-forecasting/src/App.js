@@ -1,31 +1,19 @@
 import React from "react";
+import data from "../data/data.json";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super();
     this.state = {
-      username: null
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:4000/api')
-    .then(res => res.json)
-    .then(data => {
-      console.log(data)
-      this.setState({
-        username: data.username
-      })
-    })
+      weatherData: data,
+    };
   }
 
   render() {
-    const {username} = this.state;
+    const list = this.state.weatherData.map((d) => <li>{d}</li>);
     return (
       <div>
-        <header>
-          {username ? `Hello ${username}` : `Hello World`}
-        </header>
+        <header>{list}</header>
       </div>
     );
   }

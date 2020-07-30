@@ -1,12 +1,17 @@
 import React from "react";
-import data from './data/data.json'
+import {RNHStatus} from './api'
+import axios from 'axios'
 
 class App extends React.Component {
+  async componentDidMount () {
+    const data = RNHStatus
+    console.log(data)
+  }
+
   render() {  
     return (
       <div>
         <header>App</header>
-        {data.RN1}
       </div>
     );
   }

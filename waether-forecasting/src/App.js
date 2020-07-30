@@ -1,19 +1,26 @@
 import React from "react";
-import data from "../data/data.json";
+import data from "./data/data.json";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      weatherData: data,
+      weatherData: [],
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      weatherData: data
+    });
+
+    console.log(this.state)
+  }
+
   render() {
-    const list = this.state.weatherData.map((d) => <li>{d}</li>);
     return (
       <div>
-        <header>{list}</header>
+        <header>App</header>
       </div>
     );
   }

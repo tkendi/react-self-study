@@ -3,14 +3,14 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const axios = require("axios");
-const { info } = require("console");
+const schedule = require("node-schedule");
 
 const url = process.env.URL;
 const date = new Date();
 
 const saveFile = (info) => {
-    fs.writeFileSync('../src/data/data.json', JSON.stringify(info))
-}
+  fs.writeFileSync("../src/data/data.json", JSON.stringify(info));
+};
 
 date.setMinutes(date.getMinutes() - 40);
 
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
     info[items[keys].category] = items[keys].obsrValue;
   }
 
-  saveFile(info)
+  saveFile(info);
   console.log(info);
   res.send(data.data);
 });

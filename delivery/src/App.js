@@ -29,7 +29,7 @@ class App extends React.Component {
                 gutterBottom
                 className={styles.title}
               >
-                CJ 택배 조회
+                택배 조회
               </Typography>
               <Input handleNumberChange={this.handleNumber} />
             </Toolbar>

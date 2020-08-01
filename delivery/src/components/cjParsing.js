@@ -22,42 +22,37 @@ class cjParsing extends React.Component {
   };
 
   async componentDidUpdate(prevProps, prevState) {
-    if (prevProps.number !== this.props.number) {
-      const data = await cjDataParsing(this.props.number);
-      if (!data) {
-        return "잘못된 접근입니다";
-      }
-      this.setState({
-        time: data.time,
-        location: data.location,
-        description: data.description,
-        state: data.state,
-      });
-    }
-
-    if(prevProps.name !== this.props.name) {
+    if (prevProps.name !== this.props.name) {
       const deliverCode = await deliveryInfo();
       this.setState({
-        code: deliverCode.code
+        code: deliverCode.code,
       });
 
-      for(const keys in this.state.code) {
-        if(this.props.name === this.state.code[keys]) {
-          const parsing = await cjDataParsing(this.state.code)
+      for (const keys in this.state.code) {
+        if (this.props.name === this.state.code[keys]) {
+          if (prevProps.number !== this.props.number) {
+            const data = await cjDataParsing(this.props.number);
+            if (!data) {
+              return "잘못된 접근입니다";
+            }
+            this.setState({
+              time: data.time,
+              location: data.location,
+              description: data.description,
+              state: data.state,
+            });
+          }
         }
       }
     }
   }
+  
   render() {
     const { time, location, description } = this.state;
     return (
-      <Paper className = {styles.form}>
+      <Paper className={styles.form}>
         <TableContainer>
-          <Table
-            size="small"
-            aria-label="delivery-info"
-            padding='default'
-          >
+          <Table size="small" aria-label="delivery-info" padding="default">
             <TableHead>
               <TableRow>
                 <TableCell>

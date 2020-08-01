@@ -23,7 +23,7 @@ export const deliverDataParsing = async (name, number) => {
     parsing.state = data.data.state.text
 
     console.log(parsing)
-    return parsing
+    return parsingN
   } catch (e) {
     console.log(e);
   }

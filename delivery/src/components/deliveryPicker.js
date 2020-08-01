@@ -36,7 +36,11 @@ class deliveryPicker extends React.Component {
       <div className={styles.form}>
         <FormControl fullWidth margin="normal" variant="standard">
           <InputLabel id="delivery-name">Delivery</InputLabel>
-          <Select labelId="delivery-name-label" id="delivery-name">
+          <Select
+            labelId="delivery-name-label"
+            id="delivery-name"
+            onChange={(e) => this.props.handleNumbserChange}
+          >
             {datas.map((name, index) => {
               return (
                 <MenuItem key={index} value={index}>

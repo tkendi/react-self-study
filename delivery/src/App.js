@@ -12,6 +12,7 @@ import { deliveryName } from "./lib/api/";
 class App extends React.Component {
   state = {
     number: 0,
+    name: 0,
   };
 
   handleNumber = async (deliverNum) => {
@@ -20,6 +21,14 @@ class App extends React.Component {
       number: deliverNum,
     });
   };
+
+  handleName = async (deliverName) => {
+    console.log(deliverName);
+    this.setState({
+      name: deliveryName
+    })
+    console.log(this.state.name)
+  }
 
   async componentDidMount() {
     const data = await deliveryName();
@@ -41,7 +50,7 @@ class App extends React.Component {
               >
                 택배 조회
               </Typography>
-              <DeliverName />
+              <DeliverName handleNamechange = {this.handleName} />
               <Input handleNumberChange={this.handleNumber} />
             </Toolbar>
           </AppBar>

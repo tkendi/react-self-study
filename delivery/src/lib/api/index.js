@@ -2,9 +2,11 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_Delivery_URL;
 
-export const cjDataParsing = async (number, ) => {
+export const cjDataParsing = async (name, number) => {
   try {
-    const data = await axios.get(`${url}//${number}`);
+    const data = await axios.get(`${url}/${name}/tracks/${number}`);
+    console.log(name, number)
+      console.log(data)
     const parsing = {
       time: [],
       location: [],
@@ -20,6 +22,7 @@ export const cjDataParsing = async (number, ) => {
     }
     parsing.state = data.data.state.text
 
+    console.log(parsing)
     return parsing
   } catch (e) {
     console.log(e);

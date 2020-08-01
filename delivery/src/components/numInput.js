@@ -13,6 +13,7 @@ class numInput extends React.Component {
     this.setState({
       number: e.target.value,
     });
+    console.log(this.state.number)
   };
 
   render() {

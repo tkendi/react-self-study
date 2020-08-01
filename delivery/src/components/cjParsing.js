@@ -19,24 +19,26 @@ class cjParsing extends React.Component {
     description: [],
     state: "",
     code: 0,
-    url: "de.dhl"
+    url: "de.dhl",
   };
 
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.name !== this.props.name) {
       const deliverCode = await deliveryInfo();
-      console.log(deliverCode.code)
+      console.log(deliverCode.code);
       deliverCode.code.map((code, index) => {
-        if(this.props.name === index) {
+        if (this.props.name === index) {
           this.setState({
-            url: deliverCode.code[index]
-          })
+            url: deliverCode.code[index],
+          });
         }
-      })
-      if(prevProps.number !== this.props.number) {
-        const parsing = await cjDataParsing(this.state.url, this.state.number);
-        console.log(parsing)
-      }
+      });
+      console.log(this.state.url);
+    }
+    if (prevProps.number !== this.props.number) {
+      console.log(this.props.number);
+      const parsing = await cjDataParsing(this.state.url, this.props.number);
+      console.log(parsing);
     }
   }
 
@@ -89,7 +91,7 @@ class cjParsing extends React.Component {
 
       <div>
         <Typography>App</Typography>
-     </div>
+      </div>
     );
   }
 }

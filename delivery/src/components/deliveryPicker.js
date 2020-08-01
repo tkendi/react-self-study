@@ -3,8 +3,6 @@ import { deliveryInfo } from "../lib/api";
 import {
   MenuItem,
   FormControl,
-  InputLabel,
-  Select,
   TextField,
 } from "@material-ui/core";
 import styles from "../styles/deliveryPicker.module.css";

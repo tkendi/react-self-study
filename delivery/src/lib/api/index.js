@@ -36,6 +36,10 @@ export const deliveryName = async() => {
       name: []
     };
 
+    for(const keys in data.data) {
+      parsing.name[keys] = data.data[keys].name
+    }
+
     console.log(parsing)
 
     return parsing

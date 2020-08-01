@@ -35,8 +35,8 @@ class deliveryPicker extends React.Component {
   render() {
     const datas = this.state.datas;
     return (
-      <div>
-        <FormControl className={styles.formControl}>
+      <div className={styles.form}>
+        <FormControl fullWidth margin="normal" variant="standard">
           <InputLabel id="delivery-name">Delivery</InputLabel>
           <Select labelId="delivery-name-label" id="delivery-name">
             {datas.map((name, index) => {

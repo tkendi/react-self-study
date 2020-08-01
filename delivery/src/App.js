@@ -42,7 +42,7 @@ class App extends React.Component {
                 택배 조회
               </Typography>
               <DeliverName />
-              {/* <Input handleNumberChange={this.handleNumber} /> */}
+              <Input handleNumberChange={this.handleNumber} />
             </Toolbar>
           </AppBar>
         </div>

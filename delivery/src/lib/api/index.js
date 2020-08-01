@@ -1,11 +1,10 @@
 import axios from "axios";
 
-const url = process.env.REACT_APP_URL;
-const delivery_url = process.env.REACT_APP_Delivery_URL
+const url = process.env.REACT_APP_Delivery_URL;
 
-export const cjDataParsing = async (number) => {
+export const cjDataParsing = async (number, ) => {
   try {
-    const data = await axios.get(`${url}/${number}`);
+    const data = await axios.get(`${url}//${number}`);
     const parsing = {
       time: [],
       location: [],
@@ -30,7 +29,7 @@ export const cjDataParsing = async (number) => {
 
 export const deliveryInfo = async() => {
   try {
-    const data = await axios.get(`${delivery_url}`)
+    const data = await axios.get(`${url}`)
     const parsing = {
       name: [],
       code: [],

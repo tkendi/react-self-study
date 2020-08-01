@@ -19,6 +19,7 @@ class cjParsing extends React.Component {
     description: [],
     state: "",
     code: 0,
+    url: "de.dhl"
   };
 
   async componentDidUpdate(prevProps, prevState) {
@@ -27,9 +28,15 @@ class cjParsing extends React.Component {
       console.log(deliverCode.code)
       deliverCode.code.map((code, index) => {
         if(this.props.name === index) {
-          console.log(code)
+          this.setState({
+            url: deliverCode.code[index]
+          })
         }
       })
+      if(prevProps.number !== this.props.number) {
+        const parsing = await cjDataParsing(this.state.url, this.state.number);
+        console.log(parsing)
+      }
     }
   }
 

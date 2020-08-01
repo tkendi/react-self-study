@@ -1,13 +1,9 @@
 import React from "react";
 import Input from "./components/numInput";
-import DeliverName from "./components/deliveryPicker"
+import DeliverName from "./components/deliveryPicker";
 import styles from "./styles/App.module.css";
-import {
-  Typography,
-  AppBar,
-  Toolbar,
-} from "@material-ui/core";
-import { deliveryName } from "./lib/api/";
+import { Typography, AppBar, Toolbar } from "@material-ui/core";
+import CjDeliver from './components/cjParsing'
 
 class App extends React.Component {
   state = {
@@ -25,10 +21,10 @@ class App extends React.Component {
   handleName = async (deliverName) => {
     console.log(deliverName);
     this.setState({
-      name: deliverName
-    })
-    console.log(this.state.name)
-  }
+      name: deliverName,
+    });
+    console.log(this.state.name);
+  };
 
   render() {
     return (
@@ -45,12 +41,13 @@ class App extends React.Component {
               >
                 택배 조회
               </Typography>
-              <DeliverName handleNamechange = {this.handleName} />
-              <Input handleNumberChange={this.handleNumber} name = {this.state.name}/>
+              <DeliverName handleNamechange={this.handleName} />
+              <Input handleNumberChange={this.handleNumber} />
             </Toolbar>
           </AppBar>
+          <Typography>{this.state.name}</Typography>
         </div>
-        {/* <CjDeliver number={this.state.number} /> */}
+        <CjDeliver number={this.state.number} name = {this.state.name} />
       </React.Fragment>
     );
   }

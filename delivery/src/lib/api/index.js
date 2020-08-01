@@ -28,15 +28,17 @@ export const cjDataParsing = async (number) => {
 };
 
 
-export const deliveryName = async() => {
+export const deliveryInfo = async() => {
   try {
     const data = await axios.get(`${delivery_url}`)
     const parsing = {
-      name: []
+      name: [],
+      code: [],
     };
 
     for(const keys in data.data) {
       parsing.name[keys] = data.data[keys].name
+      parsing.code[keys] = data.data[keys].id
     }
 
     return parsing

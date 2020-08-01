@@ -1,10 +1,11 @@
 import React from "react";
-import { deliveryName } from "../lib/api";
+import { deliveryInfo } from "../lib/api";
 import {
   MenuItem,
   FormControl,
   InputLabel,
   Select,
+  TextField,
 } from "@material-ui/core";
 import styles from "../styles/deliveryPicker.module.css";
 
@@ -22,7 +23,7 @@ class deliveryPicker extends React.Component {
   };
 
   async componentDidMount() {
-    const data = await deliveryName();
+    const data = await deliveryInfo();
     this.setState({
       datas: data.name,
     });
@@ -32,9 +33,10 @@ class deliveryPicker extends React.Component {
     return (
       <div className={styles.form}>
         <FormControl fullWidth margin="normal" variant="standard">
-          <InputLabel id="delivery-name">Delivery</InputLabel>
-          <Select
-            labelId="delivery-name-label"
+          {/* <InputLabel id="delivery-name">Delivery</InputLabel> */}
+          <TextField
+            select
+            label="Delivery"
             id="delivery-name"
             onChange={(e) => this.props.handleNamechange(e.target.value)}
           >
@@ -45,7 +47,7 @@ class deliveryPicker extends React.Component {
                 </MenuItem>
               );
             })}
-          </Select>
+          </TextField>
         </FormControl>
       </div>
     );

@@ -1,5 +1,5 @@
 import React from "react";
-import { cjDataParsing } from "../lib/api/index";
+import { cjDataParsing, deliveryInfo } from "../lib/api/index";
 import {
   Typography,
   TableContainer,
@@ -18,6 +18,7 @@ class cjParsing extends React.Component {
     location: [],
     description: [],
     state: "",
+    code: 0,
   };
 
   async componentDidUpdate(prevProps, prevState) {
@@ -32,6 +33,19 @@ class cjParsing extends React.Component {
         description: data.description,
         state: data.state,
       });
+    }
+
+    if(prevProps.name !== this.props.name) {
+      const deliverCode = await deliveryInfo();
+      this.setState({
+        code: deliverCode.code
+      });
+
+      for(const keys in this.state.code) {
+        if(this.props.name === this.state.code[keys]) {
+          const parsing = await cjDataParsing(this.state.code)
+        }
+      }
     }
   }
   render() {

@@ -37,13 +37,16 @@ class deliveryParsing extends React.Component {
     }
     if (prevProps.number !== this.props.number) {
       console.log(this.props.number);
-      const parsing = await deliverDataParsing(this.state.url, this.props.number);
+      const parsing = await deliverDataParsing(
+        this.state.url,
+        this.props.number
+      );
       this.setState({
         time: parsing.time,
         description: parsing.description,
         location: parsing.location,
-        state: parsing.state
-      })
+        state: parsing.state,
+      });
     }
   }
 

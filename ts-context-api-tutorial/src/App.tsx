@@ -1,14 +1,17 @@
-import React from 'react';
-import TodoForm from './components/TodoForm'
-import TodoList from './components/TodoList';
+import React from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { TodosContextProvider } from "./contexts/TodosContext";
 
 const App = () => {
   return (
     <>
-      <TodoForm />
-      <TodoList />
+      <TodosContextProvider>
+        <TodoForm />
+        <TodoList />
+      </TodosContextProvider>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

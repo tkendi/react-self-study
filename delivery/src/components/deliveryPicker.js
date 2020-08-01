@@ -5,7 +5,6 @@ import {
   FormControl,
   InputLabel,
   Select,
-  makeStyles,
 } from "@material-ui/core";
 import styles from "../styles/deliveryPicker.module.css";
 
@@ -24,8 +23,6 @@ class deliveryPicker extends React.Component {
 
   async componentDidMount() {
     const data = await deliveryName();
-
-    console.log(data);
     this.setState({
       datas: data.name,
     });
@@ -39,7 +36,7 @@ class deliveryPicker extends React.Component {
           <Select
             labelId="delivery-name-label"
             id="delivery-name"
-            onChange={(e) => this.props.handleNumbserChange}
+            onChange={(e) => this.props.handleNamechange(e.target.value)}
           >
             {datas.map((name, index) => {
               return (

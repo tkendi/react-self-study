@@ -31,7 +31,6 @@ export const cjDataParsing = async (number) => {
 export const deliveryName = async() => {
   try {
     const data = await axios.get(`${delivery_url}`)
-    console.log(data)
     const parsing = {
       name: []
     };
@@ -39,8 +38,6 @@ export const deliveryName = async() => {
     for(const keys in data.data) {
       parsing.name[keys] = data.data[keys].name
     }
-
-    console.log(parsing)
 
     return parsing
   } catch(e) {

@@ -25,14 +25,9 @@ class App extends React.Component {
   handleName = async (deliverName) => {
     console.log(deliverName);
     this.setState({
-      name: deliveryName
+      name: deliverName
     })
     console.log(this.state.name)
-  }
-
-  async componentDidMount() {
-    const data = await deliveryName();
-    console.log(data);
   }
 
   render() {
@@ -51,7 +46,7 @@ class App extends React.Component {
                 택배 조회
               </Typography>
               <DeliverName handleNamechange = {this.handleName} />
-              <Input handleNumberChange={this.handleNumber} />
+              <Input handleNumberChange={this.handleNumber} name = {this.state.name}/>
             </Toolbar>
           </AppBar>
         </div>

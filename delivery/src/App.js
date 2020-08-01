@@ -3,7 +3,7 @@ import Input from "./components/numInput";
 import DeliverName from "./components/deliveryPicker";
 import styles from "./styles/App.module.css";
 import { Typography, AppBar, Toolbar } from "@material-ui/core";
-import CjDeliver from './components/cjParsing'
+import CjDeliver from "./components/cjParsing";
 
 class App extends React.Component {
   state = {
@@ -12,7 +12,6 @@ class App extends React.Component {
   };
 
   handleNumber = async (deliverNum) => {
-    console.log(deliverNum);
     this.setState({
       number: deliverNum,
     });
@@ -23,7 +22,6 @@ class App extends React.Component {
     this.setState({
       name: deliverName,
     });
-    console.log(this.state.name);
   };
 
   render() {
@@ -47,7 +45,7 @@ class App extends React.Component {
           </AppBar>
           <Typography>{this.state.name}</Typography>
         </div>
-        <CjDeliver number={this.state.number} name = {this.state.name} />
+        <CjDeliver number={this.state.number} name={this.state.name} />
       </React.Fragment>
     );
   }

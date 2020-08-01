@@ -24,75 +24,65 @@ class cjParsing extends React.Component {
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.name !== this.props.name) {
       const deliverCode = await deliveryInfo();
-      this.setState({
-        code: deliverCode.code,
-      });
-
-      for (const keys in this.state.code) {
-        if (this.props.name === this.state.code[keys]) {
-          if (prevProps.number !== this.props.number) {
-            const data = await cjDataParsing(this.props.number);
-            if (!data) {
-              return "잘못된 접근입니다";
-            }
-            this.setState({
-              time: data.time,
-              location: data.location,
-              description: data.description,
-              state: data.state,
-            });
-          }
+      console.log(deliverCode.code)
+      deliverCode.code.map((code, index) => {
+        if(this.props.name === index) {
+          console.log(code)
         }
-      }
+      })
     }
   }
-  
+
   render() {
     const { time, location, description } = this.state;
     return (
-      <Paper className={styles.form}>
-        <TableContainer>
-          <Table size="small" aria-label="delivery-info" padding="default">
-            <TableHead>
-              <TableRow>
-                <TableCell>
-                  <Typography variant="subtitle1" component="h3">
-                    상품단계
-                  </Typography>
-                </TableCell>
-                <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
-                    처리일시
-                  </Typography>
-                </TableCell>
-                <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
-                    상품상태
-                  </Typography>
-                </TableCell>
-                <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
-                    상품위치
-                  </Typography>
-                </TableCell>
-              </TableRow>
-            </TableHead>
+      // <Paper className={styles.form}>
+      //   <TableContainer>
+      //     <Table size="small" aria-label="delivery-info" padding="default">
+      //       <TableHead>
+      //         <TableRow>
+      //           <TableCell>
+      //             <Typography variant="subtitle1" component="h3">
+      //               상품단계
+      //             </Typography>
+      //           </TableCell>
+      //           <TableCell align="center">
+      //             <Typography variant="subtitle1" component="h3">
+      //               처리일시
+      //             </Typography>
+      //           </TableCell>
+      //           <TableCell align="center">
+      //             <Typography variant="subtitle1" component="h3">
+      //               상품상태
+      //             </Typography>
+      //           </TableCell>
+      //           <TableCell align="center">
+      //             <Typography variant="subtitle1" component="h3">
+      //               상품위치
+      //             </Typography>
+      //           </TableCell>
+      //         </TableRow>
+      //       </TableHead>
 
-            <TableBody>
-              {time.map((time, i) => (
-                <TableRow key={i}>
-                  <TableCell component="th" scopre="row">
-                    {this.state.state}
-                  </TableCell>
-                  <TableCell align="center">{time}</TableCell>
-                  <TableCell align="center">{description[i]}</TableCell>
-                  <TableCell align="center">{location[i]}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
+      //       <TableBody>
+      //         {time.map((time, i) => (
+      //           <TableRow key={i}>
+      //             <TableCell component="th" scopre="row">
+      //               {this.state.state}
+      //             </TableCell>
+      //             <TableCell align="center">{time}</TableCell>
+      //             <TableCell align="center">{description[i]}</TableCell>
+      //             <TableCell align="center">{location[i]}</TableCell>
+      //           </TableRow>
+      //         ))}
+      //       </TableBody>
+      //     </Table>
+      //   </TableContainer>
+      // </Paper>
+
+      <div>
+        <Typography>App</Typography>
+     </div>
     );
   }
 }

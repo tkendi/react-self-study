@@ -32,7 +32,6 @@ class cjParsing extends React.Component {
         description: data.description,
         state: data.state,
       });
-      console.log(this.state);
     }
   }
   render() {

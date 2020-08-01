@@ -1,5 +1,5 @@
 import React from "react";
-import { cjDataParsing, deliveryInfo } from "../lib/api/index";
+import { deliverDataParsing, deliveryInfo } from "../lib/api/index";
 import {
   Typography,
   TableContainer,
@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import styles from "../styles/cj.module.css";
 
-class cjParsing extends React.Component {
+class deliveryParsing extends React.Component {
   state = {
     time: [],
     location: [],
@@ -37,7 +37,7 @@ class cjParsing extends React.Component {
     }
     if (prevProps.number !== this.props.number) {
       console.log(this.props.number);
-      const parsing = await cjDataParsing(this.state.url, this.props.number);
+      const parsing = await deliverDataParsing(this.state.url, this.props.number);
       console.log(parsing);
     }
   }
@@ -96,4 +96,4 @@ class cjParsing extends React.Component {
   }
 }
 
-export default cjParsing;
+export default deliveryParsing;

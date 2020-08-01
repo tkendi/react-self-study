@@ -2,7 +2,7 @@ import axios from "axios";
 
 const url = process.env.REACT_APP_Delivery_URL;
 
-export const cjDataParsing = async (name, number) => {
+export const deliverDataParsing = async (name, number) => {
   try {
     const data = await axios.get(`${url}/${name}/tracks/${number}`);
     console.log(name, number)

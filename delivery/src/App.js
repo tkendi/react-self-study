@@ -43,7 +43,6 @@ class App extends React.Component {
               <Input handleNumberChange={this.handleNumber} />
             </Toolbar>
           </AppBar>
-          <Typography>{this.state.name}</Typography>
         </div>
         <DeliverParsing number={this.state.number} name={this.state.name} />
       </React.Fragment>

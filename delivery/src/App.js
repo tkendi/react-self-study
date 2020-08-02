@@ -27,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className={styles.head}>
+        <div className={styles.form}>
           <AppBar position="static" color = 'secondary'>
             <Toolbar className={styles.toolBar}>
               <Typography

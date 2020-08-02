@@ -13,7 +13,7 @@ class numInput extends React.Component {
     this.setState({
       number: e.target.value,
     });
-    console.log(this.state.number)
+    console.log(this.state.number);
   };
 
   render() {
@@ -27,7 +27,7 @@ class numInput extends React.Component {
             onChange={appChange}
           />
           <Button
-            className={styles.button}
+            className={styles.submitBtn}
             color="inherit"
             onClick={() => this.props.handleNumberChange(this.state.number)}
           >

@@ -1,25 +1,31 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 2rem;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  margin: 0 auto;
 }
 
 .showInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-    font-family: sans-serif;
-    flex-grow: 1;
-    align-self: flex-end;
-    padding-top: 6rem;
+  font-family: sans-serif;
+  flex-grow: 1;
+  align-self: flex-end;
+  padding-top: 6rem;
 }
 
 .toolBar {
-    min-height: 128;
-    align-items: flex-start;
+  min-height: 128;
+  align-items: flex-start;
+}
+
+@media (max-width: 770px) {
+  .form {
+    margin: 0 18%;
+  }
 }

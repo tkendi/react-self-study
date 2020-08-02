@@ -34,13 +34,13 @@ export type Todo = {
 type TodosState = Todo[];
 
 //initialize setting
-const initialState: TodoState = [
+const initialState: TodosState = [
   { id: 1, text: "타입스크립트 배우기", done: true },
   { id: 2, text: "타입스크립트와 리덕스 함께 사용해보기", done: true },
   { id: 3, text: "투두리스트 만들기", done: false },
 ];
 
-function toods(
+function todos(
   state: TodosState = initialState,
   action: TodosAction
 ): TodosState {

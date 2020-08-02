@@ -15,3 +15,7 @@
     background-color: rgba(190, 192, 194, 0.25);
     font-weight: bold;
 }
+
+.row {
+    padding-top: 5em;
+}

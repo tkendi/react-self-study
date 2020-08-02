@@ -10,7 +10,7 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
-import styles from "../styles/cj.module.css";
+import styles from "../styles/deliveryParsing.module.css";
 
 class deliveryParsing extends React.Component {
   state = {

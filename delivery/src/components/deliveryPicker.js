@@ -1,10 +1,6 @@
 import React from "react";
 import { deliveryInfo } from "../lib/api";
-import {
-  MenuItem,
-  FormControl,
-  TextField,
-} from "@material-ui/core";
+import { MenuItem, FormControl, TextField } from "@material-ui/core";
 import styles from "../styles/deliveryPicker.module.css";
 
 //formControl 스타일
@@ -31,11 +27,11 @@ class deliveryPicker extends React.Component {
     return (
       <div className={styles.form}>
         <FormControl fullWidth margin="normal" variant="standard">
-          {/* <InputLabel id="delivery-name">Delivery</InputLabel> */}
           <TextField
             select
+            fullWidth={true}
             label="Delivery"
-            id="delivery-name"
+            helperText="List of Delivery Company"
             onChange={(e) => this.props.handleNamechange(e.target.value)}
           >
             {datas.map((name, index) => {

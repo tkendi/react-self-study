@@ -1,14 +1,10 @@
-import React from "react";
-import TodoInsert from "./components/TodoInsert";
-import TodoList from "./components/TodoList";
+import React from 'react';
+import Counter from './components/Counter'
 
 function App() {
   return (
-    <>
-      <TodoInsert />
-      <TodoList />
-    </>
-  );
+    <Counter />
+  )
 }
 
 export default App;

@@ -9,6 +9,7 @@ import {
   TableBody,
   TableRow,
   Paper,
+  MenuItem,
 } from "@material-ui/core";
 import styles from "../styles/deliveryParsing.module.css";
 
@@ -59,22 +60,22 @@ class deliveryParsing extends React.Component {
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <Typography variant="subtitle1" component="h3">
+                  <Typography variant="h6" component="h3">
                     상품단계
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
+                  <Typography variant="h6" component="h3">
                     처리일시
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
+                  <Typography variant="h6" component="h3">
                     상품상태
                   </Typography>
                 </TableCell>
                 <TableCell align="center">
-                  <Typography variant="subtitle1" component="h3">
+                  <Typography variant="h6" component="h3">
                     상품위치
                   </Typography>
                 </TableCell>
@@ -84,12 +85,18 @@ class deliveryParsing extends React.Component {
             <TableBody>
               {time.map((time, i) => (
                 <TableRow key={i}>
-                  <TableCell component="th" scopre="row">
-                    {this.state.state}
+                  <TableCell component="th" scopre="row" className={styles.row}>
+                    <Typography variant="body1">{this.state.state}</Typography>
                   </TableCell>
-                  <TableCell align="center">{time}</TableCell>
-                  <TableCell align="center">{description[i]}</TableCell>
-                  <TableCell align="center">{location[i]}</TableCell>
+                  <TableCell align="center">
+                    <Typography variant="body2">{time}</Typography>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Typography variant="body1">{description[i]}</Typography>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Typography variant="body1">{location[i]}</Typography>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

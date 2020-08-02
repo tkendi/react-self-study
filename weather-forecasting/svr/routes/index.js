@@ -34,7 +34,6 @@ router.get("/", async (req, res) => {
   }
 
   saveFile(info);
-  console.log(info);
   res.json(info)
 });
 

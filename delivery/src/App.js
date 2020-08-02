@@ -4,9 +4,6 @@ import DeliverName from "./components/deliveryPicker";
 import styles from "./styles/App.module.css";
 import { Typography, AppBar, Toolbar } from "@material-ui/core";
 import DeliverParsing from "./components/deliveryParsing";
-import red from '@material-ui/core/colors/red'
-
-const color = red[400]
 
 class App extends React.Component {
   state = {
@@ -28,7 +25,6 @@ class App extends React.Component {
   };
 
   render() {
-    const barColor = color
     return (
       <React.Fragment>
         <div className={styles.head}>

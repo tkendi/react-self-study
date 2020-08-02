@@ -1,17 +1,31 @@
 import React from "react";
-import {RNHStatus} from './api'
-import axios from 'axios'
+import { weatherData } from "./api";
 
 class App extends React.Component {
-  async componentDidMount () {
-    const data = RNHStatus
-    console.log(data)
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+    };
   }
 
-  render() {  
+  async componentDidMount() {
+    const weather = weatherData();
+    this.setState({
+      data: weather,
+    });
+  }
+
+  render() {
+    const data = this.state.data
+    console.log(data)
     return (
       <div>
-        <header>App</header>
+        {Array.from(data).map((data, index) => (
+          <p>
+            {index}: {data}
+          </p>
+        ))}
       </div>
     );
   }

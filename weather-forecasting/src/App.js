@@ -5,27 +5,26 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      date: "",
+      time: "",
     };
   }
 
   async componentDidMount() {
-    const weather = weatherData();
+    const weather = await weatherData();
     this.setState({
-      data: weather,
+      date: weather.baseDate,
+      time: weather.baseTime,
     });
+
+    console.log(this.state)
   }
 
   render() {
-    const data = this.state.data
-    console.log(data)
     return (
       <div>
-        {Array.from(data).map((data, index) => (
-          <p>
-            {index}: {data}
-          </p>
-        ))}
+        <p>{this.state.date}</p>
+        <p>{this.state.time}</p>
       </div>
     );
   }

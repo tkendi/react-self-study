@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
   const items = data.data.response.body.items.item;
 
   info.baseDate = items[0].baseDate;
-  info.bsaeTime = items[0].baseTime;
+  info.baseTime = items[0].baseTime;
 
   for (const keys in items) {
     info[items[keys].category] = items[keys].obsrValue;

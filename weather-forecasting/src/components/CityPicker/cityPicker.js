@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, TextField, MenuItem } from "@material-ui/core";
 
 const cityPciker = () => {
-  const city = {
+  const data = {
     city: [
       "Seoul",
       "Busan",
@@ -19,22 +19,22 @@ const cityPciker = () => {
 
   return (
     <React.Fragment>
-      <Typography>
-        <TextField
-          select
-          label="City"
-          helperText="List of City"
-          onChange={(e) => console.log(e.target.value)}
-        >
-          {city.city.map((city, index) => {
-            return (
-              <MenuItem key={index} value={city}>
-                {city}
-              </MenuItem>
-            );
-          })}
-        </TextField>
-      </Typography>
+      <TextField
+        select
+        label="City"
+        helperText="List of City"
+        onChange={(e) =>
+          console.log(data.nx[e.target.value], data.ny[e.target.value])
+        }
+      >
+        {data.city.map((city, index) => {
+          return (
+            <MenuItem key={city} value={index}>
+              {city}
+            </MenuItem>
+          );
+        })}
+      </TextField>
     </React.Fragment>
   );
 };

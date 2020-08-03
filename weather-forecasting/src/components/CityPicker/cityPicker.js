@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, TextField, MenuItem } from "@material-ui/core";
 
-const cityPciker = () => {
+const cityPciker = ({ cityParsing }) => {
   const data = {
     city: [
       "Seoul",
@@ -24,7 +24,7 @@ const cityPciker = () => {
         label="City"
         helperText="List of City"
         onChange={(e) =>
-          console.log(data.nx[e.target.value], data.ny[e.target.value])
+          cityParsing(data.nx[e.target.value], data.ny[e.target.value])
         }
       >
         {data.city.map((city, index) => {

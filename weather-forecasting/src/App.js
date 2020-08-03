@@ -10,9 +10,9 @@ class App extends React.Component {
     };
   }
 
-  async componentDidUpdate() {
-    const nx = 127;
-    const ny = 37;
+  async componentDidMount() {
+    const nx = 98;
+    const ny = 76;
     const weather = await weatherData(nx, ny);
     this.setState({
       date: weather.baseDate,
@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-
+        <p>{this.state.date}: {this.state.time}</p>
       </div>
     );
   }

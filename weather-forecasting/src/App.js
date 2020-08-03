@@ -9,8 +9,7 @@ const App = () => {
   const [baseTime, setBaseTime] = useState(0);
 
   useEffect(() => {
-    async function fetchData(nx, ny) {
-      console.log(nx, ny)
+    async function fetchData() {
       const data = await weatherData(nx, ny);
       setBaseTime(data.baseTime)
       console.log(data);
@@ -22,8 +21,8 @@ const App = () => {
   }, [nx, ny]);
 
   const cityCode = (cityNx, cityNy) => {
-    setNx({cityNx});
-    setNy({cityNy});
+    setNx(cityNx);
+    setNy(cityNx);
 
     console.log(nx, ny)
   };

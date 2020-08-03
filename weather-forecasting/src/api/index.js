@@ -9,7 +9,10 @@ export const weatherData = async (nx, ny) => {
   info.baseTime = data.data.baseTime;
   info.baseDate = data.data.baseDate;
 
-  console.log(info)
+  info.TMP = data.data.T1H;
+  info.RNH = data.data.RN1;
+
+  console.log(info);
 
   return info;
 };

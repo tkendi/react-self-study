@@ -22,8 +22,8 @@ const App = () => {
   }, [nx, ny]);
 
   const cityCode = (cityNx, cityNy) => {
-    setNx(cityNx);
-    setNy(cityNy);
+    setNx({cityNx});
+    setNy({cityNy});
 
     console.log(nx, ny)
   };

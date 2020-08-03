@@ -1,12 +1,14 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const weatherData = async() => {
-    const data = await axios.get('http://localhost:4000/api')
-    console.log(data)
+export const weatherData = async (nx, ny) => {
+  const data = await axios.get(
+    `http://localhost:4000/api?nx = ${nx}&ny = ${ny}`
+  );
+  console.log(data);
 
-    const info = {}
-    info.baseTime = data.data.baseTime;
-    info.baseDate = data.data.baseDate
+  const info = {};
+  info.baseTime = data.data.baseTime;
+  info.baseDate = data.data.baseDate;
 
-    return info
-}
+  return info;
+};

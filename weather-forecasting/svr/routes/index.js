@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const axios = require("axios");
-const schedule = require("node-schedule");
 
 const url = process.env.URL;
 const date = new Date();
@@ -20,9 +19,12 @@ const base_Date = `${date.getFullYear()}${("0" + (date.getMonth() + 1)).slice(
 const base_Time = `${("0" + date.getHours()).slice(-2)}00`;
 
 router.get("/", async (req, res) => {
+  const nx = req.query.nx
+  const ny = req.query.ny
+  console.log(nx, ny)
   const info = {};
   const data = await axios.get(
-    `${url}?serviceKey=${process.env.serviceKey}&numOfRows=10&pageNo=1&dataType=json&base_date=${base_Date}&base_time=${base_Time}&nx=60&ny=127`
+    `${url}?serviceKey=${process.env.serviceKey}&numOfRows=10&pageNo=1&dataType=json&base_date=${base_Date}&base_time=${base_Time}&nx=${nx}&ny=${ny}`
   );
   const items = data.data.response.body.items.item;
 
@@ -34,7 +36,7 @@ router.get("/", async (req, res) => {
   }
 
   saveFile(info);
-  res.json(info)
+  res.json(info);
 });
 
 module.exports = router;

@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
   const data = await axios.get(
     `${url}?serviceKey=${process.env.serviceKey}&numOfRows=10&pageNo=1&dataType=json&base_date=${base_Date}&base_time=${base_Time}&nx=${nx}&ny=${ny}`
   );
-  const items = data.data.response.body.items.item;
+  const items = data.data.response.body.items.item
 
   info.baseDate = items[0].baseDate;
   info.baseTime = items[0].baseTime;
@@ -36,6 +36,7 @@ router.get("/", async (req, res) => {
   }
 
   saveFile(info);
+  console.log(info)
   res.json(info);
 });
 

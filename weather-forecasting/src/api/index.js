@@ -11,6 +11,7 @@ export const weatherData = async (nx, ny) => {
 
   info.TMP = data.data.T1H;
   info.RNH = data.data.RN1;
+  info.SKY = data.data.PTY
 
   console.log(info);
 

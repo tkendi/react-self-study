@@ -15,6 +15,7 @@ const App = () => {
       const data = await weatherData(nx, ny);
       setBaseTime(data.baseTime)
       setTemp(data.TMP)
+      setRain(data.RNH)
       console.log(data);
     }
     fetchData();
@@ -35,6 +36,7 @@ const App = () => {
       <City cityParsing={cityCode} />
       <Typography>{baseTime}</Typography>
       <Typography>{temp}&deg;C</Typography>
+      <Typography>{rain}</Typography>
     </div>
   );
 };

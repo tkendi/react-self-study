@@ -1,34 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { weatherData } from "./api";
+import City from "./components/CityPicker/cityPicker";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      date: "",
-      time: "",
+const App = () => {
+  const [number, setNumber] = useState(0);
+  useEffect(async () => {
+    const data = await weatherData(98, 76)
+    console.log(data);
+    return () => {
+      console.log("I'm dying...");
     };
-  }
-
-  async componentDidMount() {
-    const nx = 98;
-    const ny = 76;
-    const weather = await weatherData(nx, ny);
-    this.setState({
-      date: weather.baseDate,
-      time: weather.baseTime,
-    });
-
-    console.log(this.state)
-  }
-
-  render() {
-    return (
-      <div>
-        <p>{this.state.date}: {this.state.time}</p>
-      </div>
-    );
-  }
-}
+  }, [number]);
+  return (
+    <div>
+      <h2>number is {number}</h2>
+      <button onClick={() => setNumber(number + 1)}>Increment</button>
+    </div>
+  );
+};
 
 export default App;

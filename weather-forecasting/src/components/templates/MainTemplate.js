@@ -15,6 +15,8 @@ const Container = styled.div`
     ),
     url(https://source.unsplash.com/random/1920x1080);
   background-size: cover;
+  font-family: sans-serif;
+  color: white;
 `;
 
 const MainTemplate = ({ children }) => {

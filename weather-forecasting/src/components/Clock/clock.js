@@ -16,7 +16,7 @@ const clock = () => {
         </div>
         <div>
           <Clock
-            format={"MM DD일"}
+            format={"MM월 DD"}
             ticking={true}
             timezone={"Asia/Seoul"}
             className={styles.dateText}

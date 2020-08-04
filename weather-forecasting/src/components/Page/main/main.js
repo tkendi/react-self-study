@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, CssBaseline } from "@material-ui/core";
 import clear from "../../../img/sun.png";
 import snow from "../../../img/snow.png";
 import shower from "../../../img/meteor-shower.png";
@@ -30,7 +30,7 @@ const WeatherMain = ({ nx, ny }) => {
 
   return (
     <React.Fragment>
-      <div className = {styles.mainForm}>
+      <div className={styles.mainForm}>
         {type === 1 ? (
           <img src={rainy} alt="rain" className={styles.imgForm} />
         ) : type === 2 ? (
@@ -43,7 +43,9 @@ const WeatherMain = ({ nx, ny }) => {
           <img src={clear} alt="clear" className={styles.imgForm} />
         )}
         <Clock />
-        <Typography className = {styles.tempText}>{temp}&deg;C</Typography>
+        <Typography className={styles.tempText} variant="h2" component="h1">
+          {temp}&deg;
+        </Typography>
         <Typography>{rain}</Typography>
       </div>
     </React.Fragment>

@@ -7,8 +7,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: black;
 }
 
 .clockText{
     margin-bottom: 30rem;
+}
+
+.tempText{
+    font-size: 50rem;
+    position: relative;
+    
 }

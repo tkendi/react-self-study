@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import City from "./components/CityPicker/cityPicker";
 import WeatherMain from "./components/Page/main/main";
 import MainTemplate from "./components/templates/MainTemplate";

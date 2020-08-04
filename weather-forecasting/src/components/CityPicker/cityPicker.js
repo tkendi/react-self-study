@@ -3,15 +3,15 @@ import {
   TextField,
   MenuItem,
   CssBaseline,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core";
 import styles from "./cityPicker.module.css";
 
 const useStyles = makeStyles({
   text: {
-    color: "white"
-  }
-})
+    color: "white",
+  },
+});
 
 const cityPciker = ({ cityParsing }) => {
   const data = {
@@ -28,7 +28,7 @@ const cityPciker = ({ cityParsing }) => {
     nx: ["60", "98", "89", "55", "58", "67", "102", "52"],
     ny: ["127", "76", "90", "124", "74", "100", "84", "38"],
   };
-  const classes = useStyles()
+  //const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
@@ -45,7 +45,8 @@ const cityPciker = ({ cityParsing }) => {
         >
           {data.city.map((city, index) => {
             return (
-              <MenuItem key={city} value={index} className = {classes.text}>
+              <MenuItem key={city} value={index} 
+          >
                 {city}
               </MenuItem>
             );

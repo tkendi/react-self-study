@@ -6,18 +6,22 @@ const clock = () => {
   return (
     <React.Fragment>
       <div className={styles.clockForm}>
-        <Clock
-          format={"HH:mm"}
-          ticking={true}
-          timezone={"Asia/Seoul"}
-          className={styles.clockText}
-        />
-        <Clock
-          format={"MM DD일"}
-          ticking={true}
-          timezone={"Asia/Seoul"}
-          className={styles.dateText}
-        />
+        <div>
+          <Clock
+            format={"HH:mm"}
+            ticking={true}
+            timezone={"Asia/Seoul"}
+            className={styles.clockText}
+          />
+        </div>
+        <div>
+          <Clock
+            format={"MM DD일"}
+            ticking={true}
+            timezone={"Asia/Seoul"}
+            className={styles.dateText}
+          />
+        </div>
       </div>
     </React.Fragment>
   );

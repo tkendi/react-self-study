@@ -3,12 +3,17 @@
     flex-direction: column;
     align-items: center;
     padding-right: 8rem;
+    position: relative;
+    bottom: 6rem;
+    left: 2rem
 }
 
 .clockText {
     font-size: 1.5rem;
+    padding-right: 3.3rem;
 }
 
 .dateText {
     font-size: 2rem;
 }
+

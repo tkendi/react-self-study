@@ -30,20 +30,22 @@ const WeatherMain = ({ nx, ny }) => {
 
   return (
     <React.Fragment>
-      <Clock />
-      <Typography>{temp}&deg;C</Typography>
-      <Typography>{rain}</Typography>
-      {type === 1 ? (
-        <img src={rainy} alt="rain" className={styles.imgForm} />
-      ) : type === 2 ? (
-        <img src={ice} alt="ice" />
-      ) : type === 3 ? (
-        <img src={snow} alt="snow" />
-      ) : type === 4 ? (
-        <img src={shower} alt="shower" />
-      ) : (
-        <img src={clear} alt="clear" />
-      )}
+      <div className = {styles.mainForm}>
+        {type === 1 ? (
+          <img src={rainy} alt="rain" className={styles.imgForm} />
+        ) : type === 2 ? (
+          <img src={ice} alt="ice" className={styles.imgForm} />
+        ) : type === 3 ? (
+          <img src={snow} alt="snow" className={styles.imgForm} />
+        ) : type === 4 ? (
+          <img src={shower} alt="shower" className={styles.imgForm} />
+        ) : (
+          <img src={clear} alt="clear" className={styles.imgForm} />
+        )}
+        <Clock />
+        <Typography className = {styles.tempText}>{temp}&deg;C</Typography>
+        <Typography>{rain}</Typography>
+      </div>
     </React.Fragment>
   );
 };

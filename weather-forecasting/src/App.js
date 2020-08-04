@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import City from "./components/CityPicker/cityPicker";
 import WeatherMain from "./components/Page/main/main";
-import styles from './App.module.css'
+import MainTemplate from "./components/templates/MainTemplate";
 
 const App = () => {
   const [nx, setNx] = useState(0);
@@ -9,15 +9,15 @@ const App = () => {
   const cityCode = (cityNx, cityNy) => {
     setNx(cityNx);
     setNy(cityNy);
-
-    console.log(nx, ny);
   };
 
   return (
-    <div>
-      <City cityParsing={cityCode} />
-      <WeatherMain nx={nx} ny={ny} />
-    </div>
+    <React.Fragment>
+      <MainTemplate>
+        <City cityParsing={cityCode} />
+        <WeatherMain nx={nx} ny={ny} />
+      </MainTemplate>
+    </React.Fragment>
   );
 };
 

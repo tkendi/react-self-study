@@ -3,15 +3,8 @@ import {
   TextField,
   MenuItem,
   CssBaseline,
-  makeStyles,
 } from "@material-ui/core";
 import styles from "./cityPicker.module.css";
-
-const useStyles = makeStyles({
-  text: {
-    color: "white",
-  },
-});
 
 const cityPciker = ({ cityParsing }) => {
   const data = {

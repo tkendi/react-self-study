@@ -30,23 +30,28 @@ const WeatherMain = ({ nx, ny }) => {
 
   return (
     <React.Fragment>
+      <CssBaseline />
       <div className={styles.mainForm}>
-        {type === 1 ? (
-          <img src={rainy} alt="rain" className={styles.imgForm} />
-        ) : type === 2 ? (
-          <img src={ice} alt="ice" className={styles.imgForm} />
-        ) : type === 3 ? (
-          <img src={snow} alt="snow" className={styles.imgForm} />
-        ) : type === 4 ? (
-          <img src={shower} alt="shower" className={styles.imgForm} />
-        ) : (
-          <img src={clear} alt="clear" className={styles.imgForm} />
-        )}
-        <Clock />
-        <Typography className={styles.tempText} variant="h2" component="h1">
-          {temp}&deg;
-        </Typography>
-        <Typography>{rain}</Typography>
+        <div>
+          {type === 1 ? (
+            <img src={rainy} alt="rain" className={styles.imgForm} />
+          ) : type === 2 ? (
+            <img src={ice} alt="ice" className={styles.imgForm} />
+          ) : type === 3 ? (
+            <img src={snow} alt="snow" className={styles.imgForm} />
+          ) : type === 4 ? (
+            <img src={shower} alt="shower" className={styles.imgForm} />
+          ) : (
+            <img src={clear} alt="clear" className={styles.imgForm} />
+          )}
+          <Clock />
+        </div>
+        <div className={styles.textForm}>
+          <Typography className={styles.tempText} variant="h2" component="h1">
+            {temp}&deg;
+          </Typography>
+          <Typography>{rain}</Typography>
+        </div>
       </div>
     </React.Fragment>
   );

@@ -8,13 +8,16 @@
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
-    background-color: white;
+    background: linear-gradient(
+        rgba(70, 100, 90, 0.5),
+        rgba(77, 106, 60, 0.7),
+        rgba(120, 125, 80, 1)
+    );
     width: 500px;
     height: 400px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    color: black;
+    margin: 0 auto;
+    margin-top: 4rem;
+    color: #FC7E8B;
 }
 
 .clockText{
@@ -23,6 +26,9 @@
 
 .tempText{
     font-size: 50rem;
+}
+
+.textForm{
     position: relative;
-    
+    bottom: 2rem;
 }

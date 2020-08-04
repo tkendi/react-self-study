@@ -16,8 +16,9 @@
     width: 500px;
     height: 400px;
     margin: 0 auto;
-    margin-top: 4rem;
+    margin-top: 4.5rem;
     color: #FC7E8B;
+    border-radius: 5%;
 }
 
 .clockText{
@@ -30,5 +31,5 @@
 
 .textForm{
     position: relative;
-    bottom: 2rem;
+    bottom: 1rem;
 }

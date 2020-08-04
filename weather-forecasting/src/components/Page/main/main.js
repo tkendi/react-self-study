@@ -13,12 +13,10 @@ const WeatherMain = ({ nx, ny }) => {
   const [temp, setTemp] = useState(0);
   const [rain, setRain] = useState(0);
   const [type, setType] = useState(0);
-  const [baseTime, setBaseTime] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
       const data = await weatherData(nx, ny);
-      setBaseTime(data.baseTime);
       setTemp(data.TMP);
       setRain(data.RNH);
       setType(data.SKY);

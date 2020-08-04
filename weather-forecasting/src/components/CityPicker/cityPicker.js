@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, TextField, MenuItem } from "@material-ui/core";
-import styles from './cityPicker.module.css'
+import styles from "./cityPicker.module.css";
 
 const cityPciker = ({ cityParsing }) => {
   const data = {
@@ -20,7 +20,7 @@ const cityPciker = ({ cityParsing }) => {
 
   return (
     <React.Fragment>
-      <div className = {styles.pickerForm}>
+      <div className={styles.pickerForm}>
         <TextField
           select
           label="City"
@@ -28,7 +28,8 @@ const cityPciker = ({ cityParsing }) => {
           onChange={(e) =>
             cityParsing(data.nx[e.target.value], data.ny[e.target.value])
           }
-          className = {styles.picker}
+          className={styles.picker}
+          color = "secondary"
         >
           {data.city.map((city, index) => {
             return (

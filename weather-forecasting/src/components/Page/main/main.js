@@ -6,7 +6,8 @@ import shower from "../../../img/meteor-shower.png";
 import ice from "../../../img/ice.png";
 import rainy from "../../../img/rain.png";
 import { weatherData } from "../../../api";
-import Clock from '../../Clock/clock'
+import Clock from "../../Clock/clock";
+import styles from "./main.module.css";
 
 const WeatherMain = ({ nx, ny }) => {
   const [temp, setTemp] = useState(0);
@@ -35,7 +36,7 @@ const WeatherMain = ({ nx, ny }) => {
       <Typography>{temp}&deg;C</Typography>
       <Typography>{rain}</Typography>
       {type === 1 ? (
-        <img src={rainy} alt="rain" />
+        <img src={rainy} alt="rain" className={styles.imgForm} />
       ) : type === 2 ? (
         <img src={ice} alt="ice" />
       ) : type === 3 ? (

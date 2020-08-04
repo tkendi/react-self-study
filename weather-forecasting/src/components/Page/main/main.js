@@ -6,6 +6,7 @@ import shower from "../../../img/meteor-shower.png";
 import ice from "../../../img/ice.png";
 import rainy from "../../../img/rain.png";
 import { weatherData } from "../../../api";
+import Clock from '../../Clock/clock'
 
 const WeatherMain = ({ nx, ny }) => {
   const [temp, setTemp] = useState(0);
@@ -30,7 +31,7 @@ const WeatherMain = ({ nx, ny }) => {
 
   return (
     <React.Fragment>
-      <Typography>{baseTime}</Typography>
+      <Clock />
       <Typography>{temp}&deg;C</Typography>
       <Typography>{rain}</Typography>
       {type === 1 ? (

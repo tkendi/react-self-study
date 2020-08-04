@@ -28,18 +28,20 @@ const WeatherMain = ({ nx, ny }) => {
     };
   }, [nx, ny]);
 
+  console.log(type)
+
   return (
     <React.Fragment>
       <CssBaseline />
       <div className={styles.mainForm}>
         <div>
-          {type === 1 ? (
+          {type == 1 ? (
             <img src={rainy} alt="rain" className={styles.imgForm} />
-          ) : type === 2 ? (
+          ) : type == 2 ? (
             <img src={ice} alt="ice" className={styles.imgForm} />
-          ) : type === 3 ? (
+          ) : type == 3 ? (
             <img src={snow} alt="snow" className={styles.imgForm} />
-          ) : type === 4 ? (
+          ) : type == 4 ? (
             <img src={shower} alt="shower" className={styles.imgForm} />
           ) : (
             <img src={clear} alt="clear" className={styles.imgForm} />

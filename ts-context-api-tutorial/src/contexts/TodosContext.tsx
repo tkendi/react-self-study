@@ -1,4 +1,4 @@
-import { createContext, Dispatch, useReducer } from "react";
+import React, { createContext, Dispatch, useReducer, useContext } from "react";
 
 export type Todo = {
   id: number;
@@ -6,9 +6,9 @@ export type Todo = {
   done: boolean;
 };
 
-type TodoState = Todo[];
+type TodosState = Todo[];
 
-const todosSateContext = createContext<TodoState | undefined>(undefined);
+const TodosStateContext = createContext<TodosState | undefined>(undefined);
 
 type Action =
   | { type: "CREATE"; text: string }
@@ -20,7 +20,7 @@ const TodosDispatchContext = createContext<TodosDispatch | undefined>(
   undefined
 );
 
-function todosReducer(state: TodoState, action: Action): TodosState {
+function todosReducer(state: TodosState, action: Action): TodosState {
   switch (action.type) {
     case "CREATE":
       const nextId = Math.max(...state.map((todo) => todo.id)) + 1;
@@ -65,9 +65,21 @@ export function TodosContextProvider({
 
   return (
     <TodosDispatchContext.Provider value={dispatch}>
-      <todosSateContext.Provider value={todos}>
+      <TodosStateContext.Provider value={todos}>
         {children}
-      </todosSateContext.Provider>
+      </TodosStateContext.Provider>
     </TodosDispatchContext.Provider>
   );
+}
+
+export function useTodosState() {
+  const state = useContext(TodosStateContext);
+  if (!state) throw new Error("TodosProvider not found");
+  return state;
+}
+
+export function useTodosDispatch() {
+  const dispatch = useContext(TodosDispatchContext);
+  if (!dispatch) throw new Error("TodosProvider not found");
+  return dispatch;
 }

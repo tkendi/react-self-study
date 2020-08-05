@@ -1,20 +1,19 @@
 .clockForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-right: 8rem;
-    position: relative;
-    bottom: 6rem;
-    left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 8rem;
+  position: relative;
+  bottom: 6rem;
+  left: 4rem;
 }
 
 .clockText {
-    font-size: 1.5rem;
-    padding-right: 3.3rem;
-    color: #cfd8dc;
+  font-size: 1.5rem;
+  padding-right: 3.3rem;
+  color: #cfd8dc;
 }
 
 .dateText {
-    font-size: 2rem;
+  font-size: 2rem;
 }
-

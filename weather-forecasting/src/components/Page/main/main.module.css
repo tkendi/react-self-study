@@ -1,6 +1,8 @@
 .imgForm {
   width: 105px;
-  margin-right: 20rem;
+  position: relative;
+  top: 8.5rem;
+  left: 4rem;
 }
 
 .mainForm {
@@ -8,28 +10,26 @@
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
-  background: linear-gradient(
-    rgba(70, 100, 90, 0.5),
-    rgba(77, 106, 60, 0.7),
-    rgba(120, 125, 80, 1)
-  );
-  width: 500px;
-  height: 400px;
+  background-color: #F3E2E1;
+  width: 450px;
+  height: 550px;
   margin: 0 auto;
-  margin-top: 2.5rem;
-  color: #fc7e8b;
+  margin-top: .5rem;
+  color: #34558B;
   border-radius: 5%;
 }
 
 .clockText {
-  margin-bottom: 30rem;
+  margin: 0 auto;
 }
 
 .tempText {
   font-size: 50rem;
 }
 
+
 .textForm {
   position: relative;
-  bottom: 1rem;
+  top: 7rem;
+  margin: 0 auto;
 }

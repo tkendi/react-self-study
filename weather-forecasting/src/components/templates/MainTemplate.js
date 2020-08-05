@@ -7,9 +7,9 @@ const Container = styled.div`
   height: 100%;
   background: linear-gradient(
       to right,
-      rgba(100, 50, 50, 0.5) 10%,
-      rgba(20, 60, 20, 0.9) 70%,
-      rgba(31, 50, 40, 1)
+      rgba(15, 76, 129, 0.4) 10%,
+      rgba(20, 86, 140, 0.9) 70%,
+      rgba(25, 96, 160, 1)
     );
   background-size: cover;
   font-family: sans-serif;

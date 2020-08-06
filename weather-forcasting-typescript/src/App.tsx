@@ -1,21 +1,14 @@
 import React from "react";
-import {weatherData} from './api'
+import { Typography } from "@material-ui/core";
+import City from './components/City/cityPicker'
 
-class App extends React.Component {
-  
-  async componentDidMount() {
-    const nx = 60;
-    const ny = 127;
-    const data = await weatherData(nx, ny)
-    console.log(data)
-  }
-  render() {
-    return (
-      <div>
-        <p>Hello Typescript</p>
-      </div>
-    );
-  }
+const App = () => {
+  return(
+    <div>
+      <Typography>Hello Typescript</Typography>
+      <City />
+    </div>
+  )
 }
 
 export default App;

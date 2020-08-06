@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentState } from "react";
 import { TextField, MenuItem, CssBaseline } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab";
 import data from "../../city.json";
@@ -22,7 +22,7 @@ const cityPicker: React.FC<Props> = (props: Props) => {
             props.CityChange(
                 data.nx[e.currentTarget.value],
                 data.ny[e.currentTarget.value]
-            )
+            )as ComponentState
           }
         >
           {data.city.map((city, index) => {

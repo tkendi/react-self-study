@@ -5,7 +5,7 @@ import City from './components/City/cityPicker'
 const App = () => {
   const [nx, setNx] = useState(0)
   const [ny, setNy] = useState(0)
-  const CityChange = (cityNx: number, cityNy: number) => {
+  const CityChange = (cityNx: React.SetStateAction<number>, cityNy: React.SetStateAction<number>) => {
     setNx(cityNx)
     setNy(cityNy)
     console.log(nx, ny)

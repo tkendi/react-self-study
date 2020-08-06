@@ -20,7 +20,7 @@ const cityPicker: React.FC<Props> = (props: Props) => {
           helperText="List of city"
           onChange={(e) =>
             props.CityChange(
-                data.nx[e.currentTarget.value],
+                data.nx[e.target.value],
                 data.ny[e.currentTarget.value]
             )as ComponentState
           }

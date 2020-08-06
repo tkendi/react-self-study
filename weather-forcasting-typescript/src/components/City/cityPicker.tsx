@@ -18,12 +18,7 @@ const cityPicker: React.FC<Props> = (props: Props) => {
           select
           label="City"
           helperText="List of city"
-          onChange={(e) =>
-            props.CityChange(
-                data.nx[e.target.value],
-                data.ny[e.currentTarget.value]
-            )as ComponentState
-          }
+          onChange={(e) => props.CityChange(data.nx[parseInt(e.target.value)], data.ny[parseInt(e.target.value)])}
         >
           {data.city.map((city, index) => {
             return (

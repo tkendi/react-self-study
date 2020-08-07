@@ -1,0 +1,15 @@
+.pickerForm {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+    padding-bottom: 1.5rem;
+}
+
+.picker {
+    width: 20rem;
+}
+
+.menuText {
+    color: white;
+}

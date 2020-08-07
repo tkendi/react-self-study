@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
 import City from "./components/City/cityPicker";
 import WeatherMain from "./components/Page/main/main";
+import styles from "./App.module.css";
 
 const App = () => {
   const [nx, setNx] = useState(0);
@@ -15,7 +16,14 @@ const App = () => {
   };
   return (
     <div>
-      <Typography>Weather Forecasting</Typography>
+      <Typography
+        className={styles.head}
+        align="center"
+        variant="h3"
+        component="h1"
+      >
+        Weather Forecasting
+      </Typography>
       <City CityChange={CityChange} />
       <WeatherMain nx={nx} ny={ny} />
     </div>

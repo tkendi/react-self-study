@@ -9,9 +9,9 @@ interface Props {
 }
 
 const WeatherMain: React.FC<Props> = (props: Props) => {
-  const [temp, setTemp] = useState("0");
-  const [rain, setRain] = useState("0");
-  const [type, setType] = useState("0");
+  const [temp, setTemp] = useState<string>("0");
+  const [rain, setRain] = useState<string>("0");
+  const [type, setType] = useState<string>("0");
   useEffect(() => {
     async function fetchedData() {
       const data = await weatherData(props.nx, props.ny);

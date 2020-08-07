@@ -14,7 +14,7 @@ const clock = () => {
         </div>
       </div>
     </React.Fragment>
-  );
+  );  
 };
 
 export default clock;

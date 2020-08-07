@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { weatherData } from "../../../api";
-import { Typography, CssBaseline } from "@material-ui/core";
-import Clock from '../../Clock/Clock'
+import { Typography, CssBaseline, StylesProvider } from "@material-ui/core";
+import Clock from "../../Clock/Clock";
+import clear from "../../../img/sun.png";
+import snow from "../../../img/snow.png";
+import shower from "../../../img/meteor-shower.png";
+import ice from "../../../img/ice.png";
+import rainy from "../../../img/rain.png";
+import styles from "../styles/main.module.css"
 
 interface Props {
-  nx: number; 
+  nx: number;
   ny: number;
 }
 
@@ -26,20 +32,26 @@ const WeatherMain: React.FC<Props> = (props: Props) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <div>
+      <div className={styles.mainForm}>
         <div>
           {parseInt(type) === 1 ? (
-            <Typography>rain</Typography>
+            <img src={rainy} alt="rain" className={styles.imgForm} />
           ) : parseInt(type) === 2 ? (
-            <Typography>ic</Typography>
+            <img src={ice} alt="ice" className={styles.imgForm} />
           ) : parseInt(type) === 3 ? (
-            <Typography>snow</Typography>
+            <img src={snow} alt="snow" className={styles.imgForm} />
           ) : parseInt(type) === 4 ? (
-            <Typography>shower</Typography>
+            <img src={shower} alt="shower" className={styles.imgForm} />
           ) : (
-            <Typography>clear</Typography>
+            <img src={clear} alt="clear" className={styles.imgForm} />
           )}
           <Clock />
+        </div>
+        <div className={styles.textForm}>
+          <Typography className={styles.tempText} variant="h2" component="h1">
+            {temp}&deg;
+          </Typography>
+          <Typography>시간당 강수량: {rain}</Typography>
         </div>
       </div>
     </React.Fragment>

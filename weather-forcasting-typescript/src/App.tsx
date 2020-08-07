@@ -15,18 +15,20 @@ const App = () => {
     setNy(cityNy);
   };
   return (
-    <div>
-      <Typography
-        className={styles.head}
-        align="center"
-        variant="h3"
-        component="h1"
-      >
-        Weather Forecasting
-      </Typography>
-      <City CityChange={CityChange} />
-      <WeatherMain nx={nx} ny={ny} />
-    </div>
+    <React.Fragment>
+      <div className = {styles.appForm}>
+        <Typography
+          className={styles.head}
+          align="center"
+          variant="h3"
+          component="h1"
+        >
+          Weather Forecasting
+        </Typography>
+        <City CityChange={CityChange} />
+        <WeatherMain nx={nx} ny={ny} />
+      </div>
+    </React.Fragment>
   );
 };
 

@@ -5,7 +5,7 @@ import styles from './clock.module.css'
 const clock = () => {
   return (
     <React.Fragment>
-      <div>
+      <div className = {styles.clockForm}>
         <div className = {styles.dateText}>
           <Clock format={"MM월 DD"} ticking={true} timezone={"Asia/Seoul"} />
         </div>

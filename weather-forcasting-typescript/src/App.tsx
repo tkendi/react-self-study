@@ -15,7 +15,7 @@ const App = () => {
   };
   return (
     <div>
-      <Typography>Hello Typescript</Typography>
+      <Typography>Weather Forecasting</Typography>
       <City CityChange={CityChange} />
       <WeatherMain nx={nx} ny={ny} />
     </div>

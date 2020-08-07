@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { weatherData } from "../../../api";
 import { Typography, CssBaseline } from "@material-ui/core";
+import Clock from '../../Clock/Clock'
 
 interface Props {
   nx: number;
@@ -38,6 +39,7 @@ const WeatherMain: React.FC<Props> = (props: Props) => {
           ) : (
             <Typography>clear</Typography>
           )}
+          <Clock />
         </div>
       </div>
     </React.Fragment>

@@ -1,6 +1,5 @@
 import React, { ComponentState } from "react";
 import { TextField, MenuItem, CssBaseline } from "@material-ui/core";
-import Autocomplete from "@material-ui/lab";
 import data from "../../city.json";
 
 console.log(data.nx);

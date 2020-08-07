@@ -4,7 +4,7 @@ import { Typography, CssBaseline } from "@material-ui/core";
 import Clock from '../../Clock/Clock'
 
 interface Props {
-  nx: number;
+  nx: number; 
   ny: number;
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {Typography} from '@material-ui/core'
 
 const AuthFormBlock = styled.div``;
 
@@ -9,7 +10,7 @@ const textMap = {
   register: "회원가입",
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -40,6 +41,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
             value = {form.passwordConfirm}
           />
         )}
+        {error && <Typography>{error}</Typography>}
         <button>{text}</button>
       </form>
       {type === "login" ? (

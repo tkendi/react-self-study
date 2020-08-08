@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Responsive from "./Responsive";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const HeaderBlock = styled.div`
   position: fixed;
@@ -30,17 +31,32 @@ const Spacer = styled.dive`
   height: 4rem;
 `;
 
-const Header = () => {
+const UserInfo = styled.div`
+  font-weight: 800;
+  margin-right: 1rem;
+`;
+
+const Header = ({ user, onLogout }) => {
   return (
     <React.Fragment>
       <HeaderBlock>
         <Wrapper>
-          <div className="logo">TEST</div>
-          <div className="right">
-            <Button>로그인</Button>
-          </div>
+          <Link to="/" className="logo">
+            TEST
+          </Link>
+          {user ? (
+            <div className="right">
+              <UserInfo>{user.username}</UserInfo>
+              <Button onClick={onLogout}>로그아웃</Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button href="/login">로그인</Button>
+            </div>
+          )}
         </Wrapper>
       </HeaderBlock>
+      <Spacer />
     </React.Fragment>
   );
 };

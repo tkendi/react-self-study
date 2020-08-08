@@ -4,7 +4,12 @@ import client from "./client";
 export const login = ({ username, password }) =>
   client.post("/api/auth/login", { username, password });
 
+//SignUp
 export const register = ({ username, password }) =>
   client.post("/api/auth/register", { username, password });
 
+//Check user status
 export const check = () => client.get("/api/auth/check");
+
+//Logout
+export const logout = () => client.post('/api/auth/logout')

@@ -73,6 +73,11 @@ const RegisterForm = ({ history }) => {
   useEffect(() => {
     if (user) {
       history.push("/"); //메인으로 이동
+      try {
+        localStorage.setItem("user", JSON.stringify(user));
+      } catch (e) {
+        console.log("localStorage is not working");
+      }
     }
   }, [history, user]);
 
@@ -82,7 +87,7 @@ const RegisterForm = ({ history }) => {
       form={form}
       onChange={onChange}
       onSubmit={onSubmit}
-      error={error} 
+      error={error}
     />
   );
 };

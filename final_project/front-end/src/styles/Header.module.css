@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap");
+
 .HeadBlock {
   position: fixed;
   width: 100%;
@@ -19,17 +21,18 @@
 }
 
 .logo {
+  font-family: "Fira Code", monospace;
+  font-weight: bolder;
   text-decoration: none;
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: 0.5px;
-  padding-left: 1.25rem;
+  padding-left: 4.25rem;
 }
 
 .right {
   display: flex;
   align-items: center;
-  padding-right: 2rem;
+  padding-right: 4.25rem;
 }
 
 .spacer {
@@ -40,4 +43,9 @@
   display: block;
   font-weight: 800;
   margin-right: 1rem;
+}
+
+.pages {
+    margin-right: 3rem;
+    margin-left: 3rem;
 }

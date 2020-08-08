@@ -1,8 +1,8 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Button, Grid, ButtonGroup } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import styles from "../../styles/Header.module.css";
-import PetsIcon from '@material-ui/icons/Pets';
+import PetsIcon from "@material-ui/icons/Pets";
 
 const Header = ({ user, onLogout }) => {
   return (
@@ -10,10 +10,20 @@ const Header = ({ user, onLogout }) => {
       <div className={styles.HeadBlock}>
         <div className={styles.Wrapper}>
           <Link to="/" className={styles.logo}>
-            <PetsIcon size/>  SoonDoll
+            <PetsIcon size style={{ fontSize: 30, color: "#ffc107" }} />{" "}
+            SoonDoll
           </Link>
           <div>
-
+            <ButtonGroup
+              fullWidth
+              size="large"
+              orientation="horizontal"
+              variant="text"
+            >
+              <Button>Streaming</Button>
+              <Button>Board</Button>
+              <Button>My Page</Button>
+            </ButtonGroup>
           </div>
           {user ? (
             <div className={styles.right}>

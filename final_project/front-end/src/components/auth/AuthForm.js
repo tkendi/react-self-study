@@ -9,18 +9,26 @@ const textMap = {
   register: "회원가입",
 };
 
-const AuthForm = ({ type }) => {
-  const type = textMap[type];
+const AuthForm = ({ type, form, onChange, onSubmit }) => {
+  const text = textMap[type];
   return (
     <AuthFormBlock>
       <h3>{text}</h3>
-      <form>
-        <input autoComplete="username" name="username" placeholder="아이디" />
+      <form onSubmit={onSubmit}>
+        <input
+          autoComplete="username"
+          name="username"
+          placeholder="아이디"
+          onChange={onChange}
+          value={form.username}
+        />
         <input
           autoComplete="new-password"
           name="password"
           placeholder="비밀번호"
           type="password"
+          onChange = {onChange}
+          value = {form.passowrd}
         />
         {type === "register" && (
           <input
@@ -28,6 +36,8 @@ const AuthForm = ({ type }) => {
             name="passwordConfirm"
             placeholder="비밀번호 확인"
             type="password"
+            onChange = {onChange}
+            value = {form.passwordConfirm}
           />
         )}
         <button>{text}</button>

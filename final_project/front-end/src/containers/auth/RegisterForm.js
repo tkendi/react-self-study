@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../modules/auth";
 import AuthForm from "../../components/auth/AuthForm";
@@ -54,7 +54,7 @@ const RegisterForm = ({ history }) => {
   useEffect(() => {
     if (authError) {
       //계정이 이미 존재시
-      if (authError.respose.status === 409) {
+      if (authError.response.status === 409) {
         setError("이미 존재하는 계정입니다.");
         return;
       }

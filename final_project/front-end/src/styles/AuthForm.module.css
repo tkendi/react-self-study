@@ -3,6 +3,7 @@
   border: none;
   border-bottom: 1px solid #9e9e9e;
   padding-bottom: 0.5rem;
+  padding-top: 3rem;
   outline: none;
   width: 100%;
 }
@@ -16,7 +17,7 @@
   text-align: right;
 }
 
-.footerLink{
+.footerLink {
   color: #757575;
   text-decoration: underline;
 }
@@ -26,7 +27,13 @@
 }
 
 .textHead {
-    margin: 0;
-    color: #424242;
-    margin-bottom: 1rem;
+  margin: 0;
+  color: #424242;
+  margin-bottom: 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

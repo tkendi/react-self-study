@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/AuthForm.module.css";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 
 const textMap = {
   login: "로그인",
@@ -42,7 +42,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           />
         )}
         {error && <Typography>{error}</Typography>}
-        <button>{text}</button>
+        <Button className = {styles.button}>{text}</Button>
       </form>
       <div>
         {type === "login" ? (

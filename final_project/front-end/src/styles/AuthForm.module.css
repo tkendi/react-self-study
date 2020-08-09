@@ -20,6 +20,11 @@
 .footerLink {
   color: #757575;
   text-decoration: underline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 5rem;
 }
 
 .footerLink:hover {
@@ -36,4 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 2.5rem;
+  border-radius: 10px;
+  color: #ffd600
 }

@@ -42,7 +42,9 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           />
         )}
         {error && <Typography>{error}</Typography>}
-        <Button className = {styles.button}>{text}</Button>
+        <div className={styles.button}>
+          <Button color = "#ffd600">{text}</Button>
+        </div>
       </form>
       <div>
         {type === "login" ? (

@@ -43,9 +43,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
         )}
         {error && <Typography>{error}</Typography>}
         <div className={styles.button}>
-          <Button color = "#ffd600">{text}</Button>
+          <button color="#ffd600">{text}</button>
         </div>
       </form>
+
       <div>
         {type === "login" ? (
           <Link to="/register" className={styles.footerLink}>

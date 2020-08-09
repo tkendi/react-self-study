@@ -41,10 +41,8 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             className={styles.styleInput}
           />
         )}
-        {error && <Typography>{error}</Typography>}
-        <div className={styles.button}>
-          <button color="#ffd600">{text}</button>
-        </div>
+        {error && <Typography className = {styles.errorText}>{error}</Typography>}
+        <button className={styles.button}>{text}</button>
       </form>
 
       <div>

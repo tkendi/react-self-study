@@ -53,3 +53,16 @@
   font-weight: bold;
   font-size: large;
 }
+
+@media (max-width: 660px) {
+  .HeadBlock {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .pages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0.5rem;
+  }
+}

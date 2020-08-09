@@ -11,6 +11,7 @@ class App extends React.Component {
         <Route component={MainPage} path="/" />
         <Route component={LoginPage} path="/login" />
         <Route component={RegisterPage} path="/register" />
+        <Route component ={WirtePage} path="/write" />
       </React.Fragment>
     );
   }

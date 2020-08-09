@@ -2,13 +2,14 @@ import React, { useRef, useEffect } from "react";
 import Quill from "quill";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
+import 'quill/dist/quill.bubble.css'
 
 const EditorBlock = styled(Responsive)`
   padding-top: 5rem;
   padding-bottom: 5rem;
 `;
 
-const TitleInput = styled.div`
+const TitleInput = styled.input`
   font-size: 3rem;
   outline: none;
   padding-bottom: 0.5rem;
@@ -18,7 +19,7 @@ const TitleInput = styled.div`
   width: 100%;
 `;
 
-const QuilWrapper = styled.div`
+const QuillWrapper = styled.div`
   .ql-editor {
     padding: 0;
     min-height: 320px;
@@ -50,12 +51,12 @@ const Editor = () => {
   }, []);
 
   return (
-    <Editor>
+    <EditorBlock>
       <TitleInput placeholder="제목을 입력하세요" />
-      <QuilWrapper>
+      <QuillWrapper>
         <div ref={quillElement} />
-      </QuilWrapper>
-    </Editor>
+      </QuillWrapper>
+    </EditorBlock>
   );
 };
 

@@ -14,7 +14,7 @@
 }
 
 .Wrapper {
-  height: 4rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,6 +46,10 @@
 }
 
 .pages {
-    margin-right: 3rem;
-    margin-left: 3rem;
+  text-decoration: none;
+  margin-right: 4.5rem;
+  margin-left: 4.5rem;
+  color: #3e2723;
+  font-weight: bold;
+  font-size: large;
 }

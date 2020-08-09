@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Route component={MainPage} path="/" exact={true} />
+        <Route component={MainPage} path="/" />
         <Route component={LoginPage} path="/login" />
         <Route component={RegisterPage} path="/register" />
       </React.Fragment>

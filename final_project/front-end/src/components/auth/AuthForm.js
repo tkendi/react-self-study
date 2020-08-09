@@ -1,9 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styles from "../../styles/AuthForm.module.css";
 import { Link } from "react-router-dom";
-import {Typography} from '@material-ui/core'
-
-const AuthFormBlock = styled.div``;
+import { Typography } from "@material-ui/core";
 
 const textMap = {
   login: "로그인",
@@ -13,8 +11,7 @@ const textMap = {
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const text = textMap[type];
   return (
-    <AuthFormBlock>
-      <h3>{text}</h3>
+    <div>
       <form onSubmit={onSubmit}>
         <input
           autoComplete="username"
@@ -22,14 +19,16 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           placeholder="아이디"
           onChange={onChange}
           value={form.username}
+          className={styles.styleInput}
         />
         <input
           autoComplete="new-password"
           name="password"
           placeholder="비밀번호"
           type="password"
-          onChange = {onChange}
-          value = {form.passowrd}
+          onChange={onChange}
+          value={form.passowrd}
+          className={styles.styleInput}
         />
         {type === "register" && (
           <input
@@ -37,19 +36,26 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             name="passwordConfirm"
             placeholder="비밀번호 확인"
             type="password"
-            onChange = {onChange}
-            value = {form.passwordConfirm}
+            onChange={onChange}
+            value={form.passwordConfirm}
+            className={styles.styleInput}
           />
         )}
         {error && <Typography>{error}</Typography>}
         <button>{text}</button>
       </form>
-      {type === "login" ? (
-        <Link to="/register">회원가입</Link>
-      ) : (
-        <Link to="/login">로그인</Link>
-      )}
-    </AuthFormBlock>
+      <div>
+        {type === "login" ? (
+          <Link to="/register" className={styles.footerLink}>
+            회원가입
+          </Link>
+        ) : (
+          <Link to="/login" className={styles.footerLink}>
+            로그인
+          </Link>
+        )}
+      </div>
+    </div>
   );
 };
 

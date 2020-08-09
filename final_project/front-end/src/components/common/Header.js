@@ -14,16 +14,9 @@ const Header = ({ user, onLogout }) => {
             SoonDoll
           </Link>
           <div>
-            <ButtonGroup
-              fullWidth
-              size="large"
-              orientation="horizontal"
-              variant="text"
-            >
-              <Button>Streaming</Button>
-              <Button>Board</Button>
-              <Button>My Page</Button>
-            </ButtonGroup>
+            <Link to="#" className = {styles.pages}>Streaming</Link>
+            <Link to="#" className = {styles.pages} >Board</Link>
+            <Link to="#" className = {styles.pages} >My Page</Link>
           </div>
           {user ? (
             <div className={styles.right}>
@@ -46,3 +39,4 @@ const Header = ({ user, onLogout }) => {
 };
 
 export default Header;
+

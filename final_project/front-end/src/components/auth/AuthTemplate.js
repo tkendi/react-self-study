@@ -1,17 +1,23 @@
 import React from "react";
-import styled from "styled-components";
+import styles from "../../styles/AuthTemplate.module.css";
 import { Link } from "react-router-dom";
 
-const AuthTemplateBlock = styled.div``;
-
-const AuthTemplate = ({ children }) => {
+const AuthTemplate = ({ children, page }) => {
   return (
-    <AuthTemplateBlock>
-      <div>
-        <Link to="/">TEST</Link>
+    <div className={styles.AuthTemplate}>
+      <div className={styles.WhiteBox}>
+        {page === "Login" ? (
+          <Link to="/" className={styles.logoArea}>
+            Sign In to SoonDoll
+          </Link>
+        ) : (
+          <Link to="/" className={styles.logoArea}>
+            Create Account
+          </Link>
+        )}
+        {children}
       </div>
-      {children}
-    </AuthTemplateBlock>
+    </div>
   );
 };
 

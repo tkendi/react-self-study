@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import InserForm from "../components/notes/InsertForm";
 import NoteWrapper from "../components/notes/NoteWrapper";
 
 import * as noteActions from "../store/modules/notes";
@@ -12,13 +11,23 @@ export class NoteContainer extends Component {
     changeNoteInput({ value });
   };
 
+  addNote = () => {
+    const { addNote } = this.props;
+    addNote();
+  };
+
   render() {
-    const { noteInput } = this.props;
-    const { handleChange } = this;
+    const { noteInput, error } = this.props;
+    const { handleChange, addNote } = this;
     return (
       <div>
         <NoteWrapper>
-          <InsertForm noteInput={noteInput} onChangeInput={handleChange} />
+          <InsertForm
+            noteInput={noteInput}
+            onChangeInput={handleChange}
+            onAdd={addNote}
+            error={error}
+          />
         </NoteWrapper>
       </div>
     );
@@ -27,12 +36,17 @@ export class NoteContainer extends Component {
 
 const mapStateToProps = (state) => ({
   noteInput: state.notes.noteInput,
+  notes: state.notes.notes,
+  error: state.notes.error,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeNoteInput: ({ value }) => {
       dispatch(noteActions.changeNoteInput({ value }));
+    },
+    addNote: () => {
+      dispatch(noteActions.addNote());
     },
   };
 };

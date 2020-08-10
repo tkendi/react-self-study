@@ -5,7 +5,7 @@ import createRequestSaga, {
 import * as postsAPI from "../lib/api/posts";
 import { takeLatest } from "redux-saga/effects";
 
-const INITIALIZE = "write/INITIALIZE";
+const INITIALIZE = "write/INITAILIZE";
 const CHANGE_FIELD = "write/CHANGE_FIELD";
 const [
   WRITE_POST,
@@ -18,13 +18,14 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   key,
   value,
 }));
+
 export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
   title,
   body,
   tags,
 }));
 
-//saga creation
+//create saga
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
 export function* writeSaga() {
   yield takeLatest(WRITE_POST, writePostSaga);
@@ -40,7 +41,7 @@ const initialState = {
 
 const write = handleActions(
   {
-    [INITIALIZE]: state => initialState,
+    [INITIALIZE]: (state) => initialState,
     [CHANGE_FIELD]: (state, { payload: { key, value } }) => ({
       ...state,
       [key]: value,

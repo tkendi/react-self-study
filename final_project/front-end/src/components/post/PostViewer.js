@@ -48,6 +48,7 @@ const PostContent = styled.div`
 
 const PostViewer = ({ error, post, loading }) => {
   if (error) {
+    console.log(error)
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다</PostViewerBlock>;
     }

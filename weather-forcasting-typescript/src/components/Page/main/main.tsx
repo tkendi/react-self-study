@@ -21,7 +21,6 @@ const WeatherMain: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     async function fetchedData() {
       const data = await weatherData(props.nx, props.ny);
-      console.log(data);
       setTemp(data.TMP);
       setRain(data.RNH);
       setType(data.SKY);

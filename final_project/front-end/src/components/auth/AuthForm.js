@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/AuthForm.module.css";
 import { Link } from "react-router-dom";
-import { Typography, Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const textMap = {
   login: "로그인",

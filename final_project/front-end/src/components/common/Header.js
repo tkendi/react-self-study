@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button, Grid, ButtonGroup } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import styles from "../../styles/Header.module.css";
 import PetsIcon from "@material-ui/icons/Pets";

@@ -1,30 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const WriteActionButtonBlock = styled.div`
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    button + button {
-        margin-left: 0.5rem;
-    }
-`
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  button + button {
+    margin-left: 0.5rem;
+  }
+`;
 
 const StyledButton = styled.button`
-    height: 2.125rem;
-    & + &{
-        margin-left: 0.5rem;
-    }
-`
+  height: 2.125rem;
+  & + & {
+    margin-left: 0.5rem;
+  }
+`;
 
-const WriteActionButtons = ({onCancel, onPublish}) => {
-    return (
-        <WriteActionButtonBlock>
-            <StyledButton onClick = {onPublish}>
-                포스트 등록
-            </StyledButton>
-            <StyledButton onClick = {onCancel}>취소</StyledButton>
-        </WriteActionButtonBlock>
-    )
-}
+const WriteActionButtons = ({ onCancel, onPublish }) => {
+  return (
+    <WriteActionButtonBlock>
+      <StyledButton onClick={onPublish}>포스트 등록</StyledButton>
+      <StyledButton onClick={onCancel}>취소</StyledButton>
+    </WriteActionButtonBlock>
+  );
+};
 
-export default WriteActionButtons
+export default WriteActionButtons;

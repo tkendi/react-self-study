@@ -40,7 +40,7 @@ const initialState = {
 
 const write = handleActions(
   {
-    [INITIALIZE]: (state) => initialState,
+    [INITIALIZE]: state => initialState,
     [CHANGE_FIELD]: (state, { payload: { key, value } }) => ({
       ...state,
       [key]: value,

@@ -16,8 +16,8 @@ interface Props {
 
 const WeatherMain: React.FC<Props> = (props: Props) => {
   const [temp, setTemp] = useState<string>("0");
-  const [rain, setRain] = useState<string>("0");
-  const [type, setType] = useState<string>("0");
+  const [rain, setRain] = useState<string>("");
+  const [type, setType] = useState<string>("");
   useEffect(() => {
     async function fetchedData() {
       const data = await weatherData(props.nx, props.ny);
@@ -41,8 +41,10 @@ const WeatherMain: React.FC<Props> = (props: Props) => {
             <img src={snow} alt="snow" className={styles.imgForm} />
           ) : parseInt(type) === 4 ? (
             <img src={shower} alt="shower" className={styles.imgForm} />
-          ) : (
+          ) : parseInt(type) === 0 ? (
             <img src={clear} alt="clear" className={styles.imgForm} />
+          ) : (
+            <Typography className={styles.imgForm}>Choose the region</Typography>
           )}
           <Clock />
         </div>

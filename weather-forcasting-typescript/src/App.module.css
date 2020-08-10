@@ -17,3 +17,10 @@
     font-family: sans-serif;
     color: white
 }
+
+@media (max-width: 600px) {
+    .appForm {
+        width: 97.56%;
+        height: 80%;
+    }
+}

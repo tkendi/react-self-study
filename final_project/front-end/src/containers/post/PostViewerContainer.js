@@ -19,7 +19,7 @@ const PostViewerContainer = ({ match }) => {
       dispatch(unloadPost());
     };
   }, [dispatch, postId]);
-
+ 
   return <PostViewer post={post} loading={loading} error={error} />;
 };
 

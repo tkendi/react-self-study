@@ -1,6 +1,8 @@
 import React from "react";
+import { decorate, observable, action, computed } from "mobx";
+import { observer } from "mobx-react";
 
-class Counter extends React.Fragment {
+class Counter extends React.Component {
   number = 0;
 
   increase = () => {
@@ -22,4 +24,10 @@ class Counter extends React.Fragment {
   }
 }
 
-export default Counter; 
+decorate(Counter, {
+  number: observable,
+  increase: action,
+  decrease: action,
+});
+
+export default observer(Counter);

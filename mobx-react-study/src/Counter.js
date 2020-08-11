@@ -1,14 +1,17 @@
 import React from "react";
-import { decorate, observable, action, computed } from "mobx";
+import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 
+@observer
 class Counter extends React.Component {
-  number = 0;
+  @observable number = 0;
 
+  @action
   increase = () => {
     this.number++;
   };
 
+  @action
   decrease = () => {
     this.number--;
   };
@@ -24,10 +27,4 @@ class Counter extends React.Component {
   }
 }
 
-decorate(Counter, {
-  number: observable,
-  increase: action,
-  decrease: action,
-});
-
-export default observer(Counter);
+export default Counter;

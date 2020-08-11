@@ -1,27 +1,22 @@
 import React from "react";
-import { observable, action } from "mobx";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
+
+@inject((stores) => ({
+  counter: stores.counter,
+  reset: stores.reset,
+}))
 
 @observer
 class Counter extends React.Component {
-  @observable number = 0;
-
-  @action
-  increase = () => {
-    this.number++;
-  };
-
-  @action
-  decrease = () => {
-    this.number--;
-  };
-
   render() {
+    const { counter, reset } = this.props;
     return (
       <div>
-        <h1>{this.number}</h1>
-        <button onClick={this.increase}>+1</button>
-        <button onClick={this.decrease}>-1</button>
+        <h1>제곱된 값{counter.total}</h1>
+        <h1>현재 값 {counter.number}</h1>
+        <button onClick={counter.increase}>+1</button>
+        <button onClick={counter.decrease}>-1</button>
+        <button onClick = {reset.resetFunc}>reset</button>
       </div>
     );
   }

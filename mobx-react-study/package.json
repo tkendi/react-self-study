@@ -134,7 +134,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "mobx"
     ],
     "plugins": [
       [

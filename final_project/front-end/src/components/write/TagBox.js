@@ -98,6 +98,7 @@ const TagBox = ({ tags, onChangeTags }) => {
   const onChange = useCallback((e) => {
     setInput(e.target.value);
   }, []);
+  
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();

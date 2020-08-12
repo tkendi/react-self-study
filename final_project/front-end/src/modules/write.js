@@ -5,7 +5,7 @@ import createRequestSaga, {
 import * as postsAPI from "../lib/api/posts";
 import { takeLatest } from "redux-saga/effects";
 
-const INITIALIZE = "write/INITAILIZE";
+const INITIALIZE = "write/INITIALIZE";
 const CHANGE_FIELD = "write/CHANGE_FIELD";
 const [
   WRITE_POST,

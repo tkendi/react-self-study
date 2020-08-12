@@ -24,7 +24,8 @@ export const register = async (ctx) => {
     }
 
     const user = new User({
-      username,e
+      username,
+      e,
     });
 
     await user.setPassword(password); //비밀번호 설정
@@ -81,6 +82,7 @@ export const login = async (ctx) => {
 
 export const check = async (ctx) => {
   const { user } = ctx.state;
+  console.log({ user });
   if (!user) {
     ctx.status = 401;
     return;

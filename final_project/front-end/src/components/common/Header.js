@@ -21,7 +21,7 @@ const Header = ({ user, onLogout }) => {
           {user ? (
             <div className={styles.right}>
               <div className={styles.userInfo}>
-                {user.useranem}
+                {user.username}
                 <Typography>님 환영합니다</Typography>
               </div>
               <Button onClick={onLogout}>logout</Button>

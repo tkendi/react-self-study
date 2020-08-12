@@ -27,7 +27,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           placeholder="비밀번호"
           type="password"
           onChange={onChange}
-          value={form.passowrd}
+          value={form.passoword}
           className={styles.styleInput}
         />
         {type === "register" && (

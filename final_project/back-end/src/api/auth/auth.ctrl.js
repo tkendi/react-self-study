@@ -24,7 +24,7 @@ export const register = async (ctx) => {
     }
 
     const user = new User({
-      username,
+      username,e
     });
 
     await user.setPassword(password); //비밀번호 설정
@@ -80,8 +80,8 @@ export const login = async (ctx) => {
 };
 
 export const check = async (ctx) => {
-  const {user} = ctx.state
-  if(!user) {
+  const { user } = ctx.state;
+  if (!user) {
     ctx.status = 401;
     return;
   }
@@ -90,6 +90,6 @@ export const check = async (ctx) => {
 };
 
 export const logout = async (ctx) => {
-  ctx.cookies.set('access_token')
+  ctx.cookies.set('access_token');
   ctx.status = 204;
 };

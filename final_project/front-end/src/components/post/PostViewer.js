@@ -5,6 +5,7 @@ import Responsive from "../common/Responsive";
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
 `;
+
 const PostHead = styled.div`
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 3rem;
@@ -47,20 +48,20 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading }) => {
+  console.log({loading})
   if (error) {
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다</PostViewerBlock>;
     }
-    return <PostViewerBlock>오류발생</PostViewerBlock>;
+    return <PostViewerBlock>오류 발생</PostViewerBlock>;
   }
 
-  if (loading || !post) {
-    return null;
+  if (!loading || !post) {
+    return <PostViewerBlock>데이터가 존재하지 않습니다</PostViewerBlock>;
   }
+  
 
-  //에러발생 지점
   const { title, body, user, publishedDate, tags } = post;
-  console.log({title, body, user, publishedDate, tags});
   return (
     <PostViewerBlock>
       <PostHead>
@@ -81,4 +82,5 @@ const PostViewer = ({ post, error, loading }) => {
     </PostViewerBlock>
   );
 };
+
 export default PostViewer;

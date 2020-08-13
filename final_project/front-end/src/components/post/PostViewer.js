@@ -47,7 +47,6 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading }) => {
-  console.log(error);
   if (error) {
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다</PostViewerBlock>;
@@ -58,14 +57,17 @@ const PostViewer = ({ post, error, loading }) => {
   if (loading || !post) {
     return null;
   }
+
+  //에러발생 지점
   const { title, body, user, publishedDate, tags } = post;
+  console.log({title, body, user, publishedDate, tags});
   return (
     <PostViewerBlock>
       <PostHead>
         <h1>{title}</h1>
         <SubInfo>
           <span>
-            <b>tester</b>
+            <b>{user.username}</b>
           </span>
           <span>{new Date(publishedDate).toLocaleDateString()}</span>
         </SubInfo>

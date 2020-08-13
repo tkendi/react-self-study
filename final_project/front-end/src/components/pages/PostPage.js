@@ -6,7 +6,7 @@ import PostViewerContainer from '../../containers/post/PostViewerContainer'
 const PostPage = () => {
   return (
     <React.Fragment>
-      <HeaderContainer />
+      {/* <HeaderContainer /> */}
       <PostViewerContainer />
     </React.Fragment>
   );

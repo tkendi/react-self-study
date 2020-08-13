@@ -1,12 +1,13 @@
 import React from "react";
 import HeaderContainer from "../../components/common/HeaderContainer";
-import PostViewerContainer from "../../containers/post/PostViewerContainer";
+import { Typography } from "@material-ui/core";
 
 const PostPage = () => {
   return (
     <React.Fragment>
-      <HeaderContainer />
-      <PostViewerContainer />
+      <Typography>
+        Testing
+      </Typography>
     </React.Fragment>
   );
 };

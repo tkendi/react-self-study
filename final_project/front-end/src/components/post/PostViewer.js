@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
+import SubInfo from "../common/SubInfo";
+import Tags from "../common/Tags";
 
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
@@ -17,30 +19,30 @@ const PostHead = styled.div`
   }
 `;
 
-const SubInfo = styled.div`
-  margin-top: 1rem;
-  color: #757575;
+// const SubInfo = styled.div`
+//   margin-top: 1rem;
+//   color: #757575;
 
-  span + span:before {
-    color: #9e9e9e;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    content: "\\B7";
-  }
-`;
+//   span + span:before {
+//     color: #9e9e9e;
+//     padding-left: 0.25rem;
+//     padding-right: 0.25rem;
+//     content: "\\B7";
+//   }
+// `;
 
-const Tags = styled.div`
-  margin-top: 0.5rem;
-  .tag {
-    display: inline-block;
-    color: #0097a7;
-    text-decoration: none;
-    margin-right: 0.5rem;
-    &:hover {
-      color: #00acc1;
-    }
-  }
-`;
+// const Tags = styled.div`
+//   margin-top: 0.5rem;
+//   .tag {
+//     display: inline-block;
+//     color: #0097a7;
+//     text-decoration: none;
+//     margin-right: 0.5rem;
+//     &:hover {
+//       color: #00acc1;
+//     }
+//   }
+// `;
 
 const PostContent = styled.div`
   font-size: 1.3125rem;
@@ -48,7 +50,7 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading }) => {
-  console.log({loading})
+  console.log({ loading });
   if (error) {
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다</PostViewerBlock>;
@@ -59,24 +61,18 @@ const PostViewer = ({ post, error, loading }) => {
   if (!loading || !post) {
     return <PostViewerBlock>데이터가 존재하지 않습니다</PostViewerBlock>;
   }
-  
 
   const { title, body, user, publishedDate, tags } = post;
   return (
     <PostViewerBlock>
       <PostHead>
         <h1>{title}</h1>
-        <SubInfo>
-          <span>
-            <b>{user.username}</b>
-          </span>
-          <span>{new Date(publishedDate).toLocaleDateString()}</span>
-        </SubInfo>
-        <Tags>
-          {tags.map((tag) => (
-            <div className="tag">#{tag}</div>
-          ))}
-        </Tags>
+        <SubInfo
+          username={user.username}
+          publishedDate={publishedDate}
+          hasMarginTop
+        />
+        <Tags tags={tags} />
       </PostHead>
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
     </PostViewerBlock>

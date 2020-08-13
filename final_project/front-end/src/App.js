@@ -5,12 +5,14 @@ import RegisterPage from "./components/pages/RegisterPage";
 import InfoPage from "./components/pages/InfoPage";
 import WritePage from "./components/pages/WritePage";
 import PostPage from "./components/pages/PostPage";
+import PostListPage from './components/pages/PostListPage'
 
 class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Route component={InfoPage} path="/" exact={true} />
+        <Route component = {PostListPage} path = {['/', '/@:username']} exact = {true} />
+        {/* <Route component={InfoPage} path="/" exact={true} /> */}
         <Route component={LoginPage} path="/login" />
         <Route component={RegisterPage} path="/register" />
         <Route component={WritePage} path="/write" />

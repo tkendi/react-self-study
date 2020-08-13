@@ -44,7 +44,7 @@ export const write = async (ctx) => {
     body,
     tags,
     user: ctx.state.user
-  });
+  }); 
   try {
     await post.save();
     ctx.body = post;

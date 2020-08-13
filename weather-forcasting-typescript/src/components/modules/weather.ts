@@ -10,6 +10,7 @@ export const [
   WEATHER_SUCCESS,
   WEATHER_FAILURE,
 ] = createRequestActionTypes("weather/WEATHER");
+
 export const weatherRead = createAction(
   WEATHER,
   ({ nx, ny }: weatherAPI.Props) => ({
@@ -34,7 +35,7 @@ const initialState = {
 
 const weather = handleActions(
   {
-    [WEATHER_SUCCESS]: (state, { payload: data }) => ({
+    [WEATHER_SUCCESS]: (state: any, { payload: data }) => ({
       ...state,
       data,
     }),

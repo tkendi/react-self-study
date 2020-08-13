@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { weatherData } from "../../../api";
+import {weatherRead} from '../../../components/modules/weather'
 import { Typography, CssBaseline, StylesProvider } from "@material-ui/core";
 import Clock from "../../Clock/Clock";
 import clear from "../../../img/sun.png";
@@ -8,6 +8,7 @@ import shower from "../../../img/meteor-shower.png";
 import ice from "../../../img/ice.png";
 import rainy from "../../../img/rain.png";
 import styles from "../styles/main.module.css"
+import {useSelector, useDispatch} from 'react-redux'
 
 interface Props {
   nx: number;
@@ -15,18 +16,10 @@ interface Props {
 }
 
 const WeatherMain: React.FC<Props> = (props: Props) => {
-  const [temp, setTemp] = useState<string>("0");
-  const [rain, setRain] = useState<string>("");
-  const [type, setType] = useState<string>("");
-  useEffect(() => {
-    async function fetchedData() {
-      const data = await weatherData(props.nx, props.ny);
-      setTemp(data.TMP);
-      setRain(data.RNH);
-      setType(data.SKY);
-    }
-    fetchedData();
-  }, [props.nx, props.ny]);
+  const {data, error} = useSelector(({weather}) => ({
+    data: weather.data,
+    error: weather.error
+  }))
 
   return (
     <React.Fragment>

@@ -1,12 +1,12 @@
 import React from 'react'
 import HeaderContainer from '../common/HeaderContainer'
-import PostList from '../posts/PostList'
+import PostListContainer from '../../containers/posts/PostListContainer'
 
 const PostListPage = () => {
     return (
         <React.Fragment>
             <HeaderContainer />
-            <PostList />
+            <PostListContainer />
         </React.Fragment>
     )
 }

@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Route component = {PostListPage} path = {['/', '/@:username']} exact = {true} />
+        <Route component = {PostListPage} path = {['/@:username', '/']} exact = {true} />
         {/* <Route component={InfoPage} path="/" exact={true} /> */}
         <Route component={LoginPage} path="/login" />
         <Route component={RegisterPage} path="/register" />

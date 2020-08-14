@@ -24,7 +24,16 @@ export function* weatherSaga() {
   yield takeLatest(WEATHER, readWeatherSaga);
 }
 
-const initialState = {
+interface weatherState {
+  weather: {
+    nx: any;
+    ny: any;
+  };
+  data: any;
+  error: any;
+}
+
+const initialState: weatherState = {
   weather: {
     nx: 0,
     ny: 0,
@@ -48,3 +57,5 @@ const weather = handleActions(
 );
 
 export default weather;
+
+export interface DefaultRootState {}

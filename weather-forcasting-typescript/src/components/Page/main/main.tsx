@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { weatherRead } from "../../../components/modules/weather";
 import * as weatherAPI from "../../../lib/api/weather";
 import { Typography, CssBaseline, StylesProvider } from "@material-ui/core";
 import Clock from "../../Clock/Clock";
@@ -16,22 +15,37 @@ interface Props {
   ny: any;
 }
 
-const WeatherMain = ({ nx, ny, ...props }: Props) => {
-  const { data, error } = useSelector(({weather}) => ({
-    data: weather.data,
-    error: weather.error,
-  }));
+const WeatherMain: React.FC<Props> = (props:Props) => {
+  // const { data, error } = useSelector(({weather}) => ({
+  //   data: weather.data,
+  //   error: weather.error,
+  // }));
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(weatherRead({ nx, ny }));
+  //   console.log(dispatch(weatherRead({ nx, ny })));
+  // }, [dispatch, nx, ny]);
+
+  const [temp, setTemp] = useState("")
+  const [rain, setRain] = useState("")
+  const [type, setType] = useState("")
+
   useEffect(() => {
-    dispatch(weatherRead({ nx, ny }));
-    console.log(dispatch(weatherRead({ nx, ny })));
-  }, [dispatch, nx, ny]);
+    async function fetchedData() {
+      const data = await weatherAPI.weatherData(props.nx, props.ny)
+      console.log(data)
+      setTemp(data.TMP)
+      setRain(data.RNH)
+      setType(data.SKY)
+    }
+    fetchedData()
+  }, [props.nx, props.ny])
 
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <div className={styles.mainForm}>
+      <div className={styles.mainForm}>
         <div>
           {parseInt(type) === 1 ? (
             <img src={rainy} alt="rain" className={styles.imgForm} />
@@ -56,7 +70,7 @@ const WeatherMain = ({ nx, ny, ...props }: Props) => {
           </Typography>
           <Typography>시간당 강수량: {rain}</Typography>
         </div>
-      </div> */}
+      </div>
       <Typography>Testing</Typography>
     </React.Fragment>
   );

@@ -11,22 +11,27 @@ import rainy from "../../../img/rain.png";
 import styles from "../styles/main.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const WeatherMain = (props: weatherAPI.Props) => {
+interface Props {
+  nx: any;
+  ny: any;
+}
 
-  const {data, error} = useSelector(({weather}) => ({
+const WeatherMain = ({ nx, ny, ...props }: Props) => {
+  const { data, error } = useSelector(({weather}) => ({
     data: weather.data,
-    error: weather.error
-  }))
+    error: weather.error,
+  }));
 
   const dispatch = useDispatch();
   useEffect(() => {
-    return dispatch(weatherRead({ nx, ny }));
-  }, [dispatch, props.nx, props.ny]);
+    dispatch(weatherRead({ nx, ny }));
+    console.log(dispatch(weatherRead({ nx, ny })));
+  }, [dispatch, nx, ny]);
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <div className={styles.mainForm}>
+      {/* <div className={styles.mainForm}>
         <div>
           {parseInt(type) === 1 ? (
             <img src={rainy} alt="rain" className={styles.imgForm} />
@@ -51,7 +56,8 @@ const WeatherMain = (props: weatherAPI.Props) => {
           </Typography>
           <Typography>시간당 강수량: {rain}</Typography>
         </div>
-      </div>
+      </div> */}
+      <Typography>Testing</Typography>
     </React.Fragment>
   );
 };

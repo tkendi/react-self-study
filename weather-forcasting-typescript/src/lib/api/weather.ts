@@ -18,9 +18,9 @@
 import client from "./client";
 
 export interface Props {
-  nx: number;
-  ny: number;
+  nx: any;
+  ny: any;
 }
 
 export const weather = ({nx, ny}: Props) =>
-  client.get(`http://localhost:4000/api?nx=${nx}&ny=${ny}`);
+  client.get(`http://localhost:4000/api?nx=${nx}&ny=${ny}`)

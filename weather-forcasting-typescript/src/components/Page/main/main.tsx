@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {weatherRead} from '../../../components/modules/weather'
+import { weatherRead } from "../../../components/modules/weather";
+import * as weatherAPI from "../../../lib/api/weather";
 import { Typography, CssBaseline, StylesProvider } from "@material-ui/core";
 import Clock from "../../Clock/Clock";
 import clear from "../../../img/sun.png";
@@ -7,19 +8,20 @@ import snow from "../../../img/snow.png";
 import shower from "../../../img/meteor-shower.png";
 import ice from "../../../img/ice.png";
 import rainy from "../../../img/rain.png";
-import styles from "../styles/main.module.css"
-import {useSelector, useDispatch} from 'react-redux'
+import styles from "../styles/main.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
-interface Props {
-  nx: number;
-  ny: number;
-}
+const WeatherMain = (props: weatherAPI.Props) => {
 
-const WeatherMain: React.FC<Props> = (props: Props) => {
   const {data, error} = useSelector(({weather}) => ({
     data: weather.data,
     error: weather.error
   }))
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    return dispatch(weatherRead({ nx, ny }));
+  }, [dispatch, props.nx, props.ny]);
 
   return (
     <React.Fragment>
@@ -37,7 +39,9 @@ const WeatherMain: React.FC<Props> = (props: Props) => {
           ) : parseInt(type) === 0 ? (
             <img src={clear} alt="clear" className={styles.imgForm} />
           ) : (
-            <Typography className={styles.imgForm}>Choose the region</Typography>
+            <Typography className={styles.imgForm}>
+              Choose the region
+            </Typography>
           )}
           <Clock />
         </div>

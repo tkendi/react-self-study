@@ -71,7 +71,6 @@ const WeatherMain: React.FC<Props> = (props:Props) => {
           <Typography>시간당 강수량: {rain}</Typography>
         </div>
       </div>
-      <Typography>Testing</Typography>
     </React.Fragment>
   );
 };

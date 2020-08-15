@@ -5,9 +5,9 @@ import * as searchAPI from "./lib/api/search";
 
 class App extends React.Component {
   async componentDidMount() {
-    const data = await searchAPI.search();
-    console.log(data);
-  }
+    const data = await searchAPI.search()
+    console.log(data)
+  } 
   render() {
     return (
       <div className={styles.form}>

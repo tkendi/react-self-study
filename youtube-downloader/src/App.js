@@ -1,12 +1,17 @@
 import React from "react";
 import { Typography, Button } from "@material-ui/core";
 import styles from "./App.module.css";
+import * as searchAPI from "./lib/api/search";
 
 class App extends React.Component {
+  async componentDidMount() {
+    const data = await searchAPI.search();
+    console.log(data);
+  }
   render() {
     return (
       <div className={styles.form}>
-        <Typography variant="h4" className={styles.head} noWrap gutterBottom>
+        {/* <Typography variant="h4" className={styles.head} noWrap gutterBottom>
           Youtube Downloader
         </Typography>
         <input
@@ -19,7 +24,8 @@ class App extends React.Component {
         </select>
         <Button className={styles.convertButton} color="primary">
           Convert
-        </Button>
+        </Button> */}
+        <Typography>Testing</Typography>
       </div>
     );
   }

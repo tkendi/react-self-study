@@ -20,15 +20,17 @@ for (let option in optionParams) {
 url = url.substr(0, url.length - 1);
 console.log(url);
 
-axios.get(url).then(function (response) {
-  const items = response.data.items;
-  const info = {
-    title: [],
-  };
+export const search = async () => {
+  await axios.get(url).then(function (response) {
+    const items = response.data.items;
+    const info = {
+      title: [],
+    };
 
-  for (const keys in items) {
-    info.title[keys] = items[keys].snippet.title;
-  }
+    for (const keys in items) {
+      info.title[keys] = items[keys].snippet.title;
+    }
 
-  return info;
-});
+    return info;
+  });
+};

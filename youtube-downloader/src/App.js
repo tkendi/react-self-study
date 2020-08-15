@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import styles from "./App.module.css";
 
 class App extends React.Component {
@@ -17,7 +17,9 @@ class App extends React.Component {
           <option value="mp3">mp3</option>
           <option value="mp4">mp4</option>
         </select>
-        <button className={styles.convertButton}>Convert</button>
+        <Button className={styles.convertButton} color="primary">
+          Convert
+        </Button>
       </div>
     );
   }

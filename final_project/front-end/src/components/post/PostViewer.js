@@ -49,7 +49,7 @@ const PostContent = styled.div`
   color: #424242;
 `;
 
-const PostViewer = ({ post, error, loading }) => {
+const PostViewer = ({ post, error, loading, actionButtons }) => {
   console.log({ loading });
   if (error) {
     if (error.response && error.response.status === 404) {
@@ -74,6 +74,7 @@ const PostViewer = ({ post, error, loading }) => {
         />
         <Tags tags={tags} />
       </PostHead>
+      {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
     </PostViewerBlock>
   );

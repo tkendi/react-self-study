@@ -9,7 +9,10 @@ export const search = async () => {
     maxResults: 99999,
   };
 
-  const info = {};
+  const info = {
+    title: [],
+    videoId: []
+  };
 
   optionParams.q = "스토커";
 
@@ -28,9 +31,9 @@ export const search = async () => {
     const items = response.data.items;
 
     for (const keys in items) {
-      info[items[keys].id.videoId] = items[keys].snippet.title
+      info.title[keys] = items[keys].snippet.title
+      info.videoId[keys] = items[keys].id.videoId
     }
-
     console.log(items);
   });
   return info;

@@ -13,6 +13,7 @@ const PostListBlock = styled(Responsive)`
 const WritePostButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 3rem;
 `;
 
 const PostItemBlock = styled.div`
@@ -33,7 +34,6 @@ const PostItemBlock = styled.div`
       color: #757575;
     }
   }
-
   p {
     margin-top: 2rem;
   }
@@ -69,7 +69,7 @@ const PostItem = ({ post }) => {
   return (
     <PostItemBlock>
       <h2>
-        <Link to={`/@${user.username}/${_id}`}>{title}</Link>
+        <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
       </h2>
       <SubInfo
         username={user.username}
@@ -83,7 +83,7 @@ const PostItem = ({ post }) => {
 
 const PostList = ({ posts, loading, error, showWriteButton }) => {
   if (error) {
-    return <PostListBlock>Postlist 에러 발생</PostListBlock>
+    return <PostListBlock>Postlist 에러 발생</PostListBlock>;
   }
 
   return (

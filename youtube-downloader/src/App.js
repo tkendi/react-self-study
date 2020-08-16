@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Button } from "@material-ui/core";
 import styles from "./App.module.css";
 import * as searchAPI from "./lib/api/search";
+import Search from "./components/pages/Search";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -25,6 +26,7 @@ class App extends React.Component {
         <Button className={styles.convertButton} color="primary">
           Convert
         </Button> */}
+        <Search />
         <Typography>Testing</Typography>
       </div>
     );

@@ -4,20 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 import Search from "../../pages/Search";
 
 const SearchContainer = () => {
-  const [data, setData] = useState('')
+  const [data, setData] = useState("");
 
   const onChange = (text) => {
-    setData(text)
-    console.log(text)
+    setData(text);
+    console.log(text);
   };
 
   const dispatch = useDispatch();
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault()
-  //   dispatch(findSearch({data}))
-  //   console.log(dispatch(findSearch({data})))
-  // };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(findSearch({ data }));
+    console.log(dispatch(findSearch({ data })));
+  };
 
   // useEffect(() => {
   //   dispatch(findSearch({ text }));
@@ -26,7 +26,7 @@ const SearchContainer = () => {
 
   return (
     <React.Fragment>
-      <Search onChange={onChange} data={data} />
+      <Search onChange={onChange} data={data} onSubmit={onSubmit} />
     </React.Fragment>
   );
 };

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 class Search extends React.Component {
   render() {
-    const classes    = this.props
+    const classes = this.props
     return (
       <Paper component="form" className={classes.root}>
         <InputBase

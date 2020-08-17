@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const search = async () => {
+export const search = async ({text}) => {
   let optionParams = {
     q: "",
     part: "snippet",
@@ -11,10 +11,10 @@ export const search = async () => {
 
   const info = {
     title: [],
-    videoId: []
+    videoId: [],
   };
 
-  optionParams.q = "스토커";
+  optionParams.q = text;
 
   optionParams.q = encodeURI(optionParams.q);
 
@@ -27,12 +27,12 @@ export const search = async () => {
   url = url.substr(0, url.length - 1);
   console.log(url);
 
-  await axios.get(url).then(function (response) {
+  client.get(url).then(function (response) {
     const items = response.data.items;
 
     for (const keys in items) {
-      info.title[keys] = items[keys].snippet.title
-      info.videoId[keys] = items[keys].id.videoId
+      info.title[keys] = items[keys].snippet.title;
+      info.videoId[keys] = items[keys].id.videoId;
     }
     console.log(items);
   });

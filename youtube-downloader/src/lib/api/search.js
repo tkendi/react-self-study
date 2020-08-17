@@ -1,7 +1,7 @@
-import client from './client'
+import client from "./client";
 
 let optionParams = {
-  q: "스토커",
+  q: "",
   part: "snippet",
   key: process.env.REACT_APP_ServiceKey,
   type: "video",
@@ -15,23 +15,25 @@ const info = {
 
 optionParams.q = encodeURI(optionParams.q);
 
-let url = "https://www.googleapis.com/youtube/v3/search?";
+export const search = (text) => {
+  console.log(text);
+  optionParams.q = text;
 
-for (let option in optionParams) {
-  url += option + "=" + optionParams[option] + "&";
-}
+  let url = "https://www.googleapis.com/youtube/v3/search?";
 
-url = url.substr(0, url.length - 1);
+  for (let option in optionParams) {
+    url += option + "=" + optionParams[option] + "&";
+  }
 
-// export const search = async ({text}) => {
-//   console.log(text)
-//   client.get(url).then(function (response) {
-//     const items = response.data.items;
-//     for (const keys in items) {
-//       info.title[keys] = items[keys].snippet.title;
-//       info.videoId[keys] = items[keys].id.videoId;
-//     }
-//   });
-//   return info;
-// };
-export const search = (text) => console.log(text)
+  url = url.substr(0, url.length - 1);
+
+  client.get(url).then(function (response) {
+    const items = response.data.items;
+    for (const keys in items) {
+      info.title[keys] = items[keys].snippet.title;
+      info.videoId[keys] = items[keys].id.videoId;
+    }
+  });
+  return info;
+};
+// export const search = ({text}) => console.log(text)

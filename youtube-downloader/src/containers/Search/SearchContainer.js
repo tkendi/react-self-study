@@ -9,12 +9,12 @@ const SearchContainer = ({ text }) => {
     error: search.error,
   }));
 
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(findSearch({ text }));
     console.log(dispatch(findSearch({ text })));
-  }, [text, dispatch]);
+  }, [dispatch, text]);
 
   return (
     <React.Fragment>

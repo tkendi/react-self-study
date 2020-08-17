@@ -9,9 +9,7 @@ const [SEARCH, SEARCH_SUCCESS, SEARCH_FAILURE] = createRequestActionTypes(
   "search/SEARCH"
 );
 
-export const searching = createAction(SEARCH, ({text}) => ({
-  text,
-}));
+export const findSearch = createAction(SEARCH, (text) => text);
 
 const findSearchSaga = createRequestSaga(SEARCH, SearchAPI.search);
 export function* searchSaga() {
@@ -21,7 +19,7 @@ export function* searchSaga() {
 const initialState = {
   data: null,
   error: null,
-  text: null,
+  text: "",
 };
 
 const search = handleActions(

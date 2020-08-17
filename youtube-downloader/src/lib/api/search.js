@@ -1,4 +1,4 @@
-import client from "./client";
+import client from './client'
 
 let optionParams = {
   q: "스토커",
@@ -23,7 +23,7 @@ for (let option in optionParams) {
 
 url = url.substr(0, url.length - 1);
 
-// export const search = async (text) => {
+// export const search = async ({text}) => {
 //   console.log(text)
 //   client.get(url).then(function (response) {
 //     const items = response.data.items;
@@ -37,4 +37,4 @@ url = url.substr(0, url.length - 1);
 
 console.log(url)
 
-export const search = ({text}) => console.log(text);
+export const search = ({text}) => console.log({text})

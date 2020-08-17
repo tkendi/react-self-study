@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-import { searching } from "../../modules/search";
+import { findSearch } from "../../modules/search";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@material-ui/core";
 
 const SearchContainer = ({ text }) => {
-  console.log({ text });
   const { data, error } = useSelector(({ search }) => ({
     data: search.data,
     error: search.error,
@@ -13,8 +12,8 @@ const SearchContainer = ({ text }) => {
   const dispatch = useDispatch(); 
 
   useEffect(() => {
-    dispatch(searching({ text }));
-    console.log(dispatch(searching({ text })));
+    dispatch(findSearch({ text }));
+    console.log(dispatch(findSearch({ text })));
   }, [text, dispatch]);
 
   return (

@@ -4,6 +4,7 @@ import createRequestSaga, {
 import { createAction, handleActions } from "redux-actions";
 import * as searchAPI from "../lib/api/search";
 import { takeLatest } from "redux-saga/effects";
+import produce from 'immer'
 
 const [SEARCH, SEARCH_SUCCESS, SEARCH_FAILURE] = createRequestActionTypes(
   "search/SEARCH"

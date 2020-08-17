@@ -1,31 +1,32 @@
-import React, { useEffect } from "react";
-import { findSearch } from "../../modules/search";
+import React, { useEffect, useState } from "react";
+import { findSearch, changeField } from "../../modules/search";
 import { useSelector, useDispatch } from "react-redux";
-import Search from '../../pages/Search'
+import Search from "../../pages/Search";
 
-const SearchContainer = ({ text }) => {
+const SearchContainer = () => {
+  const [data, setData] = useState('')
 
-  const onChange = (e) => {
-    const {data} = e.target
-  }
-  
-  const { data, error } = useSelector(({ search }) => ({
-    data: search.data,
-    error: search.error,
-  }));
-
-  console.log({data, error})
+  const onChange = (text) => {
+    setData(text)
+    console.log(text)
+  };
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(findSearch({ text }));
-    console.log(dispatch(findSearch({ text })));
-  }, [dispatch, text]);
+  // const onSubmit = (e) => {
+  //   e.preventDefault()
+  //   dispatch(findSearch({data}))
+  //   console.log(dispatch(findSearch({data})))
+  // };
+
+  // useEffect(() => {
+  //   dispatch(findSearch({ text }));
+  //   console.log(dispatch(findSearch({ text })));
+  // }, [dispatch, text]);
 
   return (
     <React.Fragment>
-      <Search />
+      <Search onChange={onChange} data={data} />
     </React.Fragment>
   );
 };

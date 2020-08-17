@@ -5,8 +5,11 @@ import {
   makeStyles,
   Paper,
   IconButton,
+  Typography,
 } from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search'
+import SearchIcon from "@material-ui/icons/Search";
+import { useDispatch } from "react-redux";
+import {findSearch} from '../modules/search'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,22 +33,34 @@ const useStyles = makeStyles((theme) => ({
 
 class Search extends React.Component {
   render() {
-    const classes = this.props
+    const classes = this.props;
+
+    const dispatch = useDispatch()
+    const onSubmit = (e) => {
+      e.preventDefault()
+      dispatch(findSearch(this.props.data))
+    }
+
     return (
-      <Paper component="form" className={classes.root}>
-        <InputBase
-          className={classes.input}
-          placeholder="Search"
-          inputProps={{ "airial-label": "Search" }}
-        />
-        <IconButton
-          color="primary"
-          className={classes.iconButton}
-          arial-label="Search"
-        >
-          <SearchIcon />
-        </IconButton>
-      </Paper>
+      <form onSubmit={this.props.onSubmit}>
+        <Paper component="form" className={classes.root}>
+          <InputBase
+            className={classes.input}
+            placeholder="Search"
+            inputProps={{ "airial-label": "Search" }}
+            onChange={(e) => this.props.onChange(e.target.value)}
+          />
+          <IconButton
+            color="primary"
+            className={classes.iconButton}
+            arial-label="Search"
+          >
+            <button>
+              <SearchIcon />
+            </button>
+          </IconButton>
+        </Paper>
+      </form>
     );
   }
 }

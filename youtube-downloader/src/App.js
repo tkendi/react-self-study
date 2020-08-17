@@ -27,7 +27,7 @@ class App extends React.Component {
         <Button className={styles.convertButton} color="primary">
           Convert
         </Button> */}
-        <SearchContainer text="스토커" />
+        <SearchContainer />
         <Typography>Testing</Typography>
       </div>
     );

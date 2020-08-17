@@ -1,4 +1,4 @@
-import axios from "axios";
+import client from './client'
 
 export const search = async ({text}) => {
   let optionParams = {

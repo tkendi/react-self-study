@@ -3,12 +3,13 @@ import { Typography, Button } from "@material-ui/core";
 import styles from "./App.module.css";
 import * as searchAPI from "./lib/api/search";
 import Search from "./components/pages/Search";
+import SearchContainer from "./containers/Search/SearchContainer";
 
 class App extends React.Component {
   async componentDidMount() {
-    const data = await searchAPI.search()
-    console.log(data)
-  } 
+    const data = await searchAPI.search();
+    console.log(data);
+  }
   render() {
     return (
       <div className={styles.form}>
@@ -27,6 +28,7 @@ class App extends React.Component {
           Convert
         </Button> */}
         <Search />
+        <SearchContainer text="스토커" />
         <Typography>Testing</Typography>
       </div>
     );

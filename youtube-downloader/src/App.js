@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Button } from "@material-ui/core";
 import styles from "./App.module.css";
 import * as searchAPI from "./lib/api/search";
-import Search from "./components/pages/Search";
+import Search from "./pages/Search";
 import SearchContainer from "./containers/Search/SearchContainer";
 
 class App extends React.Component {
@@ -27,7 +27,6 @@ class App extends React.Component {
         <Button className={styles.convertButton} color="primary">
           Convert
         </Button> */}
-        <Search />
         <SearchContainer text="스토커" />
         <Typography>Testing</Typography>
       </div>

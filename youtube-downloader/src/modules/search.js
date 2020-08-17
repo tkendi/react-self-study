@@ -17,7 +17,7 @@ export function* searchSaga() {
 }
 
 const initialState = {
-  data: "",
+  data: {},
   error: "",
   text: "",
 };

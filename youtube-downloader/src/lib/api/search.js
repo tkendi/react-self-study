@@ -1,4 +1,4 @@
-import client from "./client";
+import axios from "./client";
 
 let optionParams = {
   q: "",
@@ -15,7 +15,7 @@ const info = {
 
 optionParams.q = encodeURI(optionParams.q);
 
-export const search = (text) => {
+export const search = async (text) => {
   console.log(text);
   optionParams.q = text;
 
@@ -27,7 +27,7 @@ export const search = (text) => {
 
   url = url.substr(0, url.length - 1);
 
-  client.get(url).then(function (response) {
+  await axios.get(url).then(function (response) {
     const items = response.data.items;
     for (const keys in items) {
       info.title[keys] = items[keys].snippet.title;

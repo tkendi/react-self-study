@@ -5,9 +5,7 @@ import { createAction, handleActions } from "redux-actions";
 import * as SearchAPI from "../lib/api/search";
 import { takeLatest } from "redux-saga/effects";
 
-const [SEARCH, SEARCH_SUCCESS, SEARCH_FAILURE] = createRequestActionTypes(
-  "search/SEARCH"
-);
+const [SEARCH, SEARCH_SUCCESS, SEARCH_FAILURE] = createRequestActionTypes('search/SEARCH')
 
 export const findSearch = createAction(SEARCH, (text) => text);
 

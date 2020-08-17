@@ -34,7 +34,4 @@ url = url.substr(0, url.length - 1);
 //   });
 //   return info;
 // };
-
-console.log(url)
-
-export const search = ({text}) => console.log({text})
+export const search = (text) => console.log(text)

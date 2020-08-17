@@ -3,20 +3,20 @@ import { searching } from "../../modules/search";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@material-ui/core";
 
-const SearchContainer = (text) => {
-  console.log(text)
+const SearchContainer = ({ text }) => {
+  console.log({ text });
   const { data, error } = useSelector(({ search }) => ({
     data: search.data,
     error: search.error,
   }));
 
-  console.log({data, error})
+  const dispatch = useDispatch(); 
 
-  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(searching(text));
-    console.log(dispatch(searching(text)))
+    dispatch(searching({ text }));
+    console.log(dispatch(searching({ text })));
   }, [text, dispatch]);
+
   return (
     <React.Fragment>
       <Typography>Testing</Typography>

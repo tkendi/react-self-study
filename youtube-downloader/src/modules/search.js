@@ -9,7 +9,7 @@ const [SEARCH, SEARCH_SUCCESS, SEARCH_FAILURE] = createRequestActionTypes(
   "search/SEARCH"
 );
 
-export const searching = createAction(SEARCH, (text) => ({
+export const searching = createAction(SEARCH, ({text}) => ({
   text,
 }));
 

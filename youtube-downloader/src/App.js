@@ -6,10 +6,6 @@ import Search from "./components/pages/Search";
 import SearchContainer from "./containers/Search/SearchContainer";
 
 class App extends React.Component {
-  async componentDidMount() {
-    const data = await searchAPI.search();
-    console.log(data);
-  }
   render() {
     return (
       <div className={styles.form}>

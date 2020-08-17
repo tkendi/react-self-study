@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   InputBase,
   Divider,
@@ -31,25 +31,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Search = ({ onChange, onSubmit, data }) => {
+const Search = ({ onSubmit }) => {
   const classes = useStyles();
-
-  console.log(data);
-
   const dispatch = useDispatch();
   // const onSubmit = () => {
   //   dispatch(findSearch(data));
   //   console.log(dispatch(findSearch(data)));
   // };
+  const [data, setData] = useState('');
+
+  const onChange = (text) => {
+    setData(text);
+    console.log(text);
+  };
+
 
   return (
-    <form onSubmit={((e) => e.preventDefault(), dispatch(findSearch(data)))}>
+    <form onSubmit={onSubmit(data)}>
       <Paper component="form" className={classes.root}>
         <InputBase
           className={classes.input}
           placeholder="Search"
           inputProps={{ "airial-label": "Search" }}
-          onChange={(e) => onChange(e.target.value)}
+          onChange = {(e) => onChange(e.target.value)}
         />
         <IconButton
           color="primary"

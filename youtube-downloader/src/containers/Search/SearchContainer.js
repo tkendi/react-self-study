@@ -1,20 +1,27 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { searching } from "../../modules/search";
 import { useSelector, useDispatch } from "react-redux";
-import {Typography} from '@material-ui/core'
+import { Typography } from "@material-ui/core";
 
-class SearchContainer extends React.Component {
-  componentDidMount() {
-    
-  }
-  render() {
-    return (
-      <div>
-        <Typography>
-          Testing
-        </Typography>
-      </div>
-    )
-  }
-}
+const SearchContainer = (text) => {
+  console.log(text)
+  const { data, error } = useSelector(({ search }) => ({
+    data: search.data,
+    error: search.error,
+  }));
+
+  console.log({data, error})
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(searching(text));
+    console.log(dispatch(searching(text)))
+  }, [text, dispatch]);
+  return (
+    <React.Fragment>
+      <Typography>Testing</Typography>
+    </React.Fragment>
+  );
+};
+
 export default SearchContainer;

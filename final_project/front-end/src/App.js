@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Route component = {MainPage} path = "/" exact={true} />
-        <Route component = {PostListPage} path = {['/@:username', '/postList']} />
+        <Route component = {PostListPage} path = {['/@:username', '/postList']} exact={true} />
         {/* <Route component={InfoPage} path="/" exact={true} /> */}
         <Route component={LoginPage} path="/login" />
         <Route component={RegisterPage} path="/register" />

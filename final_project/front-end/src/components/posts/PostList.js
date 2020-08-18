@@ -5,6 +5,7 @@ import { Button } from "@material-ui/core";
 import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
 import { Link } from "react-router-dom";
+import styles from "../../styles/AuthTemplate.module.css";
 
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
@@ -42,24 +43,17 @@ const PostItemBlock = styled.div`
 const PostItem = ({ post }) => {
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
-    // <PostItemBlock>
-    //   <h2>
-    //     <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
-    //   </h2>
-    //   <SubInfo
-    //     username={user.username}
-    //     publishedDate={new Date(publishedDate)}
-    //   />
-    //   <Tags tags={tags} />
-    //   <p>{body}</p>
-    // </PostItemBlock>
-    <h2>
-      {!user ? (
-        console.log("error")
-      ) : (
-        <Link to={`/@${user.username}/${_id}}`}>{title}</Link>
-      )}
-    </h2>
+    <PostItemBlock>
+      <h2>
+        <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
+      </h2>
+      <SubInfo
+        username={user.username}
+        publishedDate={new Date(publishedDate)}
+      />
+      <Tags tags={tags} />
+      <p>{body}</p>
+    </PostItemBlock>
   );
 };
 

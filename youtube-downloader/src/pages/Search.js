@@ -8,8 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { useDispatch } from "react-redux";
-import { findSearch } from "../modules/search";
+import {search} from '../lib/api/search'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,42 +30,48 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Search = ({ onSubmit }) => {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  // const onSubmit = () => {
-  //   dispatch(findSearch(data));
-  //   console.log(dispatch(findSearch(data)));
-  // };
-  const [data, setData] = useState('');
+class Search extends React.Component {
+  state = {
+    text: ''
+  }
 
-  const onChange = (text) => {
-    setData(text);
-    console.log(text);
-  };
+  handleChange = (e) => {
+    this.setState({
+      text: e.target.value
+    })
+  }
 
+  handleSubmit = async(e) => {
+    e.preventDefault()
+    console.log(this.state.text)
+    const data = await search()
+    console.log(data)
+  }
 
-  return (
-    <form onSubmit={onSubmit(data)}>
-      <Paper component="form" className={classes.root}>
-        <InputBase
-          className={classes.input}
-          placeholder="Search"
-          inputProps={{ "airial-label": "Search" }}
-          onChange = {(e) => onChange(e.target.value)}
-        />
-        <IconButton
-          color="primary"
-          className={classes.iconButton}
-          arial-label="Search"
-        >
-          <button>
-            <SearchIcon />
-          </button>
-        </IconButton>
-      </Paper>
-    </form>
-  );
-};
+  render() {
+    const classes = this.props;
+    return (
+      <form onSubmit = {this.handleSubmit}>
+        <Paper component="form" className={classes.root}>
+          <InputBase
+            className={classes.input}
+            placeholder="Search"
+            inputProps={{ "airial-label": "Search" }}
+            onChange = {this.handleChange}
+          />
+          <IconButton
+            color="primary"
+            className={classes.iconButton}
+            arial-label="Search"
+          >
+            <button>
+              <SearchIcon />
+            </button>
+          </IconButton>
+        </Paper>
+      </form>
+    );
+  }
+}
 
 export default Search;

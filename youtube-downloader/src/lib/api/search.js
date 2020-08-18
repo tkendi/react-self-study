@@ -1,39 +1,38 @@
 import axios from "./client";
 
-let optionParams = {
-  q: "",
-  part: "snippet",
-  key: process.env.REACT_APP_ServiceKey,
-  type: "video",
-  maxResults: 99999,
-};
-
-const info = {
-  title: [],
-  videoId: [],
-};
-
-optionParams.q = encodeURI(optionParams.q);
-
 export const search = async (text) => {
-  console.log(text);
-  // optionParams.q = text;
+  let optionParams = {
+    q: "스토커",
+    part: "snippet",
+    key: process.env.REACT_APP_ServiceKey,
+    type: "video",
+    maxResults: 99999,
+  };
 
-  // let url = "https://www.googleapis.com/youtube/v3/search?";
+  const info = {
+    title: [],
+    videoId: [],
+  };
+  
+  optionParams.q = encodeURI(optionParams.q);
 
-  // for (let option in optionParams) {
-  //   url += option + "=" + optionParams[option] + "&";
-  // }
+  let url = "https://www.googleapis.com/youtube/v3/search?";
 
-  // url = url.substr(0, url.length - 1);
+  for (let option in optionParams) {
+    url += option + "=" + optionParams[option] + "&";
+  }
 
-  // await axios.get(url).then(function (response) {
-  //   const items = response.data.items;
-  //   for (const keys in items) {
-  //     info.title[keys] = items[keys].snippet.title;
-  //     info.videoId[keys] = items[keys].id.videoId;
-  //   }
-  // });
-  // return info;
+  url = url.substr(0, url.length - 1);
+
+  console.log(url);
+
+  await axios.get(url).then(function (response) {
+    const items = response.data.items;
+    for (const keys in items) {
+      info.title[keys] = items[keys].snippet.title;
+      info.videoId[keys] = items[keys].id.videoId;
+    }
+  });
+  return info;
 };
 // export const search = ({text}) => console.log(text)

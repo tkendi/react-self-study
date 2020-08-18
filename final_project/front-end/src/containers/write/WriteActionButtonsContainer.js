@@ -22,8 +22,8 @@ const WriteActionButtonsContainer = ({ history }) => {
     if (originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
       return;
-    }
-
+    } 
+    
     dispatch(
       writePost({
         title,
@@ -43,6 +43,7 @@ const WriteActionButtonsContainer = ({ history }) => {
       const { _id, user } = post;
       history.push(`/@${user.username}/${_id}`);
     }
+
     if (postError) {
       console.log(postError);
     }

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Divider } from "@material-ui/core";
 import styled from "styled-components";
 import AskRemoveModal from "./AskRemoveModal";
 
 const PostActionButtonsBlock = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 2rem;
   margin-top: -1.5rem;
 `;
 
-const PostActionButtons = ({ onEdit, onRemove }) => {
+const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
   const [modal, setModal] = useState(false);
   const onRemoveClick = () => {
     setModal(true);
@@ -25,7 +25,10 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
   return (
     <React.Fragment>
       <PostActionButtonsBlock>
-        <Button onClick={onEdit}>수정</Button>
+        <Divider light={true} flexItem={true} />
+        <Button onClick={onEdit} onClick={onPublish}>
+          수정
+        </Button>
         <Button onClick={onRemove}>삭제</Button>
       </PostActionButtonsBlock>
       <AskRemoveModal

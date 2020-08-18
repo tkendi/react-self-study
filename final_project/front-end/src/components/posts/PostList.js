@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
 import { Link } from "react-router-dom";
-import styles from "../../styles/AuthTemplate.module.css";
+import styles from '../../styles/PostList.module.css'
 
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
@@ -44,9 +44,7 @@ const PostItem = ({ post }) => {
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
     <PostItemBlock>
-      <h2>
-        <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
-      </h2>
+      <Link to={`/@${user.username}/${_id}`} className = {styles.titleTextLogo} >{title}</Link>
       <SubInfo
         username={user.username}
         publishedDate={new Date(publishedDate)}
@@ -61,12 +59,12 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
   if (error) {
     return <PostListBlock>Postlist 에러 발생</PostListBlock>;
   }
-
   return (
     <PostListBlock>
       <WritePostButtonWrapper>
         {showWriteButton && <Button href="/write">새 글 작성하기</Button>}
       </WritePostButtonWrapper>
+
       {loading && posts && (
         <div>
           {posts.map((post) => (

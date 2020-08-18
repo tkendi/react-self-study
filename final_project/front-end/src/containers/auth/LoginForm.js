@@ -39,7 +39,7 @@ const LoginForm = ({ history }) => {
     dispatch(initializeForm("login"));
   }, [dispatch]);
 
-  useEffect(() => {
+  useEffect(() => { 
     if (authError) {
       console.log("오류발생");
       console.log(authError);

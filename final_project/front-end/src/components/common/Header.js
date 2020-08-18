@@ -15,7 +15,7 @@ const Header = ({ user, onLogout }) => {
           </Link>
           <div>
             <Link to="#" className = {styles.pages}>Streaming</Link>
-            <Link to="#" className = {styles.pages} >Board</Link>
+            <Link to="/postList" className = {styles.pages} >Board</Link>
             <Link to="#" className = {styles.pages} >My Page</Link>
           </div>
           {user ? (

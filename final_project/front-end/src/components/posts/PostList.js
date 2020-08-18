@@ -39,45 +39,27 @@ const PostItemBlock = styled.div`
   }
 `;
 
-// const SubInfo = styled.div`
-//   color: #757575;
-
-//   span + span:before {
-//     color: #bdbdbd;
-//     padding-left: 0.25rem;
-//     padding-right: 0.25rem;
-//     content: "\\B7";
-//   }
-// `;
-
-// const Tags = styled.div`
-//   margin-top: 0.5rem;
-//   .tag {
-//     display: inline-block;
-//     color: #0097a7;
-//     text-decoration: none;
-//     margin-right: 0.5rem;
-//     &:hover {
-//       color: #00acc1;
-//     }
-//   }
-// `;
-
 const PostItem = ({ post }) => {
-  console.log({ post });
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
-    <PostItemBlock>
-      <h2>
-        <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
-      </h2>
-      <SubInfo
-        username={user.username}
-        publishedDate={new Date(publishedDate)}
-      />
-      <Tags tags={tags} />
-      <p>{body}</p>
-    </PostItemBlock>
+    // <PostItemBlock>
+    //   <h2>
+    //     <Link to={`/@:${user.username}/${_id}`}>{title}</Link>
+    //   </h2>
+    //   <SubInfo
+    //     username={user.username}
+    //     publishedDate={new Date(publishedDate)}
+    //   />
+    //   <Tags tags={tags} />
+    //   <p>{body}</p>
+    // </PostItemBlock>
+    <h2>
+      {!user ? (
+        console.log("error")
+      ) : (
+        <Link to={`/@${user.username}/${_id}}`}>{title}</Link>
+      )}
+    </h2>
   );
 };
 

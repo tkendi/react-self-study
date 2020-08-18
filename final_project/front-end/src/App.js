@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
-import InfoPage from "./components/pages/InfoPage";
+import {Helmet} from 'react-helmet-async'
 import WritePage from "./components/pages/WritePage";
 import PostPage from "./components/pages/PostPage";
 import PostListPage from './components/pages/PostListPage'

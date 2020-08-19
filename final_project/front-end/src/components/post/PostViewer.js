@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
+import { makeStyles, CircularProgress } from "@material-ui/core";
+import MuiAlert from '@material-ui/lab/Alert'
 
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
@@ -19,47 +21,60 @@ const PostHead = styled.div`
   }
 `;
 
-// const SubInfo = styled.div`
-//   margin-top: 1rem;
-//   color: #757575;
-
-//   span + span:before {
-//     color: #9e9e9e;
-//     padding-left: 0.25rem;
-//     padding-right: 0.25rem;
-//     content: "\\B7";
-//   }
-// `;
-
-// const Tags = styled.div`
-//   margin-top: 0.5rem;
-//   .tag {
-//     display: inline-block;
-//     color: #0097a7;
-//     text-decoration: none;
-//     margin-right: 0.5rem;
-//     &:hover {
-//       color: #00acc1;
-//     }
-//   }
-// `;
-
 const PostContent = styled.div`
   font-size: 1.3125rem;
   color: #424242;
 `;
 
+const Cicular = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    "& > * + *": {
+      marginLeft: theme.spacing(2),
+    },
+  },
+}));
+
+const errorText = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
+const Alert = ({ props }) => {
+  return <MuiAlert elevation={6} variant="filed" {...props} />;
+};
+
 const PostViewer = ({ post, error, loading, actionButtons }) => {
+  const classes = Cicular();
+
   console.log({ loading });
   if (error) {
     if (error.response && error.response.status === 404) {
-      return <PostViewerBlock>존재하지 않는 포스트입니다</PostViewerBlock>;
+      return (
+        <PostViewerBlock>
+          <Alert severity="error"> This is not existed posts </Alert>
+        </PostViewerBlock>
+      );
     }
-    return <PostViewerBlock>오류 발생</PostViewerBlock>;
+    return (
+      <PostViewerBlock>
+        <Alert severity="error"> Create Error </Alert>
+      </PostViewerBlock>
+    );
   }
 
   if (!loading || !post) {
-    return <PostViewerBlock>데이터가 존재하지 않습니다</PostViewerBlock>;
+    return (
+      <PostViewerBlock>
+        <div className={classes.root}>
+          <CircularProgress />
+        </div>
+      </PostViewerBlock>
+    );
   }
 
   const { title, body, user, publishedDate, tags } = post;

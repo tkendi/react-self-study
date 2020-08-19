@@ -10,7 +10,7 @@ const Header = ({ user, onLogout }) => {
       <div className={styles.HeadBlock}>
         <div className={styles.Wrapper}>
           <Link to="/" className={styles.logo}>
-            <PetsIcon size style={{ fontSize: 30, color: "#ffc107" }} />{" "}
+            <PetsIcon size style={{ fontSize: 40, color: "#ffc107" }} />{" "}
             SoonDoll
           </Link>
           <div>

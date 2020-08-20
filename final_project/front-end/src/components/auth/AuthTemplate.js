@@ -8,11 +8,11 @@ const AuthTemplate = ({ children, page }) => {
       <div className={styles.WhiteBox}>
         {page === "Login" ? (
           <Link to="/" className={styles.logoArea}>
-            Sign In to SoonDoll
+            SoonDoll
           </Link>
         ) : (
           <Link to="/" className={styles.logoArea}>
-            Create Account
+            SoonDoll
           </Link>
         )}
         {children}

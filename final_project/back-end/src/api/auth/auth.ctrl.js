@@ -25,7 +25,7 @@ export const register = async (ctx) => {
 
     const user = new User({
       username,
-      e,
+      password,
     });
 
     await user.setPassword(password); //비밀번호 설정

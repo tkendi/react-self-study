@@ -6,6 +6,7 @@ import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
 import { Link } from "react-router-dom";
 import styles from '../../styles/PostList.module.css'
+import {Helmet} from 'react-helmet-async'
 
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
@@ -44,6 +45,9 @@ const PostItem = ({ post }) => {
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
     <PostItemBlock>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <Link to={`/@${user.username}/${_id}`} className = {styles.titleTextLogo} >{title}</Link>
       <SubInfo
         username={user.username}

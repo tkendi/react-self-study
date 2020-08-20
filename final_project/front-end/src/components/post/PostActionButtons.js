@@ -29,7 +29,7 @@ const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
         <Button onClick={onEdit} onClick={onPublish}>
           수정
         </Button>
-        <Button onClick={onRemove}>삭제</Button>
+        <Button onClick={onRemoveClick}>삭제</Button>
       </PostActionButtonsBlock>
       <AskRemoveModal
         visible={modal}

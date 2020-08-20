@@ -35,14 +35,14 @@ const Cicular = makeStyles((theme) => ({
   },
 }));
 
-const errorText = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
+// const errorText = makeStyles((theme) => ({
+//   root: {
+//     width: "100%",
+//     "& > * + *": {
+//       marginTop: theme.spacing(2),
+//     },
+//   },
+// }));
 
 const Alert = ({ props }) => {
   return <MuiAlert elevation={6} variant="filed" {...props} />;

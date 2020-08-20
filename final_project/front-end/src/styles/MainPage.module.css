@@ -1,13 +1,15 @@
 .MainBlock {
-  /* position: absolute;
+  position: fixed;
 
   padding: 0;
   margin: 0;
 
   top: 0;
-  left: 0; */
+  left: 0;
+  /* width: 100%;
+  height: 100%;
   background-image: url(/src/img/MainPage.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   font-family: sans-serif;
 }

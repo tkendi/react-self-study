@@ -7,13 +7,11 @@ import styles from "../../styles/MainPage.module.css";
 const MainPage = () => {
   return (
     <React.Fragment>
-      <div className={styles.MainBlock}>
-        <HeaderContainer />
-        <Helmet>
-          <title>SoonDoll</title>
-        </Helmet>
-        <MainViewer />
-      </div>
+      <HeaderContainer />
+      <Helmet>
+        <title>SoonDoll</title>
+      </Helmet>
+      <MainViewer />
     </React.Fragment>
   );
 };

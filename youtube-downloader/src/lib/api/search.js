@@ -1,19 +1,23 @@
 import axios from "./client";
 
-export const search = async (text) => {
-  let optionParams = {
-    q: "스토커",
-    part: "snippet",
-    key: process.env.REACT_APP_ServiceKey,
-    type: "video",
-    maxResults: 99999,
-  };
+let optionParams = {
+  q: "",
+  part: "snippet",
+  key: process.env.REACT_APP_ServiceKey,
+  type: "video",
+  maxResults: 99999,
+};
 
-  const info = {
-    title: [],
-    videoId: [],
-  };
-  
+const info = {
+  title: [],
+  videoId: [],
+};
+
+export const search = async (data) => {
+  console.log(data)
+  optionParams.q = "스토커"
+  console.log(typeof(optionParams.q))
+
   optionParams.q = encodeURI(optionParams.q);
 
   let url = "https://www.googleapis.com/youtube/v3/search?";
@@ -23,8 +27,6 @@ export const search = async (text) => {
   }
 
   url = url.substr(0, url.length - 1);
-
-  console.log(url);
 
   await axios.get(url).then(function (response) {
     const items = response.data.items;

@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   InputBase,
-  Divider,
   makeStyles,
   Paper,
   IconButton,
-  Typography,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import {search} from '../lib/api/search'
@@ -32,19 +30,23 @@ const useStyles = makeStyles((theme) => ({
 
 class Search extends React.Component {
   state = {
-    text: ''
+    data: {
+      text: ""
+    }
   }
 
   handleChange = (e) => {
     this.setState({
-      text: e.target.value
+      data: {
+        text: e.target.value
+      }
     })
   }
 
   handleSubmit = async(e) => {
     e.preventDefault()
-    console.log(this.state.text)
-    const data = await search()
+    console.log(this.state.data)
+    const data = await search(this.state.data)
     console.log(data)
   }
 

@@ -4,6 +4,7 @@ import User from '../../models/user';
 export const register = async (ctx) => {
   const schema = Joi.object().keys({
     username: Joi.string().alphanum().min(3).max(20).required(),
+    nickname: Joi.string().alphanum().min(3).max(20).required(),
     password: Joi.string().required(),
   });
 

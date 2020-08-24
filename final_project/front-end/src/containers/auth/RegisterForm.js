@@ -30,9 +30,9 @@ const RegisterForm = ({ history }) => {
   //폼 등록 이벤트 핸들러
   const onSubmit = (e) => {
     e.preventDefault();
-    const { username, password, passwordConfirm } = form;
+    const { username, password, passwordConfirm, nickname } = form;
     //하나라도 입력이 안될 시
-    if ([username, password, passwordConfirm].includes("")) {
+    if ([username, password, passwordConfirm, nickname].includes("")) {
       setError("빈 칸을 모두 입력해 주세요");
       return;
     }

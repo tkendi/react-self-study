@@ -31,17 +31,28 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           className={styles.styleInput}
         />
         {type === "register" && (
-          <input
-            autoComplete="new-password"
-            name="passwordConfirm"
-            placeholder="비밀번호 확인"
-            type="password"
-            onChange={onChange}
-            value={form.passwordConfirm}
-            className={styles.styleInput}
-          />
+          <React.Fragment>
+            <input
+              autoComplete="new-password"
+              name="passwordConfirm"
+              placeholder="비밀번호 확인"
+              type="password"
+              onChange={onChange}
+              value={form.passwordConfirm}
+              className={styles.styleInput}
+            />
+
+            <input
+              autoComplete="NickName"
+              name="NickName"
+              placeholder="닉네임"
+              onChange={onChange}
+              vlaue={form.nickname}
+              className={styles.styleInput}
+            />
+          </React.Fragment>
         )}
-        {error && <Typography className = {styles.errorText}>{error}</Typography>}
+        {error && <Typography className={styles.errorText}>{error}</Typography>}
         <button className={styles.button}>{text}</button>
       </form>
 

@@ -2,8 +2,6 @@ import Post from '../../models/post';
 import mongoose from 'mongoose';
 import Joi from 'joi';
 import sanitizeHtml from 'sanitize-html';
-import { filter } from '../../../../../../Users/CHA/AppData/Local/Microsoft/TypeScript/3.9/node_modules/domutils/lib/index';
-import sanitize from 'sanitize-html';
 
 const { ObjectId } = mongoose.Types;
 

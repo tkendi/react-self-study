@@ -47,10 +47,10 @@ export const register = async (ctx) => {
 };
 
 export const login = async (ctx) => {
-  const { username, password, nickname } = ctx.request.body;
+  const { username, password } = ctx.request.body;
 
   //username과 password가 없을 시 에러처리
-  if (!username || !password || !nickname) {
+  if (!username || !password) {
     ctx.status = 401; //Unauthorized
     return;
   }

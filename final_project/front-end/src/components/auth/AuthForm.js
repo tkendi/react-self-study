@@ -14,7 +14,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     <div>
       <form onSubmit={onSubmit}>
         <input
-          autoComplete="username"
+          autoComplete="off"
           name="username"
           placeholder="아이디"
           onChange={onChange}

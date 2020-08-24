@@ -66,10 +66,13 @@ const RegisterForm = ({ history }) => {
     if (auth) {
       console.log("회원가입 성공");
       console.log(auth);
+      history.push('/')
       dispatch(check());
     }
   }, [auth, authError, dispatch]);
 
+  console.log(user)
+  
   useEffect(() => {
     if (user) {
       history.push("/"); //메인으로 이동

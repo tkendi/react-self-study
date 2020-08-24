@@ -14,6 +14,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^9.1.0",
     "mongoose": "^5.9.23",
+    "pm2": "^4.4.1",
     "sanitize-html": "^1.27.3"
   },
   "scripts": {

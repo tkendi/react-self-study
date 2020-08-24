@@ -88,7 +88,7 @@ export const check = async (ctx) => {
   console.log({ user });
   if (!user) {
     ctx.status = 401;
-    return;
+    retur
   }
 
   ctx.body = user;

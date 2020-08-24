@@ -10,7 +10,7 @@ export const register = async (ctx) => {
 
   const result = Joi.validate(ctx.request.body, schema);
   if (result.error) {
-    console.log(result.error)
+    console.log(result.error);
     ctx.status = 400;
     ctx.body = result.error;
     return;
@@ -88,7 +88,7 @@ export const check = async (ctx) => {
   console.log({ user });
   if (!user) {
     ctx.status = 401;
-    return
+    return;
   }
 
   ctx.body = user;

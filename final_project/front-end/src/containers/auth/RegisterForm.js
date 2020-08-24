@@ -43,7 +43,7 @@ const RegisterForm = ({ history }) => {
       changeField({ form: "register", key: "passwordConfirm", value: "" });
       return;
     }
-    dispatch(register({ username, password }));
+    dispatch(register({ username, password, nickname }));
   };
 
   //form 초기화

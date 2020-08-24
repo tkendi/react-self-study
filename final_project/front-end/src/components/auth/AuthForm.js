@@ -44,10 +44,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
 
             <input
               autoComplete="NickName"
-              name="NickName"
+              name="nickname"
               placeholder="닉네임"
               onChange={onChange}
-              vlaue={form.nickname}
+              value={form.nickname}
               className={styles.styleInput}
             />
           </React.Fragment>

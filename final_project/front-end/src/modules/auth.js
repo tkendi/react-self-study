@@ -21,7 +21,7 @@ export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({
     form, //register, login
-    key, //username, password, passwordConfirm
+    key, //username, password, nickname
     value, //실제 바꾸려는 값
   })
 );

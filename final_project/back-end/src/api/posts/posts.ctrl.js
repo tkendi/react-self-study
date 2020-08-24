@@ -91,10 +91,10 @@ export const list = async (ctx) => {
     ctx.status = 400;
     return;
   }
-  const { tag, username } = ctx.query;
+  const { tag, nickname } = ctx.query;
   //값이 유효할경우 tag에 넣는다
   const query = {
-    ...(username ? { 'user.username': username } : {}),
+    ...(nickname ? { 'user.nickname': nickname } : {}),
     ...(tag ? { tags: tag } : {}),
   };
   try {

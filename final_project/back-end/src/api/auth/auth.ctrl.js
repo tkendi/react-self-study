@@ -15,7 +15,7 @@ export const register = async (ctx) => {
     return;
   }
 
-  const { username, password } = ctx.request.body;
+  const { username, password, nickname } = ctx.request.body;
   try {
     //user가 이미 존재하는지 확인
     const exists = await User.findByUsername(username);
@@ -27,6 +27,7 @@ export const register = async (ctx) => {
     const user = new User({
       username,
       password,
+      nickname,
     });
 
     await user.setPassword(password); //비밀번호 설정
@@ -46,10 +47,10 @@ export const register = async (ctx) => {
 };
 
 export const login = async (ctx) => {
-  const { username, password } = ctx.request.body;
+  const { username, password, nickname } = ctx.request.body;
 
   //username과 password가 없을 시 에러처리
-  if (!username || !password) {
+  if (!username || !password || !nickname) {
     ctx.status = 401; //Unauthorized
     return;
   }

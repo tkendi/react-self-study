@@ -34,6 +34,7 @@ app.use(jwtMiddleware)
 app.use(router.routes()).use(router.allowedMethods());
 
 const port = PORT || 4000;
+console.log(port)
 app.listen(port, () => {
   console.log(`Listening port ${port}`);
 });

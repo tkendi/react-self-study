@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import styles from "../../styles/MainViewer.module.css";
-import MainImg from "../../img/MainPage.png";
 
 const MainViewer = () => {
   return (

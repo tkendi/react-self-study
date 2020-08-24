@@ -6,10 +6,10 @@
 
   top: 0;
   left: 0;
-  /* width: 100%;
+  width: 100%;
   height: 100%;
-  background-image: url(/src/img/MainPage.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
+  background: linear-gradient(to right, #ffecb3, #fff59d, #ccff90);
+  background-size: cover;
+  background-size: cover;
   font-family: sans-serif;
 }

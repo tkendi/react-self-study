@@ -28,6 +28,9 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  nicknameText: {
+    fontSize: 80,
+  },
 });
 
 const ProfileViewer = ({ user }) => {
@@ -38,8 +41,10 @@ const ProfileViewer = ({ user }) => {
     <React.Fragment>
       <Card className={classes.root}>
         <CardContent>
-          <AccountBoxIcon style = {{fontSize: 80}} />
-          <Typography>{user.nickname}</Typography>
+          <AccountBoxIcon style={{ fontSize: 80 }} />
+          <Typography color="primary" className={classes.nicknameText}>
+            {user.nickname}
+          </Typography>
         </CardContent>
       </Card>
     </React.Fragment>

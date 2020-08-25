@@ -1,13 +1,13 @@
 import React from "react";
 import HeaderContainer from "../common/HeaderContainer";
-import ProfileViewer from "../myprofile/ProfileViewer";
+import ProfileContainer from '../../containers/myProfile/ProfieContainer'
 
 const MyPage = () => {
   return (
     <React.Fragment>
       <div>
         <HeaderContainer />
-        <ProfileViewer />
+        <ProfileContainer />
       </div>
     </React.Fragment>
   );

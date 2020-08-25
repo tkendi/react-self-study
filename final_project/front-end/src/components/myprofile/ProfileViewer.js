@@ -1,15 +1,47 @@
 import React from "react";
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import styles from "../../styles/Profile.module.css";
+import {
+  Paper,
+  Typography,
+  makeStyles,
+  CardActions,
+  CardContent,
+  Card,
+} from "@material-ui/core";
 
-const ProfileViewer = () => {
+const useStyles = makeStyles({
+  root: {
+    marginTop: "3rem",
+    marginLeft: "3rem",
+    marginRight: "3rem",
+    minWidth: 275,
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
+const ProfileViewer = ({ user }) => {
+  console.log({ user });
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
   return (
     <React.Fragment>
-      <div className={styles.FormBlock}>
-        <div className={styles.ProfileBlock}>
-          <AccountBoxIcon style={{ fontSize:  }}/>
-        </div>
-      </div>
+      <Card className={classes.root}>
+        <CardContent>
+          <AccountBoxIcon style = {{fontSize: 80}} />
+          <Typography>{user.nickname}</Typography>
+        </CardContent>
+      </Card>
     </React.Fragment>
   );
 };

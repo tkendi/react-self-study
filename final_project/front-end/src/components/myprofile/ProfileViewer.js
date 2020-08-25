@@ -12,6 +12,8 @@ import {
 
 const useStyles = makeStyles({
   root: {
+    display: "block",
+    textAlign: "inherit",
     marginTop: "3rem",
     marginLeft: "3rem",
     marginRight: "3rem",
@@ -28,9 +30,16 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-  nicknameText: {
-    fontSize: 80,
+  text: {
+    fontSize: 25,
+    display: "block",
   },
+  textForm: {
+    display: "block",
+  },
+  SoonDollTitle: {
+      fontSize: '80px'
+  }
 });
 
 const ProfileViewer = ({ user }) => {
@@ -41,10 +50,24 @@ const ProfileViewer = ({ user }) => {
     <React.Fragment>
       <Card className={classes.root}>
         <CardContent>
-          <AccountBoxIcon style={{ fontSize: 80 }} />
-          <Typography color="primary" className={classes.nicknameText}>
-            {user.nickname}
+          <Typography noWrap className = {classes.SoonDool}>SoonDoll Profile</Typography>
+          <AccountBoxIcon style={{ fontSize: 60 }} />{" "}
+          <Typography
+            color="textPrimary"
+            className={classes.nicknameText}
+            noWrap
+          >
+            Username
           </Typography>
+          {user.username}
+          <Typography
+            color="textPrimary"
+            className={classes.nicknameText}
+            noWrap
+          >
+            UserNickname
+          </Typography>
+          {user.nickname}
         </CardContent>
       </Card>
     </React.Fragment>

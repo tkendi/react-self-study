@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert'
+import {Alert, AlertTitle} from '@material-ui/lab'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,11 +11,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Error = ({ props }) => {
+const Error = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Alert severity="error">This is an error alert — check it out!</Alert>
+      <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+        This is an error alert — <strong>check it out!</strong>
+      </Alert>
     </div>
   );
 };

@@ -9,7 +9,7 @@ const jwtMiddleware = async (ctx, next) => {
         ctx.state.user = {
             _id: decoded._id,
             username: decoded.username,
-            nickname: 
+            nickname: decoded.nickname
         }
 
         //토큰 재발급 

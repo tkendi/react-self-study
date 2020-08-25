@@ -14,14 +14,20 @@ const Header = ({ user, onLogout }) => {
             SoonDoll
           </Link>
           <div>
-            <Link to="#" className = {styles.pages}>Streaming</Link>
-            <Link to="/postList" className = {styles.pages} >Board</Link>
-            <Link to="#" className = {styles.pages} >My Page</Link>
+            <Link to="#" className={styles.pages}>
+              Streaming
+            </Link>
+            <Link to="/postList" className={styles.pages}>
+              Board
+            </Link>
+            <Link to="/mypage" className={styles.pages}>
+              My Page
+            </Link>
           </div>
           {user ? (
             <div className={styles.right}>
               <div className={styles.userInfo}>
-                {user.username}
+                {user.nickname}
                 <Typography>님 환영합니다</Typography>
               </div>
               <Button onClick={onLogout}>logout</Button>
@@ -39,4 +45,3 @@ const Header = ({ user, onLogout }) => {
 };
 
 export default Header;
-

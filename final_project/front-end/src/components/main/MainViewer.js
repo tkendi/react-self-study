@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import styles from "../../styles/MainViewer.module.css";
+import MainImg from '../../img/MainPage.png'
 
 const MainViewer = () => {
   return (
@@ -17,6 +18,9 @@ const MainViewer = () => {
               SoonDoll을 통해 실시간으로 반려동물을 확인하세요
             </Typography>
           </div>
+        </div>
+        <div>
+          <img src = {MainImg} alt = "MainPage" />
         </div>
       </div>
     </React.Fragment>

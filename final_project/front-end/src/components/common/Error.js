@@ -4,6 +4,7 @@ import {Alert, AlertTitle} from '@material-ui/lab'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: '3rem',
     width: "100%",
     "& > * + *": {
       marginTop: theme.spacing(2),
@@ -17,7 +18,7 @@ const Error = () => {
     <div className={classes.root}>
       <Alert severity="error">
         <AlertTitle>Error</AlertTitle>
-        This is an error alert — <strong>check it out!</strong>
+        로그인이 되어있지 않습니다. - <strong>check it out!</strong>
       </Alert>
     </div>
   );

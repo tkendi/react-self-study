@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import styles from "../../styles/Profile.module.css";
 import {
   Paper,
   Typography,
   makeStyles,
-  CardActions,
   CardContent,
   Card,
 } from "@material-ui/core";
+import Error from '../common/Error'
+
 
 const useStyles = makeStyles({
   root: {
     display: "block",
     textAlign: "inherit",
-    marginTop: "3rem",
+    marginTop: "1.5rem",
     marginLeft: "3rem",
     marginRight: "3rem",
-    minWidth: 275,
+    minWidth: "295px",
   },
   bullet: {
     display: "inline-block",
@@ -33,43 +34,48 @@ const useStyles = makeStyles({
   text: {
     fontSize: 25,
     display: "block",
-  },
-  textForm: {
-    display: "block",
+    whiteSpace: "nowrap",
   },
   SoonDollTitle: {
-      fontSize: '80px'
-  }
+    padding: 0,
+    margin: 0,
+    border: 0,
+    fontSize: "25px",
+    whiteSpace: "nowrap",
+  },
 });
 
-const ProfileViewer = ({ user }) => {
+const ProfileViewer = ({ user, error }) => {
   console.log({ user });
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+
+useEffect(() => {
+  if(error) {
+    return(
+      <Error  error={error} />
+    )
+  }
+})
+
   return (
     <React.Fragment>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography noWrap className = {classes.SoonDool}>SoonDoll Profile</Typography>
-          <AccountBoxIcon style={{ fontSize: 60 }} />{" "}
-          <Typography
-            color="textPrimary"
-            className={classes.nicknameText}
-            noWrap
-          >
-            Username
-          </Typography>
-          {user.username}
-          <Typography
-            color="textPrimary"
-            className={classes.nicknameText}
-            noWrap
-          >
-            UserNickname
-          </Typography>
-          {user.nickname}
-        </CardContent>
-      </Card>
+      <div style={{marginTop: '2rem'}}>
+        <Typography className={classes.SoonDollTitle}>
+          <AccountBoxIcon style={{ fontSize: "50px" }} /> SoonDoll Profile
+        </Typography>
+        <Card className={classes.root}>
+          <CardContent>
+            <Typography className={classes.text}>
+              {" "}
+              username: {user.username}
+            </Typography>
+            <Typography className={classes.text}>
+              nickname: {user.nickname}
+            </Typography>
+          </CardContent>
+        </Card>
+      </div>
     </React.Fragment>
   );
 };

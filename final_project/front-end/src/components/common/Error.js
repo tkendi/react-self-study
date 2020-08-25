@@ -2,9 +2,11 @@ import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import { withRouter } from "react-router-dom";
+import Warning from '../../img/FBIwarning.jpg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundImage: Warning,
     marginTop: "3rem",
     width: "100%",
     "& > * + *": {
@@ -18,12 +20,12 @@ const Error = ({ history }) => {
 
   const classes = useStyles();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      history.push("/");
-      setCount(timer);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     history.push("/");
+  //     setCount(timer);
+  //   }, 3000);
+  // }, []);
 
   return (
     <div className={classes.root}>

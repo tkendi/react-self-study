@@ -8,8 +8,7 @@ import {
   CardContent,
   Card,
 } from "@material-ui/core";
-import Error from '../common/Error'
-
+import Error from "../common/Error";
 
 const useStyles = makeStyles({
   root: {
@@ -50,17 +49,13 @@ const ProfileViewer = ({ user, error }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-useEffect(() => {
-  if(error) {
-    return(
-      <Error  error={error} />
-    )
+  if (error) {
+    return <Error error={error} />;
   }
-})
 
   return (
     <React.Fragment>
-      <div style={{marginTop: '2rem'}}>
+      <div style={{ marginTop: "2rem" }}>
         <Typography className={classes.SoonDollTitle}>
           <AccountBoxIcon style={{ fontSize: "50px" }} /> SoonDoll Profile
         </Typography>

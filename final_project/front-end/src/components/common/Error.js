@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core";
-import {Alert, AlertTitle} from '@material-ui/lab'
+import { Alert, AlertTitle } from "@material-ui/lab";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: '3rem',
+    marginTop: "3rem",
     width: "100%",
     "& > * + *": {
       marginTop: theme.spacing(2),
@@ -12,16 +13,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Error = () => {
+const Error = ({ history }) => {
+  const [count, setCount] = useState(0);
+
   const classes = useStyles();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      history.push("/");
+      setCount(timer);
+    }, 3000);
+  }, []);
+
   return (
     <div className={classes.root}>
       <Alert severity="error">
         <AlertTitle>Error</AlertTitle>
-        로그인이 되어있지 않습니다. - <strong>check it out!</strong>
+        로그인이 되어있지 않습니다. - <strong>check it out! {count}</strong>
       </Alert>
     </div>
   );
 };
 
-export default Error;
+export default withRouter(Error);

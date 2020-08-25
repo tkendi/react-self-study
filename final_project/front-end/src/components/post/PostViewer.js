@@ -50,8 +50,6 @@ const Alert = ({ props }) => {
 
 const PostViewer = ({ post, error, loading, actionButtons }) => {
   const classes = Cicular();
-
-  console.log({ loading });
   if (error) {
     if (error.response && error.response.status === 404) {
       return (

@@ -45,12 +45,12 @@ const useStyles = makeStyles({
 });
 
 const ProfileViewer = ({ user, error }) => {
-  console.log({ user });
+  console.log({ user, error });
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
   if (error) {
-    return <Error error={error} />;
+    return <Error />;
   }
 
   return (

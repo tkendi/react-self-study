@@ -15,7 +15,7 @@ const Error = ({ props }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Alert severity="error">{props.error}</Alert>
+      <Alert severity="error">This is an error alert — check it out!</Alert>
     </div>
   );
 };

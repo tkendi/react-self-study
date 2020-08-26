@@ -1,7 +1,26 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import {
+  Typography,
+  Button,
+  Paper,
+  ButtonGroup,
+  createMuiTheme,
+  ThemeProvider,
+} from "@material-ui/core";
 import styles from "../../styles/MainViewer.module.css";
-import MainImg from '../../img/MainPage.png'
+import MainImg from "../../img/MainPage.png";
+import { purple, yellow } from "@material-ui/core/colors";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#ffeb3b",
+    },
+    secondary: {
+      main: "#fffde7",
+    },
+  },
+});
 
 const MainViewer = () => {
   return (
@@ -17,10 +36,25 @@ const MainViewer = () => {
             <Typography className={styles.textSubTitle}>
               SoonDoll을 통해 실시간으로 반려동물을 확인하세요
             </Typography>
+            <ThemeProvider theme={theme}>
+              <ButtonGroup className={styles.buttonForm}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{width: '10rem', height: '3rem'}}
+                  href="/login"
+                >
+                  Sign In
+                </Button>{" "}
+                <Button variant="contained" color="secondary" href="/register">
+                  Sign Up
+                </Button>
+              </ButtonGroup>
+            </ThemeProvider>
           </div>
         </div>
-        <div className=  {styles.imgForm}>
-          <img src = {MainImg} alt = "MainPage" />
+        <div className={styles.imgForm}>
+          <img src={MainImg} alt="MainPage" />
         </div>
       </div>
     </React.Fragment>

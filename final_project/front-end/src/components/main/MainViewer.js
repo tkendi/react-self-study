@@ -19,7 +19,7 @@ const MainViewer = () => {
             </Typography>
           </div>
         </div>
-        <div>
+        <div className=  {styles.imgForm}>
           <img src = {MainImg} alt = "MainPage" />
         </div>
       </div>

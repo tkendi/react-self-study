@@ -1,6 +1,6 @@
 .titleTextLogo {
     display: block;
-    position: relative;
+    position: absolute;
     text-align: left;
     text-decoration: none;
     font-size: 2rem;

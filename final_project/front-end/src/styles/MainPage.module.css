@@ -12,9 +12,11 @@
   background-size: cover;
   background-size: cover;
   font-family: sans-serif;
+}
 
-  @media screen and(max-width: 900px) {
-    margin-top: 1rem;
+@media screen and (max-width: 900px) {
+  .MainBlock {
+    position: relative;
     width: 100%;
   }
 }

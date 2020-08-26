@@ -55,3 +55,15 @@ img {
   right: 5rem;
   float: right;
 }
+
+@media screnn and (max-wdith: 900px) {
+  .FormBlock {
+    position: relative;
+    display: inline-block;
+  }
+
+  .titleForm {
+    position: absolute;
+    display: inline-block;
+  }
+}

@@ -46,10 +46,10 @@
 }
 
 img {
-  position: fixed;
+  overflow: hidden;
+  position: absolute;
   top: 10rem;
   right: 5rem;
-  width: 780px;
+  width: 900px;
   float: right;
-  overflow: hidden;
 }

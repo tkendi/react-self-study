@@ -12,6 +12,13 @@ const useStyles = makeStyles((theme) => ({
     "& > * + *": {
       marginTop: theme.spacing(2),
     },
+    warninig: {
+      position: "relative",
+      top: 0,
+      right: 100,
+      width: '100%',
+      height: '100%',
+    }
   },
 }));
 
@@ -29,6 +36,7 @@ const Error = ({ history }) => {
 
   return (
     <div className={classes.root}>
+      <img src = {Warning} alt = "Warning" />
       <Alert severity="error">
         <AlertTitle>Error</AlertTitle>
         로그인이 되어있지 않습니다. - <strong>check it out! {count}</strong>

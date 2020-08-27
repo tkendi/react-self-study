@@ -44,10 +44,10 @@
 
 .imgForm {
   overflow: hidden;
-  width: 12rem;
 }
 
 img {
+  width: 45%;
   overflow: hidden;
   position: absolute;
   top: 10rem;

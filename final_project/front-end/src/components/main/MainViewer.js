@@ -41,12 +41,12 @@ const MainViewer = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  style={{width: '10rem', height: '3rem'}}
+                  style={{width: '11rem', height: '3.3rem'}}
                   href="/login"
                 >
                   Sign In
                 </Button>{" "}
-                <Button variant="contained" color="secondary" href="/register">
+                <Button variant="contained" color="secondary" href="/register" style = {{width: '8rem', height: '3.28rem'}} >
                   Sign Up
                 </Button>
               </ButtonGroup>

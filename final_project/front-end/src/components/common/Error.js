@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core";
 import { Alert, AlertTitle } from "@material-ui/lab";
-import { withRouter } from "react-router-dom";
-import Warning from '../../img/FBIwarning.jpg'
+import { withRouter, Link } from "react-router-dom";
+import Warning from "../../img/FBIwarning.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundImage: Warning,
     marginTop: "3rem",
     width: "100%",
     "& > * + *": {
@@ -16,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
       position: "relative",
       top: 0,
       right: 100,
-      width: '100%',
-      height: '100%',
-    }
+      width: "100%",
+      height: "100%",
+    },
   },
 }));
 
@@ -36,9 +35,12 @@ const Error = ({ history }) => {
 
   return (
     <div className={classes.root}>
-      <Alert severity="error" variant = "outlined">
+      <Alert severity="error" variant="outlined">
         <AlertTitle>Error</AlertTitle>
-        로그인이 되어있지 않습니다. - <strong><a href="/login" style = {{textDecoration: 'none'}} >로그인</a> 을먼저 해주세요</strong>
+        로그인이 되어있지 않습니다. -{" "}
+        <strong>
+          <Link to = "/login" style = {{textDecoration: 'none', position: "relative", display: 'inline-grid' }} >로그인</Link> 을먼저 해주세요
+        </strong>
       </Alert>
     </div>
   );

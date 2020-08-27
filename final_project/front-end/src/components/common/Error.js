@@ -36,8 +36,7 @@ const Error = ({ history }) => {
 
   return (
     <div className={classes.root}>
-      <img src = {Warning} alt = "Warning" />
-      <Alert severity="error">
+      <Alert severity="error" variant = "outlined">
         <AlertTitle>Error</AlertTitle>
         로그인이 되어있지 않습니다. - <strong>check it out! {count}</strong>
       </Alert>

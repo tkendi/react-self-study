@@ -38,7 +38,7 @@ const Error = ({ history }) => {
     <div className={classes.root}>
       <Alert severity="error" variant = "outlined">
         <AlertTitle>Error</AlertTitle>
-        로그인이 되어있지 않습니다. - <strong>check it out! {count}</strong>
+        로그인이 되어있지 않습니다. - <strong><a href="/login" style = {{textDecoration: 'none'}} >로그인</a> 을먼저 해주세요</strong>
       </Alert>
     </div>
   );

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
 import { Link } from "react-router-dom";
-import styles from '../../styles/PostList.module.css'
-import {Helmet} from 'react-helmet-async'
+import styles from "../../styles/PostList.module.css";
+import { Helmet } from "react-helmet-async";
+import Error from "../common/Error";
 
 const PostListBlock = styled(Responsive)`
   margin-top: 3rem;
@@ -42,13 +43,16 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = ({ post }) => {
+  console.log({ post });
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
     <PostItemBlock>
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Link to={`/@${user.username}/${_id}`} className = {styles.titleTextLogo} >{title}</Link>
+      <Link to={`/@${user.username}/${_id}`} className={styles.titleTextLogo}>
+        {title}
+      </Link>
       <SubInfo
         username={user.username}
         publishedDate={new Date(publishedDate)}
@@ -63,6 +67,11 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
   if (error) {
     return <PostListBlock>Postlist 에러 발생</PostListBlock>;
   }
+
+  if (!posts) {
+    return <Error />;
+  }
+
   return (
     <PostListBlock>
       <WritePostButtonWrapper>

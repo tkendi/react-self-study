@@ -24,10 +24,10 @@ class App extends React.Component {
   }
 
   onClick = async () => {
-    const formData = FormData()
-    formData.append('file', img);
+    const formData = new FormData()
+    formData.append('file', this.state.img);
     const res = await axios.post("/api/upload", formData)
-    console.log(Res)
+    console.log(res)
   }
 
   render() {
@@ -45,8 +45,8 @@ class App extends React.Component {
           <Route component={PostPage} path="/@:username/:postId" />
           <Route component={MyPage} path="/mypage" /> */}
 
-        <input type="file" onChange={e => this.handleFileInput(e)} name="file" />
-        <button type='button' onClick={this.handlePost()}>
+        <input type="file" onChange={e => this.onChange(e)} name="file" />
+        <button type='button' onClick={this.onClick}>
           Submit
         </button>
       </React.Fragment>

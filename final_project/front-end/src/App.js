@@ -13,25 +13,21 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedFile: null
+      img: null
     }
   }
 
-  handleFileInput(e) {
+  onChange = (e) => {
     this.setState({
-      selectedFile: e.target.files[0]
+      img: (e.target.files[0])
     })
   }
 
-  handlePost() {
-    const formData = new FormData()
-    formData.append('file', this.state.selectedFile)
-
-    return axios.post("../server/fileupload", formData).then(res => {
-      alert('success')
-    }) .catch(err => {
-      alert('fail')
-    })
+  onClick = async () => {
+    const formData = FormData()
+    formData.append('file', img);
+    const res = await axios.post("/api/upload", formData)
+    console.log(Res)
   }
 
   render() {

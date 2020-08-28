@@ -5,6 +5,7 @@ import styles from "../../styles/Header.module.css";
 import PetsIcon from "@material-ui/icons/Pets";
 
 const Header = ({ user, onLogout }) => {
+  console.log({user})
   return (
     <React.Fragment>
       <div className={styles.HeadBlock}>

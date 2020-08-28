@@ -27,7 +27,7 @@ class App extends React.Component {
     const formData = new FormData()
     formData.append('file', this.state.selectedFile)
 
-    return axios.post("/api/upload", formData).then(res => {
+    return axios.post("../server/fileupload", formData).then(res => {
       alert('success')
     }) .catch(err => {
       alert('fail')

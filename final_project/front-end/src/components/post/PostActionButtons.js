@@ -15,6 +15,7 @@ const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
   const onRemoveClick = () => {
     setModal(true);
   };
+  
   const onCancel = () => {
     setModal(false);
   };
@@ -23,6 +24,7 @@ const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
     setModal(false);
     onRemove();
   };
+
   return (
     <React.Fragment>
       <PostActionButtonsBlock>

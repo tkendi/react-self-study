@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Button,
@@ -10,6 +10,8 @@ import {
 import styles from "../../styles/MainViewer.module.css";
 import MainImg from "../../img/MainPage.png";
 import { purple, yellow } from "@material-ui/core/colors";
+import Axios from "axios";
+import axios from "axios";
 
 const theme = createMuiTheme({
   palette: {
@@ -23,6 +25,16 @@ const theme = createMuiTheme({
 });
 
 const MainViewer = () => {
+  const [img, setImage] = useState(null);
+  const onChange = (e) => {
+    setImage(e.target.files[0]);
+  };
+  const onClick = async () => {
+    const formData = new FormData();
+    formData.append("file", img);
+    const res = await Axios.post("/api/upload", formData);
+    console.log(res);
+  };
   return (
     <React.Fragment>
       <div className={styles.FormBlock}>

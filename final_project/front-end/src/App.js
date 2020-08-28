@@ -50,7 +50,7 @@ class App extends React.Component {
           <Route component={MyPage} path="/mypage" /> */}
 
         <input type="file" onChange={e => this.handleFileInput(e)} name="file" />
-        <button type={button} onClick={this.handlePost()}>
+        <button type='button' onClick={this.handlePost()}>
           Submit
         </button>
       </React.Fragment>

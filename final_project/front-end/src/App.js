@@ -10,6 +10,8 @@ import MyPage from "./components/pages/MyPage";
 import axios from "axios";
 import ImageUploader from "react-images-upload";
 
+import "./style.css";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +33,8 @@ class App extends React.Component {
     console.log(this.state.pictures);
     return (
       <React.Fragment>
-        {/* <Route component={MainPage} path="/" exact={true} />
+        <div className="App">
+          {/* <Route component={MainPage} path="/" exact={true} />
           <Route
             component={PostListPage}
             path={["/@:username", "/postList"]}
@@ -43,45 +46,50 @@ class App extends React.Component {
           <Route component={PostPage} path="/@:username/:postId" />
           <Route component={MyPage} path="/mypage" /> */}
 
-        <ImageUploader
-          multiple
-          value={this.state.pictures}
-          onChange={this.onDrop}
-          maxNumber="64"
-          dataURLKey="data_url"
-        >
-          {({
-            imageList,
-            onImageUpload,
-            onImageRemoveAll,
-            onImageUpdate,
-            onImageRemove,
-            isDragging,
-            dragProps,
-          }) => (
-            // write your building UI
-            <div className="upload__image-wrapper">
-              <button
-                style={isDragging ? { color: "red" } : null}
-                onClick={onImageUpload}
-                {...dragProps}
-              >
-                Click or Drop here
-              </button>
-              &nbsp;
-              <button onClick={onImageRemoveAll}>Remove all images</button>
-              {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                  <img src={image.data_url} alt="" width="100" />
-                  <div className="image-item__btn-wrapper">
-                    <button onClick={() => onImageUpdate(index)}>Update</button>
-                    <button onClick={() => onImageRemove(index)}>Remove</button>
+          <ImageUploader
+            multiple
+            value={this.state.pictures}
+            onChange={this.onDrop}
+            maxNumber="64"
+            dataURLKey="data_url"
+          >
+            {({
+              imageList,
+              onImageUpload,
+              onImageRemoveAll,
+              onImageUpdate,
+              onImageRemove,
+              isDragging,
+              dragProps,
+            }) => (
+              // write your building UI
+              <div className="upload__image-wrapper">
+                <button
+                  style={isDragging ? { color: "red" } : null}
+                  onClick={onImageUpload}
+                  {...dragProps}
+                >
+                  Click or Drop here
+                </button>
+                &nbsp;
+                <button onClick={onImageRemoveAll}>Remove all images</button>
+                {imageList.map((image, index) => (
+                  <div key={index} className="image-item">
+                    <img src={image.data_url} alt="" width="100" />
+                    <div className="image-item__btn-wrapper">
+                      <button onClick={() => onImageUpdate(index)}>
+                        Update
+                      </button>
+                      <button onClick={() => onImageRemove(index)}>
+                        Remove
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </ImageUploader>
+                ))}
+              </div>
+            )}
+          </ImageUploader>
+        </div>
       </React.Fragment>
     );
   }

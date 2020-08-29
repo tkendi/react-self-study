@@ -3,7 +3,8 @@ import Quill from "quill";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import "quill/dist/quill.bubble.css";
-import ImageButton from '../write/ImageButton'
+import ImageButton from "../write/ImageButton";
+import { Typography } from "@material-ui/core";
 
 const EditorBlock = styled(Responsive)`
   padding-top: 5rem;
@@ -35,7 +36,7 @@ const QuillWrapper = styled.div`
 const Editor = ({ title, body, image, onChangeField }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
-  const [urlData, setUrlData] = useState([])
+  const [urlData, setUrlData] = useState([]);
 
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
@@ -71,11 +72,16 @@ const Editor = ({ title, body, image, onChangeField }) => {
     onChangeField({ key: "title", value: e.target.value });
   };
 
-  const Urlhandler = (e) => {
+  const onChnageUrl = (e) => {
     const data = e;
-    
-    setUrlData(data[0].data_url)
-  }
+    if (!data) {
+      data=null
+    }
+
+    onChangeField({key: "image", value: data[0].data_url})
+
+    setUrlData(data[0].data_url);
+  };
 
   return (
     <EditorBlock>
@@ -87,7 +93,7 @@ const Editor = ({ title, body, image, onChangeField }) => {
       <QuillWrapper>
         <div ref={quillElement} />
       </QuillWrapper>
-      <ImageButton urlhandler = {Urlhandler} />
+      <ImageButton urlhandler={onChnageUrl}  />
     </EditorBlock>
   );
 };

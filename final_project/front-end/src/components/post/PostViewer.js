@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import SubInfo from "../common/SubInfo";
 import Tags from "../common/Tags";
-import { makeStyles, CircularProgress } from "@material-ui/core";
-import MuiAlert from '@material-ui/lab/Alert'
+import { makeStyles, CircularProgress, Typography } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
@@ -34,15 +34,18 @@ const PostImage = styled.img`
   align-items: flex-start;
   float: left;
   padding-top: 2rem;
-`
+`;
 
-const Cicular = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     "& > * + *": {
       marginLeft: theme.spacing(2),
     },
   },
+  title: {
+    fontWeight: "bold"
+  }
 }));
 
 // const errorText = makeStyles((theme) => ({
@@ -59,8 +62,8 @@ const Alert = ({ props }) => {
 };
 
 const PostViewer = ({ post, error, loading, actionButtons }) => {
-  console.log(post)
-  const classes = Cicular();
+  console.log(post);
+  const classes = useStyles();
   if (error) {
     if (error.response && error.response.status === 404) {
       return (
@@ -98,9 +101,13 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
         />
         <Tags tags={tags} />
       </PostHead>
+
+      <Typography variant="h5" component="h3" className = {classes.title} >
+        Content
+      </Typography>
       {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
-      <PostImage src = {image} alt ="" />
+      <PostImage src={image} alt="" />
     </PostViewerBlock>
   );
 };

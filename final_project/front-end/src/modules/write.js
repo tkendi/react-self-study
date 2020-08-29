@@ -26,10 +26,11 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   value,
 }));
 
-export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
+export const writePost = createAction(WRITE_POST, ({ title, body, tags, image }) => ({
   title,
   body,
   tags,
+  image
 }));
 
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
@@ -57,6 +58,7 @@ const initialState = {
   title: "",
   body: "",
   tags: [],
+  image: "",
   post: null,
   postError: null,
   originalPostId: null,

@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
 import styled from "styled-components";
 
-const StyledButton = styled.button({
-  padding: 0,
-  margin: 0,
-  border: 0,
-  width: "10%",
-  position: "relative",
-});
+const StyledButton = styled.button`
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: "10%";
+  position: "relative";
+`;
 
-const ImageButton = () => {
+const ImageButton = ({urlhandler}) => {
   const [pictures, setPictures] = useState([]);
 
   const onDrop = (imageList, addUpdateIndex) => {
     console.log(imageList, addUpdateIndex);
     setPictures(imageList);
+    urlhandler(imageList)
   };
 
   return (

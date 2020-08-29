@@ -71,7 +71,7 @@ export const write = async (ctx) => {
     ctx.body = result.error;
     return;
   }
-  const { title, body, tags } = ctx.request.body;
+  const { title, body, tags, image } = ctx.request.body;
   const post = new Post({
     title,
     body: sanitizeHtml(body, snaitizeOption),

@@ -8,7 +8,7 @@ import PostListPage from "./components/pages/PostListPage";
 import MainPage from "./components/pages/MainPage";
 import MyPage from "./components/pages/MyPage";
 import axios from "axios";
-import ImageUploader from "react-images-upload";
+import ImageUploading from "react-images-uploading";
 
 import "./style.css";
 
@@ -46,7 +46,7 @@ class App extends React.Component {
           <Route component={PostPage} path="/@:username/:postId" />
           <Route component={MyPage} path="/mypage" /> */}
 
-          <ImageUploader
+          <ImageUploading
             multiple
             value={this.state.pictures}
             onChange={this.onDrop}
@@ -74,7 +74,7 @@ class App extends React.Component {
                 &nbsp;
                 <button onClick={onImageRemoveAll}>Remove all images</button>
                 {imageList.map((image, index) => (
-                  <div key={index} className="image-item">
+                  <div key={index} className="imagey-item">
                     <img src={image.data_url} alt="" width="100" />
                     <div className="image-item__btn-wrapper">
                       <button onClick={() => onImageUpdate(index)}>
@@ -88,7 +88,7 @@ class App extends React.Component {
                 ))}
               </div>
             )}
-          </ImageUploader>
+          </ImageUploading>
         </div>
       </React.Fragment>
     );

@@ -22,14 +22,15 @@ const WritePostButtonWrapper = styled.div`
 const PostItemBlock = styled.div`
   padding-top: 3rem;
   padding-bottom: 3rem;
+  /* 맨 위 포스트는 padding-top 없음 */
   &:first-child {
     padding-top: 0;
   }
   & + & {
-    border-top: 1px solid #757575;
+    border-top: 1px solid #eeeeee;
   }
-
   h2 {
+    text-decoration: none;
     font-size: 2rem;
     margin-bottom: 0;
     margin-top: 0;
@@ -47,12 +48,9 @@ const PostItem = ({ post }) => {
   const { publishedDate, user, tags, title, body, _id } = post;
   return (
     <PostItemBlock>
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
-      <Link to={`/@${user.username}/${_id}`} className={styles.titleTextLogo}>
-        {title}
-      </Link>
+      <h2>
+        <Link to={`/@${user.username}/${_id}`}>{title}</Link>
+      </h2>
       <SubInfo
         username={user.username}
         publishedDate={new Date(publishedDate)}

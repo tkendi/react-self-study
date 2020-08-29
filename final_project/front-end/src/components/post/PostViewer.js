@@ -26,6 +26,16 @@ const PostContent = styled.div`
   color: #424242;
 `;
 
+const PostImage = styled.img`
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  float: left;
+  padding-top: 2rem;
+`
+
 const Cicular = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -49,6 +59,7 @@ const Alert = ({ props }) => {
 };
 
 const PostViewer = ({ post, error, loading, actionButtons }) => {
+  console.log(post)
   const classes = Cicular();
   if (error) {
     if (error.response && error.response.status === 404) {
@@ -75,7 +86,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
     );
   }
 
-  const { title, body, user, publishedDate, tags } = post;
+  const { title, body, user, publishedDate, tags, image } = post;
   return (
     <PostViewerBlock>
       <PostHead>
@@ -89,6 +100,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
       </PostHead>
       {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: body }} />
+      <PostImage src = {image} alt ="" />
     </PostViewerBlock>
   );
 };

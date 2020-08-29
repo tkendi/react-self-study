@@ -8,7 +8,7 @@ import PostListPage from "./components/pages/PostListPage";
 import MainPage from "./components/pages/MainPage";
 import MyPage from "./components/pages/MyPage";
 import axios from "axios";
-import ImageUploading from "react-images-uploading";
+
 
 import "./style.css";
 
@@ -33,63 +33,17 @@ class App extends React.Component {
     console.log(this.state.pictures);
     return (
       <React.Fragment>
-        <div className="App">
-          {/* <Route component={MainPage} path="/" exact={true} />
-          <Route
-            component={PostListPage}
-            path={["/@:username", "/postList"]}
-            exact={true}
-          />
-          <Route component={LoginPage} path="/login" />
-          <Route component={RegisterPage} path="/register" />
-          <Route component={WritePage} path="/write" />
-          <Route component={PostPage} path="/@:username/:postId" />
-          <Route component={MyPage} path="/mypage" /> */}
-
-          <ImageUploading
-            multiple
-            value={this.state.pictures}
-            onChange={this.onDrop}
-            maxNumber="64"
-            dataURLKey="data_url"
-          >
-            {({
-              imageList,
-              onImageUpload,
-              onImageRemoveAll,
-              onImageUpdate,
-              onImageRemove,
-              isDragging,
-              dragProps,
-            }) => (
-              // write your building UI
-              <div className="upload__image-wrapper">
-                <button
-                  style={isDragging ? { color: "red" } : null}
-                  onClick={onImageUpload}
-                  {...dragProps}
-                >
-                  Click or Drop here
-                </button>
-                &nbsp;
-                <button onClick={onImageRemoveAll}>Remove all images</button>
-                {imageList.map((image, index) => (
-                  <div key={index} className="imagey-item">
-                    <img src={image.data_url} alt="" width="100" />
-                    <div className="image-item__btn-wrapper">
-                      <button onClick={() => onImageUpdate(index)}>
-                        Update
-                      </button>
-                      <button onClick={() => onImageRemove(index)}>
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </ImageUploading>
-        </div>
+        <Route component={MainPage} path="/" exact={true} />
+        <Route
+          component={PostListPage}
+          path={["/@:username", "/postList"]}
+          exact={true}
+        />
+        <Route component={LoginPage} path="/login" />
+        <Route component={RegisterPage} path="/register" />
+        <Route component={WritePage} path="/write" />
+        <Route component={PostPage} path="/@:username/:postId" />
+        <Route component={MyPage} path="/mypage" />
       </React.Fragment>
     );
   }

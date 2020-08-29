@@ -61,6 +61,7 @@ export const write = async (ctx) => {
     title: Joi.string().required(),
     body: Joi.string().required(),
     tags: Joi.array().items(Joi.string()).required(),
+    image: Joi.string()
   });
 
   //검증하고 나서 실패인 경우
@@ -75,6 +76,7 @@ export const write = async (ctx) => {
     title,
     body: sanitizeHtml(body, snaitizeOption),
     tags,
+    image,
     user: ctx.state.user,
   });
   try {

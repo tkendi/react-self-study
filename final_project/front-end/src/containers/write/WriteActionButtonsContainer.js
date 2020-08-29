@@ -17,6 +17,11 @@ const WriteActionButtonsContainer = ({ history }) => {
     })
   );
 
+  //img url parsing
+  const Drop = () => {
+    
+  }
+
   //post 등록
   const onPublish = () => {
     if (originalPostId) {
@@ -48,6 +53,8 @@ const WriteActionButtonsContainer = ({ history }) => {
       console.log(postError);
     }
   }, [history, post, postError]);
+
+
 
   return (
     <WriteActionButtons

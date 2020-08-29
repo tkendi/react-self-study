@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ImageButton from './ImageButton'
 
 const WriteActionButtonBlock = styled.div`
   margin-top: 1rem;
@@ -21,7 +22,8 @@ const WriteActionButtons = ({ onCancel, onPublish, isEdit }) => {
     <WriteActionButtonBlock>
       <StyledButton onClick={onPublish}>
         포스트 {isEdit ? "수정" : "등록"}
-      </StyledButton>
+      </StyledButton >
+      <ImageButton />
       <StyledButton onClick={onCancel}>취소</StyledButton>
     </WriteActionButtonBlock>
   );

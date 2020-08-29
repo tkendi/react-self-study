@@ -7,7 +7,7 @@ import { makeStyles, CircularProgress, Typography } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 
 const PostViewerBlock = styled(Responsive)`
-  margin-top: 4rem;
+  margin-top: 6rem;
 `;
 
 const PostHead = styled.div`

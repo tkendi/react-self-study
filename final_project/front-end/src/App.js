@@ -8,29 +8,27 @@ import PostListPage from "./components/pages/PostListPage";
 import MainPage from "./components/pages/MainPage";
 import MyPage from "./components/pages/MyPage";
 import axios from "axios";
+import ImageUploader from "react-images-upload";
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      img: null
-    }
+      img: null,
+      pictures: [],
+    };
+    this.onDrop = this.onDrop.bind(this);
   }
 
-  onChange = (e) => {
+  onDrop(imageList, addUpdateIndex) {
+    console.log(imageList);
     this.setState({
-      img: (e.target.files[0])
-    })
-  }
-
-  onClick = async () => {
-    const formData = new FormData()
-    formData.append('file', this.state.img);
-    const res = await axios.post("/api/upload", formData)
-    console.log(res)
+      pictures: imageList,
+    });
   }
 
   render() {
+    console.log(this.state.pictures);
     return (
       <React.Fragment>
         {/* <Route component={MainPage} path="/" exact={true} />
@@ -45,10 +43,45 @@ class App extends React.Component {
           <Route component={PostPage} path="/@:username/:postId" />
           <Route component={MyPage} path="/mypage" /> */}
 
-        <input type="file" onChange={e => this.onChange(e)} name="file" />
-        <button type='button' onClick={this.onClick}>
-          Submit
-        </button>
+        <ImageUploader
+          multiple
+          value={this.state.pictures}
+          onChange={this.onDrop}
+          maxNumber="64"
+          dataURLKey="data_url"
+        >
+          {({
+            imageList,
+            onImageUpload,
+            onImageRemoveAll,
+            onImageUpdate,
+            onImageRemove,
+            isDragging,
+            dragProps,
+          }) => (
+            // write your building UI
+            <div className="upload__image-wrapper">
+              <button
+                style={isDragging ? { color: "red" } : null}
+                onClick={onImageUpload}
+                {...dragProps}
+              >
+                Click or Drop here
+              </button>
+              &nbsp;
+              <button onClick={onImageRemoveAll}>Remove all images</button>
+              {imageList.map((image, index) => (
+                <div key={index} className="image-item">
+                  <img src={image.data_url} alt="" width="100" />
+                  <div className="image-item__btn-wrapper">
+                    <button onClick={() => onImageUpdate(index)}>Update</button>
+                    <button onClick={() => onImageRemove(index)}>Remove</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </ImageUploader>
       </React.Fragment>
     );
   }

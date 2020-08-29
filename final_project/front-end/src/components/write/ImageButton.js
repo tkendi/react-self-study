@@ -5,7 +5,7 @@ import styled from "styled-components";
 const StyledButton = styled.button`
   padding: 0;
   margin: 0;
-  border: 0;
+  border: 1px solid ;
   width: "10%";
   position: "relative";
 `;

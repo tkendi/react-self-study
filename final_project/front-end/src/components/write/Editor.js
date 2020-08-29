@@ -1,8 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Quill from "quill";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import "quill/dist/quill.bubble.css";
+import ImageButton from '../write/ImageButton'
 
 const EditorBlock = styled(Responsive)`
   padding-top: 5rem;
@@ -31,9 +32,10 @@ const QuillWrapper = styled.div`
   }
 `;
 
-const Editor = ({ title, body, onChangeField }) => {
+const Editor = ({ title, body, image, onChangeField }) => {
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
+  const [urlData, setUrlData] = useState([])
 
   useEffect(() => {
     quillInstance.current = new Quill(quillElement.current, {
@@ -48,6 +50,7 @@ const Editor = ({ title, body, onChangeField }) => {
         ],
       },
     });
+
     //quill에 text-change 이벤트 적용
     const quill = quillInstance.current;
     quill.on("text-change", (delta, oldDelta, source) => {
@@ -68,6 +71,12 @@ const Editor = ({ title, body, onChangeField }) => {
     onChangeField({ key: "title", value: e.target.value });
   };
 
+  const Urlhandler = (e) => {
+    const data = e;
+    
+    setUrlData(data[0].data_url)
+  }
+
   return (
     <EditorBlock>
       <TitleInput
@@ -78,6 +87,7 @@ const Editor = ({ title, body, onChangeField }) => {
       <QuillWrapper>
         <div ref={quillElement} />
       </QuillWrapper>
+      <ImageButton urlhandler = {Urlhandler} />
     </EditorBlock>
   );
 };

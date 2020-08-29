@@ -18,14 +18,7 @@ const StyledButton = styled.button`
 `;
 
 const WriteActionButtons = ({ onCancel, onPublish, isEdit }) => {
-  const [urlData, setUrlData] = useState({})
   const info = {}
-
-  const Urlhandler = (e) => {
-    const data = e;
-    console.log(data[0].data_url)
-    setUrlData(data[0].data_url)
-  }
 
   console.log({info})
 
@@ -34,7 +27,6 @@ const WriteActionButtons = ({ onCancel, onPublish, isEdit }) => {
       <StyledButton onClick={onPublish}>
         포스트 {isEdit ? "수정" : "등록"}
       </StyledButton>
-      <ImageButton urlhandler = {Urlhandler} />
       <StyledButton onClick={onCancel}>취소</StyledButton>
     </WriteActionButtonBlock>
   );

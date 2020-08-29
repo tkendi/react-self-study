@@ -6,10 +6,11 @@ import { writePost, updatePost } from "../../modules/write";
 
 const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
-  const { title, body, tags, post, postError, originalPostId } = useSelector(
+  const { title, body, tags, image, post, postError, originalPostId } = useSelector(
     ({ write }) => ({
       title: write.title,
       body: write.body,
+      image: write.image,
       tags: write.tags,
       post: write.post,
       postError: write.postError,
@@ -19,7 +20,7 @@ const WriteActionButtonsContainer = ({ history }) => {
 
   //img url parsing
   const Drop = () => {
-    
+
   }
 
   //post 등록
@@ -34,6 +35,7 @@ const WriteActionButtonsContainer = ({ history }) => {
         title,
         body,
         tags,
+        image
       })
     );
   };
@@ -53,8 +55,6 @@ const WriteActionButtonsContainer = ({ history }) => {
       console.log(postError);
     }
   }, [history, post, postError]);
-
-
 
   return (
     <WriteActionButtons

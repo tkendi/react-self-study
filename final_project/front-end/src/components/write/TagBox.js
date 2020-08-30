@@ -5,7 +5,6 @@ const TagBoxBlock = styled.div`
   width: 100%;
   border-top: 1px solid #eeeeee;
   padding-top: 2rem;
-
   h4 {
     color: #424242;
     margin-top: 0;
@@ -63,7 +62,6 @@ const TagItem = React.memo(({ tag, onRemove }) => (
   <Tag onClick={() => onRemove(tag)}>#{tag}</Tag>
 ));
 
-//memo를 사용하여 tags값이 바뀔 때 마다 리렌더링
 const TagList = React.memo(({ tags, onRemove }) => (
   <TagListBlock>
     {tags.map((tag) => (

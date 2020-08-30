@@ -9,6 +9,7 @@ const EditImage = styled.img`
   top: 0;
   left: 0;
   float: left;
+  padding-bottom: 2rem;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +55,6 @@ const ImageButton = ({ urlhandler }) => {
                 color="primary"
                 onClick={onImageUpload}
                 {...dragProps}
-                className={styles.button}
               >
                 Add Image
               </Button>
@@ -62,7 +62,6 @@ const ImageButton = ({ urlhandler }) => {
               <Button
                 onClick={onImageRemoveAll}
                 color="secondary"
-                className={styles.Button}
               >
                 Remove image
               </Button>

@@ -10,6 +10,7 @@ const EditImage = styled.img`
   left: 0;
   float: left;
   padding-bottom: 2rem;
+  z-index: -999;
 `;
 
 const useStyles = makeStyles((theme) => ({

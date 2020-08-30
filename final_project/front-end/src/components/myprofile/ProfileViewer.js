@@ -45,9 +45,8 @@ const useStyles = makeStyles({
 });
 
 const ProfileViewer = ({ user, error }) => {
-  console.log({ user, error });
+  console.log({ user });
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   if(!user) {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import MainViewer from "../main/MainViewer";
+import MainViewerContainer from '../../containers/main/MainViewerContainer'
 import HeaderContainer from "../common/HeaderContainer";
 import { Helmet } from "react-helmet-async";
 import styles from "../../styles/MainPage.module.css";
@@ -12,7 +12,7 @@ const MainPage = () => {
         <Helmet>
           <title>SoonDoll</title>
         </Helmet>
-        <MainViewer />
+        <MainViewerContainer />
       </div>
     </React.Fragment>
   );

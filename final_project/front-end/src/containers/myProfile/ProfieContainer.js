@@ -6,7 +6,7 @@ const ProfileContainer = () => {
   const [error, setError] = useState(false);
   const { user } = useSelector(({ user }) => ({ user: user.user }));
 
-return <ProfileViewer user={user} error={error} />;
+  return <ProfileViewer user={user} error={error} />;
 };
 
 export default ProfileContainer;

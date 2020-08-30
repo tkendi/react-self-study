@@ -34,6 +34,7 @@ const PostImage = styled.img`
   align-items: flex-start;
   float: left;
   padding-top: 2rem;
+  padding-bottom: 2rem;
 `;
 
 const useStyles = makeStyles((theme) => ({

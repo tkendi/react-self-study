@@ -10,8 +10,7 @@ import {
 import styles from "../../styles/MainViewer.module.css";
 import MainImg from "../../img/MainPage.png";
 import { purple, yellow } from "@material-ui/core/colors";
-import Axios from "axios";
-import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -24,17 +23,9 @@ const theme = createMuiTheme({
   },
 });
 
-const MainViewer = () => {
-  const [img, setImage] = useState(null);
-  const onChange = (e) => {
-    setImage(e.target.files[0]);
-  };
-  const onClick = async () => {
-    const formData = new FormData();
-    formData.append("file", img);
-    const res = await Axios.post("/api/upload", formData);
-    console.log(res);
-  };
+const MainViewer = ({ user, error, onLogin, onRegister, onLogout }) => {
+  console.log({ user, error });
+
   return (
     <React.Fragment>
       <div className={styles.FormBlock}>
@@ -48,21 +39,35 @@ const MainViewer = () => {
             <Typography className={styles.textSubTitle}>
               SoonDoll을 통해 실시간으로 반려동물을 확인하세요
             </Typography>
-            <ThemeProvider theme={theme}>
-              <ButtonGroup className={styles.buttonForm}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  style={{width: '11rem', height: '3.3rem'}}
-                  href="/login"
-                >
-                  Sign In
-                </Button>{" "}
-                <Button variant="contained" color="secondary" href="/register" style = {{width: '8rem', height: '3.28rem'}} >
-                  Sign Up
+            {!user ? (
+              <ThemeProvider theme={theme}>
+                <ButtonGroup className={styles.buttonForm}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    style={{ width: "11rem", height: "3.3rem" }}
+                    onClick={onLogin}
+                  >
+                    Sign In
+                  </Button>{" "}
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    href="/register"
+                    style={{ width: "8rem", height: "3.28rem" }}
+                    onClick={onRegister}
+                  >
+                    Sign Up
+                  </Button>
+                </ButtonGroup>
+              </ThemeProvider>
+            ) : (
+              <div className={styles.buttonForm}>
+                <Button variant="contained" color="primary" onClick={onLogout}>
+                  Sign out
                 </Button>
-              </ButtonGroup>
-            </ThemeProvider>
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.imgForm}>
@@ -73,4 +78,4 @@ const MainViewer = () => {
   );
 };
 
-export default MainViewer;
+export default withRouter(MainViewer);

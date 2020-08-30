@@ -18,15 +18,10 @@ const WriteActionButtonsContainer = ({ history }) => {
     })
   );
 
-  //img url parsing
-  const Drop = () => {
-
-  }
-
   //post 등록
   const onPublish = () => {
     if (originalPostId) {
-      dispatch(updatePost({ title, body, tags, id: originalPostId }));
+      dispatch(updatePost({ title, body, tags, id: originalPostId, image }));
       return;
     } 
     

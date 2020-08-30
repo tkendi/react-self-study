@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
 import styled from "styled-components";
+import {Button, makeStyles} from '@material-ui/core'
 
-const StyledButton = styled.button`
-  padding: 0;
-  margin: 0;
-  border: 1px solid ;
-  width: "10%";
-  position: "relative";
-`;
+const EditImage = styled.img`
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+`
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1)
+    },
+    button: {
+      float: 'left'
+    }
+  }
+}))
 
 const ImageButton = ({urlhandler}) => {
   const [pictures, setPictures] = useState([]);
@@ -18,6 +29,8 @@ const ImageButton = ({urlhandler}) => {
     setPictures(imageList);
     urlhandler(imageList)
   };
+
+  const classes = useStyles()
 
   return (
     <React.Fragment>
@@ -38,29 +51,29 @@ const ImageButton = ({urlhandler}) => {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
-            <StyledButton
-              style={isDragging ? { color: "red" } : null}
+          <div className = {classes.root}>
+            <Button color = "primary"
               onClick={onImageUpload}
               {...dragProps}
+              className = {classes.button}
             >
-              Click or Drop here
-            </StyledButton>
+              Add Image
+            </Button>
             &nbsp;
-            <StyledButton onClick={onImageRemoveAll}>
-              Remove all images
-            </StyledButton>
+            <Button onClick={onImageRemoveAll} color = "secondary" className = {classes.button} >
+              Remove image
+            </Button>
             {imageList.map((image, index) => (
-              <div key={index} className="imagey-item">
-                <img src={image.data_url} alt="" />
-                <div className="image-item__btn-wrapper">
-                  <StyledButton onClick={() => onImageUpdate(index)}>
-                    Update
-                  </StyledButton>
+              <div key={index}>
+                <EditImage src={image.data_url} alt=""  />
+                <div>
+                  <Button onClick={() => onImageUpdate(index)}>
+                    Change Image
+                  </Button>
                   &nbsp;
-                  <StyledButton onClick={() => onImageRemove(index)}>
-                    Remove
-                  </StyledButton>
+                  <Button onClick={() => onImageRemove(index)}>
+                    Remove Image
+                  </Button>
                 </div>
               </div>
             ))}

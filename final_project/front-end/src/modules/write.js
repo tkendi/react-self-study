@@ -37,11 +37,12 @@ export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
 
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ id, title, body, tags }) => ({
+  ({ id, title, body, tags, image }) => ({
     id,
     title,
     body,
     tags,
+    image
   })
 );
 

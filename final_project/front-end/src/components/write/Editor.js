@@ -74,12 +74,10 @@ const Editor = ({ title, body, image, onChangeField }) => {
 
   const onChnageUrl = (e) => {
     const data = e;
-    if (!data) {
-      data=null
+    if (data.length === 0) {
+      return <Typography>이미지가 없습니다</Typography>;
     }
-
-    onChangeField({key: "image", value: data[0].data_url})
-
+    onChangeField({ key: "image", value: data[0].data_url });
     setUrlData(data[0].data_url);
   };
 
@@ -93,7 +91,7 @@ const Editor = ({ title, body, image, onChangeField }) => {
       <QuillWrapper>
         <div ref={quillElement} />
       </QuillWrapper>
-      <ImageButton urlhandler={onChnageUrl}  />
+      <ImageButton urlhandler={onChnageUrl} />
     </EditorBlock>
   );
 };

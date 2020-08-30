@@ -19,8 +19,6 @@ const PostViewerContainer = ({ match, history }) => {
     })
   );
 
-  console.log({ post });
-
   useEffect(() => {
     dispatch(readPost(postId));
     return () => {

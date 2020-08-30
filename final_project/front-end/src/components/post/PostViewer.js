@@ -35,6 +35,7 @@ const PostImage = styled.img`
   float: left;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  z-index: -9;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +64,6 @@ const Alert = ({ props }) => {
 };
 
 const PostViewer = ({ post, error, loading, actionButtons }) => {
-  console.log(post);
   const classes = useStyles();
   if (error) {
     if (error.response && error.response.status === 404) {

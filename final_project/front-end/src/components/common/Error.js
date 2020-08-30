@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Error = ({ history }) => {
-  const [count, setCount] = useState(0);
-
   const classes = useStyles();
 
   // useEffect(() => {

@@ -5,7 +5,6 @@ import styles from "../../styles/Header.module.css";
 import PetsIcon from "@material-ui/icons/Pets";
 
 const Header = ({ user, onLogout }) => {
-  console.log({user})
   return (
     <React.Fragment>
       <div className={styles.HeadBlock}>
@@ -15,7 +14,7 @@ const Header = ({ user, onLogout }) => {
             SoonDoll
           </Link>
           <div>
-            <Link to="#" className={styles.pages}>
+            <Link to="/streaming" className={styles.pages}>
               Streaming
             </Link>
             <Link to="/postList" className={styles.pages}>
@@ -29,7 +28,7 @@ const Header = ({ user, onLogout }) => {
             <div className={styles.right}>
               <div className={styles.userInfo}>
                 {user.nickname}
-                <Typography>님 환영합니다</Typography>
+                <Typography className = {styles.userText}>님 환영합니다</Typography>
               </div>
               <Button onClick={onLogout}>logout</Button>
             </div>
@@ -37,7 +36,7 @@ const Header = ({ user, onLogout }) => {
             <div className={styles.right}>
               <Button href="/login">SIGN IN</Button>
             </div>
-          )}
+          )}  
         </div>
       </div>
       <div className={styles.spacer} />

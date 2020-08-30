@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-.FormBlock {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
 .TitleBlock {
   margin: 6% auto;
   padding-top: 9rem;
@@ -15,8 +9,10 @@
 }
 
 .titleForm {
-  display: block;
   position: absolute;
+  display: block;
+  padding-top: 2rem;
+  padding-left: 6.25rem;
   text-align: left;
 }
 
@@ -26,39 +22,39 @@
   margin: 0;
   font-weight: bold;
   text-decoration: none;
-  font-size: 4.65rem;
+  font-size: 3.65rem;
   font-weight: 900;
-  padding-left: 5.25rem;
   color: #3949ab;
 }
 
 .textSubTitle {
   margin: 10px;
   padding-top: 10px;
-  border: 0;
-  text-decoration: none;  
-  font-size: 4.62rem; 
-  padding-left: 5.25rem;
+  text-decoration: none;
+  font-size: 4.62rem;
   color: #000000;
 }
 
 .imgForm {
+  position: absolute;
+  top: 13.8rem;
+  right: 6.25rem;
+  float: right;
   overflow: hidden;
 }
 
 img {
-  width: 45%;
-  overflow: hidden;
-  position: absolute;
-  top: 10rem;
-  right: 5rem;
-  float: right;
+  width: 100%;
 }
 
 .buttonForm {
-  margin-top: 1.5rem;
-  padding-left: 5.25rem;
+  margin-top: 3rem;
   text-decoration: none;
+}
+
+.logoutButton {
+  width: 45.5%;
+  height: 55px;
 }
 
 @media screnn and (max-wdith: 900px) {

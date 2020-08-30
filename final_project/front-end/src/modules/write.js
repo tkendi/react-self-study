@@ -90,6 +90,7 @@ const write = handleActions(
       title: post.title,
       body: post.body,
       tags: post.tags,
+      image: post.image,
       originalPostId: post._id,
     }),
 

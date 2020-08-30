@@ -19,6 +19,7 @@ const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
   const onCancel = () => {
     setModal(false);
   };
+  
   const onConfirm = (e) => {
     e.preventDefault()
     setModal(false);

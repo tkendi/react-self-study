@@ -83,6 +83,7 @@ const Editor = ({ title, body, image, onChangeField }) => {
 
   return (
     <EditorBlock>
+      <Typography>이미지는 한개만 저장이 됩니다</Typography>
       <TitleInput
         placeholder="제목을 입력하세요"
         onChange={onChangeTitle}

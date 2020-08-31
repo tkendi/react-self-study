@@ -10,9 +10,7 @@ const PostActionButtonsBlock = styled.div`
   margin-top: -1.5rem;
 `;
 
-const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
-
-  console.log({onEdit})
+const PostActionButtons = ({ onRemove, onPublish, onEdit }) => {
 
   const [modal, setModal] = useState(false);
   const onRemoveClick = () => {
@@ -33,7 +31,7 @@ const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
     <React.Fragment>
       <PostActionButtonsBlock>
         <Divider light={true} flexItem={true} />
-        <Button onClick={onEdit} onClick={onPublish}>
+        <Button onClick={onEdit}>
           수정
         </Button>
         <Button onClick={onRemoveClick}>삭제</Button>

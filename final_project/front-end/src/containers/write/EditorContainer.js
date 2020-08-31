@@ -8,6 +8,7 @@ const EditorContainer = () => {
   const { title, body, image } = useSelector(({ write }) => ({
     title: write.title,
     body: write.body,
+    image: write.image
   }));
 
   const onChangeField = useCallback(
@@ -26,6 +27,7 @@ const EditorContainer = () => {
       onChangeField={onChangeField}
       title={title}
       body={body}
+      image={image}
     />
   );
 };

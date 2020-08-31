@@ -141,7 +141,8 @@ export const update = async (ctx) => {
   try {
     const post = await (
       await Post.findByIdAndUpdate(id, nextData, {
-        new: true, //이 값을 설정시 업데이트된 데이터 반환
+        new: true, 
+        //이 값을 설정시 업데이트된 데이터 반환
         //false일 때면 업데이트되기 전의 데이터를 반환
       })
     ).execPopulate();

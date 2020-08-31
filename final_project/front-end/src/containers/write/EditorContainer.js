@@ -8,7 +8,6 @@ const EditorContainer = () => {
   const { title, body, image } = useSelector(({ write }) => ({
     title: write.title,
     body: write.body,
-    image: write.image
   }));
 
   const onChangeField = useCallback(
@@ -22,7 +21,13 @@ const EditorContainer = () => {
       dispatch(initialize());
     };
   }, [dispatch]);
-  return <Editor onChangeField={onChangeField} title={title} body={body} image = {image} />;
+  return (
+    <Editor
+      onChangeField={onChangeField}
+      title={title}
+      body={body}
+    />
+  );
 };
 
 export default EditorContainer;

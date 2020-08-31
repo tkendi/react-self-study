@@ -37,7 +37,7 @@ const Error = ({ history }) => {
         <AlertTitle>Error</AlertTitle>
         로그인이 되어있지 않습니다. -{" "}
         <strong>
-          <Link to = "/login" style = {{textDecoration: 'none', position: "relative", display: 'inline-grid' }} >로그인</Link> 을먼저 해주세요
+          <Link to = "/login" style = {{textDecoration: 'none', position: "relative", display: 'inline-grid', color: '#e53935' }} >로그인</Link> 을먼저 해주세요
         </strong>
       </Alert>
     </div>

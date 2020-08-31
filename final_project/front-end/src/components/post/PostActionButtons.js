@@ -11,6 +11,9 @@ const PostActionButtonsBlock = styled.div`
 `;
 
 const PostActionButtons = ({ onEdit, onRemove, onPublish }) => {
+
+  console.log({onEdit})
+
   const [modal, setModal] = useState(false);
   const onRemoveClick = () => {
     setModal(true);

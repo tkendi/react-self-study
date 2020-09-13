@@ -1,8 +1,7 @@
-import {counter} from './stores/counter'
-import {market} from './stores/market'
+import { counter } from "./store/counter";
 
 const useStore = () => {
-    return {counter, market}
-}
+  return { counter };
+};
 
-export default useStore
+export default useStore;

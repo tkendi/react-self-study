@@ -1,6 +1,13 @@
-import Koa from 'koa'
-import cors from '@koa/cors'
+import {Context} from 'koa'
 
-const app = Koa()
+const Koa = require('koa')
 
-app.listen()
+const app = new Koa()
+
+app.use((ctx: Context) => {
+    ctx.body = "hello, Jacob"
+})
+
+app.listen(4000, () => {
+    console.log('Listening port 4000')
+})

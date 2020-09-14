@@ -1,13 +1,18 @@
-import {Context} from 'koa'
+import Koa from 'koa';
+import Router from 'koa-router';
+import download from './download/download'
 
-const Koa = require('koa')
+const app = new Koa();
+const router = new Router();
 
-const app = new Koa()
+router.get('/', (ctx: any) => {
+  ctx.body = '홈';
+});
 
-app.use((ctx: Context) => {
-    ctx.body = "hello, Jacob"
-})
+router.use('/download', download.routes())
+
+app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(4000, () => {
-    console.log('Listening port 4000')
-})
+  console.log('Listening to port 4000');
+});

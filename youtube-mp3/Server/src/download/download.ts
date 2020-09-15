@@ -9,15 +9,17 @@ router.get('/:context', async (ctx: any) => {
 
   if (!context) return Error('Empty value');
 
-  const res: any = await ytsr(context).catch((e: any) => {
+  const options = {
+    limit: 5,
+  };
+
+  const res: any = await ytsr(context, options).catch((e: any) => {
     return Error('Error');
   });
 
-  const video = res.items.filter((i: any) => i.type === 'video')[0]
-  console.log(video)
-  if (!video) return Error('Error');
-
+  const video = res.items.filter((i: any) => i.type === 'video')[0];
   console.log(video);
+  if (!video) return Error('Error');
 });
 
 export default router;

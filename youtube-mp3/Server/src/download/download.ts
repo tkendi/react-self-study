@@ -9,17 +9,15 @@ router.get('/:context', async (ctx: any) => {
 
   if (!context) return Error('Empty value');
 
-  const options = {
-    limit: 999,
-  };  
-
-  const res: any = await ytsr(context, options).catch((e: any) => {
-    return Error('Error');
+  ytsr.getFilters(context).then(async (filters: any) => {
+    const options = {
+      limit: 10,
+      nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
+        .ref,
+    };
+    const res = await ytsr(null, options);
+    console.log((await res).items);
   });
-
-  const video = res.items.filter((i: any) => i.type === 'video')[0];
-  console.log(video);
-  if (!video) return Error('Error');
 });
 
 export default router;

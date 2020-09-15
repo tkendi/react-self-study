@@ -10,8 +10,8 @@ router.get('/:context', async (ctx: any) => {
   if (!context) return Error('Empty value');
 
   const options = {
-    limit: 5,
-  };
+    limit: 999,
+  };  
 
   const res: any = await ytsr(context, options).catch((e: any) => {
     return Error('Error');

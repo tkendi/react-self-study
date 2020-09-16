@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import Router from 'koa-router';
-import download from './download/download'
+import search from './search/search'
 
 const app = new Koa();
 const router = new Router();
@@ -9,7 +9,7 @@ router.get('/', (ctx: any) => {
   ctx.body = '홈';
 });
 
-router.use('/download', download.routes())
+router.use('/download', search.routes())
 
 app.use(router.routes()).use(router.allowedMethods());
 

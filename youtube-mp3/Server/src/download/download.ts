@@ -11,7 +11,6 @@ router.get('/:context', async (ctx: any) => {
 
   ytsr.getFilters(context).then(async (filters: any) => {
     const options = {
-      limit: 10,
       nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
         .ref,
     };

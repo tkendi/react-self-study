@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 
 @observer
 class Counter extends React.Component {
-  @observable numbers = 0;
+  @observable number = 0
 
   @action
   increase = () => {

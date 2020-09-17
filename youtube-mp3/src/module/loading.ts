@@ -4,7 +4,7 @@ const START_LOADING = "loading/START_LOADING";
 const FINISH_LOADING = "loading/FINISH_LOADING";
 
 export const startLoading = createAction(
-  START_LOADING,
+  START_LOADING ,
   (requestType: any) => requestType
 );
 export const finishLoading = createAction(

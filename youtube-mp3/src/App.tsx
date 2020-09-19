@@ -1,12 +1,12 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import {Counter} from './store'
+import { Search } from "./store";
 
 const App = () => {
   return (
     <div>
       <Typography>Testing</Typography>
-      <Counter />
+      <Search />
     </div>
   );
 };

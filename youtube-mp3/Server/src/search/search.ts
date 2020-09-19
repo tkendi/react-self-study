@@ -5,7 +5,7 @@ const router = new Router();
 
 router.get('/:context', async (ctx: any) => {
   const { context } = ctx.params;
-  let result = {
+  const result = {
     data: {
       title: [],
       link: [],
@@ -24,8 +24,9 @@ router.get('/:context', async (ctx: any) => {
       (<any>result.data.title)[keys] = res.items[keys].title;
       (<any>result.data.link)[keys] = res.items[keys].link;
     }
+    // console.log(result);
   });
-  console.log(result)
+  console.log(result);
 
   return result;
 });

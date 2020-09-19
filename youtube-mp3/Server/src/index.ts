@@ -9,7 +9,7 @@ router.get('/', (ctx: any) => {
   ctx.body = '홈';
 });
 
-router.use('/download', search.routes())
+router.use('/search', search.routes())
 
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -1,4 +1,3 @@
-import { doesNotThrow } from 'assert';
 import Router from 'koa-router';
 import ytsr from 'ytsr';
 
@@ -26,6 +25,7 @@ router.get('/:context', async (ctx: any) => {
       (<any>result.data.link)[keys] = res.items[keys].link;
     }
   });
+  console.log(result)
 
   return result;
 });

@@ -41,4 +41,8 @@ api.get('/search/:context', async (ctx: any) => {
     return result;
 });
 
+api.get('/download/:contenet', async (ctx: any) => {
+  ctx.body = 'Testing Download'
+})
+
 export default api;

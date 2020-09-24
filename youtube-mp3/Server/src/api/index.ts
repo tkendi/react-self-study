@@ -5,10 +5,8 @@ const api = new Router();
 
 api.get('/search/:context', async (ctx: any) => {
   const result = {
-    data: {
-      title: [],
-      link: [],
-    },
+    title: [],
+    link: [],
   };
 
   const { context } = ctx.params;
@@ -33,16 +31,16 @@ api.get('/search/:context', async (ctx: any) => {
       console.error(err);
     });
 
-    console.log(data)
+  console.log(data);
 
-    console.log(result)
+  console.log(result);
 
-    ctx.body = result;
-    return result;
+  ctx.body = result;
+  return result;
 });
 
 api.get('/download/:contenet', async (ctx: any) => {
-  ctx.body = 'Testing Download'
-})
+  ctx.body = 'Testing Download';
+});
 
 export default api;

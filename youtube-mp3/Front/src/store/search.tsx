@@ -13,12 +13,11 @@ class search extends React.Component {
   async componentDidMount() {
     this.setState({
       data: await searching.search(this.URL)
-    }) 
-    console.log(this.state.data)
+    })
   }
 
   parsing = async () => {
-    console.log(this.state.data);
+    const data = this.state.data
   };
 
   render() {

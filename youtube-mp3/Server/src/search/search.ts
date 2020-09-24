@@ -24,11 +24,12 @@ router.get('/:context', async (ctx: any) => {
       (<any>result.data.title)[keys] = res.items[keys].title;
       (<any>result.data.link)[keys] = res.items[keys].link;
     }
-    // console.log(result);
-  });
-  console.log(result);
 
-  return result;
+    console.log(result);
+    ctx.body = result
+
+    return result;
+  });
 });
 
 export default router;

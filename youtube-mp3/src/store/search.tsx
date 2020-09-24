@@ -6,14 +6,19 @@ import * as searching from "../lib/api/searching";
 
 class search extends React.Component {
   URL: any = "viva la vida";
-  data: any = null;
+  state = {
+    data: null
+  }
 
   async componentDidMount() {
-    this.data = await searching.search(URL);
+    this.setState({
+      data: await searching.search(this.URL)
+    }) 
+    console.log(this.state.data)
   }
 
   parsing = async () => {
-    console.log(this.data);
+    console.log(this.state.data);
   };
 
   render() {

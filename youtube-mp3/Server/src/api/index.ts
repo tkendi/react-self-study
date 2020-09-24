@@ -4,20 +4,20 @@ import ytsr from 'ytsr';
 const api = new Router();
 
 api.get('/search/:context', async (ctx: any) => {
+  const result = {
+    data: {
+      title: [],
+      link: [],
+    },
+  };
+
   const { context } = ctx.params;
 
   if (!context) return (ctx.body = 'Empty Value');
 
-  ytsr
+  const data = await ytsr
     .getFilters(context)
     .then(async (filters: any) => {
-      const result = {
-        data: {
-          title: [],
-          link: [],
-        },
-      };
-
       const options = {
         limit: 5,
         nextpageRef: filters.get('Type').find((o: any) => o.name === 'Video')
@@ -28,13 +28,17 @@ api.get('/search/:context', async (ctx: any) => {
         (<any>result.data.title)[keys] = res.items[keys].title;
         (<any>result.data.link)[keys] = res.items[keys].link;
       }
-
-      ctx.body = result;
-      return result;
     })
     .catch((err: any) => {
       console.error(err);
     });
+
+    console.log(data)
+
+    console.log(result)
+
+    ctx.body = result;
+    return result;
 });
 
 export default api;

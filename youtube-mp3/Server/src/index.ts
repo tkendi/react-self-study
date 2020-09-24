@@ -1,15 +1,16 @@
 import Koa from 'koa';
 import Router from 'koa-router';
-import search from './search/search'
+import bodyParser from 'koa-bodyparser'
+import cors from '@koa/cors'
+import api from './api';
 
 const app = new Koa();
 const router = new Router();
 
-router.get('/', (ctx: any) => {
-  ctx.body = '홈';
-});
+router.use('/api', api.routes())
 
-router.use('/search', search.routes())
+app.use(bodyParser())
+app.use(cors())
 
 app.use(router.routes()).use(router.allowedMethods());
 

@@ -16,7 +16,8 @@
     "koa-router-ts": "^3.0.0",
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0-pre.62",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "ytsr": "^1.0.1"
   },
   "scripts": {
     "start": "ts-node src/index.ts",

@@ -23,8 +23,8 @@ api.get('/search/:context', async (ctx: any) => {
       };
       const res: any = await ytsr(null, options);
       for (const keys in res.items) {
-        (<any>result.data.title)[keys] = res.items[keys].title;
-        (<any>result.data.link)[keys] = res.items[keys].link;
+        (<any>result.title)[keys] = res.items[keys].title;
+        (<any>result.link)[keys] = res.items[keys].link;
       }
     })
     .catch((err: any) => {

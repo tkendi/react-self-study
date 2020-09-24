@@ -1,12 +1,11 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { Search } from "./store";
+import SearchMain from './components/search/searchMain'
 
 const App = () => {
   return (
     <div>
-      <Typography>Testing</Typography>
-      <Search />
+      <SearchMain />
     </div>
   );
 };

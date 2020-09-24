@@ -14,7 +14,7 @@ class search extends React.Component {
   async componentDidMount() {
     const data = await searching.search(this.URL);
 
-    console.log(data.data.data)
+    console.log(data.data.data);
     this.setState({
       link: data.data.link,
       title: data.data.title,
@@ -23,6 +23,14 @@ class search extends React.Component {
 
   parsing = () => {
     const { link, title } = this.state;
+    console.log(link, title);
+    return (
+      <React.Fragment>
+        {link.map((res, i) => {
+          return <Typography>{res}</Typography>;
+        })}
+      </React.Fragment>
+    );
   };
 
   render() {
@@ -37,6 +45,7 @@ class search extends React.Component {
 
 decorate(search, {
   URL: observable,
+  parsing: action,
 });
 
 export default observer(search);

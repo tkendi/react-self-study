@@ -7,17 +7,22 @@ import * as searching from "../lib/api/searching";
 class search extends React.Component {
   URL: any = "viva la vida";
   state = {
-    data: null
-  }
+    link: [],
+    title: [],
+  };
 
   async componentDidMount() {
+    const data = await searching.search(this.URL);
+
+    console.log(data.data.data)
     this.setState({
-      data: await searching.search(this.URL)
-    })
+      link: data.data.link,
+      title: data.data.title,
+    });
   }
 
-  parsing = async () => {
-    const data = this.state.data
+  parsing = () => {
+    const { link, title } = this.state;
   };
 
   render() {
@@ -32,7 +37,6 @@ class search extends React.Component {
 
 decorate(search, {
   URL: observable,
-  parsing: action,
 });
 
 export default observer(search);

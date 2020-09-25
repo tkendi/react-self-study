@@ -3,6 +3,7 @@ import { Typography } from "@material-ui/core";
 import {observer, PropTypes} from 'mobx-react'
 import AppBar from "../../public/Appbar/SearchingAppbar";
 
+@observer
 class searchMain extends React.Component {
   render() {
     return (

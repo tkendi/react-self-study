@@ -1,4 +1,4 @@
-import Counter from "./Counter";
-import Search from './search'
+import {observable, action, computed, configure} from 'mobx'
 
-export { Counter, Search };
+configure({enforceActions: true})
+

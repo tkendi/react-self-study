@@ -5,7 +5,7 @@ import { inject, observer } from "mobx-react";
 @observer
 class Counter extends React.Component {
   render() {
-      const {counter} = this.props
+      const {counter}: any = this.props
     return (
       <div>
         <h1>{counter.number}</h1>

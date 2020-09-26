@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import {observer} from 'mobx-react'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -70,7 +71,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
+@observer
 const SearchingAppbar = () => {
   const classes = useStyles();
   return (

@@ -9,7 +9,7 @@ const counter = new CounterStore();
 
 ReactDOM.render(
   <Provider counter={counter}>
-    <App />{" "}
+    <App />
   </Provider>,
   document.getElementById("root")
 );

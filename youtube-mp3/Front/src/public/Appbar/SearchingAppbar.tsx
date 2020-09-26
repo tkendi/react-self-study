@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+
 const SearchingAppbar = () => {
   const classes = useStyles();
   return (

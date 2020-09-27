@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <div>
         <SearchingAppbar />
-        <SearchTitle handleTitle = {this.handleTitle} />
+        <SearchTitle handleTitleChange = {this.handleTitle} />
       </div>
     );
   }

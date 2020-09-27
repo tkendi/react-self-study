@@ -28,6 +28,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { appChange }: any = this;
+    const {store}: any = this.props
     return (
       <div>
         <Grid>
@@ -38,7 +39,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
           />
           <Button
             color="inherit"
-            onClick={() => this.props.handleTitleChange(this.state.y_title)}
+            onClick={store.find(this.state.y_title)}
           >
             Search
           </Button>

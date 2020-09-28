@@ -5,8 +5,8 @@ export default class youtube {
     @observable searching = ""
 
     @action
-    find = (search_t: any) => {
-        const data = searched.search(search_t)
+    find = async (search_t: any) => {
+        const data = await searched.search(search_t)
         console.log(data)
     }
 }

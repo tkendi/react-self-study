@@ -1,23 +1,37 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar, 
-  Typography,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { observer } from "mobx-react";
+import styles from "./SearchingAppbar.module.css";
+import SearchTitle from "../../search/searchTitle";
 
 @observer
 class SearchingAppbar extends React.Component {
+  state = {
+    title: "",
+  };
+
+  handleTitle = async (y_title: any) => {
+    console.log(y_title);
+    this.setState({
+      title: y_title,
+    });
+  };
+
   render() {
     return (
-      <div>
+      <div className={styles.form}>
         <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" noWrap>
+          <Toolbar className={styles.toolBar}>
+            <Typography
+              variant="h4"
+              component="h2"
+              noWrap
+              gutterBottom
+              className={styles.title}
+            >
               Youtube Downloader
             </Typography>
+            <SearchTitle handleTitleChange={this.handleTitle} />
           </Toolbar>
         </AppBar>
       </div>

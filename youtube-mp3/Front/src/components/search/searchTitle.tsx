@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import { observer, inject } from "mobx-react";
 import { Grid, TextField, Button } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
 interface TextProps {
   handleTitleChange: any;
@@ -11,7 +11,7 @@ interface TextState {
   y_title: any;
 }
 
-@inject('store')
+@inject("store")
 @observer
 class searchTitle extends React.Component<TextProps, TextState> {
   state = {
@@ -28,20 +28,17 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { appChange }: any = this;
-    const {store}: any = this.props
+    const { store }: any = this.props;
     return (
       <div>
         <Grid>
           <TextField
             id="search-title"
-            label="youtube title"
+            label="Searching Music"
             onChange={appChange}
           />
-          <Button
-            color="inherit"
-            onClick={store.find(this.state.y_title)}
-          >
-            Search
+          <Button color="inherit" onClick={store.find(this.state.y_title)}>
+            <SearchIcon />
           </Button>
         </Grid>
       </div>

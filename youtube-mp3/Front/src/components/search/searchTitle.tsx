@@ -38,7 +38,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
             onChange={appChange}
           />
           <Button color="inherit" onClick={store.find(this.state.y_title)}>
-            <SearchIcon />
+            <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
           </Button>
         </Grid>
       </div>

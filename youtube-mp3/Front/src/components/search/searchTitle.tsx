@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
-import { Grid, TextField, Button } from "@material-ui/core";
+import { Grid, TextField, Button, createMuiTheme, ThemeProvider } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 interface TextProps {

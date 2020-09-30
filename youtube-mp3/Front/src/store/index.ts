@@ -5,11 +5,10 @@ export default class youtube {
   @observable searching = "";
 
   @action
-  find = async (search_t: any) => {
-    if (!search_t) {
+  find = async (searching: any) => {
+    if (!searching) {
     } else {
-      const data = await searched.search(search_t);
-      console.log(data);
+      const data = await searched.search(searching);
     }
   };
 }

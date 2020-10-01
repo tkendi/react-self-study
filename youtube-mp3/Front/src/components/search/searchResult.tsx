@@ -10,7 +10,7 @@ class searchResult extends React.Component {
     console.log(searching_r)
     return (
       <div>
-          {searching_r ? <Typography>Empty</Typography> : null}
+          {searching_r === null ? <Typography>Empty</Typography> : null}
       </div>
     );
   }

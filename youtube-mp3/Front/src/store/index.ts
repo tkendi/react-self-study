@@ -1,14 +1,14 @@
-import { observable, action, computed, configure } from "mobx";
+import { observable, action, computed, configure, reaction } from "mobx";
 import * as searched from "../lib/api/searching";
 
 export default class youtube {
-  @observable searching = "";
+  @observable searching = [];
 
   @action
   find = async (search_t: any) => {
     if (!search_t) {
     } else {
-      const searching = await searched.search(search_t);
+      (<any>this.searching.push)= await searched.search(search_t)
     }
   };
 }

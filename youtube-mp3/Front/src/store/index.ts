@@ -9,6 +9,7 @@ export default class youtube {
     if (!search_t) {
     } else {
       (<any>this.searching)= await searched.search(search_t)
+      console.log(this.searching)
     }
   };
 }

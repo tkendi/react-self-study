@@ -31,8 +31,6 @@ api.get('/search/:context', async (ctx: any) => {
       console.error(err);
     });
 
-  console.log(data);
-
   console.log(result);
 
   ctx.body = result;

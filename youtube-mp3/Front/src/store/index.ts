@@ -8,7 +8,7 @@ export default class youtube {
   find = async (search_t: any) => {
     if (!search_t) {
     } else {
-      (<any>this.searching)= await searched.search(search_t)
+      (<any>this.searching) = await searched.search(search_t)
       await console.log (this.searching)
     }
   };

@@ -22,17 +22,19 @@ const theme = createMuiTheme({
   },
 });
 
+interface TextProps {
+  handleTitleChange: any;
+}
+
+interface TextState {
+  search_title: any;
+}
+
 @observer
-class SearchingAppbar extends React.Component {
+class SearchingAppbar extends React.Component<TextProps, TextState> {
   state = {
     title: "",
-  };
-
-  handleTitle = async (y_title: any) => {
-    console.log(y_title);
-    this.setState({
-      title: y_title,
-    });
+    search_title: ""
   };
 
   render() {
@@ -50,7 +52,7 @@ class SearchingAppbar extends React.Component {
               >
                 Youtube Downloader
               </Typography>
-              <SearchTitle handleTitleChange={this.handleTitle} />
+              <SearchTitle handleChangeSearch={this.handleTitleChange} />
             </Toolbar>
           </AppBar>
         </div>

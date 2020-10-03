@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SearchingAppbar handleTitleChange = {this.handleTitle} />
+        <SearchingAppbar handleChangeSearch = {this.handleTitle} />
         <SearchResult />
       </div>
     );

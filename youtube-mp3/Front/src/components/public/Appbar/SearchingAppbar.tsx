@@ -23,7 +23,7 @@ const theme = createMuiTheme({
 });
 
 interface TextProps {
-  handleTitleChange: any;
+  handleChangeSearch: any;
 }
 
 interface TextState {
@@ -52,7 +52,7 @@ class SearchingAppbar extends React.Component<TextProps, TextState> {
               >
                 Youtube Downloader
               </Typography>
-              <SearchTitle handleChangeSearch={this.handleTitleChange} />
+              <SearchTitle handleTitleChange={this.props.handleChangeSearch} />
             </Toolbar>
           </AppBar>
         </div>

@@ -7,7 +7,7 @@ interface TextProps {
   handleTitleChange: any;
 }
 
-interface TextState {
+interface TextState { 
   y_title: any;
 }
 
@@ -29,6 +29,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
   render() {
     const { appChange }: any = this;
     const { store }: any = this.props;
+    const searching_result = this.state.y_title
     return (
       <div>
         <Grid>
@@ -37,9 +38,9 @@ class searchTitle extends React.Component<TextProps, TextState> {
             label="Searching Music"
             onChange={appChange}
           />
-          <Button color="inherit" onClick={store.find(this.state.y_title)}>
+          <button style = {{color: "none"}} onClick={this.props.handleTitleChange(searching_result)}>
             <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
-          </Button>
+          </button>
         </Grid>
       </div>
     );

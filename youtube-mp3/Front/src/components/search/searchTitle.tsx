@@ -27,18 +27,16 @@ class searchTitle extends React.Component<TextProps, TextState> {
   };
 
   render() {
-    const { appChange }: any = this;
     const { store }: any = this.props;
-    const searching_result = this.state.y_title
     return (
       <div>
         <Grid>
           <TextField
             id="search-title"
             label="Searching Music"
-            onChange={appChange}
+            onChange = {this.appChange}
           />
-          <button style = {{color: "none"}} onClick={this.props.handleTitleChange(searching_result)}>
+          <button onClick={(e: any) => store.find(e.target.value)}>
             <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
           </button>
         </Grid>

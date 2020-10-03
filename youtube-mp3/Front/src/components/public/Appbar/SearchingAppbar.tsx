@@ -27,7 +27,8 @@ interface TextProps {
 }
 
 interface TextState {
-  search_title: any;
+  search_title: any
+  title: any
 }
 
 @observer

@@ -1,6 +1,6 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
-import { Grid, TextField, Button, createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { Grid, TextField, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 interface TextProps {
@@ -22,8 +22,6 @@ class searchTitle extends React.Component<TextProps, TextState> {
     this.setState({
       y_title: e.target.value,
     });
-
-    console.log(this.state.y_title);
   };
 
   render() {
@@ -36,9 +34,9 @@ class searchTitle extends React.Component<TextProps, TextState> {
             label="Searching Music"
             onChange = {this.appChange}
           />
-          <button onClick={(e: any) => store.find(e.target.value)}>
+          <Button onClick={(e: any) => store.find(this.state.y_title)}>
             <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
-          </button>
+          </Button>
         </Grid>
       </div>
     );

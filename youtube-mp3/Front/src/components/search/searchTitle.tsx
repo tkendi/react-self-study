@@ -2,12 +2,13 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import { Grid, TextField, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import styles from '../public/styles/searchTitle.module.css'
 
 interface TextProps {
   handleTitleChange: any;
 }
 
-interface TextState { 
+interface TextState {
   y_title: any;
 }
 
@@ -32,10 +33,12 @@ class searchTitle extends React.Component<TextProps, TextState> {
           <TextField
             id="search-title"
             label="Searching Music"
-            onChange = {this.appChange}
+            onChange={this.appChange}
           />
-          <Button onClick={(e: any) => store.find(this.state.y_title)}>
-            <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
+          <Button className = {styles.submitBtn} onClick={(e: any) => store.find(this.state.y_title)}>
+            <div>
+              <SearchIcon />
+            </div>
           </Button>
         </Grid>
       </div>

@@ -7,7 +7,7 @@ api.get('/search/:context', async (ctx: any) => {
   const result = {
     title: [],
     link: [],
-  };
+  };c
 
   const { context } = ctx.params;
 

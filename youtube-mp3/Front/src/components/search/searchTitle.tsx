@@ -1,17 +1,17 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
 import { observer, inject } from "mobx-react";
 import { Grid, TextField, Button } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
 interface TextProps {
   handleTitleChange: any;
 }
 
-interface TextState {
+interface TextState { 
   y_title: any;
 }
 
-@inject('store')
+@inject("store")
 @observer
 class searchTitle extends React.Component<TextProps, TextState> {
   state = {
@@ -22,26 +22,20 @@ class searchTitle extends React.Component<TextProps, TextState> {
     this.setState({
       y_title: e.target.value,
     });
-
-    console.log(this.state.y_title);
   };
 
   render() {
-    const { appChange }: any = this;
-    const {store}: any = this.props
+    const { store }: any = this.props;
     return (
       <div>
         <Grid>
           <TextField
             id="search-title"
-            label="youtube title"
-            onChange={appChange}
+            label="Searching Music"
+            onChange = {this.appChange}
           />
-          <Button
-            color="inherit"
-            onClick={store.find(this.state.y_title)}
-          >
-            Search
+          <Button onClick={(e: any) => store.find(this.state.y_title)}>
+            <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
           </Button>
         </Grid>
       </div>

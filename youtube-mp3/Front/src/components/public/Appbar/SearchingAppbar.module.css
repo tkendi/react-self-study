@@ -1,16 +1,25 @@
-.searchIcon {
-    padding: 2rem;
-    height: "100%";
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  margin: 0 auto;
 }
 
-inputInput {
-    padding: 1rem 1rem 1rem 0;
-    padding-left: 5px;
-    transition: 20ch;
-    width: "100%"
+.title {
+  font-family: sans-serif;
+  flex-grow: 1;
+  align-self: flex-end;
+  padding-top: 2.5rem;
+}
+
+.toolBar {
+  min-height: 128;
+  align-items: flex-start;
+}
+
+@media (max-width: 770px) {
+  .form {
+    margin: 0 2%;
+  }
 }

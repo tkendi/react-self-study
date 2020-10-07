@@ -2,6 +2,7 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import { Grid, TextField, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import styles from '../public/styles/searchTitle.module.css'
 
 interface TextProps {
   handleTitleChange: any;
@@ -26,7 +27,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { store }: any = this.props;
-    return (
+    return (  
       <div>
         <Grid>
           <TextField
@@ -35,12 +36,12 @@ class searchTitle extends React.Component<TextProps, TextState> {
             onChange = {this.appChange}
           />
           <Button onClick={(e: any) => store.find(this.state.y_title)}>
-            <SearchIcon  style = {{paddingTop: 13, paddingRight: 20}} />
+            <SearchIcon />
           </Button>
         </Grid>
       </div>
     );
   }
-}
+} 
 
 export default searchTitle;

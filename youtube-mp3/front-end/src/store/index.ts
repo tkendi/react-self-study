@@ -2,15 +2,16 @@ import { observable, action, toJS } from "mobx";
 import * as searched from "../lib/api/searching";
 
 export default class youtube {
-  @observable searching = {};
+  @observable searching: Object = [];
 
-  @action
+  @action.bound
   find = async (search_t: any) => {
     if (!search_t) {
+      return null
     } else {
-      (<any>(this.searching)) = (await searched.search(search_t));
-      this.searching = toJS(this.searching)
-      console.log(this.searching)
+      this.searching = (await searched.search(search_t));
+      (<any>this.searching) = toJS(this.searching)
+      console.log((toJS(this.searching)))
     }
   };
 }

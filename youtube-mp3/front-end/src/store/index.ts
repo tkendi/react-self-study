@@ -1,4 +1,4 @@
-import { observable, action, autorun } from "mobx";
+import { observable, action, autorun, toJS } from "mobx";
 import * as searched from "../lib/api/searching";
 
 export default class youtube {
@@ -8,9 +8,9 @@ export default class youtube {
   find = async (search_t: any) => {
     if (!search_t) {
     } else {
-      (<any>this.searching) = await searched.search(search_t)
-      const search = this.searching
-      autorun(() => console.log(search.length, "search result"))
+      (<any>this.searching) = await searched.search(search_t);
+      const search = toJS(this.searching);
+      console.log(search);
     }
   };
 }

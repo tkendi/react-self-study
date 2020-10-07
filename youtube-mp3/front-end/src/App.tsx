@@ -1,4 +1,5 @@
 import React from "react";
+import { toJS } from "mobx";
 import { inject } from "mobx-react";
 import SearchingAppbar from "./components/public/Appbar/SearchingAppbar";
 import SearchResult from "./components/search/searchResult";
@@ -11,7 +12,7 @@ class App extends React.Component {
 
   render() {
     const { store }: any = this.props;
-    console.log(store)
+    console.log(toJS(store));
     return (
       <div>
         <SearchingAppbar handleChangeSearch={this.handleTitle} />

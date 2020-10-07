@@ -8,7 +8,8 @@ export default class youtube {
   find = async (search_t: any) => {
     if (!search_t) {
     } else {
-      (<any>this.searching) = await searched.search(search_t);
+      (<any>this.searching) = toJS(await searched.search(search_t));
+      console.log(this.searching)
       const search = toJS(this.searching);
       console.log(search);
     }

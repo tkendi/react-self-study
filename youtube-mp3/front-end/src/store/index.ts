@@ -7,11 +7,11 @@ export default class youtube {
   @action.bound
   find = async (search_t: any) => {
     if (!search_t) {
-      return null
+      return null;
     } else {
-      this.searching = (await searched.search(search_t));
-      (<any>this.searching) = toJS(this.searching)
-      console.log((toJS(this.searching)))
+      this.searching = await searched.search(search_t);
+      (<any>this.searching) = toJS(this.searching);
+      console.log(toJS(this.searching));
     }
   };
 }

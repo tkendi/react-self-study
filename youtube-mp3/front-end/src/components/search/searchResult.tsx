@@ -6,10 +6,10 @@ import { inject } from "mobx-react";
 class searchResult extends React.Component {
   render() {
     const { store }: any = this.props;
-    const searching_r  = store.searching
+    console.log(store.searching);
     return (
       <div>
-          {searching_r === null ? <Typography>Empty</Typography> : <Typography>{searching_r}</Typography>}
+        <Typography>Testing</Typography>
       </div>
     );
   }

@@ -1,22 +1,39 @@
 import React from "react";
 import { observer, inject } from "mobx-react";
-import { Grid, TextField, Button } from "@material-ui/core";
+import {
+  Grid,
+  TextField,
+  Button,
+  makeStyles,
+  createStyles,
+  Theme,
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import styles from '../public/styles/searchTitle.module.css'
 
 interface TextProps {
   handleTitleChange: any;
 }
 
-interface TextState { 
-  y_title: any;
+interface TextState {
+  y_title: Array<any>;
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    button: {
+      margin: `${theme.spacing(1)}px`,
+    },
+    form: {
+      marginTop: `${theme.spacing(6)}px`
+    }
+  })
+);
 
 @inject("store")
 @observer
 class searchTitle extends React.Component<TextProps, TextState> {
   state = {
-    y_title: "",
+    y_title: [],
   };
 
   appChange = (e: any) => {
@@ -27,21 +44,24 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { store }: any = this.props;
-    return (  
-      <div>
+    const classes: any = this.props
+    return (
+      <div className={classes.form}>
         <Grid>
           <TextField
             id="search-title"
             label="Searching Music"
-            onChange = {this.appChange}
+            onChange={this.appChange}
           />
-          <Button onClick={(e: any) => store.find(this.state.y_title)}>
-            <SearchIcon />
-          </Button>
+          <Button
+            onClick={(e: any) => store.find(this.state.y_title)}
+            className={classes.button}
+            startIcon={<SearchIcon />}
+          ></Button>
         </Grid>
       </div>
     );
   }
-} 
+}
 
 export default searchTitle;

@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: `${theme.spacing(1)}px`,
     },
     form: {
-      marginTop: `${theme.spacing(6)}px`
-    }
+      marginTop: `${theme.spacing(6)}px`,
+    },
   })
 );
 
@@ -44,7 +44,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
 
   render() {
     const { store }: any = this.props;
-    const classes: any = this.props
+    const classes: any = this.props;
     return (
       <div className={classes.form}>
         <Grid>

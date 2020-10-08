@@ -14,8 +14,10 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
+import styles from '../../styles/searchResult.module.css'
+import smapleImg from '../../test/img/sample.png'
 
-const useStyles = makeStyles({
+const useStyles: any = makeStyles({
   root: {
     maxWidth: 345,
   },
@@ -31,11 +33,13 @@ class searchResult extends React.Component {
     const { store }: any = this.props;
     const classes: any = this.props;
     return (
-      <Card className={classes.root}>
+      <Card style = {{maxWidth: 345}}>
         <CardActionArea>
           <CardMedia
-            className={classes.media}
-            image="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+            component = "img"
+            alt = "Contemplative Reptile"
+            height = "140"
+            image={smapleImg}
             title="Contemplative Reptile"
           />
           <CardContent>

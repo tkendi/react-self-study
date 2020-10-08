@@ -37,9 +37,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
   };
 
   appChange = (e: any) => {
-    this.setState({
-      y_title: e.target.value,
-    });
+    return e.target.value;
   };
 
   render() {
@@ -48,16 +46,13 @@ class searchTitle extends React.Component<TextProps, TextState> {
     return (
       <div className={classes.form}>
         <Grid>
-          <TextField
-            id="search-title"
-            label="Searching Music"
-            onChange={this.appChange}
-          />
-          <Button
-            onClick={(e: any) => store.find(this.state.y_title)}
-            className={classes.button}
-            startIcon={<SearchIcon />}
-          />
+          <div>
+            <TextField
+              id="search-title"
+              label="Searching Music"
+              onChange={(e: any) => store.find(this.appChange(e))}
+            />
+          </div>
         </Grid>
       </div>
     );

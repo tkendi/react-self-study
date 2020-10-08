@@ -22,6 +22,7 @@ api.get('/search/:context', async (ctx: any) => {
           .ref,
       };
       const res: any = await ytsr(null, options);
+      console.log(res)
       for (const keys in res.items) {
         (<any>result.title)[keys] = res.items[keys].title;
         (<any>result.link)[keys] = res.items[keys].link;
@@ -31,7 +32,7 @@ api.get('/search/:context', async (ctx: any) => {
       console.error(err);
     });
 
-  console.log(result);
+  // console.log(result);
 
   ctx.body = result;
   return result;

@@ -57,7 +57,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
             onClick={(e: any) => store.find(this.state.y_title)}
             className={classes.button}
             startIcon={<SearchIcon />}
-          ></Button>
+          />
         </Grid>
       </div>
     );

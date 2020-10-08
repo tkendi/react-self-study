@@ -9,7 +9,7 @@ class searchResult extends React.Component {
     console.log(store.searching);
     return (
       <div>
-        <Typography>Testing</Typography>
+        <Typography>tseting the searching result</Typography>
       </div>
     );
   }

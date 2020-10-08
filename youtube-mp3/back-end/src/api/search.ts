@@ -7,6 +7,7 @@ search.get('/:context', async (ctx: any) => {
   const result = {
     title: [],
     link: [],
+    thumb: [],
   };
 
   const { context } = ctx.params;
@@ -22,10 +23,11 @@ search.get('/:context', async (ctx: any) => {
           .ref,
       };
       const res: any = await ytsr(null, options);
-      console.log(res)
+      console.log(res);
       for (const keys in res.items) {
         (<any>result.title)[keys] = res.items[keys].title;
         (<any>result.link)[keys] = res.items[keys].link;
+        (<any>result.thumb)[keys] = res.items[keys].thumbnail;
       }
     })
     .catch((err: any) => {

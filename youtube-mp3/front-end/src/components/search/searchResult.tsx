@@ -6,25 +6,24 @@ import {
   CardActionArea,
   CardActions,
   CardMedia,
-  Button,
   CardContent,
   IconButton,
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import { inject, observer } from "mobx-react";
-import { toJS } from "mobx";
-import styles from '../../styles/searchResult.module.css'
+// import { toJS } from "mobx";
+// import styles from '../../styles/searchResult.module.css'
 import smapleImg from '../../test/img/sample.png'
 
-const useStyles: any = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+// const useStyles: any = makeStyles({
+//   root: {
+//     maxWidth: 345,
+//   },
+//   media: {
+//     height: 140,
+//   },
+// });
 
 @inject("store")
 @observer
@@ -52,14 +51,14 @@ class searchResult extends React.Component {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActionArea>
+        <CardActions>
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-        </CardActionArea>
+        </CardActions>
       </Card>
     );
   }

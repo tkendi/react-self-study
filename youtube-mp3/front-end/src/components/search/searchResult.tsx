@@ -55,14 +55,14 @@ class searchResult extends React.Component {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {(toJS(store).searching.data.title[index]).match(/[가-힣ㄱ-ㅎㅏ-ㅢa-zA-Z0-9\-]*/)}
+                      {(toJS(store).searching.data.title[index])}
                     </Typography>
                     <Typography
                       variant="body2"
                       color="textSecondary"
                       component="p"
                     >
-                      {toJS(store).searching.data.descrip[index].slice(0, 60)}
+                      {(toJS(store).searching.data.descrip[index]).slice(0, 60)}
                     </Typography>
                   </CardContent>
                 </CardActionArea>

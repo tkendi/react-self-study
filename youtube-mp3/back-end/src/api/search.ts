@@ -1,12 +1,14 @@
 import Router from 'koa-router';
 import ytsr from 'ytsr';
 
-const api = new Router();
+const search = new Router();
 
-api.get('/search/:context', async (ctx: any) => {
+search.get('/:context', async (ctx: any) => {
   const result = {
     title: [],
     link: [],
+    thumb: [],
+    descrip: []
   };
 
   const { context } = ctx.params;
@@ -22,23 +24,22 @@ api.get('/search/:context', async (ctx: any) => {
           .ref,
       };
       const res: any = await ytsr(null, options);
+      console.log(res);
       for (const keys in res.items) {
         (<any>result.title)[keys] = res.items[keys].title;
         (<any>result.link)[keys] = res.items[keys].link;
+        (<any>result.thumb)[keys] = res.items[keys].thumbnail;
+        (<any>result.descrip)[keys] = res.items[keys].description
       }
     })
     .catch((err: any) => {
       console.error(err);
     });
 
-  console.log(result);
+  // console.log(result);
 
   ctx.body = result;
   return result;
 });
 
-api.get('/download/:contenet', async (ctx: any) => {
-  ctx.body = 'Testing Download';
-});
-
-export default api;
+export default search;

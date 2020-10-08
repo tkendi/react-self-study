@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   auth,
   loading,
   user,
-  write,
+  write,  
   post,
   posts,
 });

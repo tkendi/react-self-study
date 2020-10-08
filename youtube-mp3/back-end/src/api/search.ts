@@ -8,6 +8,7 @@ search.get('/:context', async (ctx: any) => {
     title: [],
     link: [],
     thumb: [],
+    descrip: []
   };
 
   const { context } = ctx.params;
@@ -28,6 +29,7 @@ search.get('/:context', async (ctx: any) => {
         (<any>result.title)[keys] = res.items[keys].title;
         (<any>result.link)[keys] = res.items[keys].link;
         (<any>result.thumb)[keys] = res.items[keys].thumbnail;
+        (<any>result.descrip)[keys] = res.items[keys].description
       }
     })
     .catch((err: any) => {

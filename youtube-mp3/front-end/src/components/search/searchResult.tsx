@@ -9,8 +9,8 @@ import {
   CardContent,
   IconButton,
 } from "@material-ui/core";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
+import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
 // import styles from '../../styles/searchResult.module.css'
@@ -35,37 +35,55 @@ class searchResult extends React.Component {
       <div>
         {toJS(store).searching.data.thumb.map((res: any, index: any) => {
           return (
-            <Card style={{ maxWidth: 345 }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="140"
-                  image={res}
-                  title={toJS(store).searching.data.title[index]}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {toJS(store).searching.data.title[index]}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {toJS(store).searching.data.}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                  <ShareIcon />
-                </IconButton>
-              </CardActions>
-            </Card>
+            <div
+              style={{
+                display: "inline-block",
+                justifyContent: "center",
+                margin: "0 auto",
+                marginRight: "10px",
+                marginLeft: "10px",
+              }}
+            >
+              <Card style={{ width: 345 }} variant="elevation">
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    alt="Contemplative Reptile"
+                    height="140"
+                    image={res}
+                    title={toJS(store).searching.data.title[index]}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {(toJS(store).searching.data.title[index]).match(/[가-힣ㄱ-ㅎㅏ-ㅢa-zA-Z0-9\-]*/)}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                    >
+                      {toJS(store).searching.data.descrip[index].slice(0, 60)}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <IconButton aria-label="add to favorites">
+                    <YouTubeIcon
+                      onClick={(e: any) =>
+                        window.open(
+                          `${toJS(store).searching.data.link[index]}`,
+                          "_blank",
+                          "noopener, noreferrer"
+                        )
+                      }
+                    />
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <CloudDownloadIcon />
+                  </IconButton>
+                </CardActions>
+              </Card>
+            </div>
           );
         })}
       </div>

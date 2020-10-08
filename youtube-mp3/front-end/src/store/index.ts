@@ -11,7 +11,6 @@ export default class youtube {
     } else {
       this.searching = await searched.search(search_t);
       (<any>this.searching) = toJS(this.searching);
-      console.log(toJS(this.searching));
     }
   };
 }

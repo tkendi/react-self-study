@@ -37,6 +37,7 @@ class searchTitle extends React.Component<TextProps, TextState> {
   };
 
   appChange = (e: any) => {
+    console.log(e.target.value)
     return e.target.value;
   };
 

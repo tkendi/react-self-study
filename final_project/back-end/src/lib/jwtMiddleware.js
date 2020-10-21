@@ -1,4 +1,4 @@
-import jwt, { decode } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import User from '../models/user'
 
 const jwtMiddleware = async (ctx, next) => {
@@ -14,7 +14,7 @@ const jwtMiddleware = async (ctx, next) => {
 
         //토큰 재발급 
         const now = Math.floor(Date.now() / 1000);
-        if(decode.exp - now < 60 * 60 * 24 * 3.5) {
+        if(decoded.exp - now < 60 * 60 * 24 * 3.5) {
             const user = await User.findById(decoded._id)
             const token = user.generateToken()
             ctx.cookies.set('access_token', token, {

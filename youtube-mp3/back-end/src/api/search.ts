@@ -15,7 +15,7 @@ search.get('/:context', async (ctx: any) => {
 
   if (!context) return (ctx.body = 'Empty Value');
 
-  const data = await ytsr
+  await ytsr
     .getFilters(context)
     .then(async (filters: any) => {
       const options = {

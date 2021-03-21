@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Layout, Menu, Icon, Breadcrumb } from "antd";
 import "antd/dist/antd.css";
-import "App.css";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -27,11 +26,9 @@ class App extends Component {
           <div className="App-logo" />
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item key="1">
-              <Icon type="pipe-chart" />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="desktop" />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
@@ -39,7 +36,6 @@ class App extends Component {
               title={
                 <span>
                   {" "}
-                  <Icon type="user" />
                   <span>User</span>
                 </span>
               }
@@ -52,7 +48,6 @@ class App extends Component {
               key="sub2"
               title={
                 <span>
-                  <Icon type="team" />
                   <span>Team</span>
                 </span>
               }
@@ -61,7 +56,6 @@ class App extends Component {
               <Menu.Item key="7">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <Icon type="file" />
               <span>File</span>
             </Menu.Item>
           </Menu>

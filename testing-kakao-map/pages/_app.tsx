@@ -4,9 +4,9 @@ import Layout from "../components/Layout"; // 레이아웃 컴포넌트 가저�
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <>
       <Component {...pageProps} />
-    </Layout>
+    </>
   );
 }
 

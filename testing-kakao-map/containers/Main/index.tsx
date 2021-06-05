@@ -5,16 +5,30 @@ import styled from "styled-components";
 
 const Main = () => {
   const [position, setPosition] = useState<any>({});
+  const [accurancy, setAccurancy] = useState(0);
 
   const createMap = () => {
     var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+
+    // 마커가 표시될 위치
+    var markerPosition = new kakao.maps.LatLng(position.lat, position.lon);
+
+    // 이미지 지도에 표시할 마커입니다
+    // 이미지 지도에 표시할 마커는 Object 형태입니다
+    var marker = new kakao.maps.Marker({
+      position: markerPosition,
+    });
+
     var options = {
       //지도를 생성할 때 필요한 기본 옵션
       center: new kakao.maps.LatLng(position.lat, position.lon), //지도의 중심좌표.
-      level: 3, //지도의 레벨(확대, 축소 정도)
+      level: 5, //지도의 레벨(확대, 축소 정도)
     };
 
-    new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+    // 마커 생성
+    marker.setMap(map);
   };
 
   const getGeoLocation = () => {
@@ -24,6 +38,7 @@ const Main = () => {
           const lat = pos.coords.latitude;
           const lon = pos.coords.longitude;
           setPosition({ lat, lon });
+          setAccurancy(pos.coords.accuracy);
         },
         () => console.log("error")
       );
@@ -38,6 +53,7 @@ const Main = () => {
 
   useEffect(() => {
     createMap();
+    console.log(position);
   }, [position]);
 
   return (
@@ -45,30 +61,7 @@ const Main = () => {
       <MapWrap>
         <Map id="map" />
         <Category>
-          {/* <CategoryList id="BK9" data-order="0">
-            <span className="category_bg bank"></span>
-            은행
-          </CategoryList>
-          <CategoryList id="MT1" data-order="1">
-            <span className="category_bg mart"></span>
-            마트
-          </CategoryList>
-          <CategoryList id="PM9" data-order="2">
-            <span className="category_bg pharmacy"></span>
-            약국
-          </CategoryList>
-          <CategoryList id="OL7" data-order="3">
-            <span className="category_bg oil"></span>
-            주유소
-          </CategoryList>
-          <CategoryList id="CE7" data-order="4">
-            <span className="category_bg cafe"></span>
-            카페
-          </CategoryList>
-          <CategoryList id="CS2" data-order="5">
-            <span className="category_bg store"></span>
-            편의점
-          </CategoryList> */}
+          <p>{accurancy}m 정도 떨어져 있습니다.</p>
         </Category>
       </MapWrap>
     </>
@@ -89,25 +82,18 @@ const Map = styled.div`
   position: relative;
 `;
 
-const Category = styled.ul`
+const Category = styled.div`
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 45%;
   padding: 0px;
   border-radius: 5px;
-  border: 1px solid #909090;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-  background: #fff;
-  overflow: hidden;
   z-index: 2;
-`;
-
-const CategoryList = styled.li`
-  float: left;
-  list-style: none;
-  width: 50px;
-  border-right: 1px solid #acacac;
-  padding: 6px 3px;
-  text-align: center;
-  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.56);
+  background: rgba(230, 230, 230, 0.9);
+  > p {
+    padding: 5px;
+    font-size: 12px;
+  }
 `;

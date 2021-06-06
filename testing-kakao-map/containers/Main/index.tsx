@@ -11,7 +11,10 @@ const Main = () => {
     var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
 
     // 마커가 표시될 위치
-    var markerPosition = new kakao.maps.LatLng(position.lat, position.lon);
+    var markerPosition = new kakao.maps.LatLng(
+      position.lat + 0.021598,
+      position.lon - 0.002065
+    );
 
     // 이미지 지도에 표시할 마커입니다
     // 이미지 지도에 표시할 마커는 Object 형태입니다
@@ -21,9 +24,13 @@ const Main = () => {
 
     var options = {
       //지도를 생성할 때 필요한 기본 옵션
-      center: new kakao.maps.LatLng(position.lat, position.lon), //지도의 중심좌표.
-      level: 5, //지도의 레벨(확대, 축소 정도)
+      center: new kakao.maps.LatLng(
+        position.lat + 0.021598,
+        position.lon - 0.002065
+      ), //지도의 중심좌표.
+      level: 2, //지도의 레벨(확대, 축소 정도)
     };
+    // 37.552609, 126.945035
 
     const map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
@@ -53,7 +60,6 @@ const Main = () => {
 
   useEffect(() => {
     createMap();
-    console.log(position);
   }, [position]);
 
   return (
@@ -61,7 +67,7 @@ const Main = () => {
       <MapWrap>
         <Map id="map" />
         <Category>
-          <p>{accurancy}m 정도 떨어져 있습니다.</p>
+          {accurancy > 5 && <p>{accurancy}m 정도 떨어져 있습니다.</p>}
         </Category>
       </MapWrap>
     </>

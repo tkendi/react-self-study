@@ -37,6 +37,17 @@ class MyDocument extends Document {
           type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c41cbb32b2b1f288c5ac08273cb8f50"
         ></script>
+        {/* <!-- services와 clusterer, drawing 라이브러리 불러오기 --> */}
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c41cbb32b2b1f288c5ac08273cb8f50&libraries=services,clusterer,drawing"
+        ></script>
+        {/* <!-- services 라이브러리 불러오기 --> */}
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c41cbb32b2b1f288c5ac08273cb8f50&libraries=services"
+        ></script>
+
         <body>
           <Main />
           <NextScript />

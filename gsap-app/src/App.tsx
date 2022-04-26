@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import "./App.css";
 
-function App() {
+function Box({ children }: any) {
+  return <div className="box">{children}</div>;
+}
+
+function Container({ children }: any) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Box>Nested Box</Box>
     </div>
   );
 }
+
+const App = () => {
+  // const el = useRef() as any;
+  // const q = gsap.utils.selector(el);
+
+  useEffect(() => {
+    gsap.to(q(".box"), {
+      x: 100,
+      stagger: 0.33,
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true,
+    });
+  });
+
+  return (
+    <div className="app">
+      <Box>Box</Box>
+      <Container />
+      <Box>Box</Box>
+    </div>
+  );
+};
 
 export default App;

@@ -1,33 +1,19 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import puppeteer from "puppeteer";
 
-const saveAsPdf = async (url: string) => {
+const Handler: NextApiHandler = async (req, res) => {
+  console.log("income", req);
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  await page.goto(url, {
-    waitUntil: "networkidle0",
-  });
+  await page.goto("http://localhost:6006/?path=/story/templates-examinationreport--template");
+  await page.emulateMediaType("screen");
 
-  const result = await page.pdf({
-    format: "a4",
-  });
+  const pdfBuffer = await page.pdf({ format: "A4" });
+
+  res.send(pdfBuffer);
+
   await browser.close();
-
-  return result;
 };
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  console.log("asdf")
-
-  const { url } = req.query; // pass the page to create PDF from as param
-
-  res.setHeader("Content-Disposition", `attachment; filename="file.pdf"`);
-  res.setHeader("Content-Type", "application/pdf");
-
-  const pdf = await saveAsPdf(url as string);
-
-  console.log(pdf)
-
-  return res.send(pdf);
-};
+export default Handler;
